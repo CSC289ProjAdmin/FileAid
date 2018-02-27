@@ -52,6 +52,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BatchManager.cs" />
     <Compile Include="Models\Configs.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\FileLink.cs" />
