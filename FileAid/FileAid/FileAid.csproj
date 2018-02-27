@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Models\Configs.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\FileLink.cs" />
     <Compile Include="Models\FileManager.cs" />
     <Compile Include="Models\Messenger.cs" />
     <Compile Include="Models\Report.cs" />
