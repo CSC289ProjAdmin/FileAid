@@ -59,6 +59,7 @@
     <Compile Include="Tests\FileLinkTest.cs" />
     <Compile Include="Tests\FileManagerTest.cs" />
     <Compile Include="Tests\LinkManagerTest.cs" />
+    <Compile Include="Tests\LoggerTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
