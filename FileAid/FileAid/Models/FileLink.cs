@@ -8,6 +8,8 @@ namespace FileAid.Models {
     public class FileLink {
         public List<TrackedFile> GetFiles() {
             // stub
+            List<TrackedFile> dummy = new List<TrackedFile>();
+            return dummy;
         }
 
         public void Join(List<TrackedFile> newMembers) {

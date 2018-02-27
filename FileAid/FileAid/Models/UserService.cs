@@ -8,10 +8,13 @@ namespace FileAid.Models {
     public class UserService {
         public static User Find(string username) {
             // stub
+            User dummy = new User();
+            return dummy;
         }
 
         public static bool VerifyCredentials(User u) {
             // stub
+            return false;
         }
 
         public static void IncrementFailures(User u) {
@@ -28,6 +31,7 @@ namespace FileAid.Models {
 
         public static bool IsLockedOut(User u) {
             // stub
+            return false;
         }
 
         public static void Unlock(User u) {

@@ -12,10 +12,14 @@ namespace FileAid.Models {
 
         private static List<string> GetActiveFiles() {
             // stub
+            List<string> dummy = new List<string>();
+            return dummy;
         }
 
         private static List<string> BuildLocationList(List<string> filenames) {
             // stub
+            List<string> dummy = new List<string>();
+            return dummy;
         }
 
         private static void ScanForKnown() {
@@ -24,9 +28,10 @@ namespace FileAid.Models {
 
         private static bool CompareFileInfo(TrackedFile tf) {
             // stub
+            return false;
         }
 
-        private static void QueueUpdatedInfo(FileInfo fi) {
+        private static void QueueUpdatedInfo(string fileInfo) {
             // stub
         }
 
@@ -38,11 +43,12 @@ namespace FileAid.Models {
             // stub
         }
 
-        public static BatchSummary Update() {
+        public static string Update() {
             // stub
+            return "dummy";
         }
 
-        public static void LogSummary(BatchSummary summary) {
+        public static void LogSummary(string batchSummary) {
             // stub
         }
     }
