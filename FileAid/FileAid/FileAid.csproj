@@ -58,6 +58,7 @@
     <Compile Include="Models\FileLink.cs" />
     <Compile Include="Models\FileManager.cs" />
     <Compile Include="Models\LinkManager.cs" />
+    <Compile Include="Models\Logger.cs" />
     <Compile Include="Models\Messenger.cs" />
     <Compile Include="Models\Permissions.cs" />
     <Compile Include="Models\Reminder.cs" />
