@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace FileAid.Models {
     public class TrackedFile {
-        public FileInfo GetInfo() {
+        public string GetInfo() {
             // stub
+            return "dummy";
         }
 
         public List<FileLink> GetLinks() {
             // stub
+            List<FileLink> dummy = new List<FileLink>();
+            return dummy;
         }
 
         public Reminder GetReminder() {
             // stub
+            Reminder dummy = new Reminder();
+            return dummy;
         }
 
         public void UpdateMemo(string memo) {
@@ -28,6 +33,8 @@ namespace FileAid.Models {
 
         public List<Event> GetHistory() {
             // stub
+            List<Event> dummy = new List<Event>();
+            return dummy;
         }
 
         public void StopTracking() {

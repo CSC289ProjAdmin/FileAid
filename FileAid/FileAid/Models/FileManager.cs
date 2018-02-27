@@ -8,6 +8,8 @@ namespace FileAid.Models {
     public class FileManager {
         public static List<TrackedFile> GetFiles() {
             // stub
+            List<TrackedFile> dummy = new List<TrackedFile>();
+            return dummy;
         }
 
         public static void AddFiles(List<string> filenames) {

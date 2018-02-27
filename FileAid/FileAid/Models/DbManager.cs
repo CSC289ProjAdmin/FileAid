@@ -18,7 +18,7 @@ namespace FileAid.Models {
             // stub
         }
 
-        public static Dataset Execute(string sql) {
+        public static void Execute(string sql) {
             // stub
         }
     }
