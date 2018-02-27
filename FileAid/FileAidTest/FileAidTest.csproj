@@ -53,6 +53,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Tests\BatchManagerTest.cs" />
+    <Compile Include="Tests\ConfigsTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
