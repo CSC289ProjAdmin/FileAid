@@ -65,6 +65,7 @@
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\TrackedFile.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
