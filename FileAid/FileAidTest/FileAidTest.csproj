@@ -66,6 +66,7 @@
     <Compile Include="Tests\ReminderManagerTest.cs" />
     <Compile Include="Tests\ReportTest.cs" />
     <Compile Include="Tests\TrackedFileTest.cs" />
+    <Compile Include="Tests\UserTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
