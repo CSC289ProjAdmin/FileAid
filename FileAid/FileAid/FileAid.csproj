@@ -56,6 +56,7 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Messenger.cs" />
     <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\TrackedFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
