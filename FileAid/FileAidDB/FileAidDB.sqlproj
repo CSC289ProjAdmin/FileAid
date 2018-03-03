@@ -69,6 +69,10 @@
     <Build Include="Tables\Reminders.sql" />
     <Build Include="Tables\LinkMemos.sql" />
     <Build Include="Tables\TrackedFiles.sql" />
+    <Build Include="Tables\FileLinks.sql" />
+    <Build Include="Tables\Roles.sql" />
+    <Build Include="Tables\Users.sql" />
+    <Build Include="Tables\Logins.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FileAidDB.publish.xml" />
