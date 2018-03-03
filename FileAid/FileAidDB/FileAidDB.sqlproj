@@ -69,4 +69,7 @@
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
   </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140\sqlpackage.exe" /action:publish /sourcefile:"$(ProjectDir)$(OutputPath)$(TargetDatabase).dacpac" /p:CreateNewDatabase=true /profile:"$(ProjectDir)$(TargetDatabase).publish.xml"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
