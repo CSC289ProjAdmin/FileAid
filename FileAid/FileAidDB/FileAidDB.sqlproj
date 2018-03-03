@@ -66,6 +66,9 @@
     <Build Include="Tables\Batches.sql" />
     <Build Include="Tables\Configurations.sql" />
     <Build Include="Tables\Permissions.sql" />
+    <Build Include="Tables\Reminders.sql" />
+    <Build Include="Tables\LinkMemos.sql" />
+    <Build Include="Tables\TrackedFiles.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FileAidDB.publish.xml" />
