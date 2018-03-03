@@ -73,6 +73,7 @@
     <Build Include="Tables\Roles.sql" />
     <Build Include="Tables\Users.sql" />
     <Build Include="Tables\Logins.sql" />
+    <Build Include="Tables\Events.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FileAidDB.publish.xml" />
