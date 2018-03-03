@@ -62,6 +62,10 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Reports.sql" />
+    <Build Include="Tables\EventTypes.sql" />
+    <Build Include="Tables\Batches.sql" />
+    <Build Include="Tables\Configurations.sql" />
+    <Build Include="Tables\Permissions.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FileAidDB.publish.xml" />
