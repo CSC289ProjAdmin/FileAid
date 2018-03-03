@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAid", "FileAid\FileAid.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAidTest", "FileAidTest\FileAidTest.csproj", "{35112307-792C-456B-9F42-CCC5FBFE28AE}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FileAidDB", "FileAidDB\FileAidDB.sqlproj", "{FA8434CD-E3BA-4797-99B4-5ACC38C47EFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{35112307-792C-456B-9F42-CCC5FBFE28AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35112307-792C-456B-9F42-CCC5FBFE28AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35112307-792C-456B-9F42-CCC5FBFE28AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA8434CD-E3BA-4797-99B4-5ACC38C47EFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA8434CD-E3BA-4797-99B4-5ACC38C47EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA8434CD-E3BA-4797-99B4-5ACC38C47EFD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FA8434CD-E3BA-4797-99B4-5ACC38C47EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA8434CD-E3BA-4797-99B4-5ACC38C47EFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA8434CD-E3BA-4797-99B4-5ACC38C47EFD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
