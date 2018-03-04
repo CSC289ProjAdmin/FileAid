@@ -47,8 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\BatchManagerDAL.cs" />
     <Compile Include="DAL\Db.cs" />
+    <Compile Include="DAL\DbManagerDAL.cs" />
+    <Compile Include="DAL\FileLinkDAL.cs" />
+    <Compile Include="DAL\FileManagerDAL.cs" />
+    <Compile Include="DAL\LinkManagerDAL.cs" />
     <Compile Include="DAL\MSSqlHelper.cs" />
+    <Compile Include="DAL\ReminderDAL.cs" />
+    <Compile Include="DAL\ReminderManagerDAL.cs" />
+    <Compile Include="DAL\TrackedFileDAL.cs" />
+    <Compile Include="DAL\UserServiceDAL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
