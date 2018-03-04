@@ -37,7 +37,7 @@ namespace FileAid.DAL {
     // -- Class must have properties which match column names returned by query.
     // -- Handy way to turn a table into a List of objects.
     // string selectQuery = "Select UserID, sUserName As Username, sPassword As Password From Users";
-    // List<User> = Db.ReadQuery<User>(selectQuery);
+    // List<User> users = Db.ReadQuery<User>(selectQuery);
     public static class Db {
         public static object ExecuteScalar(string commandText, SqlParameter[] sqlParams) {
             return MSSQL.SqlHelper.ExecuteScalar(GetConnectionString(),
