@@ -8,8 +8,9 @@ using FileAid.Models;
 namespace FileAid.DAL {
     public static class LinkManagerDAL {
         public static List<FileLink> GetLinks() {
-            // stub
-            return Db.ReadQuery<FileLink>("stub");
+            string select = "Select LinkMemoID, sLinkMemo As LinkMemo From LinkMemos " +
+                "Where dMemoDeleted Is Null";
+            return Db.ReadQuery<FileLink>(select);
         }
 
         public static FileLink GetLink() {
