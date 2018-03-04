@@ -48,7 +48,7 @@ namespace FileAid.DAL {
             args.Add(new SqlParameter("@Memo", newMemo));
             string update = "Update LinkMemos Set sLinkMemo = @Memo, dMemoUpdated = GetDate() " +
                 "Where LinkMemoID = @LinkMemoID And dMemoDeleted Is Null";
-            int modifiedRows = (int)Db.ExecuteScalar(update, args.ToArray());
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
         public static void RemoveMemo(int linkMemoID) {
@@ -57,7 +57,7 @@ namespace FileAid.DAL {
             args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
             string update = "Update LinkMemos Set sLinkMemo = null, dMemoUpdated = GetDate() " +
                 "Where LinkMemoID = @LinkMemoID And dMemoDeleted Is Null";
-            int modifiedRows = (int)Db.ExecuteScalar(update, args.ToArray());
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
         public static void RemoveFiles(List<int> exMemberFileIDs) {
