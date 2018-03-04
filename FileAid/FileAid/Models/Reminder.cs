@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace FileAid.Models {
     public class Reminder {
+        public int ReminderID { get; set; }
+        public string Name { get; set; }
+        public DateTime DueOn { get; set; }
+        public string Memo { get; set; } = null;
+        public DateTime? ResolvedOn { get; set; } = null;
+        public DateTime? PushedOn { get; set; } = null;
+
         public List<TrackedFile> GetFiles() {
             // stub
             List<TrackedFile> dummy = new List<TrackedFile>();
