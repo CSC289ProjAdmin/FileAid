@@ -8,16 +8,17 @@ using System.Data.SqlClient;
 
 namespace FileAid.DAL {
     public static class FileLinkDAL {
-        public static List<TrackedFile> GetFiles(int linkID) {
-            string select = "Select FileID, sFileName As Filename, sFileExt As FileExtension, " +
+        public static List<TrackedFile> GetFiles(int linkMemoID) {
+            if (linkMemoID <= 0) return null; // not required but prevents an unnecessary db call
+            string select = "Select TrackedFiles.FileID, sFileName As Filename, sFileExt As FileExtension, " +
                 "sFilePath As FilePath, iSizeInBytes As FileSize, dFileModified As ModifiedOn, " +
                 "dFileCreated As CreatedOn, sFileMemo As FileMemo, " +
                 "dTrackingDisabled As TrackingDisabledOn, ReminderID From TrackedFiles " +
                 "Inner Join FileLinks On TrackedFiles.FileID = FileLinks.FileID " +
                 "Where dTrackDeleted Is Null " +
-                "And dLinkDeleted Is Null And LinkID = @LinkID ";
+                "And dLinkDeleted Is Null And LinkMemoID = @LinkMemoID ";
             List<SqlParameter> args = new List<SqlParameter>();
-            args.Add(new SqlParameter("@LinkID", linkID));
+            args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
             return Db.ReadQuery<TrackedFile>(select, args.ToArray());
         }
 
