@@ -9,6 +9,34 @@ using System.Data.SqlClient;
 using System.Reflection;
 
 namespace FileAid.DAL {
+    // This class is a wrapper for the Microsoft Data Application Block "SqlHelper" class
+    // which further simplifies running Sql commands against the database.
+    // There are 5 basic uses:
+    // ExecuteScalar(query [, sqlParameters])
+    // -- Returns single value (as type object; cast correctly).
+    // -- E.g. Can be used to get SCOPE_IDENTITY after an insert
+    //  int newID = (int)Db.ExecuteScalar("Insert Into TableName (columns) Values (vals); Select Scope_Identity();");
+
+    // ExecuteReader(query [, sqlParameters])
+    // -- Returns SqlDataReader containing rows from query
+    // -- Be sure to close the reader when done to also close its connection
+    // using (SqlDataReader rdr = Db.ExecuteReader(selectQuery))
+    // { /* process rows */ }
+
+    // ExecuteNonQuery(query [, sqlParameters])
+    // -- Returns number of rows affected by query (e.g. UPDATE command)
+    // int modified = (int)Db.ExecuteNonQuery(updateCommand);
+
+    // ExecuteDataset(query [, sqlParameters])
+    // -- Returns dataset result of query
+    // Dataset ds = Db.ExecuteDataset(selectQuery);
+
+    // ReadQuery<T>(query [, sqlParameters])
+    // -- Uses Reflection to turn query result into a List<T> of desired objects.
+    // -- Class must have properties which match column names returned by query.
+    // -- Handy way to turn a table into a List of objects.
+    // string selectQuery = "Select UserID, sUserName As Username, sPassword As Password From Users";
+    // List<User> = Db.ReadQuery<User>(selectQuery);
     public static class Db {
         public static object ExecuteScalar(string commandText, SqlParameter[] sqlParams) {
             return MSSQL.SqlHelper.ExecuteScalar(GetConnectionString(),
