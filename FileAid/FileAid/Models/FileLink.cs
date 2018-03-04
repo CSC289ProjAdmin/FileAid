@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FileAid.Models {
     public class FileLink {
+        public int LinkMemoID { get; set; }
+        public string LinkMemo { get; set; } = null;
+
         public List<TrackedFile> GetFiles() {
             // stub
             List<TrackedFile> dummy = new List<TrackedFile>();
