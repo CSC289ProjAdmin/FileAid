@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FileAid.Models {
-    public class DbManager {
+    public static class DbManager {
         public static void Reset() {
             // stub
         }

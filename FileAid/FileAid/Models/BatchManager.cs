@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FileAid.Models {
-    public class BatchManager {
+    public static class BatchManager {
         public static void Scan() {
             // stub
         }

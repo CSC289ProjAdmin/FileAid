@@ -6,6 +6,17 @@ using System.Threading.Tasks;
 
 namespace FileAid.Models {
     public class TrackedFile {
+        public int FileID { get; set; }
+        public string Filename { get; set; }
+        public string FileExtension { get; set; }
+        public string FilePath { get; set; }
+        public int FileSize { get; set; }
+        public DateTime ModifiedOn { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public string FileMemo { get; set; } = null;
+        public DateTime? TrackingDisabledOn { get; set; } = null;
+        public int ReminderID { get; set; } = -999;
+
         public string GetInfo() {
             // stub
             return "dummy";

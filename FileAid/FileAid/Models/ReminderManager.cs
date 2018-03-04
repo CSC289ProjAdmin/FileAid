@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FileAid.Models {
-    public class ReminderManager {
+    public static class ReminderManager {
         public static List<Reminder> GetReminders() {
             // stub
             List<Reminder> dummy = new List<Reminder>();
