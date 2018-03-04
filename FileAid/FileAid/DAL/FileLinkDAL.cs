@@ -69,6 +69,20 @@ namespace FileAid.DAL {
                 "Where dLinkDeleted is Null And LinkMemoID = @LinkMemoID And FileID In (" +
                 idList + ");";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
+            RemoveLinkIfEmpty(linkMemoID);
+        }
+
+        private static void RemoveLinkIfEmpty(int linkMemoID) {
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
+            string select = "Select Count(*) From FileLinks Where dLinkDeleted Is Null " +
+                "And LinkMemoID = @LinkMemoID";
+            bool isEmpty = ((int)Db.ExecuteScalar(select, args.ToArray()) == 0);
+            if (isEmpty) {
+                string update = "Update LinkMemos Set dMemoUpdated = GetDate(), dMemoDeleted = GetDate() " +
+                    "Where LinkMemoID = @LinkMemoID And dMemoDeleted Is Null";
+                int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
+            }
         }
     }
 }
