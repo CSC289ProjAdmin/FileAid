@@ -13,9 +13,10 @@ namespace FileAid.DAL {
     // which further simplifies running Sql commands against the database.
     // There are 5 basic uses:
     // ExecuteScalar(query [, sqlParameters])
-    // -- Returns single value (as type object; cast correctly).
+    // -- Returns single value (as type object; cast accordingly).
     // -- E.g. Can be used to get SCOPE_IDENTITY after an insert
-    //  int newID = (int)Db.ExecuteScalar("Insert Into TableName (columns) Values (vals); Select Scope_Identity();");
+    // string insertGetID = "Insert Into TableName (columns) Values (vals); Select Convert(int, Scope_Identity());";
+    //  int newID = (int)Db.ExecuteScalar(insertGetID);
 
     // ExecuteReader(query [, sqlParameters])
     // -- Returns SqlDataReader containing rows from query
