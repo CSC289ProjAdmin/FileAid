@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FileAid.Models {
-    public class FileManager {
+    public static class FileManager {
         public static List<TrackedFile> GetFiles() {
             // stub
             List<TrackedFile> dummy = new List<TrackedFile>();

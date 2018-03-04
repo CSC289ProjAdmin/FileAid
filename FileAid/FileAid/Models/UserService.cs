@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FileAid.Models {
-    public class UserService {
+    public static class UserService {
         public static User Find(string username) {
             // stub
             User dummy = new User();
