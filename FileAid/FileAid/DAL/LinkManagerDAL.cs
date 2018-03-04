@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FileAid.Models;
+using System.Data.SqlClient;
 
 namespace FileAid.DAL {
     public static class LinkManagerDAL {
@@ -13,9 +14,17 @@ namespace FileAid.DAL {
             return Db.ReadQuery<FileLink>(select);
         }
 
-        public static FileLink GetLink() {
-            // stub
-            return Db.ReadQuery<FileLink>("stub")[0];
+        public static FileLink GetLink(int linkMemoID) {
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
+            string select = "Select LinkMemoID, sLinkMemo As LinkMemo From LinkMemos " +
+                "Where dMemoDeleted Is Null And LinkMemoID = @LinkMemoID";
+            List<FileLink> results = Db.ReadQuery<FileLink>(select, args.ToArray());
+            if (results != null) {
+                return results[0];
+            } else {
+                return null;
+            }
         }
 
         public static void AddLink(List<int> fileIDs) {
