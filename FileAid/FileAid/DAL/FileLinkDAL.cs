@@ -60,8 +60,15 @@ namespace FileAid.DAL {
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
-        public static void RemoveFiles(List<int> exMemberFileIDs) {
-            // stub
+        public static void RemoveFiles(int linkMemoID, List<int> exMemberFileIDs) {
+            if (linkMemoID <= 0) return; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
+            string idList = string.Join(",", exMemberFileIDs.ToArray());
+            string update = "Update FileLinks Set dLinkUpdated = GetDate(), dLinkDeleted = GetDate() " +
+                "Where dLinkDeleted is Null And LinkMemoID = @LinkMemoID And FileID In (" +
+                idList + ");";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
     }
 }
