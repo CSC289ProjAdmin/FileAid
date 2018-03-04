@@ -22,8 +22,25 @@ namespace FileAid.DAL {
             return Db.ReadQuery<TrackedFile>(select, args.ToArray());
         }
 
-        public static void Join(int memberFileID) {
-            // stub
+        public static void Join(int linkMemoID, int memberFileID) {
+            if (linkMemoID <= 0 || memberFileID <= 0) return;
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@FileID", memberFileID));
+            args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
+
+            // Prevent a file from being added to a group it is already in
+            string select = "Select Count(*) As ExistingLinks From FileLinks " +
+                "Where FileID = @FileID And LinkMemoID = @LinkMemoID And dLinkDeleted Is Null";
+            bool alreadyInGroup = ((int)Db.ExecuteScalar(select, args.ToArray()) > 0);
+            if (!alreadyInGroup) {
+                string insert = "Insert Into FileLinks (FileID, LinkMemoID, dLinkCreated, dLinkUpdated) "+
+                    "Values (@FileID, @LinkMemoID, GetDate(), GetDate());" +
+                    "Select Convert(int, Scope_Identity());";
+                int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
+                if (!(newID > 0)) {
+                    throw new Exception();
+                }
+            }
         }
 
         public static void UpdateMemo(string newMemo) {
