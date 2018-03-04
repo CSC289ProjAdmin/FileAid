@@ -41,12 +41,23 @@ namespace FileAid.DAL {
             }
         }
 
-        public static void UpdateMemo(string newMemo) {
-            // stub
+        public static void UpdateMemo(int linkMemoID, string newMemo) {
+            if (linkMemoID <= 0) return; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
+            args.Add(new SqlParameter("@Memo", newMemo));
+            string update = "Update LinkMemos Set sLinkMemo = @Memo, dMemoUpdated = GetDate() " +
+                "Where LinkMemoID = @LinkMemoID And dMemoDeleted Is Null";
+            int modifiedRows = (int)Db.ExecuteScalar(update, args.ToArray());
         }
 
-        public static void RemoveMemo() {
-            // stub
+        public static void RemoveMemo(int linkMemoID) {
+            if (linkMemoID <= 0) return; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
+            string update = "Update LinkMemos Set sLinkMemo = null, dMemoUpdated = GetDate() " +
+                "Where LinkMemoID = @LinkMemoID And dMemoDeleted Is Null";
+            int modifiedRows = (int)Db.ExecuteScalar(update, args.ToArray());
         }
 
         public static void RemoveFiles(List<int> exMemberFileIDs) {
