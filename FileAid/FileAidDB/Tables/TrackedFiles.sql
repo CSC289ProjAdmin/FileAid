@@ -9,7 +9,7 @@
 	dFileCreated datetime not null,
 	sFileMemo varchar(100),
 	dTrackingDisabled datetime,
-	ReminderID int not null References Reminders(ReminderID),
+	ReminderID int References Reminders(ReminderID),
 	dTrackCreated datetime not null,
 	dTrackUpdated datetime not null,
 	dTrackDeleted datetime
