@@ -22,6 +22,7 @@ namespace FileAid.DAL {
             string select = "Select ReminderID, sReminderName As Name, dDue As DueOn, " +
                 "sReminderMemo As Memo, dResolved As ResolvedOn, dPushed As PushedOn " +
                 "From Reminders Where dReminderDeleted Is Null And ReminderID = @ReminderID;";
+            //! TODO: Handle nullable DateTimes
             List<Reminder> results = Db.ReadQuery<Reminder>(select, args.ToArray());
             if (results != null) {
                 return results[0];
@@ -30,38 +31,27 @@ namespace FileAid.DAL {
             }
         }
 
-        public static void AddReminder(List<int> fileIDs) {
-            // stub
+        public static void AddReminder(List<int> fileIDs, string reminderName, 
+                DateTime dueOn, string reminderMemo) {
+            // Create the reminder
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@Name", reminderName));
+            args.Add(new SqlParameter("@DueOn", dueOn));
+            args.Add(new SqlParameter("@Memo", reminderMemo));
+            string insert = "Insert Into Reminders " +
+                "(sReminderName, dDue, sReminderMemo, dReminderCreated, dReminderUpdated) " +
+                "Values (@Name, @DueOn, @Memo, GetDate(), GetDate()); " +
+                "Select Convert(int, Scope_Identity());";
+            int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
+            /*
+            // Add list of files to the group
+            foreach (int id in fileIDs) {
+                FileLinkDAL.Join(newID, id);
+            }
+            */
         }
     }
 /*
-        public int ReminderID { get; set; }
-        public string Name { get; set; }
-        public DateTime DueOn { get; set; }
-        public string Memo { get; set; } = null;
-        public DateTime? ResolvedOn { get; set; } = null;
-        public DateTime? PushedOn { get; set; } = null;
-
-
-        public static List<FileLink> GetLinks() {
-            string select = "Select LinkMemoID, sLinkMemo As LinkMemo From LinkMemos " +
-                "Where dMemoDeleted Is Null";
-            return Db.ReadQuery<FileLink>(select);
-        }
-
-        public static FileLink GetLink(int linkMemoID) {
-            List<SqlParameter> args = new List<SqlParameter>();
-            args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
-            string select = "Select LinkMemoID, sLinkMemo As LinkMemo From LinkMemos " +
-                "Where dMemoDeleted Is Null And LinkMemoID = @LinkMemoID";
-            List<FileLink> results = Db.ReadQuery<FileLink>(select, args.ToArray());
-            if (results != null) {
-                return results[0];
-            } else {
-                return null;
-            }
-        }
-
         public static void AddLink(List<int> fileIDs, string linkMemo) {
             // Create the link group
             List<SqlParameter> args = new List<SqlParameter>();
