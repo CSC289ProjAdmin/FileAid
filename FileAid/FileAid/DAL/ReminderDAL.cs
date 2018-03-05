@@ -23,10 +23,6 @@ namespace FileAid.DAL {
             return Db.ReadQuery<TrackedFile>(select, args.ToArray());
         }
 
-        public static void RemoveFiles(List<int> exMemberFileIDs) {
-            // stub
-        }
-
         public static void RemoveFiles(int reminderID, List<int> exMemberFileIDs) {
             if (reminderID <= 0) return; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
