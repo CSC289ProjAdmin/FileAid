@@ -46,8 +46,8 @@ namespace FileAid.DAL {
             args[5].Value = modified;
             args.Add(new SqlParameter("@Memo", memo));
             string insert = "Insert Into TrackedFiles " +
-                "(sFileName, sFileExt, sFilePath, iSizeInBytes, dFileModified, dFileCreated, sFileMemo) " +
-                "Values (@FileName, @FileExt, @FilePath, @FileSize, @ModifiedOn, @CreatedOn, @Memo); " +
+                "(sFileName, sFileExt, sFilePath, iSizeInBytes, dFileModified, dFileCreated, sFileMemo, dTrackCreated, dTrackUpdated) " +
+                "Values (@FileName, @FileExt, @FilePath, @FileSize, @ModifiedOn, @CreatedOn, @Memo, GetDate(), GetDate()); " +
                 "Select Convert(int, Scope_Identity());";
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
         }
