@@ -102,8 +102,9 @@ namespace FileAid.DAL {
 
         public static bool VerifyPasswordRequirements(string password) {
             bool isValid = false;
-            bool hasDigit = password.LastIndexOfAny(new char[]{'1','2','3','4','5','6','7','8','9' }) > -1;
-            if (hasDigit) isValid = true; // single validation for testing
+            bool hasDigit = password.Any(char.IsDigit);
+            bool hasCaps = password.Any(char.IsUpper);
+            if (hasDigit && hasCaps) isValid = true; // single validation for testing
             return isValid;
         }
     }
