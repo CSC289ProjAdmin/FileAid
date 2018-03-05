@@ -48,8 +48,12 @@ namespace FileAid.DAL {
             }
         }
 
-        public static void Resolve() {
-            // stub
+        public static void Resolve(int reminderID) {
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@ReminderID", reminderID));
+            string update = "Update Reminders Set dResolved = GetDate() " +
+                "Where ReminderID = @ReminderID And dResolved Is Null And dReminderDeleted Is Null";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
         public static void Push() {
