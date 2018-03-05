@@ -13,7 +13,7 @@ namespace FileAid.DAL {
             args.Add(new SqlParameter("@Name", username));
             string select = "Select UserID, sUserName As Username, RoleID, iFailures As LoginFailures, " +
                 "dLockedOut As LockedOutOn, dUserDisabled As DisabledOn From Users " +
-                "Where sUserName = @Name And dUserDeleted Is Null;";
+                "Where sUserName = @Name Collate SQL_Latin1_General_CP1_CS_AS And dUserDeleted Is Null;";
             List<User> results = Db.ReadQuery<User>(select, args.ToArray());
             if (results != null) {
                 return results[0];
@@ -27,7 +27,8 @@ namespace FileAid.DAL {
             args.Add(new SqlParameter("@Name", username));
             args.Add(new SqlParameter("@Password", password));
             string select = "Select Count(*) From Users " +
-                "Where dUserDeleted Is Null And sUserName = @Name And sPassword = @Password;";
+                "Where dUserDeleted Is Null And sUserName = @Name Collate SQL_Latin1_General_CP1_CS_AS " +
+                "And sPassword = @Password Collate SQL_Latin1_General_CP1_CS_AS;";
             bool matches = ((int)Db.ExecuteScalar(select, args.ToArray()) == 1);
             return matches;
         }
