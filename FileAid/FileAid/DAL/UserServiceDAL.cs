@@ -108,16 +108,5 @@ namespace FileAid.DAL {
                 "Where UserID = @UserID And dUserDeleted Is Null";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
-
-        public static bool VerifyPasswordRequirements(string password) {
-            // 8+ characters, 1+ digit, 1+ uppercase, 1+ symbol in *&%$#@
-            bool hasLength = password.Length >= 8;
-            bool hasDigit = password.Any(char.IsDigit);
-            bool hasCap = password.Any(char.IsUpper);
-            bool hasSymbol = password.IndexOfAny("*&%$#@".ToArray()) > -1;
-            bool isValid = false;
-            if (hasLength && hasDigit && hasCap && hasSymbol) isValid = true;
-            return isValid;
-        }
     }
 }
