@@ -36,7 +36,8 @@ namespace FileAid.DAL {
             // Create the reminder
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@Name", reminderName));
-            args.Add(new SqlParameter("@DueOn", dueOn));
+            args.Add(new SqlParameter("@DueOn", System.Data.SqlDbType.DateTime));
+            args[1].Value = dueOn;
             args.Add(new SqlParameter("@Memo", reminderMemo));
             string insert = "Insert Into Reminders " +
                 "(sReminderName, dDue, sReminderMemo, dReminderCreated, dReminderUpdated) " +
