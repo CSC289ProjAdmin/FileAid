@@ -13,10 +13,6 @@ namespace FileAid.DAL {
             return Db.ExecuteDataset("stub");
         }
 
-        public static void AddFile(TrackedFile newFile) {
-            // stub
-        }
-
         public static void UpdateFile() {
             // stub
         }
