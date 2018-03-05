@@ -27,8 +27,15 @@ namespace FileAid.DAL {
             }
         }
 
-        public static void AddLink(List<int> fileIDs) {
-            // stub
+        public static void AddLink(List<int> fileIDs, string linkMemo) {
+            // Create the link group
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@Memo", linkMemo));
+            string insert = "Insert Into LinkMemos (sLinkMemo, dMemoCreated, dMemoUpdated) " +
+                "Values (@Memo, GetDate(), GetDate()); " +
+                "Select Convert(int, Scope_Identity());";
+            int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
+            // Add list of files to the group
         }
     }
 }
