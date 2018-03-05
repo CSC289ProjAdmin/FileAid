@@ -23,9 +23,21 @@ namespace FileAid.DAL {
             return Db.ReadQuery<FileLink>(select, args.ToArray());
         }
 
-        public static Reminder GetReminder() {
-            //stub
-            return Db.ReadQuery<Reminder>("stub")[0];
+        public static Reminder GetReminder(int fileID) {
+            if (fileID <= 0) return null; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@FileID", fileID));
+            string select = "Select ReminderID, sReminderName As Name, dDue As DueOn, " +
+                "sReminderMemo As Memo, dResolved As ResolvedOn, dPushed As PushedOn " +
+                "From Reminders R Inner Join TrackedFiles TF On R.ReminderID = TF.ReminderID " + 
+                "Where dReminderDeleted Is Null And FileID = @FileID;";
+            //! TODO: Handle nullable DateTimes
+            List<Reminder> results = Db.ReadQuery<Reminder>(select, args.ToArray());
+            if (results != null) {
+                return results[0];
+            } else {
+                return null;
+            }
         }
 
         public static void UpdateMemo(string newMemo) {
