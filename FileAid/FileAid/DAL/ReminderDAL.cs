@@ -49,6 +49,7 @@ namespace FileAid.DAL {
         }
 
         public static void Resolve(int reminderID) {
+            if (reminderID <= 0) return; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@ReminderID", reminderID));
             string update = "Update Reminders Set dResolved = GetDate() " +
