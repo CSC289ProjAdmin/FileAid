@@ -13,15 +13,12 @@ namespace FileAid.DAL {
             return Db.ReadQuery<User>("stub")[0];
         }
 
-        public static bool VerifyCredentials(int userID, string username, string password) {
-            if (userID <= 0) return false; // not required but prevents an unnecessary db call
+        public static bool VerifyCredentials(string username, string password) {
             List<SqlParameter> args = new List<SqlParameter>();
-            args.Add(new SqlParameter("@UserID", userID));
             args.Add(new SqlParameter("@Name", username));
             args.Add(new SqlParameter("@Password", password));
             string select = "Select Count(*) From Users " +
-                "Where UserID = @UserID And dUserDeleted Is Null " +
-                "And sUserName = @Name And sPassword = @Password;";
+                "Where dUserDeleted Is Null And sUserName = @Name And sPassword = @Password;";
             bool matches = ((int)Db.ExecuteScalar(select, args.ToArray()) == 1);
             return matches;
         }
