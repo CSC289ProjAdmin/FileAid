@@ -44,12 +44,10 @@ namespace FileAid.DAL {
                 "Values (@Name, @DueOn, @Memo, GetDate(), GetDate()); " +
                 "Select Convert(int, Scope_Identity());";
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
-            /*
             // Add list of files to the group
             foreach (int id in fileIDs) {
-                FileLinkDAL.Join(newID, id);
+                ReminderDAL.Join(newID, id);
             }
-            */
         }
     }
 /*
