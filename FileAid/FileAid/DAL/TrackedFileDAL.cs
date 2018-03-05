@@ -64,9 +64,9 @@ namespace FileAid.DAL {
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@FileID", fileID));
             string select = "Select EventID, EventTypeID, dEvent As OccurredOn, sEventDescription As Description, " +
-                "sInitial As Initial, sNew As New, FileID, LinkID, ReportID, ReminderID, BatchID, UserID, LoginID, PermID, ConfigID " +
+                "sInitial As Initial, sNew As New From Events " +
                 "Where FileID = @FileID And dEventDeleted Is Null;";
-            //! TODO: Handle nullable ints
+            //! TODO: ??Handle nullable ints
             return Db.ReadQuery<Event>(select, args.ToArray());
         }
 
