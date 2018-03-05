@@ -64,8 +64,13 @@ namespace FileAid.DAL {
             return Db.ReadQuery<Event>("stub");
         }
 
-        public static void StopTracking() {
-            // stub
+        public static void StopTracking(int fileID) {
+            if (fileID <= 0) return; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@FileID", fileID));
+            string update = "Update TrackedFiles Set dTrackingDisabled = GetDate(), dTrackUpdated = GetDate() " +
+                "Where FileID = @FileID And dTrackDeleted Is Null";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
         public static void StartTracking() {
