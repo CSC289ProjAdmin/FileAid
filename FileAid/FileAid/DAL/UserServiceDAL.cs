@@ -81,8 +81,13 @@ namespace FileAid.DAL {
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
-        public static void ResetPassword(User u) {
-            // stub
+        public static void ResetPassword(int userID) {
+            if (userID <= 0) return; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@UserID", userID));
+            string update = "Update Users Set sPassword = 'DEFAULT', dUserUpdated = GetDate() " +
+                "Where UserID = @UserID And dUserDeleted Is Null";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
         public static void ChangePassword(User u, string newPassword) {
