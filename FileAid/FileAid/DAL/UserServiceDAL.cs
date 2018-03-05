@@ -99,5 +99,12 @@ namespace FileAid.DAL {
                 "Where UserID = @UserID And dUserDeleted Is Null";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
+
+        public static bool VerifyPasswordRequirements(string password) {
+            bool isValid = false;
+            bool hasDigit = password.LastIndexOfAny(new char[]{'1','2','3','4','5','6','7','8','9' }) > -1;
+            if (hasDigit) isValid = true; // single validation for testing
+            return isValid;
+        }
     }
 }
