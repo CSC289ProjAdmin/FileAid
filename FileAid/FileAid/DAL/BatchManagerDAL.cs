@@ -8,11 +8,6 @@ using System.Data;
 
 namespace FileAid.DAL {
     public static class BatchManagerDAL {
-        public static DataSet GetActiveFiles() {
-            // stub
-            return Db.ExecuteDataset("stub");
-        }
-
         public static void UpdateFile() {
             // stub
         }
