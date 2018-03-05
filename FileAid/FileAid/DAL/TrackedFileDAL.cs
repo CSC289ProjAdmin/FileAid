@@ -8,11 +8,6 @@ using System.Data.SqlClient;
 
 namespace FileAid.DAL {
     public static class TrackedFileDAL {
-        public static TrackedFile GetInfo() {
-            //stub
-            return new TrackedFile();
-        }
-
         public static List<FileLink> GetLinks(int fileID) {
             if (fileID <= 0) return null; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
