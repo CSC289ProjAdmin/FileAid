@@ -51,33 +51,23 @@ namespace FileAid.DAL {
                 "Select Convert(int, Scope_Identity());";
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
         }
-        /*
-                public static void AddLink(List<int> fileIDs, string linkMemo) {
-            // Create the link group
+
+        public static void AddFile(string filename, string extension, string path, int filesize,
+                DateTime created, DateTime modified) {
             List<SqlParameter> args = new List<SqlParameter>();
-            args.Add(new SqlParameter("@Memo", linkMemo));
-            string insert = "Insert Into LinkMemos (sLinkMemo, dMemoCreated, dMemoUpdated) " +
-                "Values (@Memo, GetDate(), GetDate()); " +
+            args.Add(new SqlParameter("@FileName", filename));
+            args.Add(new SqlParameter("@FileExt", extension));
+            args.Add(new SqlParameter("@FilePath", path));
+            args.Add(new SqlParameter("@FileSize", filesize));
+            args.Add(new SqlParameter("@CreatedOn", System.Data.SqlDbType.DateTime));
+            args[4].Value = created;
+            args.Add(new SqlParameter("@ModifiedOn", System.Data.SqlDbType.DateTime));
+            args[5].Value = modified;
+            string insert = "Insert Into TrackedFiles " +
+                "(sFileName, sFileExt, sFilePath, iSizeInBytes, dFileModified, dFileCreated, dTrackCreated, dTrackUpdated) " +
+                "Values (@FileName, @FileExt, @FilePath, @FileSize, @ModifiedOn, @CreatedOn, GetDate(), GetDate()); " +
                 "Select Convert(int, Scope_Identity());";
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
-            // Add list of files to the group
-            foreach (int id in fileIDs) {
-                FileLinkDAL.Join(newID, id);
-            }
         }
-
-        public static void AddLink(List<int> fileIDs) {
-            // Create the link group (without setting up a memo)
-            string insert = "Insert Into LinkMemos (dMemoCreated, dMemoUpdated) " +
-                "Values (GetDate(), GetDate()); " +
-                "Select Convert(int, Scope_Identity());";
-            int newID = (int)Db.ExecuteScalar(insert);
-            // Add list of files to the group
-            foreach (int id in fileIDs) {
-                FileLinkDAL.Join(newID, id);
-            }
-        }
-
-        */
     }
 }
