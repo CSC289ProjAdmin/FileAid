@@ -12,6 +12,11 @@ namespace FileAid.DAL {
             return Db.ReadQuery<TrackedFile>("stub");
         }
 
+        public static TrackedFile GetFile() {
+            //stub
+            return new TrackedFile();
+        }
+
         public static void AddFiles(TrackedFile newFile) {
             // stub
         }
