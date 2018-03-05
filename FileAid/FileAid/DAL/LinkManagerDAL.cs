@@ -45,6 +45,7 @@ namespace FileAid.DAL {
                 "Select Convert(int, Scope_Identity());";
             int newID = (int)Db.ExecuteScalar(insert);
             // Add list of files to the group
+/*
             int fileID = -999;
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@FileID", fileID));
@@ -55,6 +56,10 @@ namespace FileAid.DAL {
             foreach (int id in fileIDs) {
                 args[0].Value = id;
                 int newLinkID = (int)Db.ExecuteScalar(joinGroup, args.ToArray());
+            }
+*/
+            foreach (int id in fileIDs) {
+                FileLinkDAL.Join(newID, id);
             }
         }
     }
