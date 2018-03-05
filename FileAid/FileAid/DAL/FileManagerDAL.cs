@@ -8,8 +8,11 @@ using FileAid.Models;
 namespace FileAid.DAL {
     public static class FileManagerDAL {
         public static List<TrackedFile> GetFiles() {
-            // stub
-            return Db.ReadQuery<TrackedFile>("stub");
+            string select = "Select FileID, sFileName As Filename, sFileExt As FileExtension, sFilePath As FilePath, " +
+                "iSizeInBytes As FileSize, dFileModified As ModifiedOn, dFileCreated As CreatedOn, sFileMemo As FileMemo, " +
+                "dTrackingDisabled As TrackingDisabledOn, ReminderID " +
+                "From TrackedFiles Where dTrackDeleted Is Null";
+            return Db.ReadQuery<TrackedFile>(select);
         }
 
         public static TrackedFile GetFile() {
@@ -17,7 +20,7 @@ namespace FileAid.DAL {
             return new TrackedFile();
         }
 
-        public static void AddFiles(TrackedFile newFile) {
+        public static void AddFile(TrackedFile newFile) {
             // stub
         }
     }
