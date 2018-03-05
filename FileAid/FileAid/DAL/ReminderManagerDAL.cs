@@ -4,19 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FileAid.Models;
+using System.Data.SqlClient;
+
 namespace FileAid.DAL {
     public static class ReminderManagerDAL {
         public static List<Reminder> GetReminders() {
             string select = "Select ReminderID, sReminderName As Name, dDue As DueOn, " +
                 "sReminderMemo As Memo, dResolved As ResolvedOn, dPushed As PushedOn " +
-                "From Reminders Where dReminderDeleted Is Null";
+                "From Reminders Where dReminderDeleted Is Null;";
             //! TODO: Handle nullable DateTimes
             return Db.ReadQuery<Reminder>(select);
         }
 
         public static Reminder GetReminder(int reminderID) {
-            // stub
-            return Db.ReadQuery<Reminder>("stub")[0];
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@ReminderID", reminderID));
+            string select = "Select ReminderID, sReminderName As Name, dDue As DueOn, " +
+                "sReminderMemo As Memo, dResolved As ResolvedOn, dPushed As PushedOn " +
+                "From Reminders Where dReminderDeleted Is Null And ReminderID = @ReminderID;";
+            List<Reminder> results = Db.ReadQuery<Reminder>(select, args.ToArray());
+            if (results != null) {
+                return results[0];
+            } else {
+                return null;
+            }
         }
 
         public static void AddReminder(List<int> fileIDs) {
