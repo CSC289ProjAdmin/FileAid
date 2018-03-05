@@ -14,7 +14,7 @@ namespace FileAid.Models {
         public DateTime ModifiedOn { get; set; }
         public DateTime CreatedOn { get; set; }
         public string FileMemo { get; set; } = null;
-        public DateTime? TrackingDisabledOn { get; set; } = null;
+        public DateTime TrackingDisabledOn { get; set; }
         public int ReminderID { get; set; } = -999;
 
         public string GetInfo() {
