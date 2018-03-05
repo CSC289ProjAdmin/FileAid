@@ -77,29 +77,24 @@ namespace FileAid.DAL {
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
-        public static void RemoveMemo() {
-            // stub
-        }
-/*
-        public static void UpdateMemo(int linkMemoID, string newMemo) {
-            if (linkMemoID <= 0) return; // not required but prevents an unnecessary db call
+        public static void RemoveMemo(int reminderID) {
+            if (reminderID <= 0) return; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
-            args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
-            args.Add(new SqlParameter("@Memo", newMemo));
-            string update = "Update LinkMemos Set sLinkMemo = @Memo, dMemoUpdated = GetDate() " +
-                "Where LinkMemoID = @LinkMemoID And dMemoDeleted Is Null";
+            args.Add(new SqlParameter("@ReminderID", reminderID));
+            string update = "Update Reminders Set sReminderMemo = null, dReminderUpdated = GetDate() " +
+                "Where ReminderID = @ReminderID And dReminderDeleted Is Null";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
+        /*
+                public static void RemoveMemo(int linkMemoID) {
+                    if (linkMemoID <= 0) return; // not required but prevents an unnecessary db call
+                    List<SqlParameter> args = new List<SqlParameter>();
+                    args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
+                    string update = "Update LinkMemos Set sLinkMemo = null, dMemoUpdated = GetDate() " +
+                        "Where LinkMemoID = @LinkMemoID And dMemoDeleted Is Null";
+                    int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
+                }
 
-        public static void RemoveMemo(int linkMemoID) {
-            if (linkMemoID <= 0) return; // not required but prevents an unnecessary db call
-            List<SqlParameter> args = new List<SqlParameter>();
-            args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
-            string update = "Update LinkMemos Set sLinkMemo = null, dMemoUpdated = GetDate() " +
-                "Where LinkMemoID = @LinkMemoID And dMemoDeleted Is Null";
-            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
-        }
-
-*/
+        */
     }
 }
