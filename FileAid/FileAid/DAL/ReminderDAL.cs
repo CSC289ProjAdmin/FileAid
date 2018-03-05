@@ -57,8 +57,14 @@ namespace FileAid.DAL {
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
-        public static void Push() {
-            // stub
+        public static void Push(int reminderID) {
+            //! Note: This DAL method only updates the database value. It does not Push to Outlook Calendar.
+            if (reminderID <= 0) return; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@ReminderID", reminderID));
+            string update = "Update Reminders Set dPushed = GetDate() " +
+                "Where ReminderID = @ReminderID And dPushed Is Null And dReminderDeleted Is Null";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
         public static void UpdateMemo(string newMemo) {
