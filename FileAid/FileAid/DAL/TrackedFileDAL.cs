@@ -59,9 +59,15 @@ namespace FileAid.DAL {
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
-        public static List<Event> GetHistory() {
-            //stub
-            return Db.ReadQuery<Event>("stub");
+        public static List<Event> GetHistory(int fileID) {
+            if (fileID <= 0) return null; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@FileID", fileID));
+            string select = "Select EventID, EventTypeID, dEvent As OccurredOn, sEventDescription As Description, " +
+                "sInitial As Initial, sNew As New, FileID, LinkID, ReportID, ReminderID, BatchID, UserID, LoginID, PermID, ConfigID " +
+                "Where FileID = @FileID And dEventDeleted Is Null;";
+            //! TODO: Handle nullable ints
+            return Db.ReadQuery<Event>(select, args.ToArray());
         }
 
         public static void StopTracking(int fileID) {
