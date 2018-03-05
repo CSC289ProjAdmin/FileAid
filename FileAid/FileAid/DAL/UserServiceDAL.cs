@@ -101,10 +101,11 @@ namespace FileAid.DAL {
         }
 
         public static bool VerifyPasswordRequirements(string password) {
-            bool isValid = false;
             bool hasDigit = password.Any(char.IsDigit);
             bool hasCaps = password.Any(char.IsUpper);
-            if (hasDigit && hasCaps) isValid = true; // single validation for testing
+            bool hasSymbol = password.IndexOfAny("*&%$#@".ToArray()) > -1;
+            bool isValid = false;
+            if (hasDigit && hasCaps && hasSymbol) isValid = true;
             return isValid;
         }
     }
