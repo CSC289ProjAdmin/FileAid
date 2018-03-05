@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FileAid.Models;
+using System.Data.SqlClient;
 
 namespace FileAid.DAL {
     public static class UserServiceDAL {
@@ -17,8 +18,13 @@ namespace FileAid.DAL {
             return false;
         }
 
-        public static void IncrementFailures(User u) {
-            // stub
+        public static void IncrementFailures(int userID) {
+            if (userID <= 0) return; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@UserID", userID));
+            string update = "Update Users Set iFailures = iFailures + 1, dUserUpdated = GetDate() " +
+                "Where UserID = @UserID And dUserDeleted Is Null;";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
         public static void ClearFailures(User u) {
