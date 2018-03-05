@@ -27,8 +27,13 @@ namespace FileAid.DAL {
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
-        public static void ClearFailures(User u) {
-            // stub
+        public static void ClearFailures(int userID) {
+            if (userID <= 0) return; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@UserID", userID));
+            string update = "Update Users Set iFailures = 0, dUserUpdated = GetDate() " +
+                "Where UserID = @UserID And dUserDeleted Is Null And iFailures <> 0;";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
         public static void LockOut(User u) {
