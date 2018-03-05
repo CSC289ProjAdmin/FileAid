@@ -27,6 +27,34 @@ namespace FileAid.DAL {
             // stub
         }
 
+        public static void RemoveFiles(int reminderID, List<int> exMemberFileIDs) {
+            if (reminderID <= 0) return; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@ReminderID", reminderID));
+            string idList = string.Join(",", exMemberFileIDs.ToArray());
+            string update = "Update TrackedFiles Set ReminderID = null " +
+                "Where dTrackDeleted Is Null And ReminderID = @ReminderID";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
+/*
+            RemoveReminderIfEmpty(reminderID);
+*/
+        }
+
+        private static void RemoveReminderIfEmpty(int reminderID) {
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@ReminderID", reminderID));
+/*
+            string select = "Select Count(*) From FileLinks Where dLinkDeleted Is Null " +
+                "And LinkMemoID = @LinkMemoID";
+            bool isEmpty = ((int)Db.ExecuteScalar(select, args.ToArray()) == 0);
+            if (isEmpty) {
+                string update = "Update LinkMemos Set dMemoUpdated = GetDate(), dMemoDeleted = GetDate() " +
+                    "Where LinkMemoID = @LinkMemoID And dMemoDeleted Is Null";
+                int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
+            }
+*/
+        }
+
         public static void Resolve() {
             // stub
         }
