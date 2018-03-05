@@ -9,8 +9,17 @@ using System.Data.SqlClient;
 namespace FileAid.DAL {
     public static class UserServiceDAL {
         public static User Find(string username) {
-            // stub
-            return Db.ReadQuery<User>("stub")[0];
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@Name", username));
+            string select = "Select UserID, sUserName As Username, RoleID, iFailures As LoginFailures, " +
+                "dLockedOut As LockedOutOn, dUserDisabled As DisabledOn From Users " +
+                "Where sUserName = @Name And dUserDeleted Is Null;";
+            List<User> results = Db.ReadQuery<User>(select, args.ToArray());
+            if (results != null) {
+                return results[0];
+            } else {
+                return null;
+            }
         }
 
         public static bool VerifyCredentials(string username, string password) {
