@@ -68,8 +68,9 @@ namespace FileAid.DAL {
             if (fileID <= 0) return; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@FileID", fileID));
+            // Only update the tracking disabled date if it is not already set
             string update = "Update TrackedFiles Set dTrackingDisabled = GetDate(), dTrackUpdated = GetDate() " +
-                "Where FileID = @FileID And dTrackDeleted Is Null";
+                "Where FileID = @FileID And dTrackDeleted Is Null And dTrackingDisabled Is Null;";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
