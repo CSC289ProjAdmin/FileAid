@@ -50,20 +50,15 @@ namespace FileAid.DAL {
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
-        public static void RemoveMemo() {
-            // stub
-        }
-        /*
-        public static void RemoveMemo(int linkMemoID) {
-            if (linkMemoID <= 0) return; // not required but prevents an unnecessary db call
+        public static void RemoveMemo(int fileID) {
+            if (fileID <= 0) return; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
-            args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
-            string update = "Update LinkMemos Set sLinkMemo = null, dMemoUpdated = GetDate() " +
-                "Where LinkMemoID = @LinkMemoID And dMemoDeleted Is Null";
+            args.Add(new SqlParameter("@FileID", fileID));
+            string update = "Update TrackedFiles Set sFileMemo = null, dTrackUpdated = GetDate() " +
+                "Where FileID = @FileID And dTrackDeleted Is Null";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
-        */
         public static List<Event> GetHistory() {
             //stub
             return Db.ReadQuery<Event>("stub");
