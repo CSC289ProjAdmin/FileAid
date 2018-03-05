@@ -23,6 +23,27 @@ namespace FileAid.DAL {
             return Db.ReadQuery<TrackedFile>(select, args.ToArray());
         }
 
+        public static void Join(int reminderID, int memberFileID) {
+            if (reminderID <= 0 || memberFileID <= 0) return;
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@FileID", memberFileID));
+            args.Add(new SqlParameter("@ReminderID", reminderID));
+            // Prevent a file from being assigned any reminder it already has
+            // or if it has an unresolved reminder.  Deleted and resolved reminders are ok to change.
+            string select = "Select Count(*) As ExistingReminder From TrackedFiles " +
+                "Where FileID = @FileID And dTrackDeleted Is Null " +
+                "And (ReminderID = @ReminderID Or ReminderID = (" +
+                "Select ReminderID From Reminders Where Reminders.ReminderID = TrackedFiles.ReminderID " +
+                "And dReminderDeleted Is Null And dResolved Is Null ));";
+            bool alreadyHasReminder = ((int)Db.ExecuteScalar(select, args.ToArray()) > 0);
+            if (!alreadyHasReminder) {
+                // Assign reminder to file
+                string update = "Update TrackedFiles Set ReminderID = @ReminderID, dTrackUpdated = GetDate() " +
+                    "Where FileID = @FileID And dTrackDeleted Is Null";
+                int modifiedFiles = (int)Db.ExecuteNonQuery(update, args.ToArray());
+            }
+        }
+
         public static void RemoveFiles(int reminderID, List<int> exMemberFileIDs) {
             if (reminderID <= 0) return; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();

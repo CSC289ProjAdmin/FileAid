@@ -10,8 +10,8 @@ namespace FileAid.Models {
         public string Name { get; set; }
         public DateTime DueOn { get; set; }
         public string Memo { get; set; } = null;
-        public DateTime? ResolvedOn { get; set; } = null;
-        public DateTime? PushedOn { get; set; } = null;
+        public DateTime ResolvedOn { get; set; }
+        public DateTime PushedOn { get; set; }
 
         public List<TrackedFile> GetFiles() {
             // stub
