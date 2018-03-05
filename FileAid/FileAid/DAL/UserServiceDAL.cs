@@ -60,11 +60,6 @@ namespace FileAid.DAL {
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
-        public static bool IsLockedOut(User u) {
-            // stub
-            return true;
-        }
-
         public static void Unlock(int userID) {
             if (userID <= 0) return; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
