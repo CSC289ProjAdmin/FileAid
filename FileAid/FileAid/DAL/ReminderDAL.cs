@@ -32,9 +32,9 @@ namespace FileAid.DAL {
             // or if it has an unresolved reminder.  Deleted and resolved reminders are ok to change.
             string select = "Select Count(*) As ExistingReminder From TrackedFiles " +
                 "Where FileID = @FileID And dTrackDeleted Is Null " +
-                "And ReminderID = @ReminderID Or ReminderID = (" +
+                "And (ReminderID = @ReminderID Or ReminderID = (" +
                 "Select ReminderID From Reminders Where Reminders.ReminderID = TrackedFiles.ReminderID " +
-                "And dReminderDeleted Is Null And dResolved Is Null );";
+                "And dReminderDeleted Is Null And dResolved Is Null ));";
             bool alreadyHasReminder = ((int)Db.ExecuteScalar(select, args.ToArray()) > 0);
             if (!alreadyHasReminder) {
                 // Assign reminder to file
