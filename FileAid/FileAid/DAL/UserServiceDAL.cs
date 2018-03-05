@@ -51,8 +51,14 @@ namespace FileAid.DAL {
             return true;
         }
 
-        public static void Unlock(User u) {
-            // stub
+        public static void Unlock(int userID) {
+            if (userID <= 0) return; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@UserID", userID));
+            // Only clear lockout date if it exists (is not null)
+            string update = "Update Users Set dLockedOut = null, dUserUpdated = GetDate() " +
+                "Where UserID = @UserID And dUserDeleted Is Null and dLockedOut Is Not Null;";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
         }
 
         public static void Disable(User u) {
