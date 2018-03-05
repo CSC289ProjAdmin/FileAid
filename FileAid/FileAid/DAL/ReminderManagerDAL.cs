@@ -10,6 +10,7 @@ namespace FileAid.DAL {
             string select = "Select ReminderID, sReminderName As Name, dDue As DueOn, " +
                 "sReminderMemo As Memo, dResolved As ResolvedOn, dPushed As PushedOn " +
                 "From Reminders Where dReminderDeleted Is Null";
+            //! TODO: Handle nullable DateTimes
             return Db.ReadQuery<Reminder>(select);
         }
 
