@@ -37,5 +37,14 @@ namespace FileAid.DAL {
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
             // Add list of files to the group
         }
+
+        public static void AddLink(List<int> fileIDs) {
+            // Create the link group (without setting up a memo)
+            string insert = "Insert Into LinkMemos (dMemoCreated, dMemoUpdated) " +
+                "Values (GetDate(), GetDate()); " +
+                "Select Convert(int, Scope_Identity());";
+            int newID = (int)Db.ExecuteScalar(insert);
+            // Add list of files to the group
+        }
     }
 }
