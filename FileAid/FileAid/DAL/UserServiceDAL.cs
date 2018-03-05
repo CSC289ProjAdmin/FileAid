@@ -27,7 +27,8 @@ namespace FileAid.DAL {
             args.Add(new SqlParameter("@Name", username));
             args.Add(new SqlParameter("@Password", password));
             string select = "Select Count(*) From Users " +
-                "Where dUserDeleted Is Null And sUserName = @Name And sPassword = @Password;";
+                "Where dUserDeleted Is Null And sUserName = @Name Collate SQL_Latin1_General_CP1_CS_AS " +
+                "And sPassword = @Password Collate SQL_Latin1_General_CP1_CS_AS;";
             bool matches = ((int)Db.ExecuteScalar(select, args.ToArray()) == 1);
             return matches;
         }
