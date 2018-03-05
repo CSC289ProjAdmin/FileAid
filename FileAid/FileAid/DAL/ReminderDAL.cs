@@ -32,8 +32,9 @@ namespace FileAid.DAL {
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@ReminderID", reminderID));
             string idList = string.Join(",", exMemberFileIDs.ToArray());
-            string update = "Update TrackedFiles Set ReminderID = null " +
-                "Where dTrackDeleted Is Null And ReminderID = @ReminderID";
+            string update = "Update TrackedFiles Set ReminderID = null, dTrackUpdated = GetDate() " +
+                "Where dTrackDeleted Is Null And ReminderID = @ReminderID " +
+                "And FileID In (" + idList + ");";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
 /*
             RemoveReminderIfEmpty(reminderID);
