@@ -17,43 +17,53 @@ namespace FileAid.Models {
         public DateTime TrackingDisabledOn { get; set; }
         public int ReminderID { get; set; } = -999;
 
-        public string GetInfo() {
-            // stub
-            return "dummy";
+        public void GetInfo() {
+            TrackedFile currentInfo = DAL.FileManagerDAL.GetFile(this.FileID);
+            if (currentInfo != null) {
+                Filename = currentInfo.Filename;
+                FileExtension = currentInfo.FileExtension;
+                FilePath = currentInfo.FilePath;
+                FileSize = currentInfo.FileSize;
+                ModifiedOn = currentInfo.ModifiedOn;
+                CreatedOn = currentInfo.CreatedOn;
+                TrackingDisabledOn = currentInfo.TrackingDisabledOn;
+                ReminderID = currentInfo.ReminderID;
+            }
         }
 
         public List<FileLink> GetLinks() {
-            // stub
-            List<FileLink> dummy = new List<FileLink>();
-            return dummy;
+            List<FileLink> myLinks = DAL.TrackedFileDAL.GetLinks(this.FileID);
+            return myLinks;
         }
 
         public Reminder GetReminder() {
-            // stub
-            Reminder dummy = new Reminder();
-            return dummy;
+            Reminder myReminder = DAL.TrackedFileDAL.GetReminder(this.FileID);
+            return myReminder;
         }
 
         public void UpdateMemo(string memo) {
-            // stub
+            bool wasUpdated = DAL.TrackedFileDAL.UpdateMemo(this.FileID, memo);
+            if (wasUpdated) FileMemo = memo;
         }
 
         public void RemoveMemo() {
-            // stub
+            bool wasRemoved = DAL.TrackedFileDAL.RemoveMemo(this.FileID);
+            if (wasRemoved) FileMemo = "";
         }
 
         public List<Event> GetHistory() {
-            // stub
-            List<Event> dummy = new List<Event>();
-            return dummy;
+            List<Event> myHistory = DAL.TrackedFileDAL.GetHistory(this.FileID);
+            return myHistory;
         }
 
         public void StopTracking() {
-            // stub
+            bool wasStopped = DAL.TrackedFileDAL.StopTracking(this.FileID);
+            if (wasStopped) TrackingDisabledOn = DateTime.Now;
         }
 
         public void StartTracking() {
-            // stub
+            bool wasStarted = DAL.TrackedFileDAL.StartTracking(this.FileID);
+            if (wasStarted) TrackingDisabledOn = new DateTime(); // 01-01-0001
         }
     }
 }
