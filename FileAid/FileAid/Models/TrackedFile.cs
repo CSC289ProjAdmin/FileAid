@@ -42,13 +42,13 @@ namespace FileAid.Models {
         }
 
         public void UpdateMemo(string memo) {
-            DAL.TrackedFileDAL.UpdateMemo(this.FileID, memo);
-            FileMemo = memo;
+            bool wasUpdated = DAL.TrackedFileDAL.UpdateMemo(this.FileID, memo);
+            if (wasUpdated) FileMemo = memo;
         }
 
         public void RemoveMemo() {
-            DAL.TrackedFileDAL.RemoveMemo(this.FileID);
-            FileMemo = "";
+            bool wasRemoved = DAL.TrackedFileDAL.RemoveMemo(this.FileID);
+            if (wasRemoved) FileMemo = "";
         }
 
         public List<Event> GetHistory() {
@@ -57,13 +57,13 @@ namespace FileAid.Models {
         }
 
         public void StopTracking() {
-            DAL.TrackedFileDAL.StopTracking(this.FileID);
-            TrackingDisabledOn = DateTime.Now;
+            bool wasStopped = DAL.TrackedFileDAL.StopTracking(this.FileID);
+            if (wasStopped) TrackingDisabledOn = DateTime.Now;
         }
 
         public void StartTracking() {
-            DAL.TrackedFileDAL.StartTracking(this.FileID);
-            TrackingDisabledOn = new DateTime(); // 01-01-0001
+            bool wasStarted = DAL.TrackedFileDAL.StartTracking(this.FileID);
+            if (wasStarted) TrackingDisabledOn = new DateTime(); // 01-01-0001
         }
     }
 }
