@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\BatchManagerDAL.cs" />
     <Compile Include="DAL\Db.cs" />
     <Compile Include="DAL\DbManagerDAL.cs" />
     <Compile Include="DAL\FileLinkDAL.cs" />
