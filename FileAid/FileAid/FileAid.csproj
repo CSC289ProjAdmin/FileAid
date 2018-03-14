@@ -63,6 +63,48 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidConfig.Designer.cs">
+      <DependentUpon>FormFileAidConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidDash.Designer.cs">
+      <DependentUpon>FormFileAidDash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidDbMgmt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidDbMgmt.Designer.cs">
+      <DependentUpon>FormFileAidDbMgmt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidEvents.Designer.cs">
+      <DependentUpon>FormFileAidEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidLogin.Designer.cs">
+      <DependentUpon>FormFileAidLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidMain.Designer.cs">
+      <DependentUpon>FormFileAidMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidNewFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidNewFile.Designer.cs">
+      <DependentUpon>FormFileAidNewFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BatchManager.cs" />
     <Compile Include="Models\Configs.cs" />
     <Compile Include="Models\DbManager.cs" />
@@ -81,6 +123,27 @@
     <Compile Include="Models\UserService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\FormFileAidConfig.resx">
+      <DependentUpon>FormFileAidConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidDash.resx">
+      <DependentUpon>FormFileAidDash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidDbMgmt.resx">
+      <DependentUpon>FormFileAidDbMgmt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidEvents.resx">
+      <DependentUpon>FormFileAidEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidLogin.resx">
+      <DependentUpon>FormFileAidLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidMain.resx">
+      <DependentUpon>FormFileAidMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidNewFile.resx">
+      <DependentUpon>FormFileAidNewFile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
