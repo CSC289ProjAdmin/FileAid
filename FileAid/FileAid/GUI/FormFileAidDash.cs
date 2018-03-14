@@ -16,5 +16,25 @@ namespace FileAid.GUI
         {
             InitializeComponent();
         }
+
+        private void btnTrackedFiles_Click(object sender, EventArgs e) {
+            FormFileAidMain main = new FormFileAidMain();
+            main.ShowDialog();
+        }
+
+        private void btnDBMan_Click(object sender, EventArgs e) {
+            FormFileAidDbMgmt dbmgmt = new FormFileAidDbMgmt();
+            dbmgmt.ShowDialog();
+        }
+
+        private void btnLogEvents_Click(object sender, EventArgs e) {
+            FormFileAidEvents events = new FormFileAidEvents();
+            events.ShowDialog();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e) {
+            FormFileAidConfig config = new FormFileAidConfig();
+            config.ShowDialog();
+        }
     }
 }
