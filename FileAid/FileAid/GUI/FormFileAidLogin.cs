@@ -16,5 +16,14 @@ namespace FileAid.GUI
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e) {
+            if (true) {
+                DialogResult = DialogResult.OK;
+                Close();
+            } else {
+                DialogResult = DialogResult.None;
+            }
+        }
     }
 }
