@@ -14,29 +14,42 @@ namespace FileAid.Models {
         public DateTime PushedOn { get; set; }
 
         public List<TrackedFile> GetFiles() {
-            // stub
-            List<TrackedFile> dummy = new List<TrackedFile>();
-            return dummy;
+            List<TrackedFile> myFiles = DAL.ReminderDAL.GetFiles(this.ReminderID);
+            return myFiles;
         }
 
-        public void RemoveFiles(List<TrackedFile> exMembers) {
-            // stub
+        public bool Join(int newMemberFileID) {
+            bool wasJoined = DAL.ReminderDAL.Join(this.ReminderID, newMemberFileID);
+            return wasJoined;
         }
 
-        public void Resolve() {
-            // stub
+        public bool RemoveFiles(List<int> exMemberFileIDs) {
+            bool wereRemoved = DAL.ReminderDAL.RemoveFiles(this.ReminderID, exMemberFileIDs);
+            return wereRemoved;
         }
 
-        public void Push() {
-            // stub
+        public bool Resolve() {
+            bool wasResolved = DAL.ReminderDAL.Resolve(this.ReminderID);
+            if (wasResolved) ResolvedOn = DateTime.Now;
+            return wasResolved;
         }
 
-        public void UpdateMemo(string memo) {
-            // stub
+        public bool Push() {
+            bool wasPushed = DAL.ReminderDAL.Push(this.ReminderID);
+            if (wasPushed) PushedOn = DateTime.Now;
+            return wasPushed;
         }
 
-        public void RemoveMemo() {
-            // stub
+        public bool UpdateMemo(string memo) {
+            bool wasUpdated = DAL.ReminderDAL.UpdateMemo(this.ReminderID, memo);
+            if (wasUpdated) Memo = memo;
+            return wasUpdated;
+        }
+
+        public bool RemoveMemo() {
+            bool wasRemoved = DAL.ReminderDAL.RemoveMemo(this.ReminderID);
+            if (wasRemoved) Memo = "";
+            return wasRemoved;
         }
     }
 }
