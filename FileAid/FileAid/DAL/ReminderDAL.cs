@@ -81,7 +81,7 @@ namespace FileAid.DAL {
             if (reminderID <= 0) return false; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@ReminderID", reminderID));
-            string update = "Update Reminders Set dResolved = GetDate() " +
+            string update = "Update Reminders Set dResolved = GetDate(), dReminderUpdated = GetDate() " +
                 "Where ReminderID = @ReminderID And dResolved Is Null And dReminderDeleted Is Null";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
             bool wasResolved = (modifiedRows == 1);
@@ -93,7 +93,7 @@ namespace FileAid.DAL {
             if (reminderID <= 0) return false; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@ReminderID", reminderID));
-            string update = "Update Reminders Set dPushed = GetDate() " +
+            string update = "Update Reminders Set dPushed = GetDate(), dReminderUpdated = GetDate() " +
                 "Where ReminderID = @ReminderID And dPushed Is Null And dReminderDeleted Is Null";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
             bool wasPushed = (modifiedRows == 1);
