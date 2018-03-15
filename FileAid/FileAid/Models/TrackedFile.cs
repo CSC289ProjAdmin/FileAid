@@ -56,14 +56,17 @@ namespace FileAid.Models {
             return myHistory;
         }
 
+        public void StartTracking()
+        {
+            bool wasStarted = DAL.TrackedFileDAL.StartTracking(this.FileID);
+            if (wasStarted) TrackingDisabledOn = new DateTime(); // 01-01-0001
+        }
+
         public void StopTracking() {
             bool wasStopped = DAL.TrackedFileDAL.StopTracking(this.FileID);
             if (wasStopped) TrackingDisabledOn = DateTime.Now;
         }
 
-        public void StartTracking() {
-            bool wasStarted = DAL.TrackedFileDAL.StartTracking(this.FileID);
-            if (wasStarted) TrackingDisabledOn = new DateTime(); // 01-01-0001
-        }
+
     }
 }

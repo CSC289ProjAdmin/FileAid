@@ -37,33 +37,114 @@ namespace FileAidTest.Tests {
         }
 
         [TestMethod]
-        public void GetReminderTest() {
-            Assert.AreEqual(1, 2);
+        public void GetReminderTest()
+        {
+            List<TrackedFile> files = FileManagerDAL.GetFiles();
+            if (files != null)
+            {
+                // Test reminders for first file
+                TrackedFile file = files[0];
+                Reminder reminder = file.GetReminder();
+
+                //Assert for file 1
+                Assert.AreEqual(1, reminder.ReminderID);
+                Assert.AreEqual("First reminder", reminder.Name);
+                Assert.AreEqual("Description for first reminder", reminder.Memo);
+                
+                //Assert for file 2
+                file = files[1];
+                reminder = file.GetReminder();
+                Assert.IsNull(reminder);
+            }
+        }
+
+        [TestMethod]
+        public void RemoveMemoTest()
+        {
+            List<TrackedFile> files = FileManagerDAL.GetFiles();
+            if (files != null)
+            {
+                TrackedFile file = files[0];
+
+                Assert.AreEqual("Description of first file", file.FileMemo);
+
+                file.RemoveMemo();
+
+                Assert.AreEqual("", file.FileMemo);
+            }
         }
 
         [TestMethod]
         public void UpdateMemoTest() {
-            Assert.AreEqual(1, 2);
-        }
+            List<TrackedFile> files = FileManagerDAL.GetFiles();
+            if (files != null)
+            {
+                // Test reminders for first file
+                TrackedFile file = files[0];
 
-        [TestMethod]
-        public void RemoveMemoTest() {
-            Assert.AreEqual(1, 2);
+                Assert.IsNull(file.FileMemo);
+
+                file.UpdateMemo("Description of first file");
+
+                Assert.AreEqual("Description of first file", file.FileMemo);
+            }
         }
 
         [TestMethod]
         public void GetHistoryTest() {
-            Assert.AreEqual(1, 2);
+            List<TrackedFile> files = FileManagerDAL.GetFiles();
+            if (files != null)
+            {
+                // File 1 history
+                TrackedFile file = files[0];
+
+                List<Event> events = file.GetHistory();
+
+                Assert.AreEqual(1, events.Count);
+                Assert.AreEqual("First file added to system", events[0].Description);
+
+                // File 2 history
+                file = files[1];
+                events = file.GetHistory();
+                Assert.IsNull(events);
+
+            }
         }
 
         [TestMethod]
         public void StopTrackingTest() {
-            Assert.AreEqual(1, 2);
+            List<TrackedFile> files = FileManagerDAL.GetFiles();
+            if (files != null)
+            {
+                TrackedFile file = files[0];
+
+                file.StartTracking();
+
+                Assert.AreEqual(new DateTime(), file.TrackingDisabledOn);
+                
+                file.StopTracking();
+
+                Assert.AreNotEqual(new DateTime(), file.TrackingDisabledOn);
+                             
+            }
         }
 
         [TestMethod]
         public void StartTrackingTest() {
-            Assert.AreEqual(1, 2);
+            List<TrackedFile> files = FileManagerDAL.GetFiles();
+            if (files != null)
+            {
+                TrackedFile file = files[0];
+
+                file.StopTracking();
+
+                Assert.AreNotEqual(new DateTime(), file.TrackingDisabledOn);
+
+                file.StartTracking();
+
+                Assert.AreEqual(new DateTime(), file.TrackingDisabledOn);
+
+            }
         }
     }
 }
