@@ -18,6 +18,7 @@ namespace FileAid.DAL {
         }
 
         public static TrackedFile GetFile(int fileID) {
+            if (fileID <= 0) return null;
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@FileID", fileID));
             string select = "Select FileID, sFileName As Filename, sFileExt As FileExtension, sFilePath As FilePath, " +
@@ -33,7 +34,7 @@ namespace FileAid.DAL {
             }
         }
 
-        public static void AddFile(string filename, string extension, string path, int filesize,
+        public static bool AddFile(string filename, string extension, string path, int filesize,
                 DateTime created, DateTime modified, string memo) {
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@FileName", filename));
@@ -50,9 +51,11 @@ namespace FileAid.DAL {
                 "Values (@FileName, @FileExt, @FilePath, @FileSize, @ModifiedOn, @CreatedOn, @Memo, GetDate(), GetDate()); " +
                 "Select Convert(int, Scope_Identity());";
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
+            bool wasAdded = (newID > 0);
+            return wasAdded;
         }
 
-        public static void AddFile(string filename, string extension, string path, int filesize,
+        public static bool AddFile(string filename, string extension, string path, int filesize,
                 DateTime created, DateTime modified) {
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@FileName", filename));
@@ -68,6 +71,8 @@ namespace FileAid.DAL {
                 "Values (@FileName, @FileExt, @FilePath, @FileSize, @ModifiedOn, @CreatedOn, GetDate(), GetDate()); " +
                 "Select Convert(int, Scope_Identity());";
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
+            bool wasAdded = (newID > 0);
+            return wasAdded;
         }
     }
 }
