@@ -16,18 +16,20 @@ namespace FileAid.Models {
             return file;
         }
 
-        public static bool AddFile(string filename, string extension, string path, int filesize,
+        public static TrackedFile AddFile(string filename, string extension, string path, int filesize,
                 DateTime created, DateTime modified, string memo) {
-            bool wasAdded = DAL.FileManagerDAL.AddFile(filename, extension, path, filesize,
+            int newID = DAL.FileManagerDAL.AddFile(filename, extension, path, filesize,
                 created, modified, memo);
-            return wasAdded;
+            TrackedFile newFile = GetFile(newID);
+            return newFile;
         }
 
-        public static bool AddFile(string filename, string extension, string path, int filesize,
+        public static TrackedFile AddFile(string filename, string extension, string path, int filesize,
                 DateTime created, DateTime modified) {
-            bool wasAdded = DAL.FileManagerDAL.AddFile(filename, extension, path, filesize,
+            int newID = DAL.FileManagerDAL.AddFile(filename, extension, path, filesize,
                 created, modified);
-            return wasAdded;
+            TrackedFile newFile = GetFile(newID);
+            return newFile;
         }
     }
 }
