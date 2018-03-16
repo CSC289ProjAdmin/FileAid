@@ -10,25 +10,30 @@ namespace FileAid.Models {
         public string LinkMemo { get; set; } = null;
 
         public List<TrackedFile> GetFiles() {
-            // stub
-            List<TrackedFile> dummy = new List<TrackedFile>();
-            return dummy;
+            List<TrackedFile> myFiles = DAL.FileLinkDAL.GetFiles(this.LinkMemoID);
+            return myFiles;
         }
 
-        public void Join(List<TrackedFile> newMembers) {
-            // stub
+        public bool Join(int newMemberFileID) {
+            bool wasJoined = DAL.FileLinkDAL.Join(this.LinkMemoID, newMemberFileID);
+            return wasJoined;
         }
 
-        public void UpdateMemo(string memo) {
-            // stub
+        public bool UpdateMemo(string memo) {
+            bool wasUpdated = DAL.FileLinkDAL.UpdateMemo(this.LinkMemoID, memo);
+            if (wasUpdated) LinkMemo = memo;
+            return wasUpdated;
         }
 
-        public void RemoveMemo() {
-            // stub
+        public bool RemoveMemo() {
+            bool wasRemoved = DAL.FileLinkDAL.RemoveMemo(this.LinkMemoID);
+            if (wasRemoved) LinkMemo = "";
+            return wasRemoved;
         }
 
-        public void RemoveFiles(List<TrackedFile> exMembers) {
-            // stub
+        public bool RemoveFiles(List<int> exMemberFileIDs) {
+            bool wereRemoved = DAL.FileLinkDAL.RemoveFiles(this.LinkMemoID, exMemberFileIDs);
+            return wereRemoved;
         }
     }
 }
