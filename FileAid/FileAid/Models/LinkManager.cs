@@ -7,19 +7,25 @@ using System.Threading.Tasks;
 namespace FileAid.Models {
     public static class LinkManager {
         public static List<FileLink> GetLinks() {
-            // stub
-            List<FileLink> dummy = new List<FileLink>();
-            return dummy;
+            List<FileLink> allLinks = DAL.LinkManagerDAL.GetLinks();
+            return allLinks;
         }
 
         public static FileLink GetLink(int linkMemoID) {
-            // stub
-            FileLink dummy = new FileLink();
-            return dummy;
+            FileLink specific = DAL.LinkManagerDAL.GetLink(linkMemoID);
+            return specific;
         }
 
-        public static void AddLink(List<TrackedFile> newGroup) {
-            // stub
+        public static FileLink AddLink(List<int> memberFileIDs, string linkMemo) {
+            int newID = DAL.LinkManagerDAL.AddLink(memberFileIDs, linkMemo);
+            FileLink newLink = GetLink(newID);
+            return newLink;
+        }
+
+        public static FileLink AddLink(List<int> memberFileIDs) {
+            int newID = DAL.LinkManagerDAL.AddLink(memberFileIDs);
+            FileLink newLink = GetLink(newID);
+            return newLink;
         }
     }
 }
