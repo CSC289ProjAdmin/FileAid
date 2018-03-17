@@ -87,6 +87,12 @@
     <Compile Include="GUI\FormFileAidEvents.Designer.cs">
       <DependentUpon>FormFileAidEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidLink.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidLink.Designer.cs">
+      <DependentUpon>FormFileAidLink.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,18 @@
     </Compile>
     <Compile Include="GUI\FormFileAidNewFile.Designer.cs">
       <DependentUpon>FormFileAidNewFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidReminder.Designer.cs">
+      <DependentUpon>FormFileAidReminder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidUserMan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidUserMan.Designer.cs">
+      <DependentUpon>FormFileAidUserMan.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BatchManager.cs" />
     <Compile Include="Models\Configs.cs" />
@@ -135,6 +153,9 @@
     <EmbeddedResource Include="GUI\FormFileAidEvents.resx">
       <DependentUpon>FormFileAidEvents.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidLink.resx">
+      <DependentUpon>FormFileAidLink.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidLogin.resx">
       <DependentUpon>FormFileAidLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +164,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidNewFile.resx">
       <DependentUpon>FormFileAidNewFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidReminder.resx">
+      <DependentUpon>FormFileAidReminder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidUserMan.resx">
+      <DependentUpon>FormFileAidUserMan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
