@@ -21,5 +21,10 @@ namespace FileAid.GUI
             FormFileAidNewFile newfile = new FormFileAidNewFile();
             newfile.ShowDialog();
         }
+
+        private void btnAddLink_Click(object sender, EventArgs e) {
+            FormFileAidLink newLink = new FormFileAidLink();
+            newLink.ShowDialog();
+        }
     }
 }
