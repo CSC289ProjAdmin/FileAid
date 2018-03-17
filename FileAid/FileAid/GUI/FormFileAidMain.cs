@@ -26,5 +26,10 @@ namespace FileAid.GUI
             FormFileAidLink newLink = new FormFileAidLink();
             newLink.ShowDialog();
         }
+
+        private void btnAddReminder_Click(object sender, EventArgs e) {
+            FormFileAidReminder newReminder = new FormFileAidReminder();
+            newReminder.ShowDialog();
+        }
     }
 }

@@ -265,6 +265,7 @@
             this.btnAddReminder.TabIndex = 12;
             this.btnAddReminder.Text = "Add Reminder";
             this.btnAddReminder.UseVisualStyleBackColor = false;
+            this.btnAddReminder.Click += new System.EventHandler(this.btnAddReminder_Click);
             // 
             // txtWild
             // 
