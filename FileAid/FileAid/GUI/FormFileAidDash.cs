@@ -41,5 +41,27 @@ namespace FileAid.GUI
             FormFileAidUserMan userMgmt = new FormFileAidUserMan();
             userMgmt.ShowDialog();
         }
+
+        private void btnUpdateMode_Click(object sender, EventArgs e) {
+            string promptTitle = "Update Mode";
+            string promptMsg = "Do you want to put FileAid in Update Mode?\n\n" +
+                "This will minimize FileAid to the system tray.";
+            MessageBoxButtons promptBtns = MessageBoxButtons.YesNo;
+            DialogResult dr = MessageBox.Show(promptMsg, promptTitle, promptBtns);
+            if (dr == DialogResult.Yes) {
+                int tipDuration = 3000;
+                string tipTitle = "Update Mode";
+                string tipText = "FileAid is now in Update Mode.\nClick \"Show\" in menu to return to FileAid.";
+                ToolTipIcon tipIcon = ToolTipIcon.Info;
+                this.Hide();
+                iconFileAidTray.Visible = true;
+                iconFileAidTray.ShowBalloonTip(tipDuration, tipTitle, tipText, tipIcon);
+            }
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e) {
+            iconFileAidTray.Visible = false;
+            this.Show();
+        }
     }
 }
