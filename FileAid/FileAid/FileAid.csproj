@@ -87,6 +87,12 @@
     <Compile Include="GUI\FormFileAidEvents.Designer.cs">
       <DependentUpon>FormFileAidEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidLink.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidLink.Designer.cs">
+      <DependentUpon>FormFileAidLink.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidEvents.resx">
       <DependentUpon>FormFileAidEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidLink.resx">
+      <DependentUpon>FormFileAidLink.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidLogin.resx">
       <DependentUpon>FormFileAidLogin.cs</DependentUpon>
