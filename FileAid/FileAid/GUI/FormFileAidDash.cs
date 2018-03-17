@@ -36,5 +36,10 @@ namespace FileAid.GUI
             FormFileAidConfig config = new FormFileAidConfig();
             config.ShowDialog();
         }
+
+        private void btnUserMan_Click(object sender, EventArgs e) {
+            FormFileAidUserMan userMgmt = new FormFileAidUserMan();
+            userMgmt.ShowDialog();
+        }
     }
 }
