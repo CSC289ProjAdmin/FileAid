@@ -44,6 +44,11 @@
             this.btnBatchScan = new System.Windows.Forms.Button();
             this.btnDataView = new System.Windows.Forms.Button();
             this.FileAidIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblDashMessage
@@ -233,9 +238,37 @@
             // 
             // FileAidIcon
             // 
+            this.FileAidIcon.ContextMenuStrip = this.contextMenuStrip1;
             this.FileAidIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("FileAidIcon.Icon")));
             this.FileAidIcon.Text = "FileAidIcon";
             this.FileAidIcon.Visible = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
+            this.updateToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 70);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.showToolStripMenuItem.Text = "Show";
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
             // 
             // FormFileAidDash
             // 
@@ -258,6 +291,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidDash";
             this.Text = "File Aid Dashboard";
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,6 +313,10 @@
         private System.Windows.Forms.Button btnBatchScan;
         private System.Windows.Forms.Button btnDataView;
         private System.Windows.Forms.NotifyIcon FileAidIcon;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 
