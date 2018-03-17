@@ -17,6 +17,7 @@ namespace FileAid.DAL {
         }
 
         public static Reminder GetReminder(int reminderID) {
+            if (reminderID <= 0) return null;
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@ReminderID", reminderID));
             string select = "Select ReminderID, sReminderName As Name, dDue As DueOn, " +
@@ -31,7 +32,7 @@ namespace FileAid.DAL {
             }
         }
 
-        public static void AddReminder(List<int> fileIDs, string reminderName, 
+        public static int AddReminder(List<int> fileIDs, string reminderName, 
                 DateTime dueOn, string reminderMemo) {
             // Create the reminder
             List<SqlParameter> args = new List<SqlParameter>();
@@ -48,9 +49,10 @@ namespace FileAid.DAL {
             foreach (int id in fileIDs) {
                 ReminderDAL.Join(newID, id);
             }
+            return newID;
         }
 
-        public static void AddReminder(List<int> fileIDs, string reminderName, DateTime dueOn) {
+        public static int AddReminder(List<int> fileIDs, string reminderName, DateTime dueOn) {
             // Create the reminder (without setting up a memo/description)
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@Name", reminderName));
@@ -65,6 +67,7 @@ namespace FileAid.DAL {
             foreach (int id in fileIDs) {
                 ReminderDAL.Join(newID, id);
             }
+            return newID;
         }
     }
 }    
