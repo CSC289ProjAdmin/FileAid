@@ -15,6 +15,7 @@ namespace FileAid.DAL {
         }
 
         public static FileLink GetLink(int linkMemoID) {
+            if (linkMemoID <= 0) return null;
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@LinkMemoID", linkMemoID));
             string select = "Select LinkMemoID, sLinkMemo As LinkMemo From LinkMemos " +
@@ -27,7 +28,7 @@ namespace FileAid.DAL {
             }
         }
 
-        public static void AddLink(List<int> fileIDs, string linkMemo) {
+        public static int AddLink(List<int> fileIDs, string linkMemo) {
             // Create the link group
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@Memo", linkMemo));
@@ -39,9 +40,10 @@ namespace FileAid.DAL {
             foreach (int id in fileIDs) {
                 FileLinkDAL.Join(newID, id);
             }
+            return newID;
         }
 
-        public static void AddLink(List<int> fileIDs) {
+        public static int AddLink(List<int> fileIDs) {
             // Create the link group (without setting up a memo)
             string insert = "Insert Into LinkMemos (dMemoCreated, dMemoUpdated) " +
                 "Values (GetDate(), GetDate()); " +
@@ -51,6 +53,7 @@ namespace FileAid.DAL {
             foreach (int id in fileIDs) {
                 FileLinkDAL.Join(newID, id);
             }
+            return newID;
         }
     }
 }
