@@ -7,51 +7,73 @@ using System.Threading.Tasks;
 namespace FileAid.Models {
     public static class UserService {
         public static User Find(string username) {
-            // stub
-            User dummy = new User();
-            return dummy;
+            User specific = DAL.UserServiceDAL.Find(username);
+            return specific;
         }
 
-        public static bool VerifyCredentials(User u) {
-            // stub
-            return false;
+        public static bool VerifyCredentials(User u, string password) {
+            // TODO: Encrypt given password before comparing to datastore
+            // string encrypted = xxx.Encrypt(password);
+            bool isValid = DAL.UserServiceDAL.VerifyCredentials(u.Username, password);
+            return isValid;
         }
 
-        public static void IncrementFailures(User u) {
-            // stub
+        public static bool IncrementFailures(User u) {
+            bool wasIncremented = DAL.UserServiceDAL.IncrementFailures(u.UserID);
+            if (wasIncremented) u.LoginFailures++;
+            return wasIncremented;
         }
 
-        public static void ClearFailures(User u) {
-            // stub
+        public static bool ClearFailures(User u) {
+            bool wasCleared = DAL.UserServiceDAL.ClearFailures(u.UserID);
+            if (wasCleared) u.LoginFailures = 0;
+            return wasCleared;
         }
 
-        public static void LockOut(User u) {
-            // stub
+        public static bool LockOut(User u) {
+            bool wasLockedOut = DAL.UserServiceDAL.LockOut(u.UserID);
+            if (wasLockedOut) u.LockedOutOn = DateTime.Now;
+            return wasLockedOut;
         }
 
         public static bool IsLockedOut(User u) {
-            // stub
-            return false;
+            bool isLockedOut = false;
+            bool isLockTimerSet = (u.LockedOutOn > new DateTime()); // 01-01-0001
+            if (isLockTimerSet) {
+                TimeSpan timeDifference = DateTime.Now - u.LockedOutOn;
+                isLockedOut = (timeDifference < TimeSpan.FromHours(1));
+            }
+            return isLockedOut;
         }
 
-        public static void Unlock(User u) {
-            // stub
+        public static bool Unlock(User u) {
+            bool wasUnlocked = DAL.UserServiceDAL.Unlock(u.UserID);
+            if (wasUnlocked) u.LockedOutOn = new DateTime(); // 01-01-0001
+            return wasUnlocked;
         }
 
-        public static void Disable(User u) {
-            // stub
+        public static bool Disable(User u) {
+            bool wasDisabled = DAL.UserServiceDAL.Disable(u.UserID);
+            if (wasDisabled) u.DisabledOn = DateTime.Now;
+            return wasDisabled;
         }
 
-        public static void Enable(User u) {
-            // stub
+        public static bool Enable(User u) {
+            bool wasEnabled = DAL.UserServiceDAL.Enable(u.UserID);
+            if (wasEnabled) u.DisabledOn = new DateTime(); // 01-01-0001
+            return wasEnabled;
         }
 
-        public static void ResetPassword(User u) {
-            // stub
+        public static bool ResetPassword(User u) {
+            bool wasReset = DAL.UserServiceDAL.ResetPassword(u.UserID);
+            return wasReset;
         }
 
-        public static void ChangePassword(User u, string newPassword) {
-            // stub
+        public static bool ChangePassword(User u, string newPassword) {
+            // TODO: Encrypt given password before updating datastore
+            // string encrypted = xxx.Encrypt(newPassword);
+            bool wasChanged = DAL.UserServiceDAL.ChangePassword(u.UserID, newPassword);
+            return wasChanged;
         }
 
         public static bool VerifyPasswordRequirements(string password) {
