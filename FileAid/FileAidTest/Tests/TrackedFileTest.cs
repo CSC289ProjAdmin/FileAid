@@ -51,42 +51,76 @@ namespace FileAidTest.Tests {
                 Assert.AreEqual("First reminder", reminder.Name);
                 Assert.AreEqual("Description for first reminder", reminder.Memo);
                 
-                //Assert for file 2
-                file = files[1];
-                reminder = file.GetReminder();
-                Assert.IsNull(reminder);
             }
         }
 
         [TestMethod]
         public void RemoveMemoTest()
         {
+            string defaultMemo = "Description for memo test reminder";
+            string removedMemo = "";
+
             List<TrackedFile> files = FileManagerDAL.GetFiles();
             if (files != null)
             {
                 TrackedFile file = files[0];
 
-                Assert.AreEqual("Description of first file", file.FileMemo);
+                // Store the current file memo
+                string currentMemo = file.FileMemo ?? "";
 
+                // Update the file to default text
+                file.UpdateMemo(defaultMemo);
+
+                // Verify file has the default memo text
+                Assert.AreEqual(defaultMemo, file.FileMemo);
+
+                // Remove the file memo
                 file.RemoveMemo();
 
-                Assert.AreEqual("", file.FileMemo);
+                // Verify the file memo has been removed
+                Assert.AreEqual(removedMemo, file.FileMemo);
+
+                // Update the file memo to the original memo text
+                file.UpdateMemo(currentMemo);
+
+                // Verify the file memo has the original memo text
+                Assert.AreEqual(currentMemo, file.FileMemo);
+
             }
         }
 
         [TestMethod]
-        public void UpdateMemoTest() {
+        public void UpdateMemoTest()
+        {
+            string defaultMemo = "Description for memo test reminder";
+            string updateMemo = "This is updated memo text";
+
             List<TrackedFile> files = FileManagerDAL.GetFiles();
             if (files != null)
             {
-                // Test reminders for first file
                 TrackedFile file = files[0];
 
-                Assert.IsNull(file.FileMemo);
+                // Store the current file memo
+                string currentMemo = file.FileMemo ?? "";
 
-                file.UpdateMemo("Description of first file");
+                // Update the file to default text
+                file.UpdateMemo(defaultMemo);
 
-                Assert.AreEqual("Description of first file", file.FileMemo);
+                // Verify file has the default memo text
+                Assert.AreEqual(defaultMemo, file.FileMemo);
+
+                // Remove the file memo
+                file.UpdateMemo(updateMemo);
+
+                // Verify the file memo has been removed
+                Assert.AreEqual(updateMemo, file.FileMemo);
+
+                // Update the file memo to the original memo text
+                file.UpdateMemo(currentMemo);
+
+                // Verify the file memo has the original memo text
+                Assert.AreEqual(currentMemo, file.FileMemo);
+
             }
         }
 

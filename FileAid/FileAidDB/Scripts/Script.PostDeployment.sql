@@ -47,6 +47,15 @@ INSERT INTO [dbo].[Reminders]
            ,getdate()
            ,getdate()
            ,null)
+		   ,
+           ('Second reminder'
+           ,'2018-12-25'
+           ,'Description for second reminder'
+           ,null
+           ,null
+           ,getdate()
+           ,getdate()
+           ,null)
 ;
 
 
@@ -98,7 +107,20 @@ INSERT INTO [dbo].[TrackedFiles]
            ,getdate()
            ,'Description of second file'
            ,null
+           ,(select min(reminderID) from reminders where sReminderName like '%second%')
+           ,getdate()
+           ,getdate()
+           ,null)
+           ,
+           ('Third File'
+           ,'DOCX'
+           ,'C:\My Documents'
+           ,1000000
+           ,getdate()
+           ,getdate()
+           ,'Description of third file'
            ,null
+           ,(select min(reminderID) from reminders where sReminderName like '%first%')
            ,getdate()
            ,getdate()
            ,null)
