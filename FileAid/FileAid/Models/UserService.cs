@@ -70,9 +70,11 @@ namespace FileAid.Models {
         }
 
         public static bool ChangePassword(User u, string newPassword) {
+            bool isValidPassword = VerifyPasswordRequirements(newPassword);
             // TODO: Encrypt given password before updating datastore
             // string encrypted = xxx.Encrypt(newPassword);
-            bool wasChanged = DAL.UserServiceDAL.ChangePassword(u.UserID, newPassword);
+            bool wasChanged = false;
+            if (isValidPassword) wasChanged = DAL.UserServiceDAL.ChangePassword(u.UserID, newPassword);
             return wasChanged;
         }
 
