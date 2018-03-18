@@ -5,6 +5,49 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FileAid.Models {
+    public enum EventTypes {
+        Invalid = -999,
+
+        FileAdded = 1,
+        FileModified,
+        FileTrackingStopped,
+        FileTrackingStarted,
+        FileMemoUpdated,
+        FileMemoRemoved,
+        FileReminderSet,
+
+        FileLinkAdded,
+        FileLinkJoinedGroup,
+        FileLinkLeftGroup,
+        FileLinkMemoUpdated,
+        FileLinkMemoRemoved,
+
+        ReminderAdded,
+        ReminderResolved,
+        ReminderPushed,
+        ReminderMemoUpdated,
+        ReminderMemoRemoved,
+
+        LoginSuccess,
+        LoginFailure,
+        UserLockedOut,
+        UserUnlocked,
+        UserDisabled,
+        UserEnabled,
+        UserPasswordChanged,
+        UserPasswordReset,
+        UserPermsChanged,
+
+        BatchManualStarted,
+        BatchAutoStarted,
+        BatchCompleted,
+
+        DbBackedUp,
+        DbRestored,
+        DbReset,
+
+        ReportRun
+    }
     public class Event {
         public int EventID { get; set; } = -999;
         public int EventTypeID { get; set; } = -999;
