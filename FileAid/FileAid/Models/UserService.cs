@@ -58,6 +58,11 @@ namespace FileAid.Models {
             return wasDisabled;
         }
 
+        public static bool IsDisabled(User u) {
+            bool isDisabled = (u.DisabledOn > new DateTime()); // 01-01-0001
+            return isDisabled;
+        }
+
         public static bool Enable(User u) {
             bool wasEnabled = DAL.UserServiceDAL.Enable(u.UserID);
             if (wasEnabled) u.DisabledOn = new DateTime(); // 01-01-0001
