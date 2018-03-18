@@ -15,19 +15,57 @@ Values
     ('Logins', 'Record of all logins to FileAid', GetDate(), GetDate())
 ;
 
+SET IDENTITY_INSERT [dbo].[EventTypes] ON
 INSERT INTO [dbo].[EventTypes]
-           ([sTypeCategory]
+		   ([EventTypeID]
+		   ,[sTypeCategory]
            ,[sTypeDescription]
            ,[dTypeCreated]
            ,[dTypeUpdated]
            ,[dTypeDeleted])
      VALUES
-           ('File Tracking'
-           ,'File Added'
-           ,getdate()
-           ,getdate()
-           ,null)
+(1,'File Tracking','File Added', getdate(), getdate(),null),
+(2,	'File Tracking','File Info Modified', getdate(), getdate(),null),
+(3,	'File Tracking','Tracking Stopped', getdate(), getdate(),null),
+(4,	'File Tracking','Tracking Restarted', getdate(), getdate(),null),
+(5,	'File Tracking','Description Updated', getdate(), getdate(),null),
+(6,	'File Tracking','Description Removed', getdate(), getdate(),null),
+(7,	'File Tracking','Reminder Set', getdate(), getdate(),null),
+
+(8,'File Linking',	'Group Created', getdate(), getdate(),null),
+(9,'File Linking','Joined Group', getdate(), getdate(),null),
+(10,	'File Linking','Left Group', getdate(), getdate(),null),
+(11,	'File Linking','Memo Updated', getdate(), getdate(),null),
+(12,	'File Linking','Memo Removed', getdate(), getdate(),null),
+
+(13,'Ticklers',	'Added', getdate(), getdate(),null),
+(14,	'Ticklers','Resolved', getdate(), getdate(),null),
+(15,	'Ticklers','Pushed', getdate(), getdate(),null),
+(16,	'Ticklers','Memo Updated', getdate(), getdate(),null),
+(17,	'Ticklers','Memo Removed', getdate(), getdate(),null),
+
+(18,'Logins',	'Successful Login', getdate(), getdate(),null),
+(19,	'Logins','Failed Login', getdate(), getdate(),null),
+
+(20,'User Management',	'Locked Out', getdate(), getdate(),null),
+(21,	'User Management','Unlocked', getdate(), getdate(),null),
+(22,	'User Management','Disabled', getdate(), getdate(),null),
+(23,	'User Management','Enabled', getdate(), getdate(),null),
+(24,	'User Management','Password Changed', getdate(), getdate(),null),
+(25,	'User Management','Password Reset', getdate(), getdate(),null),
+(26,	'User Management','Permissions Changed', getdate(), getdate(),null),
+
+(27,'Database Management',	'Backed Up', getdate(), getdate(),null),
+(28,	'Database Management','Restored', getdate(), getdate(),null),
+(29,	'Database Management','Reset', getdate(), getdate(),null),
+
+(30,'Batch Update',	'Started - Manual', getdate(), getdate(),null),
+(31,'Batch Update',	'Started - Auto', getdate(), getdate(),null),
+(32,'Batch Update','Completed', getdate(), getdate(),null),
+
+(33,'Reports',	'Report Run', getdate(), getdate(),null)
 ;
+SET IDENTITY_INSERT [dbo].[EventTypes] OFF
 
 INSERT INTO [dbo].[Reminders]
            ([sReminderName]
