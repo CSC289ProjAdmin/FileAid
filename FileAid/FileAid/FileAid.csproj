@@ -52,6 +52,7 @@
     <Compile Include="DAL\FileLinkDAL.cs" />
     <Compile Include="DAL\FileManagerDAL.cs" />
     <Compile Include="DAL\LinkManagerDAL.cs" />
+    <Compile Include="DAL\LoggerDAL.cs" />
     <Compile Include="DAL\MSSqlHelper.cs" />
     <Compile Include="DAL\ReminderDAL.cs" />
     <Compile Include="DAL\ReminderManagerDAL.cs" />
