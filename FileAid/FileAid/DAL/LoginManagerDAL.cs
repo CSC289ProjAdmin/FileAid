@@ -14,12 +14,13 @@ namespace FileAid.DAL {
             return Db.ReadQuery<Login>(select);
         }
 
-        public static Login GetLogin(int loginID) {
-            if (loginID <= 0) return null;
+        public static Login GetMostRecentLogin(int userID) {
+            if (userID <= 0) return null;
             List<SqlParameter> args = new List<SqlParameter>();
-            args.Add(new SqlParameter("@LoginID", loginID));
+            args.Add(new SqlParameter("@UserID", userID));
             string select = "Select LoginID, UserID, dLogin As OccurredOn " +
-                "From Logins Where dLoginDeleted Is Null And LoginID = @LoginID;";
+                "From Logins Where dLoginDeleted Is Null And UserID = @UserID " +
+                "And dLogin = (Select Max(dLogin) From Logins Where UserID = @UserID And dLoginDeleted Is Null);";
             List<Login> results = Db.ReadQuery<Login>(select, args.ToArray());
             if (results != null) {
                 return results[0];
