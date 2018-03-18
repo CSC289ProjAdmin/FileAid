@@ -7,7 +7,7 @@ using FileAid.Models;
 using System.Data.SqlClient;
 
 namespace FileAid.DAL {
-    public class LoggerDAL {
+    public static class LoggerDAL {
         public static bool LogToDb(Event e) {
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@EventTypeID", e.EventTypeID));

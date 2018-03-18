@@ -129,6 +129,7 @@
     <Compile Include="Models\Configs.cs" />
     <Compile Include="Models\DbManager.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventManager.cs" />
     <Compile Include="Models\FileLink.cs" />
     <Compile Include="Models\FileManager.cs" />
     <Compile Include="Models\LinkManager.cs" />

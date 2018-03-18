@@ -7,7 +7,7 @@ using FileAid.Models;
 using System.Data.SqlClient;
 
 namespace FileAid.DAL {
-    public class EventManagerDAL {
+    public static class EventManagerDAL {
         public static List<Event> GetEvents() {
             string select = "Select EventID, EventTypeID, dEvent As OccurredOn, " +
                 "sEventDescription As Description, sInitial As Initial, sNew As New, " +
