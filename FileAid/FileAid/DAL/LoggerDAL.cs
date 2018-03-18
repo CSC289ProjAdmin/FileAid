@@ -34,9 +34,14 @@ namespace FileAid.DAL {
                 "@FileID, @LinkID, @ReportID, @ReminderID, @BatchID, @UserID, " +
                 "@LoginID, @PermID, @ConfigID, GetDate(), GetDate()); " +
                 "Select Convert(int, Scope_Identity());";
-            int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
-            bool wasAdded = (newID > 0);
-            return wasAdded;
+            bool wasWritten = false;
+            try {
+                int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
+                wasWritten = (newID > 0);
+            } catch (SqlException ex) {
+                //wasWritten = false;
+            }
+            return wasWritten;
         }
     }
 }
