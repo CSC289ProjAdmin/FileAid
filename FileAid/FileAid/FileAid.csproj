@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="DAL\Db.cs" />
     <Compile Include="DAL\DbManagerDAL.cs" />
+    <Compile Include="DAL\EventManagerDAL.cs" />
     <Compile Include="DAL\FileLinkDAL.cs" />
     <Compile Include="DAL\FileManagerDAL.cs" />
     <Compile Include="DAL\LinkManagerDAL.cs" />
