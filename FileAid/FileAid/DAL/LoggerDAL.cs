@@ -38,7 +38,7 @@ namespace FileAid.DAL {
             try {
                 int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
                 wasWritten = (newID > 0);
-            } catch (SqlException ex) {
+            } catch (SqlException) {
                 //wasWritten = false;
             }
             return wasWritten;
