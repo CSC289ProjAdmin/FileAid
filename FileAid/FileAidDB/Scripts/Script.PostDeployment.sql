@@ -179,3 +179,161 @@ INSERT INTO [dbo].[FileLinks]
            ,getdate()
            ,null)
 ;
+
+INSERT INTO [dbo].[Permissions]
+           ([bChangeAdminPass]
+           ,[bChangeUserPass]
+           ,[bChangeGuestPass]
+           ,[bEnableUser]
+           ,[bEnableGuest]
+           ,[bResetUserPass]
+           ,[bResetGuessPass]
+           ,[bUnlockUser]
+           ,[bUnlockGuest]
+           ,[bRestrictGuest]
+           ,[bResetDb]
+           ,[bBackupDb]
+           ,[bRestoreDb]
+           ,[bBatchScan]
+           ,[bProgramSetup]
+           ,[bLoginMgmt]
+           ,[bDbMgmt]
+           ,[dPermCreated]
+           ,[dPermUpdated]
+           ,[dPermDeleted])
+     VALUES
+           (1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,getdate()
+           ,getdate()
+           ,null) -- Admin end
+		   ,
+           (0
+           ,1
+           ,1
+           ,0
+           ,1
+           ,0
+           ,1
+           ,0
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,1
+           ,getdate()
+           ,getdate()
+           ,null) -- User end
+		   ,
+           (0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,0
+           ,getdate()
+           ,getdate()
+           ,null) -- Guest end
+;
+
+INSERT INTO [dbo].[Roles]
+           ([sRoleName]
+           ,[PermID]
+           ,[dRoleCreated]
+           ,[dRoleUpdated]
+           ,[dRoleDeleted])
+     VALUES
+           ('Admin'
+           ,(select min(permid) from permissions where bChangeAdminPass = 1 and dPermDeleted is null)
+           ,getdate()
+           ,getdate()
+           ,null)
+		   ,
+           ('User'
+           ,(select min(permid) from permissions where bChangeAdminPass = 0 and bChangeUserPass = 1 and dPermDeleted is null)
+           ,getdate()
+           ,getdate()
+           ,null)
+		   ,
+           ('Guest'
+           ,(select min(permid) from permissions where bChangeAdminPass = 0 and bChangeUserPass = 0 and dPermDeleted is null)
+           ,getdate()
+           ,getdate()
+           ,null)
+;
+
+INSERT INTO [dbo].[Users]
+           ([sUserName]
+           ,[sPassword]
+		   ,[sDefaultPassword]
+           ,[RoleID]
+           ,[iFailures]
+           ,[dLockedOut]
+           ,[dUserDisabled]
+           ,[dUserCreated]
+           ,[dUserUpdated]
+           ,[dUserDeleted])
+     VALUES
+           ('Admin'
+           ,'Admin'
+		   ,'Admin'
+           ,(select min(roleID) from roles where sRoleName = 'Admin' and dRoleDeleted is null)
+           ,0
+           ,null
+           ,null
+           ,getdate()
+           ,getdate()
+           ,null)
+		   ,
+           ('User'
+           ,'' -- no initial password
+		   ,'' -- empty default password
+           ,(select min(roleID) from roles where sRoleName = 'User' and dRoleDeleted is null)
+           ,0
+           ,null
+           ,null
+           ,getdate()
+           ,getdate()
+           ,null)
+		   ,
+           ('Guest'
+           ,'' -- no initial password
+		   ,'' -- empty default password
+           ,(select min(roleID) from roles where sRoleName = 'Guest' and dRoleDeleted is null)
+           ,0
+           ,null
+           ,null
+           ,getdate()
+           ,getdate()
+           ,null)
+;
