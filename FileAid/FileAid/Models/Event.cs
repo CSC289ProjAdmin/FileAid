@@ -12,8 +12,6 @@ namespace FileAid.Models {
         public string Description { get; set; }
         public string Initial { get; set; }
         public string New { get; set; }
-        /* Is it necessary to include these IDs in the object?
-        */
         public int FileID { get; set; } = -999;
         public int LinkID { get; set; } = -999;
         public int ReportID { get; set; } = -999;
@@ -23,7 +21,6 @@ namespace FileAid.Models {
         public int LoginID { get; set; } = -999;
         public int PermID { get; set; } = -999;
         public int ConfigID { get; set; } = -999;
-        /**/
         // stub
     }
 }

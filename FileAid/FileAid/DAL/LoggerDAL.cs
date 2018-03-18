@@ -11,25 +11,28 @@ namespace FileAid.DAL {
         public static bool LogToDb(Event e) {
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@EventTypeID", e.EventTypeID));
-            args.Add(new SqlParameter("@EventDate", e.OccurredOn));
             args.Add(new SqlParameter("@Description", e.Description));
-            args.Add(new SqlParameter("@Initial", e.Initial));
-            args.Add(new SqlParameter("@New", e.New));
 
-            args.Add(new SqlParameter("@FileID", (e.FileID != -999 ? e.FileID.ToString() : "null") ));
-            args.Add(new SqlParameter("@LinkID", (e.LinkID != -999 ? e.LinkID.ToString() : "null") ));
-            args.Add(new SqlParameter("@ReportID", (e.ReportID != -999 ? e.ReportID.ToString() : "null") ));
-            args.Add(new SqlParameter("@ReminderID", (e.ReminderID != -999 ? e.ReminderID.ToString() : "null") ));
-            args.Add(new SqlParameter("@BatchID", (e.BatchID != -999 ? e.BatchID.ToString() : "null") ));
-            args.Add(new SqlParameter("@UserID", (e.UserID != -999 ? e.UserID.ToString() : "null") ));
-            args.Add(new SqlParameter("@LoginID", (e.LoginID != -999 ? e.LoginID.ToString() : "null") ));
-            args.Add(new SqlParameter("@PermID", (e.PermID != -999 ? e.PermID.ToString() : "null") ));
-            args.Add(new SqlParameter("@ConfigID", (e.ConfigID != -999 ? e.ConfigID.ToString() : "null") ));
+            args.Add(new SqlParameter("@Initial", (string.IsNullOrEmpty(e.Initial) ? DBNull.Value : (object)e.Initial) ));
+            args.Add(new SqlParameter("@New", (string.IsNullOrEmpty(e.New) ? DBNull.Value : (object)e.New) ));
 
-            string insert = "Insert Into Events (EventTypeID, dEvent, sEventDescription, sInitial, sNew, " +
-                "FileID, LinkID, ReportID, ReminderID, BatchID, UserID, LoginID, PermID, ConfigID) " +
-                "Values (@EventTypeID, @EventDate, @Description, @Initial, @New, " +
-                "@FileID, @LinkID, @ReportID, @ReminderID, @BatchID, @UserID, @LoginID, @PermID, @ConfigID); " +
+            args.Add(new SqlParameter("@FileID", (e.FileID != -999 ? (object)e.FileID : DBNull.Value) ));
+            args.Add(new SqlParameter("@LinkID", (e.LinkID != -999 ? (object)e.LinkID : DBNull.Value) ));
+            args.Add(new SqlParameter("@ReportID", (e.ReportID != -999 ? (object)e.ReportID : DBNull.Value) ));
+            args.Add(new SqlParameter("@ReminderID", (e.ReminderID != -999 ? (object)e.ReminderID : DBNull.Value) ));
+            args.Add(new SqlParameter("@BatchID", (e.BatchID != -999 ? (object)e.BatchID : DBNull.Value) ));
+            args.Add(new SqlParameter("@UserID", (e.UserID != -999 ? (object)e.UserID: DBNull.Value) ));
+            args.Add(new SqlParameter("@LoginID", (e.LoginID != -999 ? (object)e.LoginID: DBNull.Value) ));
+            args.Add(new SqlParameter("@PermID", (e.PermID != -999 ? (object)e.PermID: DBNull.Value) ));
+            args.Add(new SqlParameter("@ConfigID", (e.ConfigID != -999 ? (object)e.ConfigID: DBNull.Value) ));
+
+            string insert =
+                "Insert Into Events (EventTypeID, dEvent, sEventDescription, sInitial, sNew, " +
+                "FileID, LinkID, ReportID, ReminderID, BatchID, UserID, " +
+                "LoginID, PermID, ConfigID, dEventCreated, dEventUpdated) " +
+                "Values (@EventTypeID, GetDate(), @Description, @Initial, @New, " +
+                "@FileID, @LinkID, @ReportID, @ReminderID, @BatchID, @UserID, " +
+                "@LoginID, @PermID, @ConfigID, GetDate(), GetDate()); " +
                 "Select Convert(int, Scope_Identity());";
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
             bool wasAdded = (newID > 0);
