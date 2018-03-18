@@ -79,6 +79,10 @@ namespace FileAid.DAL {
             return ExecuteDataset(commandText, null);
         }
 
+        private static T Cast<T>(T target, object source) {
+            return (T)source;
+        }
+
         public static List<T> ReadQuery<T>(string commandText, SqlParameter[] sqlParams) {
             List<T> result = new List<T>();
             using (SqlDataReader rdr = ExecuteReader(commandText, sqlParams)) {
@@ -92,7 +96,12 @@ namespace FileAid.DAL {
                             Type type = info.PropertyType;
                             // Assign value to property if column in table row has matching name and a value
                             if (!DBNull.Value.Equals(rdr[info.Name])) {
-                                info.SetValue(i, Convert.ChangeType(rdr[info.Name], type), null);
+                                if (type.IsEnum) {
+                                    Type enumType = type.GetEnumUnderlyingType();
+                                    info.SetValue(i, Cast(Activator.CreateInstance(enumType), rdr[info.Name]));
+                                } else {
+                                    info.SetValue(i, Convert.ChangeType(rdr[info.Name], type), null);
+                                }
                             }
                         }
                         result.Add(i);
