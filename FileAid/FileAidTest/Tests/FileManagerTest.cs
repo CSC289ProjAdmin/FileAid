@@ -16,7 +16,7 @@ namespace FileAidTest.Tests {
             List<TrackedFile> trackedFiles = FileManager.GetFiles();
 
             // Verify there are least two files
-            Assert.IsTrue(trackedFiles.Count > 2);
+            Assert.IsTrue(trackedFiles.Count >= 2);
      
         }
 
