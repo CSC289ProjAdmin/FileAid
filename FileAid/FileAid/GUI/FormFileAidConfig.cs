@@ -19,7 +19,9 @@ namespace FileAid.GUI
 
         private void FileAidConfig_Load(object sender, EventArgs e)
         {
-
+            ConfigtoolTip.SetToolTip(PeriodicdateTimePicker, "Select Periodic Update Date");
+            ConfigtoolTip.SetToolTip(btnPeriodicUpdate, "Periodic Update");
+            ConfigtoolTip.SetToolTip(btnModifiedFiles, "Display Modified files");
         }
     }
 }
