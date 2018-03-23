@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.EventslistView = new System.Windows.Forms.ListView();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnEventsReport = new System.Windows.Forms.Button();
-            this.btnEventsFilters = new System.Windows.Forms.Button();
-            this.lblEventsFilters = new System.Windows.Forms.Label();
-            this.txtMemo = new System.Windows.Forms.TextBox();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -42,6 +38,12 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnEventsReport = new System.Windows.Forms.Button();
+            this.btnEventsFilters = new System.Windows.Forms.Button();
+            this.lblEventsFilters = new System.Windows.Forms.Label();
+            this.txtMemo = new System.Windows.Forms.TextBox();
+            this.EventstoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -74,6 +76,41 @@
             this.EventslistView.TabIndex = 2;
             this.EventslistView.UseCompatibleStateImageBehavior = false;
             this.EventslistView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Manual Changes";
+            this.columnHeader1.Width = 143;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Updates";
+            this.columnHeader2.Width = 94;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Report Creation";
+            this.columnHeader3.Width = 132;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Batch Updates";
+            this.columnHeader4.Width = 133;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Errors Occur";
+            this.columnHeader5.Width = 118;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Failure Count";
+            this.columnHeader6.Width = 125;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "DB Backup/Reset";
+            this.columnHeader7.Width = 161;
             // 
             // btnReset
             // 
@@ -132,42 +169,11 @@
             this.txtMemo.Size = new System.Drawing.Size(284, 26);
             this.txtMemo.TabIndex = 18;
             // 
-            // columnHeader1
+            // EventstoolTip
             // 
-            this.columnHeader1.Text = "Manual Changes";
-            this.columnHeader1.Width = 143;
+            this.EventstoolTip.IsBalloon = true;
             // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Updates";
-            this.columnHeader2.Width = 94;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Report Creation";
-            this.columnHeader3.Width = 132;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Batch Updates";
-            this.columnHeader4.Width = 133;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Errors Occur";
-            this.columnHeader5.Width = 118;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Failure Count";
-            this.columnHeader6.Width = 125;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "DB Backup/Reset";
-            this.columnHeader7.Width = 161;
-            // 
-            // FileAidEvents
+            // FormFileAidEvents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,8 +185,9 @@
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.EventslistView);
             this.Controls.Add(this.lblMainInfo);
-            this.Name = "FileAidEvents";
+            this.Name = "FormFileAidEvents";
             this.Text = "FileAidEvents";
+            this.Load += new System.EventHandler(this.FormFileAidEvents_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,6 +209,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ToolTip EventstoolTip;
     }
 }
 
