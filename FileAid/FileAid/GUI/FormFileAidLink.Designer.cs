@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.lblComment = new System.Windows.Forms.Label();
             this.btnDeleteLink = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
             this.txtComment = new System.Windows.Forms.TextBox();
             this.lblFileName = new System.Windows.Forms.Label();
             this.txtLinkFileName = new System.Windows.Forms.TextBox();
+            this.AddLinktoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -126,6 +128,10 @@
             this.txtLinkFileName.Size = new System.Drawing.Size(309, 26);
             this.txtLinkFileName.TabIndex = 14;
             // 
+            // AddLinktoolTip
+            // 
+            this.AddLinktoolTip.IsBalloon = true;
+            // 
             // FormFileAidLink
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -141,6 +147,7 @@
             this.Controls.Add(this.lblMainInfo);
             this.Name = "FormFileAidLink";
             this.Text = "FileAidLink";
+            this.Load += new System.EventHandler(this.FormFileAidLink_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,6 +163,7 @@
         private System.Windows.Forms.TextBox txtComment;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.TextBox txtLinkFileName;
+        private System.Windows.Forms.ToolTip AddLinktoolTip;
     }
 }
 
