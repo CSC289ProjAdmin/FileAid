@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtRepeatPass = new System.Windows.Forms.TextBox();
@@ -41,6 +42,7 @@
             this.LockcheckBox = new System.Windows.Forms.CheckBox();
             this.DisablecheckBox = new System.Windows.Forms.CheckBox();
             this.btnResetPassword = new System.Windows.Forms.Button();
+            this.UserMantoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -192,6 +194,10 @@
             this.btnResetPassword.Text = "Reset Password";
             this.btnResetPassword.UseVisualStyleBackColor = false;
             // 
+            // UserMantoolTip
+            // 
+            this.UserMantoolTip.IsBalloon = true;
+            // 
             // FormFileAidUserMan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -212,6 +218,7 @@
             this.Controls.Add(this.lblMainInfo);
             this.Name = "FormFileAidUserMan";
             this.Text = "FileAidUserManagent";
+            this.Load += new System.EventHandler(this.FormFileAidUserMan_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,6 +239,7 @@
         private System.Windows.Forms.CheckBox LockcheckBox;
         private System.Windows.Forms.CheckBox DisablecheckBox;
         private System.Windows.Forms.Button btnResetPassword;
+        private System.Windows.Forms.ToolTip UserMantoolTip;
     }
 }
 
