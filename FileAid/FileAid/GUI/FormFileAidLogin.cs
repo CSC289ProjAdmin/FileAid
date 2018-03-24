@@ -25,5 +25,12 @@ namespace FileAid.GUI
                 DialogResult = DialogResult.None;
             }
         }
+
+        private void FormFileAidLogin_Load(object sender, EventArgs e)
+        {
+            LogintoolTip.SetToolTip(txtUserName, "Enter username");
+            LogintoolTip.SetToolTip(txtPassword, "Enter password");
+            LogintoolTip.SetToolTip(btnLogin, "Login to FileAid");
+        }
     }
 }

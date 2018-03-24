@@ -40,7 +40,7 @@
             this.btnLogEvents = new System.Windows.Forms.Button();
             this.btnViewTick = new System.Windows.Forms.Button();
             this.btnUpdateMode = new System.Windows.Forms.Button();
-            this.btnModiList = new System.Windows.Forms.Button();
+            this.btnGuestPerms = new System.Windows.Forms.Button();
             this.btnBatchScan = new System.Windows.Forms.Button();
             this.btnDataView = new System.Windows.Forms.Button();
             this.iconFileAidTray = new System.Windows.Forms.NotifyIcon(this.components);
@@ -89,6 +89,7 @@
             this.btnReports.TabIndex = 2;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnUserMan
             // 
@@ -144,6 +145,7 @@
             this.btnLinks.TabIndex = 6;
             this.btnLinks.Text = "Links / Groups";
             this.btnLinks.UseVisualStyleBackColor = false;
+            this.btnLinks.Click += new System.EventHandler(this.btnLinks_Click);
             // 
             // btnLogEvents
             // 
@@ -171,6 +173,7 @@
             this.btnViewTick.TabIndex = 8;
             this.btnViewTick.Text = "View Ticklers";
             this.btnViewTick.UseVisualStyleBackColor = false;
+            this.btnViewTick.Click += new System.EventHandler(this.btnViewTick_Click);
             // 
             // btnUpdateMode
             // 
@@ -185,19 +188,21 @@
             this.btnUpdateMode.Text = "Update Mode";
             this.btnUpdateMode.UseVisualStyleBackColor = false;
             this.btnUpdateMode.Click += new System.EventHandler(this.btnUpdateMode_Click);
+            //
+            //  btnGuestPerms
             // 
-            // btnModiList
-            // 
-            this.btnModiList.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnModiList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnModiList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModiList.ForeColor = System.Drawing.Color.White;
-            this.btnModiList.Location = new System.Drawing.Point(302, 235);
-            this.btnModiList.Name = "btnModiList";
-            this.btnModiList.Size = new System.Drawing.Size(200, 49);
-            this.btnModiList.TabIndex = 10;
-            this.btnModiList.Text = "Modified List";
-            this.btnModiList.UseVisualStyleBackColor = false;
+            this.btnGuestPerms.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGuestPerms.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuestPerms.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuestPerms.ForeColor = System.Drawing.Color.White;
+            this.btnGuestPerms.Location = new System.Drawing.Point(201, 153);
+            this.btnGuestPerms.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuestPerms.Name = "btnGuestPerms";
+            this.btnGuestPerms.Size = new System.Drawing.Size(133, 32);
+            this.btnGuestPerms.TabIndex = 10;
+            this.btnGuestPerms.Text = "Permissions";
+            this.btnGuestPerms.UseVisualStyleBackColor = false;
+            this.btnGuestPerms.Click += new System.EventHandler(this.btnGuestPerms_Click);
             // 
             // btnBatchScan
             // 
@@ -271,7 +276,7 @@
             this.ClientSize = new System.Drawing.Size(664, 672);
             this.Controls.Add(this.btnDataView);
             this.Controls.Add(this.btnBatchScan);
-            this.Controls.Add(this.btnModiList);
+            this.Controls.Add(this.btnGuestPerms);
             this.Controls.Add(this.btnUpdateMode);
             this.Controls.Add(this.btnViewTick);
             this.Controls.Add(this.btnLogEvents);
@@ -303,7 +308,7 @@
         private System.Windows.Forms.Button btnLogEvents;
         private System.Windows.Forms.Button btnViewTick;
         private System.Windows.Forms.Button btnUpdateMode;
-        private System.Windows.Forms.Button btnModiList;
+        private System.Windows.Forms.Button btnGuestPerms;
         private System.Windows.Forms.Button btnBatchScan;
         private System.Windows.Forms.Button btnDataView;
         private System.Windows.Forms.NotifyIcon iconFileAidTray;

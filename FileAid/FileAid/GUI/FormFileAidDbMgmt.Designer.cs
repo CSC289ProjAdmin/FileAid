@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblUserDatabase = new System.Windows.Forms.Label();
             this.btnBackup = new System.Windows.Forms.Button();
             this.btnRestore = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDbPrintRepo = new System.Windows.Forms.Button();
+            this.DBMantoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblUserDatabase
@@ -147,7 +149,11 @@
             this.btnDbPrintRepo.Text = "Print Report";
             this.btnDbPrintRepo.UseVisualStyleBackColor = false;
             // 
-            // FileAidDbMgmt
+            // DBMantoolTip
+            // 
+            this.DBMantoolTip.IsBalloon = true;
+            // 
+            // FormFileAidDbMgmt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,8 +165,9 @@
             this.Controls.Add(this.btnRestore);
             this.Controls.Add(this.btnBackup);
             this.Controls.Add(this.lblUserDatabase);
-            this.Name = "FileAidDbMgmt";
+            this.Name = "FormFileAidDbMgmt";
             this.Text = "FileAid Database Management";
+            this.Load += new System.EventHandler(this.FormFileAidDbMgmt_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,6 +185,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button btnDbPrintRepo;
+        private System.Windows.Forms.ToolTip DBMantoolTip;
     }
 }
 

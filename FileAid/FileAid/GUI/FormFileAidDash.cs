@@ -78,6 +78,26 @@ namespace FileAid.GUI
             DashtoolTip.SetToolTip(btnViewTick, "Open ticklers window");
             DashtoolTip.SetToolTip(btnUpdateMode, "Open update mode window");
             DashtoolTip.SetToolTip(btnDataView, "Open data view window");
+
+        private void btnViewTick_Click(object sender, EventArgs e) {
+            FormFileAidTicklers ticklers = new FormFileAidTicklers();
+            ticklers.ShowDialog();
+        }
+
+        private void btnReports_Click(object sender, EventArgs e) {
+            FormFileAidReports reports = new FormFileAidReports();
+            reports.ShowDialog();
+        }
+
+        private void btnGuestPerms_Click(object sender, EventArgs e) {
+            FormFileAidPermission perms = new FormFileAidPermission();
+            perms.ShowDialog();
+        }
+
+        private void btnLinks_Click(object sender, EventArgs e) {
+            FormFileAidFileLinks links = new FormFileAidFileLinks();
+            links.ShowDialog();
+
         }
     }
 }

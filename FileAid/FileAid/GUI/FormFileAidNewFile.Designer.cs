@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.btnAddNewFile = new System.Windows.Forms.Button();
             this.btnAddLink = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NewFiletoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -193,7 +195,11 @@
             // 
             this.columnHeader4.Text = "File Size";
             // 
-            // FileAidNewFile
+            // NewFiletoolTip
+            // 
+            this.NewFiletoolTip.IsBalloon = true;
+            // 
+            // FormFileAidNewFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -209,8 +215,9 @@
             this.Controls.Add(this.btnAddLink);
             this.Controls.Add(this.btnAddNewFile);
             this.Controls.Add(this.lblMainInfo);
-            this.Name = "FileAidNewFile";
+            this.Name = "FormFileAidNewFile";
             this.Text = "FileAidNewFile";
+            this.Load += new System.EventHandler(this.FormFileAidNewFile_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,6 +240,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ToolTip NewFiletoolTip;
     }
 }
 

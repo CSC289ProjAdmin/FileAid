@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.lblReminder = new System.Windows.Forms.Label();
             this.ReminderdateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -36,10 +37,11 @@
             this.btnSelectFiles = new System.Windows.Forms.Button();
             this.btnAddReminder = new System.Windows.Forms.Button();
             this.btnDeleteReminder = new System.Windows.Forms.Button();
-            this.Cancel = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnPushToOutlook = new System.Windows.Forms.Button();
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.RemindertoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -131,18 +133,18 @@
             this.btnDeleteReminder.Text = "Delete";
             this.btnDeleteReminder.UseVisualStyleBackColor = false;
             // 
-            // Cancel
+            // btnCancel
             // 
-            this.Cancel.BackColor = System.Drawing.Color.DodgerBlue;
-            this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancel.ForeColor = System.Drawing.Color.White;
-            this.Cancel.Location = new System.Drawing.Point(421, 308);
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(170, 52);
-            this.Cancel.TabIndex = 13;
-            this.Cancel.Text = "Cancel";
-            this.Cancel.UseVisualStyleBackColor = false;
+            this.btnCancel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(421, 308);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(170, 52);
+            this.btnCancel.TabIndex = 13;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnPushToOutlook
             // 
@@ -175,6 +177,10 @@
             this.lblName.TabIndex = 17;
             this.lblName.Text = "File Name:";
             // 
+            // RemindertoolTip
+            // 
+            this.RemindertoolTip.IsBalloon = true;
+            // 
             // FormFileAidReminder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -183,7 +189,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtFileName);
             this.Controls.Add(this.btnPushToOutlook);
-            this.Controls.Add(this.Cancel);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDeleteReminder);
             this.Controls.Add(this.btnAddReminder);
             this.Controls.Add(this.btnSelectFiles);
@@ -194,6 +200,7 @@
             this.Controls.Add(this.lblMainInfo);
             this.Name = "FormFileAidReminder";
             this.Text = "FileAidReminders";
+            this.Load += new System.EventHandler(this.FormFileAidReminder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,10 +216,11 @@
         private System.Windows.Forms.Button btnSelectFiles;
         private System.Windows.Forms.Button btnAddReminder;
         private System.Windows.Forms.Button btnDeleteReminder;
-        private System.Windows.Forms.Button Cancel;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnPushToOutlook;
         private System.Windows.Forms.TextBox txtFileName;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.ToolTip RemindertoolTip;
     }
 }
 
