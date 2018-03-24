@@ -74,10 +74,11 @@ namespace FileAid.GUI
             DashtoolTip.SetToolTip(btnLinks, "Open links/groups window");
             DashtoolTip.SetToolTip(btnLogEvents, "Open log events window");
             DashtoolTip.SetToolTip(btnBatchScan, "Open batch scan window");
-            DashtoolTip.SetToolTip(btnModiList, "Open modified list window");
+            DashtoolTip.SetToolTip(btnGuestPerms, "Modify Guest Permissions");
             DashtoolTip.SetToolTip(btnViewTick, "Open ticklers window");
             DashtoolTip.SetToolTip(btnUpdateMode, "Open update mode window");
             DashtoolTip.SetToolTip(btnDataView, "Open data view window");
+        }
 
         private void btnViewTick_Click(object sender, EventArgs e) {
             FormFileAidTicklers ticklers = new FormFileAidTicklers();
