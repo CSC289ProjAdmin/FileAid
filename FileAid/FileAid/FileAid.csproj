@@ -90,6 +90,12 @@
     <Compile Include="GUI\FormFileAidEvents.Designer.cs">
       <DependentUpon>FormFileAidEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidFileLinks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidFileLinks.Designer.cs">
+      <DependentUpon>FormFileAidFileLinks.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidLink.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,11 +120,29 @@
     <Compile Include="GUI\FormFileAidNewFile.Designer.cs">
       <DependentUpon>FormFileAidNewFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidPermission.Designer.cs">
+      <DependentUpon>FormFileAidPermission.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidReminder.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FormFileAidReminder.Designer.cs">
       <DependentUpon>FormFileAidReminder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidReports.Designer.cs">
+      <DependentUpon>FormFileAidReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidTicklers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidTicklers.Designer.cs">
+      <DependentUpon>FormFileAidTicklers.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormFileAidUserMan.cs">
       <SubType>Form</SubType>
@@ -159,6 +183,9 @@
     <EmbeddedResource Include="GUI\FormFileAidEvents.resx">
       <DependentUpon>FormFileAidEvents.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidFileLinks.resx">
+      <DependentUpon>FormFileAidFileLinks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidLink.resx">
       <DependentUpon>FormFileAidLink.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,8 +198,17 @@
     <EmbeddedResource Include="GUI\FormFileAidNewFile.resx">
       <DependentUpon>FormFileAidNewFile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidPermission.resx">
+      <DependentUpon>FormFileAidPermission.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidReminder.resx">
       <DependentUpon>FormFileAidReminder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidReports.resx">
+      <DependentUpon>FormFileAidReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidTicklers.resx">
+      <DependentUpon>FormFileAidTicklers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidUserMan.resx">
       <DependentUpon>FormFileAidUserMan.cs</DependentUpon>
