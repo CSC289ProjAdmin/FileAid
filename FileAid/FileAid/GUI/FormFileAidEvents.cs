@@ -16,5 +16,13 @@ namespace FileAid.GUI
         {
             InitializeComponent();
         }
+
+        private void FormFileAidEvents_Load(object sender, EventArgs e)
+        {
+            EventstoolTip.SetToolTip(btnReset, "Reset the events");
+            EventstoolTip.SetToolTip(btnEventsReport, "Print the events report");
+            EventstoolTip.SetToolTip(txtMemo, "Enter the memo");
+            EventstoolTip.SetToolTip(btnEventsFilters, "Filters the files");
+        }
     }
 }
