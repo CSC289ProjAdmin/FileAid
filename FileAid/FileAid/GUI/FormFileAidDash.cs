@@ -64,6 +64,21 @@ namespace FileAid.GUI
             this.Show();
         }
 
+        private void FormFileAidDash_Load(object sender, EventArgs e)
+        {
+            DashtoolTip.SetToolTip(btnTrackedFiles, "Open tracked files window");
+            DashtoolTip.SetToolTip(btnReports, "Open reports Window");
+            DashtoolTip.SetToolTip(btnUserMan, "Open user management window");
+            DashtoolTip.SetToolTip(btnDBMan, "Open Database management window");
+            DashtoolTip.SetToolTip(btnSettings, "Open program settings window");
+            DashtoolTip.SetToolTip(btnLinks, "Open links/groups window");
+            DashtoolTip.SetToolTip(btnLogEvents, "Open log events window");
+            DashtoolTip.SetToolTip(btnBatchScan, "Open batch scan window");
+            DashtoolTip.SetToolTip(btnModiList, "Open modified list window");
+            DashtoolTip.SetToolTip(btnViewTick, "Open ticklers window");
+            DashtoolTip.SetToolTip(btnUpdateMode, "Open update mode window");
+            DashtoolTip.SetToolTip(btnDataView, "Open data view window");
+
         private void btnViewTick_Click(object sender, EventArgs e) {
             FormFileAidTicklers ticklers = new FormFileAidTicklers();
             ticklers.ShowDialog();
@@ -82,6 +97,7 @@ namespace FileAid.GUI
         private void btnLinks_Click(object sender, EventArgs e) {
             FormFileAidFileLinks links = new FormFileAidFileLinks();
             links.ShowDialog();
+
         }
     }
 }
