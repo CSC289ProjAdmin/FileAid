@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblMainInfo = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.PeriodicdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.btnPeriodicUpdate = new System.Windows.Forms.Button();
             this.btnModifiedFiles = new System.Windows.Forms.Button();
             this.lblPeriodicUpdate = new System.Windows.Forms.Label();
             this.ConfiglistView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ConfigtoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -49,15 +51,15 @@
             this.lblMainInfo.TabIndex = 1;
             this.lblMainInfo.Text = "Welcome to File Aid Config Window.";
             // 
-            // dateTimePicker1
+            // PeriodicdateTimePicker
             // 
-            this.dateTimePicker1.CustomFormat = "m";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(322, 88);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(96, 26);
-            this.dateTimePicker1.TabIndex = 2;
+            this.PeriodicdateTimePicker.CustomFormat = "m";
+            this.PeriodicdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.PeriodicdateTimePicker.Location = new System.Drawing.Point(322, 88);
+            this.PeriodicdateTimePicker.Name = "PeriodicdateTimePicker";
+            this.PeriodicdateTimePicker.ShowUpDown = true;
+            this.PeriodicdateTimePicker.Size = new System.Drawing.Size(96, 26);
+            this.PeriodicdateTimePicker.TabIndex = 2;
             // 
             // btnPeriodicUpdate
             // 
@@ -121,7 +123,11 @@
             this.columnHeader2.Text = "Inactive Files";
             this.columnHeader2.Width = 171;
             // 
-            // FileAidConfig
+            // ConfigtoolTip
+            // 
+            this.ConfigtoolTip.IsBalloon = true;
+            // 
+            // FormFileAidConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -130,9 +136,9 @@
             this.Controls.Add(this.lblPeriodicUpdate);
             this.Controls.Add(this.btnModifiedFiles);
             this.Controls.Add(this.btnPeriodicUpdate);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.PeriodicdateTimePicker);
             this.Controls.Add(this.lblMainInfo);
-            this.Name = "FileAidConfig";
+            this.Name = "FormFileAidConfig";
             this.Text = "FileAidConfig";
             this.Load += new System.EventHandler(this.FileAidConfig_Load);
             this.ResumeLayout(false);
@@ -143,13 +149,14 @@
         #endregion
 
         private System.Windows.Forms.Label lblMainInfo;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker PeriodicdateTimePicker;
         private System.Windows.Forms.Button btnPeriodicUpdate;
         private System.Windows.Forms.Button btnModifiedFiles;
         private System.Windows.Forms.Label lblPeriodicUpdate;
         private System.Windows.Forms.ListView ConfiglistView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ToolTip ConfigtoolTip;
     }
 }
 
