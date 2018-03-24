@@ -63,5 +63,25 @@ namespace FileAid.GUI
             iconFileAidTray.Visible = false;
             this.Show();
         }
+
+        private void btnViewTick_Click(object sender, EventArgs e) {
+            FormFileAidTicklers ticklers = new FormFileAidTicklers();
+            ticklers.ShowDialog();
+        }
+
+        private void btnReports_Click(object sender, EventArgs e) {
+            FormFileAidReports reports = new FormFileAidReports();
+            reports.ShowDialog();
+        }
+
+        private void btnGuestPerms_Click(object sender, EventArgs e) {
+            FormFileAidPermission perms = new FormFileAidPermission();
+            perms.ShowDialog();
+        }
+
+        private void btnLinks_Click(object sender, EventArgs e) {
+            FormFileAidFileLinks links = new FormFileAidFileLinks();
+            links.ShowDialog();
+        }
     }
 }
