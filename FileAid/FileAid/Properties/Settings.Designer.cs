@@ -26,8 +26,8 @@ namespace FileAid.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v12.0;AttachDbFilename=|DataDirectory|\\Data\\FileAidDB.mdf;I" +
-            "ntegrated Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Data\\FileAidD" +
+            "B.mdf;Integrated Security=True;Connect Timeout=30")]
         public string Setting {
             get {
                 return ((string)(this["Setting"]));

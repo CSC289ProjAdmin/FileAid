@@ -23,7 +23,17 @@ namespace FileAid {
             //Application.Run(new FormFileAidMain());
             //Application.Run(new FormFileAidNewFile());
 
+            // Testing real MDF connection
             FormFileAidLogin login = new FormFileAidLogin();
+            List<Models.TrackedFile> files = DAL.FileManagerDAL.GetFiles();
+            if (files != null) {
+                MessageBox.Show($"File count: {files.Count}");
+                foreach (var f in files) {
+                    MessageBox.Show($"File name: {f.Filename}\nModified On: {f.ModifiedOn}");
+                }
+            }
+            // Testing real MDF connection
+
             if (login.ShowDialog() == DialogResult.OK) {
                 Application.Run(new FormFileAidDash());
             } else {
