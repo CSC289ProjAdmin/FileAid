@@ -9,12 +9,11 @@ using System.Data.SqlClient;
 namespace FileAid.DAL {
     public static class ConfigManagerDAL {
         public static Configs GetConfigs() {
-            List<SqlParameter> args = new List<SqlParameter>();
             string select = "Select ConfigID, iUpdateTimer As UpdateTimerInMinutes, " +
                 "bShowInactive As ShowInactive, bUpdateMode As InUpdateMode " +
                 //", sSearchFolder As SearchFolder " + 
-                "From Configs Where dConfigDeleted Is Null; " ;
-            List<Configs> results = Db.ReadQuery<Configs>(select, args.ToArray());
+                "From Configurations Where dConfigDeleted Is Null; " ;
+            List<Configs> results = Db.ReadQuery<Configs>(select);
             if (results != null) {
                 return results[0];
             } else {
@@ -30,7 +29,7 @@ namespace FileAid.DAL {
             args.Add(new SqlParameter("@Inactive", c.ShowInactive));
             args.Add(new SqlParameter("@Updating", c.InUpdateMode));
             //args.Add(new SqlParameter("@Folder", c.SearchFolder));
-            string update = "Update Configs Set dConfigUpdated = GetDate(), " +
+            string update = "Update Configurations Set dConfigUpdated = GetDate(), " +
                 "iUpdateTimer = @Timer, bShowInactive = @Inactive, bUpdateMode = @Updating " +
                 //", sSearchFolder = @Folder " +
                 "Where dConfigDeleted Is Null And ConfigID = @ConfigID";
