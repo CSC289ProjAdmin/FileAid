@@ -10,7 +10,7 @@ namespace FileAid.DAL {
     public static class BatchManagerDAL {
         public static List<Batch> GetBatches() {
             string select = "Select BatchID, iAdded As FilesAdded, iModified As FilesModified, " +
-                "iDisabled As FilesDisabled, dBatchStart As StartedAt, dBatchEnd As EndedAt " +
+                "iDisabled As FilesDisabled, dBatchStart As StartedAt, dBatchEnd As EndedAt, " +
                 "bPeriodic As WasPeriodic " +
                 "From Batches Where dBatchDeleted Is Null;";
             return Db.ReadQuery<Batch>(select);
@@ -21,7 +21,7 @@ namespace FileAid.DAL {
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@BatchID", batchID));
             string select = "Select BatchID, iAdded As FilesAdded, iModified As FilesModified, " +
-                "iDisabled As FilesDisabled, dBatchStart As StartedAt, dBatchEnd As EndedAt " +
+                "iDisabled As FilesDisabled, dBatchStart As StartedAt, dBatchEnd As EndedAt, " +
                 "bPeriodic As WasPeriodic " +
                 "From Batches Where dBatchDeleted Is Null And BatchID = @BatchID; ";
             List<Batch> results = Db.ReadQuery<Batch>(select, args.ToArray());
