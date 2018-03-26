@@ -31,49 +31,24 @@ namespace FileAid.DAL {
                 return null;
             }
         }
-    }
-}
-/*
-namespace FileAid.DAL {
-    public static class ReminderManagerDAL {
 
-        public static int AddReminder(List<int> fileIDs, string reminderName,
-                DateTime dueOn, string reminderMemo) {
-            // Create the reminder
+        public static int AddBatch(int nAdded, int nModified, int nDisabled,
+            DateTime started, DateTime ended, bool isPeriodic) {
             List<SqlParameter> args = new List<SqlParameter>();
-            args.Add(new SqlParameter("@Name", reminderName));
-            args.Add(new SqlParameter("@DueOn", System.Data.SqlDbType.DateTime));
-            args[1].Value = dueOn;
-            args.Add(new SqlParameter("@Memo", reminderMemo));
-            string insert = "Insert Into Reminders " +
-                "(sReminderName, dDue, sReminderMemo, dReminderCreated, dReminderUpdated) " +
-                "Values (@Name, @DueOn, @Memo, GetDate(), GetDate()); " +
-                "Select Convert(int, Scope_Identity());";
+            args.Add(new SqlParameter("@Added", nAdded));
+            args.Add(new SqlParameter("@Modified", nModified));
+            args.Add(new SqlParameter("@Disabled", nDisabled));
+            args.Add(new SqlParameter("@Start", System.Data.SqlDbType.DateTime));
+            args[3].Value = started;
+            args.Add(new SqlParameter("@End", System.Data.SqlDbType.DateTime));
+            args[4].Value = ended;
+            args.Add(new SqlParameter("@Periodic", isPeriodic));
+            string insert = "Insert Into Batches " +
+                "(iAdded, iModified, iDisabled, dBatchStart, dBatchEnd, bPeriodic, dBatchCreated, dBatchUpdated) " +
+                "Values (@Added, @Modified, @Disabled, @Start, @End, @Periodic, GetDate(), GetDate()); " +
+                "Select Convert(int, Scope_Identity()); ";
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
-            // Add list of files to the group
-            foreach (int id in fileIDs) {
-                ReminderDAL.Join(newID, id);
-            }
-            return newID;
-        }
-
-        public static int AddReminder(List<int> fileIDs, string reminderName, DateTime dueOn) {
-            // Create the reminder (without setting up a memo/description)
-            List<SqlParameter> args = new List<SqlParameter>();
-            args.Add(new SqlParameter("@Name", reminderName));
-            args.Add(new SqlParameter("@DueOn", System.Data.SqlDbType.DateTime));
-            args[1].Value = dueOn;
-            string insert = "Insert Into Reminders " +
-                "(sReminderName, dDue, dReminderCreated, dReminderUpdated) " +
-                "Values (@Name, @DueOn, GetDate(), GetDate()); " +
-                "Select Convert(int, Scope_Identity());";
-            int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
-            // Add list of files to the group
-            foreach (int id in fileIDs) {
-                ReminderDAL.Join(newID, id);
-            }
             return newID;
         }
     }
 }
-*/
