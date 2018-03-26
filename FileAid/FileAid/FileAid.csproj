@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\BatchManagerDAL.cs" />
+    <Compile Include="DAL\ConfigManagerDAL.cs" />
     <Compile Include="DAL\Db.cs" />
     <Compile Include="DAL\DbManagerDAL.cs" />
     <Compile Include="DAL\EventManagerDAL.cs" />
@@ -186,6 +187,7 @@
     </Compile>
     <Compile Include="Models\Batch.cs" />
     <Compile Include="Models\BatchManager.cs" />
+    <Compile Include="Models\ConfigManager.cs" />
     <Compile Include="Models\Configs.cs" />
     <Compile Include="Models\DbManager.cs" />
     <Compile Include="Models\Event.cs" />
