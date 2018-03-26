@@ -13,7 +13,7 @@ namespace FileAid.Models {
         public bool EnableUser { get; set; }
         public bool EnableGuest { get; set; }
         public bool ResetUserPass { get; set; }
-        public bool ResetGuessPass { get; set; }
+        public bool ResetGuestPass { get; set; }
         public bool UnlockUser { get; set; }
         public bool UnlockGuest { get; set; }
         public bool RestrictGuest { get; set; }
