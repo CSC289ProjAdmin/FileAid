@@ -10,7 +10,7 @@ namespace FileAid.Models {
         public int UpdateTimerInMinutes { get; set; }
         public bool ShowInactive { get; set; }
         public bool InUpdateMode { get; set; }
-
+        public string SearchFolder { get; set; }
         // stub
     }
 }
