@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 namespace FileAid.DAL {
     public static class ReportManagerDAL {
         public static List<Report> GetReports() {
-            string select = "Select ReportID, sReportName As Name, sDescription As Description " +
+            string select = "Select ReportID, sReportName As Name, sReportDescription As Description " +
                 "From Reports Where dReportDeleted Is Null; ";
             return Db.ReadQuery<Report>(select);
         }
@@ -17,8 +17,8 @@ namespace FileAid.DAL {
         public static Report GetReportByName(string reportName) {
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@Name", reportName));
-            string select = "Select ReportID, sReportName As Name, sDescription As Description " +
-                "From Reports Where dReportDeleted Is Null As sReportName = @Name; ";
+            string select = "Select ReportID, sReportName As Name, sReportDescription As Description " +
+                "From Reports Where dReportDeleted Is Null And sReportName = @Name; ";
             List<Report> results = Db.ReadQuery<Report>(select, args.ToArray());
             if (results != null) {
                 return results[0];
