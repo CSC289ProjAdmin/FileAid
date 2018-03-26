@@ -133,15 +133,15 @@ namespace FileAidTest.Tests {
                 TrackedFile file = files[0];
 
                 List<Event> events = file.GetHistory();
-
-                Assert.AreEqual(1, events.Count);
-                Assert.AreEqual("First file added to system", events[0].Description);
-
-                // File 2 history
-                file = files[1];
-                events = file.GetHistory();
-                Assert.IsNull(events);
-
+                if (events != null) {
+                    Assert.AreEqual(1, events.Count);
+                    Assert.AreEqual("First file added to system", events[0].Description);
+                    
+                    // File 2 history
+                    file = files[1];
+                    events = file.GetHistory();
+                    Assert.IsNull(events);
+                }
             }
         }
 

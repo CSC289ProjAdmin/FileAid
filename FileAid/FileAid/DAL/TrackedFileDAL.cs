@@ -62,9 +62,10 @@ namespace FileAid.DAL {
             if (fileID <= 0) return null; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@FileID", fileID));
-            string select = "Select EventID, EventTypeID, dEvent As OccurredOn, sEventDescription As Description, " +
-                "sInitial As Initial, sNew As New From Events " +
-                "Where FileID = @FileID And dEventDeleted Is Null;";
+            string select = "Select EventID, EventTypeID, dEvent As OccurredOn, " +
+                "sEventDescription As Description, sInitial As Initial, sNew As New, " +
+                "FileID, LinkID, ReportID, ReminderID, BatchID, UserID, LoginID, PermID, ConfigID " +
+                "From Events Where FileID = @FileID And dEventDeleted Is Null;";
             //! TODO: ??Handle nullable ints
             return Db.ReadQuery<Event>(select, args.ToArray());
         }
