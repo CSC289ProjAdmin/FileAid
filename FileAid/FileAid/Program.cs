@@ -23,8 +23,10 @@ namespace FileAid {
             //Application.Run(new FormFileAidMain());
             //Application.Run(new FormFileAidNewFile());
 
-            // Testing real MDF connection
             FormFileAidLogin login = new FormFileAidLogin();
+            /*
+            //Testing real MDF connection
+            Models.FileManager.AddFile("test insert", "TST", @"C:\", 10, DateTime.Now, DateTime.Now);
             List<Models.TrackedFile> files = DAL.FileManagerDAL.GetFiles();
             if (files != null) {
                 MessageBox.Show($"File count: {files.Count}");
@@ -33,6 +35,7 @@ namespace FileAid {
                 }
             }
             // Testing real MDF connection
+            */         
 
             if (login.ShowDialog() == DialogResult.OK) {
                 Application.Run(new FormFileAidDash());
