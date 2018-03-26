@@ -88,6 +88,7 @@
     <Compile Include="DAL\LoggerDAL.cs" />
     <Compile Include="DAL\LoginManagerDAL.cs" />
     <Compile Include="DAL\MSSqlHelper.cs" />
+    <Compile Include="DAL\PermissionsManagerDAL.cs" />
     <Compile Include="DAL\ReminderDAL.cs" />
     <Compile Include="DAL\ReminderManagerDAL.cs" />
     <Compile Include="DAL\TrackedFileDAL.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="Models\LoginManager.cs" />
     <Compile Include="Models\Messenger.cs" />
     <Compile Include="Models\Permissions.cs" />
+    <Compile Include="Models\PermissionsManager.cs" />
     <Compile Include="Models\Reminder.cs" />
     <Compile Include="Models\ReminderManager.cs" />
     <Compile Include="Models\Report.cs" />
