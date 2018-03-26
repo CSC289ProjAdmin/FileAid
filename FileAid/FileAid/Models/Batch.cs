@@ -10,8 +10,8 @@ namespace FileAid.Models {
         public int FilesAdded { get; set; }
         public int FilesModified { get; set; }
         public int FilesDisabled { get; set; }
-        public DateTime BatchStartedAt { get; set; } = new DateTime(); // 01-01-0001
-        public DateTime BatchEndedAt { get; set; } = new DateTime(); // 01-01-0001
-        public bool WasAutomaticBatch { get; set; }
+        public DateTime StartedAt { get; set; } = new DateTime(); // 01-01-0001
+        public DateTime EndedAt { get; set; } = new DateTime(); // 01-01-0001
+        public bool WasPeriodic { get; set; }
     }
 }
