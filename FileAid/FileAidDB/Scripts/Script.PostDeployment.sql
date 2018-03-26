@@ -9,6 +9,12 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
+Insert Into Configurations
+    (iUpdateTimer, bShowInactive, bUpdateMode, dConfigCreated, dConfigUpdated)
+Values
+    (15, 0, 0, GetDate(), GetDate())
+;
+
 Insert Into Reports
     (sReportName, sReportDescription, dReportCreated, dReportUpdated)
 Values
