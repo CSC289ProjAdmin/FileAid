@@ -51,5 +51,23 @@ namespace FileAid.Models {
         public static void LogSummary(string batchSummary) {
             // stub
         }
+
+        public static List<Batch> GetBatches() {
+            List<Batch> allBatches = DAL.BatchManagerDAL.GetBatches();
+            return allBatches;
+        }
+
+        public static Batch GetBatch(int batchID) {
+            Batch specific = DAL.BatchManagerDAL.GetBatch(batchID);
+            return specific;
+        }
+
+        public static Batch AddBatch(int nAdded, int nModified, int nDisabled,
+            DateTime started, DateTime ended, bool isPeriodic) {
+            int newID = DAL.BatchManagerDAL.AddBatch(nAdded, nModified, nDisabled,
+                started, ended, isPeriodic);
+            Batch newBatch = GetBatch(newID);
+            return newBatch;
+        }
     }
 }
