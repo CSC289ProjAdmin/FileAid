@@ -77,7 +77,6 @@ namespace FileAid.GUI
             DashtoolTip.SetToolTip(btnGuestPerms, "Modify Guest Permissions");
             DashtoolTip.SetToolTip(btnViewTick, "Open ticklers window");
             DashtoolTip.SetToolTip(btnUpdateMode, "Open update mode window");
-            DashtoolTip.SetToolTip(btnDataView, "Open data view window");
         }
 
         private void btnViewTick_Click(object sender, EventArgs e) {
