@@ -48,6 +48,8 @@
             this.ProgramSetcheckBox = new System.Windows.Forms.CheckBox();
             this.LoginMancheckBox = new System.Windows.Forms.CheckBox();
             this.DBMancheckBox = new System.Windows.Forms.CheckBox();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -271,11 +273,39 @@
             this.DBMancheckBox.Text = "Database Management";
             this.DBMancheckBox.UseVisualStyleBackColor = true;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(701, 81);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(200, 49);
+            this.btnLogin.TabIndex = 21;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(701, 184);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 49);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Login";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FormFileAidPermission
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 673);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.DBMancheckBox);
             this.Controls.Add(this.LoginMancheckBox);
             this.Controls.Add(this.ProgramSetcheckBox);
@@ -323,6 +353,8 @@
         private System.Windows.Forms.CheckBox ProgramSetcheckBox;
         private System.Windows.Forms.CheckBox LoginMancheckBox;
         private System.Windows.Forms.CheckBox DBMancheckBox;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button button1;
     }
 }
 
