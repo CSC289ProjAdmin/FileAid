@@ -36,12 +36,12 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnReset = new System.Windows.Forms.Button();
             this.btnEventsReport = new System.Windows.Forms.Button();
-            this.btnEventsFilters = new System.Windows.Forms.Button();
-            this.lblEventsFilters = new System.Windows.Forms.Label();
+            this.btnEventsSearch = new System.Windows.Forms.Button();
+            this.lblEventsSearch = new System.Windows.Forms.Label();
             this.txtMemo = new System.Windows.Forms.TextBox();
             this.EventstoolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.StartdateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.EventsStartdateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.EventsEnddateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lblStart = new System.Windows.Forms.Label();
             this.lblEnd = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -115,29 +115,29 @@
             this.btnEventsReport.Text = "Print Report";
             this.btnEventsReport.UseVisualStyleBackColor = false;
             // 
-            // btnEventsFilters
+            // btnEventsSearch
             // 
-            this.btnEventsFilters.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEventsFilters.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEventsFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventsFilters.ForeColor = System.Drawing.Color.White;
-            this.btnEventsFilters.Location = new System.Drawing.Point(845, 596);
-            this.btnEventsFilters.Name = "btnEventsFilters";
-            this.btnEventsFilters.Size = new System.Drawing.Size(170, 52);
-            this.btnEventsFilters.TabIndex = 11;
-            this.btnEventsFilters.Text = "Filters";
-            this.btnEventsFilters.UseVisualStyleBackColor = false;
+            this.btnEventsSearch.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEventsSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEventsSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEventsSearch.ForeColor = System.Drawing.Color.White;
+            this.btnEventsSearch.Location = new System.Drawing.Point(845, 596);
+            this.btnEventsSearch.Name = "btnEventsSearch";
+            this.btnEventsSearch.Size = new System.Drawing.Size(170, 52);
+            this.btnEventsSearch.TabIndex = 11;
+            this.btnEventsSearch.Text = "Search";
+            this.btnEventsSearch.UseVisualStyleBackColor = false;
             // 
-            // lblEventsFilters
+            // lblEventsSearch
             // 
-            this.lblEventsFilters.AutoSize = true;
-            this.lblEventsFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventsFilters.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblEventsFilters.Location = new System.Drawing.Point(432, 611);
-            this.lblEventsFilters.Name = "lblEventsFilters";
-            this.lblEventsFilters.Size = new System.Drawing.Size(79, 22);
-            this.lblEventsFilters.TabIndex = 12;
-            this.lblEventsFilters.Text = "Search:";
+            this.lblEventsSearch.AutoSize = true;
+            this.lblEventsSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEventsSearch.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblEventsSearch.Location = new System.Drawing.Point(432, 611);
+            this.lblEventsSearch.Name = "lblEventsSearch";
+            this.lblEventsSearch.Size = new System.Drawing.Size(79, 22);
+            this.lblEventsSearch.TabIndex = 12;
+            this.lblEventsSearch.Text = "Search:";
             // 
             // txtMemo
             // 
@@ -150,23 +150,23 @@
             // 
             this.EventstoolTip.IsBalloon = true;
             // 
-            // StartdateTimePicker
+            // EventsStartdateTimePicker
             // 
-            this.StartdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.StartdateTimePicker.Location = new System.Drawing.Point(97, 611);
-            this.StartdateTimePicker.Name = "StartdateTimePicker";
-            this.StartdateTimePicker.ShowUpDown = true;
-            this.StartdateTimePicker.Size = new System.Drawing.Size(124, 26);
-            this.StartdateTimePicker.TabIndex = 19;
+            this.EventsStartdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.EventsStartdateTimePicker.Location = new System.Drawing.Point(97, 611);
+            this.EventsStartdateTimePicker.Name = "EventsStartdateTimePicker";
+            this.EventsStartdateTimePicker.ShowUpDown = true;
+            this.EventsStartdateTimePicker.Size = new System.Drawing.Size(124, 26);
+            this.EventsStartdateTimePicker.TabIndex = 19;
             // 
-            // dateTimePicker1
+            // EventsEnddateTimePicker
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(302, 611);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(124, 26);
-            this.dateTimePicker1.TabIndex = 20;
+            this.EventsEnddateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.EventsEnddateTimePicker.Location = new System.Drawing.Point(302, 611);
+            this.EventsEnddateTimePicker.Name = "EventsEnddateTimePicker";
+            this.EventsEnddateTimePicker.ShowUpDown = true;
+            this.EventsEnddateTimePicker.Size = new System.Drawing.Size(124, 26);
+            this.EventsEnddateTimePicker.TabIndex = 20;
             // 
             // lblStart
             // 
@@ -197,11 +197,11 @@
             this.ClientSize = new System.Drawing.Size(1123, 753);
             this.Controls.Add(this.lblEnd);
             this.Controls.Add(this.lblStart);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.StartdateTimePicker);
+            this.Controls.Add(this.EventsEnddateTimePicker);
+            this.Controls.Add(this.EventsStartdateTimePicker);
             this.Controls.Add(this.txtMemo);
-            this.Controls.Add(this.lblEventsFilters);
-            this.Controls.Add(this.btnEventsFilters);
+            this.Controls.Add(this.lblEventsSearch);
+            this.Controls.Add(this.btnEventsSearch);
             this.Controls.Add(this.btnEventsReport);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.EventslistView);
@@ -220,15 +220,15 @@
         private System.Windows.Forms.ListView EventslistView;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnEventsReport;
-        private System.Windows.Forms.Button btnEventsFilters;
-        private System.Windows.Forms.Label lblEventsFilters;
+        private System.Windows.Forms.Button btnEventsSearch;
+        private System.Windows.Forms.Label lblEventsSearch;
         private System.Windows.Forms.TextBox txtMemo;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ToolTip EventstoolTip;
-        private System.Windows.Forms.DateTimePicker StartdateTimePicker;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker EventsStartdateTimePicker;
+        private System.Windows.Forms.DateTimePicker EventsEnddateTimePicker;
         private System.Windows.Forms.Label lblStart;
         private System.Windows.Forms.Label lblEnd;
     }

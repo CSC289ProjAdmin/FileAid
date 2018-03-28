@@ -22,7 +22,9 @@ namespace FileAid.GUI
             EventstoolTip.SetToolTip(btnReset, "Reset the events");
             EventstoolTip.SetToolTip(btnEventsReport, "Print the events report");
             EventstoolTip.SetToolTip(txtMemo, "Enter the memo");
-            EventstoolTip.SetToolTip(btnEventsFilters, "Filters the files");
+            EventstoolTip.SetToolTip(btnEventsSearch, "Search the files");
+            EventstoolTip.SetToolTip(EventsStartdateTimePicker, "Select start date");
+            EventstoolTip.SetToolTip(EventsEnddateTimePicker, "Select end date");
         }
         
     }
