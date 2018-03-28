@@ -24,5 +24,6 @@ namespace FileAid.GUI
             EventstoolTip.SetToolTip(txtMemo, "Enter the memo");
             EventstoolTip.SetToolTip(btnEventsFilters, "Filters the files");
         }
+        
     }
 }
