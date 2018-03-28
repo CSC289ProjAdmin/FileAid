@@ -59,7 +59,7 @@
             this.lblDashMessage.AutoSize = true;
             this.lblDashMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDashMessage.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblDashMessage.Location = new System.Drawing.Point(34, 20);
+            this.lblDashMessage.Location = new System.Drawing.Point(245, 18);
             this.lblDashMessage.Name = "lblDashMessage";
             this.lblDashMessage.Size = new System.Drawing.Size(489, 29);
             this.lblDashMessage.TabIndex = 0;
@@ -173,7 +173,7 @@
             this.btnViewTick.Name = "btnViewTick";
             this.btnViewTick.Size = new System.Drawing.Size(200, 49);
             this.btnViewTick.TabIndex = 8;
-            this.btnViewTick.Text = "View Ticklers";
+            this.btnViewTick.Text = "Reminders";
             this.btnViewTick.UseVisualStyleBackColor = false;
             this.btnViewTick.Click += new System.EventHandler(this.btnViewTick_Click);
             // 
@@ -198,7 +198,7 @@
             this.btnGuestPerms.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuestPerms.ForeColor = System.Drawing.Color.White;
             this.btnGuestPerms.Location = new System.Drawing.Point(548, 68);
-            this.btnGuestPerms.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuestPerms.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuestPerms.Name = "btnGuestPerms";
             this.btnGuestPerms.Size = new System.Drawing.Size(200, 49);
             this.btnGuestPerms.TabIndex = 10;
