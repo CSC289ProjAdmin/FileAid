@@ -110,9 +110,13 @@ namespace FileAidTest.Tests {
             Assert.IsTrue(UserService.IsLockedOut(user));
 
             // Restore lock out state for user
-            if(!lockedOutState)
+            if(lockedOutState)
             {
                 UserService.LockOut(user);
+            }
+            else
+            {
+                UserService.Unlock(user);
             }
 
         }
@@ -137,7 +141,11 @@ namespace FileAidTest.Tests {
             Assert.IsTrue(UserService.IsLockedOut(user));
 
             // Restore lock out state for user
-            if (!lockedOutState)
+            if (lockedOutState)
+            {
+                UserService.LockOut(user);
+            }
+            else
             {
                 UserService.Unlock(user);
             }
@@ -165,9 +173,13 @@ namespace FileAidTest.Tests {
             Assert.IsFalse(UserService.IsLockedOut(user));
 
             // Restore lock out state for user
-            if (!lockedOutState)
+            if (lockedOutState)
             {
                 UserService.LockOut(user);
+            }
+            else
+            {
+                UserService.Unlock(user);
             }
 
         }
