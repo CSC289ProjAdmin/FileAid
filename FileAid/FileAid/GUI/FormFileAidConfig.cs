@@ -21,7 +21,11 @@ namespace FileAid.GUI
         {
             ConfigtoolTip.SetToolTip(PeriodicdateTimePicker, "Select Periodic Update Date");
             ConfigtoolTip.SetToolTip(btnPeriodicUpdate, "Periodic Update");
-            ConfigtoolTip.SetToolTip(btnModifiedFiles, "Display Modified files");
+            ConfigtoolTip.SetToolTip(ProInactivecheckBox, "Show inactive files");
+            ConfigtoolTip.SetToolTip(txtProgramPath, "Enter folder paths");
+            ConfigtoolTip.SetToolTip(btnBrowse, "Browse files");
+            ConfigtoolTip.SetToolTip(btnProSaveChanges, "Save Changes");
+            ConfigtoolTip.SetToolTip(btnProCancel, "Cancel changes");
         }
     }
 }
