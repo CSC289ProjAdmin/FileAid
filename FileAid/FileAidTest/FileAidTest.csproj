@@ -64,6 +64,7 @@
     <Compile Include="Tests\PermissionsTest.cs" />
     <Compile Include="Tests\ReminderTest.cs" />
     <Compile Include="Tests\ReminderManagerTest.cs" />
+    <Compile Include="Tests\ReportManagerTest.cs" />
     <Compile Include="Tests\ReportTest.cs" />
     <Compile Include="Tests\TrackedFileTest.cs" />
     <Compile Include="Tests\UserServiceTest.cs" />
