@@ -19,11 +19,11 @@ namespace FileAid.GUI
 
         private void FormFileAidLink_Load(object sender, EventArgs e)
         {
-            AddLinktoolTip.SetToolTip(txtLinkFileName, "Enter the file name");
-            AddLinktoolTip.SetToolTip(txtComment, "Enter the comment");
-            AddLinktoolTip.SetToolTip(btnComment, "Add comment");
+            AddLinktoolTip.SetToolTip(txtLinkMemo, "Enter the memo");
             AddLinktoolTip.SetToolTip(btnAddLink, "Add link");
-            AddLinktoolTip.SetToolTip(btnDeleteLink, "Delete file link");
+            AddLinktoolTip.SetToolTip(btnCancelLink, "Cancel file link");
+
+            
         }
     }
 }
