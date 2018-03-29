@@ -19,12 +19,7 @@ namespace FileAid.GUI
 
         private void FormFileAidNewFile_Load(object sender, EventArgs e)
         {
-            NewFiletoolTip.SetToolTip(btnAddNewFile, "Add new file");
-            NewFiletoolTip.SetToolTip(txtNewFileMemo, "Enter memo");
-            NewFiletoolTip.SetToolTip(btnNewFileMemoUpdate, "Update memo");
-            NewFiletoolTip.SetToolTip(btnAddLink, "Add file link");
-            NewFiletoolTip.SetToolTip(txtNewFileSearch, "Enter file to search");
-            NewFiletoolTip.SetToolTip(btnNewFileSearch, "Search the file");
+            NewFiletoolTip.SetToolTip(btnNewSelectFiles, "Add new file");
             NewFiletoolTip.SetToolTip(btnNewFilePrintRepo, "Print the report");
         }
     }
