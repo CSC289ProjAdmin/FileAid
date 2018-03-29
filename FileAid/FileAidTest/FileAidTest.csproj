@@ -61,6 +61,7 @@
     <Compile Include="Tests\LinkManagerTest.cs" />
     <Compile Include="Tests\LoggerTest.cs" />
     <Compile Include="Tests\MessengerTest.cs" />
+    <Compile Include="Tests\PermissionsManagerTest.cs" />
     <Compile Include="Tests\PermissionsTest.cs" />
     <Compile Include="Tests\ReminderTest.cs" />
     <Compile Include="Tests\ReminderManagerTest.cs" />
