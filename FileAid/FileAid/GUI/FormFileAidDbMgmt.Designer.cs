@@ -32,7 +32,6 @@
             this.lblUserDatabase = new System.Windows.Forms.Label();
             this.btnBackup = new System.Windows.Forms.Button();
             this.btnRestore = new System.Windows.Forms.Button();
-            this.btnSelectFile = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.DBManlistView = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,25 +71,12 @@
             this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRestore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRestore.ForeColor = System.Drawing.Color.White;
-            this.btnRestore.Location = new System.Drawing.Point(64, 217);
+            this.btnRestore.Location = new System.Drawing.Point(64, 235);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(200, 49);
             this.btnRestore.TabIndex = 3;
             this.btnRestore.Text = "Restore";
             this.btnRestore.UseVisualStyleBackColor = false;
-            // 
-            // btnSelectFile
-            // 
-            this.btnSelectFile.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnSelectFile.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSelectFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelectFile.ForeColor = System.Drawing.Color.White;
-            this.btnSelectFile.Location = new System.Drawing.Point(64, 329);
-            this.btnSelectFile.Name = "btnSelectFile";
-            this.btnSelectFile.Size = new System.Drawing.Size(200, 49);
-            this.btnSelectFile.TabIndex = 4;
-            this.btnSelectFile.Text = "Select File";
-            this.btnSelectFile.UseVisualStyleBackColor = false;
             // 
             // btnReset
             // 
@@ -98,7 +84,7 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(64, 450);
+            this.btnReset.Location = new System.Drawing.Point(64, 402);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(200, 49);
             this.btnReset.TabIndex = 5;
@@ -142,7 +128,7 @@
             this.btnDbPrintRepo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDbPrintRepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDbPrintRepo.ForeColor = System.Drawing.Color.White;
-            this.btnDbPrintRepo.Location = new System.Drawing.Point(64, 556);
+            this.btnDbPrintRepo.Location = new System.Drawing.Point(64, 566);
             this.btnDbPrintRepo.Name = "btnDbPrintRepo";
             this.btnDbPrintRepo.Size = new System.Drawing.Size(200, 49);
             this.btnDbPrintRepo.TabIndex = 7;
@@ -157,11 +143,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 1038);
+            this.ClientSize = new System.Drawing.Size(936, 727);
             this.Controls.Add(this.btnDbPrintRepo);
             this.Controls.Add(this.DBManlistView);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.btnSelectFile);
             this.Controls.Add(this.btnRestore);
             this.Controls.Add(this.btnBackup);
             this.Controls.Add(this.lblUserDatabase);
@@ -178,7 +163,6 @@
         private System.Windows.Forms.Label lblUserDatabase;
         private System.Windows.Forms.Button btnBackup;
         private System.Windows.Forms.Button btnRestore;
-        private System.Windows.Forms.Button btnSelectFile;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.ListView DBManlistView;
         private System.Windows.Forms.ColumnHeader columnHeader2;
