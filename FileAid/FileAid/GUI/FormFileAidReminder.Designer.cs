@@ -33,13 +33,13 @@
             this.lblReminder = new System.Windows.Forms.Label();
             this.ReminderdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.txtReminderMemo = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.btnAddReminder = new System.Windows.Forms.Button();
             this.btnReminderCancel = new System.Windows.Forms.Button();
-            this.txtFileName = new System.Windows.Forms.TextBox();
-            this.lblName = new System.Windows.Forms.Label();
+            this.txtReminderName = new System.Windows.Forms.TextBox();
+            this.lblReminderName = new System.Windows.Forms.Label();
             this.RemindertoolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.ReminderlistView = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
@@ -80,18 +80,18 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblDescription.Location = new System.Drawing.Point(49, 173);
+            this.lblDescription.Location = new System.Drawing.Point(49, 232);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(117, 22);
             this.lblDescription.TabIndex = 8;
             this.lblDescription.Text = "Description:";
             // 
-            // txtReminderMemo
+            // txtDescription
             // 
-            this.txtReminderMemo.Location = new System.Drawing.Point(192, 169);
-            this.txtReminderMemo.Name = "txtReminderMemo";
-            this.txtReminderMemo.Size = new System.Drawing.Size(417, 26);
-            this.txtReminderMemo.TabIndex = 9;
+            this.txtDescription.Location = new System.Drawing.Point(192, 231);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(417, 26);
+            this.txtDescription.TabIndex = 9;
             // 
             // btnAddReminder
             // 
@@ -119,42 +119,42 @@
             this.btnReminderCancel.Text = "Cancel";
             this.btnReminderCancel.UseVisualStyleBackColor = false;
             // 
-            // txtFileName
+            // txtReminderName
             // 
-            this.txtFileName.Location = new System.Drawing.Point(192, 223);
-            this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(417, 26);
-            this.txtFileName.TabIndex = 16;
+            this.txtReminderName.Location = new System.Drawing.Point(192, 173);
+            this.txtReminderName.Name = "txtReminderName";
+            this.txtReminderName.Size = new System.Drawing.Size(417, 26);
+            this.txtReminderName.TabIndex = 16;
             // 
-            // lblName
+            // lblReminderName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblName.Location = new System.Drawing.Point(8, 227);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(158, 22);
-            this.lblName.TabIndex = 17;
-            this.lblName.Text = "Reminder Name:";
+            this.lblReminderName.AutoSize = true;
+            this.lblReminderName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReminderName.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblReminderName.Location = new System.Drawing.Point(8, 173);
+            this.lblReminderName.Name = "lblReminderName";
+            this.lblReminderName.Size = new System.Drawing.Size(158, 22);
+            this.lblReminderName.TabIndex = 17;
+            this.lblReminderName.Text = "Reminder Name:";
             // 
             // RemindertoolTip
             // 
             this.RemindertoolTip.IsBalloon = true;
             // 
-            // listView1
+            // ReminderlistView
             // 
-            this.listView1.AllowColumnReorder = true;
-            this.listView1.CheckBoxes = true;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ReminderlistView.AllowColumnReorder = true;
+            this.ReminderlistView.CheckBoxes = true;
+            this.ReminderlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(657, 114);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(308, 501);
-            this.listView1.TabIndex = 18;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.ReminderlistView.FullRowSelect = true;
+            this.ReminderlistView.GridLines = true;
+            this.ReminderlistView.Location = new System.Drawing.Point(657, 114);
+            this.ReminderlistView.Name = "ReminderlistView";
+            this.ReminderlistView.Size = new System.Drawing.Size(308, 501);
+            this.ReminderlistView.TabIndex = 18;
+            this.ReminderlistView.UseCompatibleStateImageBehavior = false;
+            this.ReminderlistView.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader2
             // 
@@ -166,12 +166,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1017, 647);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.txtFileName);
+            this.Controls.Add(this.ReminderlistView);
+            this.Controls.Add(this.lblReminderName);
+            this.Controls.Add(this.txtReminderName);
             this.Controls.Add(this.btnReminderCancel);
             this.Controls.Add(this.btnAddReminder);
-            this.Controls.Add(this.txtReminderMemo);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.ReminderdateTimePicker);
             this.Controls.Add(this.lblReminder);
@@ -190,13 +190,13 @@
         private System.Windows.Forms.Label lblReminder;
         private System.Windows.Forms.DateTimePicker ReminderdateTimePicker;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.TextBox txtReminderMemo;
+        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button btnAddReminder;
         private System.Windows.Forms.Button btnReminderCancel;
-        private System.Windows.Forms.TextBox txtFileName;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.TextBox txtReminderName;
+        private System.Windows.Forms.Label lblReminderName;
         private System.Windows.Forms.ToolTip RemindertoolTip;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView ReminderlistView;
         private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

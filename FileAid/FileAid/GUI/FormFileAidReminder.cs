@@ -20,8 +20,8 @@ namespace FileAid.GUI
         private void FormFileAidReminder_Load(object sender, EventArgs e)
         {
             RemindertoolTip.SetToolTip(ReminderdateTimePicker, "Select reminder due");
-            RemindertoolTip.SetToolTip(txtReminderMemo, "Enter file memo");
-            RemindertoolTip.SetToolTip(txtFileName, "Enter file name");
+            RemindertoolTip.SetToolTip(txtDescription, "Enter description");
+            RemindertoolTip.SetToolTip(txtReminderName, "Enter reminder name");
             RemindertoolTip.SetToolTip(btnAddReminder, "Add reminder");
             RemindertoolTip.SetToolTip(btnReminderCancel, "Cancel reminder");
 
