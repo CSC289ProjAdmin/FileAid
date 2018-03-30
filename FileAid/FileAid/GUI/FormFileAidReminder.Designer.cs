@@ -32,16 +32,15 @@
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.lblReminder = new System.Windows.Forms.Label();
             this.ReminderdateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.lblMemo = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.txtReminderMemo = new System.Windows.Forms.TextBox();
-            this.btnSelectFiles = new System.Windows.Forms.Button();
             this.btnAddReminder = new System.Windows.Forms.Button();
-            this.btnDeleteReminder = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnPushToOutlook = new System.Windows.Forms.Button();
+            this.btnReminderCancel = new System.Windows.Forms.Button();
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.RemindertoolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -60,7 +59,7 @@
             this.lblReminder.AutoSize = true;
             this.lblReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReminder.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblReminder.Location = new System.Drawing.Point(62, 114);
+            this.lblReminder.Location = new System.Drawing.Point(23, 114);
             this.lblReminder.Name = "lblReminder";
             this.lblReminder.Size = new System.Drawing.Size(143, 22);
             this.lblReminder.TabIndex = 6;
@@ -70,42 +69,29 @@
             // 
             this.ReminderdateTimePicker.CustomFormat = "MM/dd/yyyy hh:mm:ss";
             this.ReminderdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ReminderdateTimePicker.Location = new System.Drawing.Point(234, 110);
+            this.ReminderdateTimePicker.Location = new System.Drawing.Point(192, 114);
             this.ReminderdateTimePicker.Name = "ReminderdateTimePicker";
             this.ReminderdateTimePicker.ShowUpDown = true;
             this.ReminderdateTimePicker.Size = new System.Drawing.Size(197, 26);
             this.ReminderdateTimePicker.TabIndex = 7;
             // 
-            // lblMemo
+            // lblDescription
             // 
-            this.lblMemo.AutoSize = true;
-            this.lblMemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMemo.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblMemo.Location = new System.Drawing.Point(137, 188);
-            this.lblMemo.Name = "lblMemo";
-            this.lblMemo.Size = new System.Drawing.Size(68, 22);
-            this.lblMemo.TabIndex = 8;
-            this.lblMemo.Text = "Memo:";
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblDescription.Location = new System.Drawing.Point(49, 173);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(117, 22);
+            this.lblDescription.TabIndex = 8;
+            this.lblDescription.Text = "Description:";
             // 
             // txtReminderMemo
             // 
-            this.txtReminderMemo.Location = new System.Drawing.Point(234, 188);
+            this.txtReminderMemo.Location = new System.Drawing.Point(192, 169);
             this.txtReminderMemo.Name = "txtReminderMemo";
-            this.txtReminderMemo.Size = new System.Drawing.Size(306, 26);
+            this.txtReminderMemo.Size = new System.Drawing.Size(417, 26);
             this.txtReminderMemo.TabIndex = 9;
-            // 
-            // btnSelectFiles
-            // 
-            this.btnSelectFiles.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnSelectFiles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSelectFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelectFiles.ForeColor = System.Drawing.Color.White;
-            this.btnSelectFiles.Location = new System.Drawing.Point(462, 98);
-            this.btnSelectFiles.Name = "btnSelectFiles";
-            this.btnSelectFiles.Size = new System.Drawing.Size(170, 52);
-            this.btnSelectFiles.TabIndex = 10;
-            this.btnSelectFiles.Text = "Select Files";
-            this.btnSelectFiles.UseVisualStyleBackColor = false;
             // 
             // btnAddReminder
             // 
@@ -113,57 +99,31 @@
             this.btnAddReminder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddReminder.ForeColor = System.Drawing.Color.White;
-            this.btnAddReminder.Location = new System.Drawing.Point(45, 308);
+            this.btnAddReminder.Location = new System.Drawing.Point(179, 289);
             this.btnAddReminder.Name = "btnAddReminder";
             this.btnAddReminder.Size = new System.Drawing.Size(170, 52);
             this.btnAddReminder.TabIndex = 11;
             this.btnAddReminder.Text = "Add Reminder";
             this.btnAddReminder.UseVisualStyleBackColor = false;
             // 
-            // btnDeleteReminder
+            // btnReminderCancel
             // 
-            this.btnDeleteReminder.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnDeleteReminder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDeleteReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteReminder.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteReminder.Location = new System.Drawing.Point(234, 308);
-            this.btnDeleteReminder.Name = "btnDeleteReminder";
-            this.btnDeleteReminder.Size = new System.Drawing.Size(170, 52);
-            this.btnDeleteReminder.TabIndex = 12;
-            this.btnDeleteReminder.Text = "Delete";
-            this.btnDeleteReminder.UseVisualStyleBackColor = false;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(421, 308);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(170, 52);
-            this.btnCancel.TabIndex = 13;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            // 
-            // btnPushToOutlook
-            // 
-            this.btnPushToOutlook.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnPushToOutlook.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPushToOutlook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPushToOutlook.ForeColor = System.Drawing.Color.White;
-            this.btnPushToOutlook.Location = new System.Drawing.Point(618, 308);
-            this.btnPushToOutlook.Name = "btnPushToOutlook";
-            this.btnPushToOutlook.Size = new System.Drawing.Size(170, 52);
-            this.btnPushToOutlook.TabIndex = 14;
-            this.btnPushToOutlook.Text = "Push Outlook";
-            this.btnPushToOutlook.UseVisualStyleBackColor = false;
+            this.btnReminderCancel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnReminderCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReminderCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReminderCancel.ForeColor = System.Drawing.Color.White;
+            this.btnReminderCancel.Location = new System.Drawing.Point(426, 289);
+            this.btnReminderCancel.Name = "btnReminderCancel";
+            this.btnReminderCancel.Size = new System.Drawing.Size(170, 52);
+            this.btnReminderCancel.TabIndex = 13;
+            this.btnReminderCancel.Text = "Cancel";
+            this.btnReminderCancel.UseVisualStyleBackColor = false;
             // 
             // txtFileName
             // 
-            this.txtFileName.Location = new System.Drawing.Point(234, 239);
+            this.txtFileName.Location = new System.Drawing.Point(192, 223);
             this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(306, 26);
+            this.txtFileName.Size = new System.Drawing.Size(417, 26);
             this.txtFileName.TabIndex = 16;
             // 
             // lblName
@@ -171,30 +131,48 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblName.Location = new System.Drawing.Point(99, 240);
+            this.lblName.Location = new System.Drawing.Point(8, 227);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(106, 22);
+            this.lblName.Size = new System.Drawing.Size(158, 22);
             this.lblName.TabIndex = 17;
-            this.lblName.Text = "File Name:";
+            this.lblName.Text = "Reminder Name:";
             // 
             // RemindertoolTip
             // 
             this.RemindertoolTip.IsBalloon = true;
             // 
+            // listView1
+            // 
+            this.listView1.AllowColumnReorder = true;
+            this.listView1.CheckBoxes = true;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2});
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.Location = new System.Drawing.Point(657, 114);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(308, 501);
+            this.listView1.TabIndex = 18;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Reminder Files";
+            this.columnHeader2.Width = 280;
+            // 
             // FormFileAidReminder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 508);
+            this.ClientSize = new System.Drawing.Size(1017, 647);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtFileName);
-            this.Controls.Add(this.btnPushToOutlook);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnDeleteReminder);
+            this.Controls.Add(this.btnReminderCancel);
             this.Controls.Add(this.btnAddReminder);
-            this.Controls.Add(this.btnSelectFiles);
             this.Controls.Add(this.txtReminderMemo);
-            this.Controls.Add(this.lblMemo);
+            this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.ReminderdateTimePicker);
             this.Controls.Add(this.lblReminder);
             this.Controls.Add(this.lblMainInfo);
@@ -211,16 +189,15 @@
         private System.Windows.Forms.Label lblMainInfo;
         private System.Windows.Forms.Label lblReminder;
         private System.Windows.Forms.DateTimePicker ReminderdateTimePicker;
-        private System.Windows.Forms.Label lblMemo;
+        private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.TextBox txtReminderMemo;
-        private System.Windows.Forms.Button btnSelectFiles;
         private System.Windows.Forms.Button btnAddReminder;
-        private System.Windows.Forms.Button btnDeleteReminder;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnPushToOutlook;
+        private System.Windows.Forms.Button btnReminderCancel;
         private System.Windows.Forms.TextBox txtFileName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.ToolTip RemindertoolTip;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
 
