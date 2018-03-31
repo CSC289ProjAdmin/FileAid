@@ -60,14 +60,14 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(319, 224);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(353, 26);
+            this.txtPassword.Size = new System.Drawing.Size(392, 26);
             this.txtPassword.TabIndex = 12;
             // 
             // txtRepeatPass
             // 
             this.txtRepeatPass.Location = new System.Drawing.Point(319, 287);
             this.txtRepeatPass.Name = "txtRepeatPass";
-            this.txtRepeatPass.Size = new System.Drawing.Size(353, 26);
+            this.txtRepeatPass.Size = new System.Drawing.Size(392, 26);
             this.txtRepeatPass.TabIndex = 13;
             // 
             // RolecomboBox
@@ -150,7 +150,7 @@
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.ForeColor = System.Drawing.Color.White;
-            this.btnChangePassword.Location = new System.Drawing.Point(513, 365);
+            this.btnChangePassword.Location = new System.Drawing.Point(319, 382);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(170, 52);
             this.btnChangePassword.TabIndex = 26;
@@ -187,7 +187,7 @@
             this.btnResetPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnResetPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetPassword.ForeColor = System.Drawing.Color.White;
-            this.btnResetPassword.Location = new System.Drawing.Point(319, 365);
+            this.btnResetPassword.Location = new System.Drawing.Point(541, 382);
             this.btnResetPassword.Name = "btnResetPassword";
             this.btnResetPassword.Size = new System.Drawing.Size(170, 52);
             this.btnResetPassword.TabIndex = 29;
