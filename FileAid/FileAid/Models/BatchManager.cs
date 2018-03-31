@@ -71,6 +71,10 @@ namespace FileAid.Models {
                                         // Update path, move to "Handled"
                                         // Update history if file is being tracked
                                     } else { // Add new file to database
+                                        FileInfo fi = new FileInfo(file);
+                                        FileManager.AddFile(Path.GetFileNameWithoutExtension(fi.Name),
+                                            fi.Extension.Substring(1), fi.DirectoryName,
+                                            (int)fi.Length, fi.CreationTime, fi.LastWriteTime);
                                     }
                                 }
                             }
