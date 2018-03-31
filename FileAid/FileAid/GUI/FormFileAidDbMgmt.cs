@@ -21,7 +21,6 @@ namespace FileAid.GUI
         {
             DBMantoolTip.SetToolTip(btnBackup, "Backup the Data");
             DBMantoolTip.SetToolTip(btnRestore, "Restore the Data");
-            DBMantoolTip.SetToolTip(btnSelectFile, "Select the files");
             DBMantoolTip.SetToolTip(btnReset, "Reset the Database");
             DBMantoolTip.SetToolTip(btnDbPrintRepo, "Print the report");
         }
