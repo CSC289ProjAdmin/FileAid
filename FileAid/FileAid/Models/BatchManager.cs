@@ -19,6 +19,9 @@ namespace FileAid.Models {
                 foreach (var file in allFiles) {
                     // Add path to unique list to search for new files later
                     string path = file.FilePath.ToUpper();
+                    if (!path.EndsWith(@"\")) {
+                        path += @"\";
+                    }
                     bool pathAlreadyAdded = searchPaths.Contains(path);
                     if (!pathAlreadyAdded) {
                         searchPaths.Add(path);
@@ -28,7 +31,8 @@ namespace FileAid.Models {
                     string nameWithExt = file.Filename + '.' + file.FileExtension;
 
                     // Locate file
-                    bool wasFound = false; // TODO: search for file
+                    FileInfo fi = new FileInfo(path + nameWithExt);
+                    bool wasFound = fi.Exists;
 
                     if (wasFound) {
                         // If being tracked, compare file info & update
