@@ -63,9 +63,10 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(330, 9);
+            this.lblMainInfo.Location = new System.Drawing.Point(220, 6);
+            this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(545, 37);
+            this.lblMainInfo.Size = new System.Drawing.Size(382, 26);
             this.lblMainInfo.TabIndex = 0;
             this.lblMainInfo.Text = "Welcome to File Aid Main Window.";
             // 
@@ -83,9 +84,10 @@
             this.columnHeader7});
             this.MainListView.FullRowSelect = true;
             this.MainListView.GridLines = true;
-            this.MainListView.Location = new System.Drawing.Point(190, 82);
+            this.MainListView.Location = new System.Drawing.Point(127, 53);
+            this.MainListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MainListView.Name = "MainListView";
-            this.MainListView.Size = new System.Drawing.Size(1042, 366);
+            this.MainListView.Size = new System.Drawing.Size(696, 239);
             this.MainListView.TabIndex = 1;
             this.MainListView.UseCompatibleStateImageBehavior = false;
             this.MainListView.View = System.Windows.Forms.View.Details;
@@ -130,9 +132,10 @@
             this.InactivecheckBox.AutoSize = true;
             this.InactivecheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InactivecheckBox.ForeColor = System.Drawing.Color.DarkRed;
-            this.InactivecheckBox.Location = new System.Drawing.Point(190, 51);
+            this.InactivecheckBox.Location = new System.Drawing.Point(127, 33);
+            this.InactivecheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.InactivecheckBox.Name = "InactivecheckBox";
-            this.InactivecheckBox.Size = new System.Drawing.Size(209, 26);
+            this.InactivecheckBox.Size = new System.Drawing.Size(149, 19);
             this.InactivecheckBox.TabIndex = 3;
             this.InactivecheckBox.Text = "Show Inactive Files";
             this.InactivecheckBox.UseVisualStyleBackColor = true;
@@ -140,10 +143,11 @@
             // StartdateTimePicker
             // 
             this.StartdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.StartdateTimePicker.Location = new System.Drawing.Point(481, 54);
+            this.StartdateTimePicker.Location = new System.Drawing.Point(321, 35);
+            this.StartdateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.StartdateTimePicker.Name = "StartdateTimePicker";
             this.StartdateTimePicker.ShowUpDown = true;
-            this.StartdateTimePicker.Size = new System.Drawing.Size(124, 26);
+            this.StartdateTimePicker.Size = new System.Drawing.Size(84, 20);
             this.StartdateTimePicker.TabIndex = 4;
             // 
             // lblStart
@@ -151,9 +155,10 @@
             this.lblStart.AutoSize = true;
             this.lblStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStart.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblStart.Location = new System.Drawing.Point(416, 55);
+            this.lblStart.Location = new System.Drawing.Point(277, 36);
+            this.lblStart.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStart.Name = "lblStart";
-            this.lblStart.Size = new System.Drawing.Size(59, 22);
+            this.lblStart.Size = new System.Drawing.Size(41, 15);
             this.lblStart.TabIndex = 5;
             this.lblStart.Text = "Start:";
             // 
@@ -162,19 +167,21 @@
             this.lblEnd.AutoSize = true;
             this.lblEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnd.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblEnd.Location = new System.Drawing.Point(622, 57);
+            this.lblEnd.Location = new System.Drawing.Point(415, 37);
+            this.lblEnd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEnd.Name = "lblEnd";
-            this.lblEnd.Size = new System.Drawing.Size(51, 22);
+            this.lblEnd.Size = new System.Drawing.Size(36, 15);
             this.lblEnd.TabIndex = 6;
             this.lblEnd.Text = "End:";
             // 
             // EnddateTimePicker
             // 
             this.EnddateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.EnddateTimePicker.Location = new System.Drawing.Point(679, 52);
+            this.EnddateTimePicker.Location = new System.Drawing.Point(453, 34);
+            this.EnddateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.EnddateTimePicker.Name = "EnddateTimePicker";
             this.EnddateTimePicker.ShowUpDown = true;
-            this.EnddateTimePicker.Size = new System.Drawing.Size(120, 26);
+            this.EnddateTimePicker.Size = new System.Drawing.Size(81, 20);
             this.EnddateTimePicker.TabIndex = 7;
             // 
             // btnAdd
@@ -183,9 +190,10 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(14, 82);
+            this.btnAdd.Location = new System.Drawing.Point(9, 53);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(170, 52);
+            this.btnAdd.Size = new System.Drawing.Size(113, 34);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add Files";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -197,9 +205,10 @@
             this.btnStopTrack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStopTrack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStopTrack.ForeColor = System.Drawing.Color.White;
-            this.btnStopTrack.Location = new System.Drawing.Point(14, 152);
+            this.btnStopTrack.Location = new System.Drawing.Point(9, 99);
+            this.btnStopTrack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnStopTrack.Name = "btnStopTrack";
-            this.btnStopTrack.Size = new System.Drawing.Size(170, 52);
+            this.btnStopTrack.Size = new System.Drawing.Size(113, 34);
             this.btnStopTrack.TabIndex = 9;
             this.btnStopTrack.Text = "Stop Tracking";
             this.btnStopTrack.UseVisualStyleBackColor = false;
@@ -210,9 +219,10 @@
             this.btnTrack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTrack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrack.ForeColor = System.Drawing.Color.White;
-            this.btnTrack.Location = new System.Drawing.Point(14, 235);
+            this.btnTrack.Location = new System.Drawing.Point(9, 153);
+            this.btnTrack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTrack.Name = "btnTrack";
-            this.btnTrack.Size = new System.Drawing.Size(170, 52);
+            this.btnTrack.Size = new System.Drawing.Size(113, 34);
             this.btnTrack.TabIndex = 10;
             this.btnTrack.Text = "Restart Tracking";
             this.btnTrack.UseVisualStyleBackColor = false;
@@ -223,9 +233,10 @@
             this.btnAddLink.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddLink.ForeColor = System.Drawing.Color.White;
-            this.btnAddLink.Location = new System.Drawing.Point(14, 314);
+            this.btnAddLink.Location = new System.Drawing.Point(9, 204);
+            this.btnAddLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddLink.Name = "btnAddLink";
-            this.btnAddLink.Size = new System.Drawing.Size(170, 52);
+            this.btnAddLink.Size = new System.Drawing.Size(113, 34);
             this.btnAddLink.TabIndex = 11;
             this.btnAddLink.Text = "Add Link";
             this.btnAddLink.UseVisualStyleBackColor = false;
@@ -237,9 +248,10 @@
             this.btnAddReminder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddReminder.ForeColor = System.Drawing.Color.White;
-            this.btnAddReminder.Location = new System.Drawing.Point(14, 395);
+            this.btnAddReminder.Location = new System.Drawing.Point(9, 257);
+            this.btnAddReminder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddReminder.Name = "btnAddReminder";
-            this.btnAddReminder.Size = new System.Drawing.Size(170, 52);
+            this.btnAddReminder.Size = new System.Drawing.Size(113, 34);
             this.btnAddReminder.TabIndex = 12;
             this.btnAddReminder.Text = "Add Reminder";
             this.btnAddReminder.UseVisualStyleBackColor = false;
@@ -247,9 +259,10 @@
             // 
             // txtWild
             // 
-            this.txtWild.Location = new System.Drawing.Point(805, 49);
+            this.txtWild.Location = new System.Drawing.Point(537, 32);
+            this.txtWild.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtWild.Name = "txtWild";
-            this.txtWild.Size = new System.Drawing.Size(331, 26);
+            this.txtWild.Size = new System.Drawing.Size(222, 20);
             this.txtWild.TabIndex = 14;
             // 
             // btnWildSearch
@@ -258,9 +271,10 @@
             this.btnWildSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnWildSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWildSearch.ForeColor = System.Drawing.Color.White;
-            this.btnWildSearch.Location = new System.Drawing.Point(1142, 35);
+            this.btnWildSearch.Location = new System.Drawing.Point(761, 23);
+            this.btnWildSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnWildSearch.Name = "btnWildSearch";
-            this.btnWildSearch.Size = new System.Drawing.Size(90, 42);
+            this.btnWildSearch.Size = new System.Drawing.Size(60, 27);
             this.btnWildSearch.TabIndex = 15;
             this.btnWildSearch.Text = "Search";
             this.btnWildSearch.UseVisualStyleBackColor = false;
@@ -270,17 +284,19 @@
             this.lblMemo.AutoSize = true;
             this.lblMemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMemo.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblMemo.Location = new System.Drawing.Point(242, 487);
+            this.lblMemo.Location = new System.Drawing.Point(161, 317);
+            this.lblMemo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMemo.Name = "lblMemo";
-            this.lblMemo.Size = new System.Drawing.Size(138, 22);
+            this.lblMemo.Size = new System.Drawing.Size(101, 15);
             this.lblMemo.TabIndex = 16;
             this.lblMemo.Text = "Update Memo:";
             // 
             // txtMemo
             // 
-            this.txtMemo.Location = new System.Drawing.Point(407, 483);
+            this.txtMemo.Location = new System.Drawing.Point(271, 314);
+            this.txtMemo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMemo.Name = "txtMemo";
-            this.txtMemo.Size = new System.Drawing.Size(435, 26);
+            this.txtMemo.Size = new System.Drawing.Size(291, 20);
             this.txtMemo.TabIndex = 17;
             // 
             // btnUpdate
@@ -289,9 +305,10 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(859, 469);
+            this.btnUpdate.Location = new System.Drawing.Point(573, 305);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(170, 52);
+            this.btnUpdate.Size = new System.Drawing.Size(113, 34);
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -302,9 +319,10 @@
             this.btnMainPrintRepo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMainPrintRepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMainPrintRepo.ForeColor = System.Drawing.Color.White;
-            this.btnMainPrintRepo.Location = new System.Drawing.Point(1062, 468);
+            this.btnMainPrintRepo.Location = new System.Drawing.Point(708, 304);
+            this.btnMainPrintRepo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMainPrintRepo.Name = "btnMainPrintRepo";
-            this.btnMainPrintRepo.Size = new System.Drawing.Size(170, 52);
+            this.btnMainPrintRepo.Size = new System.Drawing.Size(113, 34);
             this.btnMainPrintRepo.TabIndex = 19;
             this.btnMainPrintRepo.Text = "Print Report";
             this.btnMainPrintRepo.UseVisualStyleBackColor = false;
@@ -319,18 +337,20 @@
             this.btnViewHistory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnViewHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewHistory.ForeColor = System.Drawing.Color.White;
-            this.btnViewHistory.Location = new System.Drawing.Point(14, 468);
+            this.btnViewHistory.Location = new System.Drawing.Point(9, 304);
+            this.btnViewHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnViewHistory.Name = "btnViewHistory";
-            this.btnViewHistory.Size = new System.Drawing.Size(170, 52);
+            this.btnViewHistory.Size = new System.Drawing.Size(113, 34);
             this.btnViewHistory.TabIndex = 20;
             this.btnViewHistory.Text = "View History";
             this.btnViewHistory.UseVisualStyleBackColor = false;
+            this.btnViewHistory.Click += new System.EventHandler(this.btnViewHistory_Click);
             // 
             // FormFileAidMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1278, 1038);
+            this.ClientSize = new System.Drawing.Size(852, 675);
             this.Controls.Add(this.btnViewHistory);
             this.Controls.Add(this.btnMainPrintRepo);
             this.Controls.Add(this.btnUpdate);
@@ -350,6 +370,7 @@
             this.Controls.Add(this.InactivecheckBox);
             this.Controls.Add(this.MainListView);
             this.Controls.Add(this.lblMainInfo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormFileAidMain";
             this.Text = "FileAidMain";
             this.Load += new System.EventHandler(this.FormFileAidMain_Load);
