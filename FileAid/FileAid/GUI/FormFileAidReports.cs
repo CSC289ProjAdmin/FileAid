@@ -16,5 +16,10 @@ namespace FileAid.GUI
         {
             InitializeComponent();
         }
+
+        private void FormFileAidReports_Load(object sender, EventArgs e)
+        {
+            ReporttoolTip.SetToolTip(btnRunReport, "Run report");
+        }
     }
 }

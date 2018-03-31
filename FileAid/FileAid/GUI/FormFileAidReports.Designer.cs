@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.ReportslistView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnRunReport = new System.Windows.Forms.Button();
+            this.ReporttoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -70,15 +73,34 @@
             this.columnHeader2.Text = "Description";
             this.columnHeader2.Width = 338;
             // 
+            // btnRunReport
+            // 
+            this.btnRunReport.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRunReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRunReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRunReport.ForeColor = System.Drawing.Color.White;
+            this.btnRunReport.Location = new System.Drawing.Point(366, 602);
+            this.btnRunReport.Name = "btnRunReport";
+            this.btnRunReport.Size = new System.Drawing.Size(170, 52);
+            this.btnRunReport.TabIndex = 11;
+            this.btnRunReport.Text = "Run Report";
+            this.btnRunReport.UseVisualStyleBackColor = false;
+            // 
+            // ReporttoolTip
+            // 
+            this.ReporttoolTip.IsBalloon = true;
+            // 
             // FormFileAidReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 614);
+            this.ClientSize = new System.Drawing.Size(953, 809);
+            this.Controls.Add(this.btnRunReport);
             this.Controls.Add(this.ReportslistView);
             this.Controls.Add(this.lblMainInfo);
             this.Name = "FormFileAidReports";
             this.Text = "FileAid Reports";
+            this.Load += new System.EventHandler(this.FormFileAidReports_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,6 +112,8 @@
         private System.Windows.Forms.ListView ReportslistView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Button btnRunReport;
+        private System.Windows.Forms.ToolTip ReporttoolTip;
     }
 }
 
