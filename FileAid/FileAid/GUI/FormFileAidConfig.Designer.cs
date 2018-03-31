@@ -32,12 +32,14 @@
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.PeriodicdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.btnPeriodicUpdate = new System.Windows.Forms.Button();
-            this.btnModifiedFiles = new System.Windows.Forms.Button();
+            this.btnBrowse = new System.Windows.Forms.Button();
             this.lblPeriodicUpdate = new System.Windows.Forms.Label();
-            this.ConfiglistView = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ConfigtoolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.txtProgramPath = new System.Windows.Forms.TextBox();
+            this.btnProSaveChanges = new System.Windows.Forms.Button();
+            this.btnProCancel = new System.Windows.Forms.Button();
+            this.ProInactivecheckBox = new System.Windows.Forms.CheckBox();
+            this.lblUpdatePath = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -45,17 +47,17 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(101, 22);
+            this.lblMainInfo.Location = new System.Drawing.Point(55, 18);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(571, 37);
+            this.lblMainInfo.Size = new System.Drawing.Size(719, 37);
             this.lblMainInfo.TabIndex = 1;
-            this.lblMainInfo.Text = "Welcome to File Aid Config Window.";
+            this.lblMainInfo.Text = "Welcome to File Aid Program Setting Window.";
             // 
             // PeriodicdateTimePicker
             // 
             this.PeriodicdateTimePicker.CustomFormat = "m";
             this.PeriodicdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.PeriodicdateTimePicker.Location = new System.Drawing.Point(322, 88);
+            this.PeriodicdateTimePicker.Location = new System.Drawing.Point(547, 100);
             this.PeriodicdateTimePicker.Name = "PeriodicdateTimePicker";
             this.PeriodicdateTimePicker.ShowUpDown = true;
             this.PeriodicdateTimePicker.Size = new System.Drawing.Size(96, 26);
@@ -67,79 +69,114 @@
             this.btnPeriodicUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPeriodicUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPeriodicUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnPeriodicUpdate.Location = new System.Drawing.Point(424, 76);
+            this.btnPeriodicUpdate.Location = new System.Drawing.Point(660, 88);
             this.btnPeriodicUpdate.Name = "btnPeriodicUpdate";
             this.btnPeriodicUpdate.Size = new System.Drawing.Size(179, 52);
             this.btnPeriodicUpdate.TabIndex = 9;
             this.btnPeriodicUpdate.Text = "Periodic Update";
             this.btnPeriodicUpdate.UseVisualStyleBackColor = false;
             // 
-            // btnModifiedFiles
+            // btnBrowse
             // 
-            this.btnModifiedFiles.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnModifiedFiles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnModifiedFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifiedFiles.ForeColor = System.Drawing.Color.White;
-            this.btnModifiedFiles.Location = new System.Drawing.Point(620, 76);
-            this.btnModifiedFiles.Name = "btnModifiedFiles";
-            this.btnModifiedFiles.Size = new System.Drawing.Size(154, 52);
-            this.btnModifiedFiles.TabIndex = 10;
-            this.btnModifiedFiles.Text = "Display Files";
-            this.btnModifiedFiles.UseVisualStyleBackColor = false;
+            this.btnBrowse.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.ForeColor = System.Drawing.Color.White;
+            this.btnBrowse.Location = new System.Drawing.Point(660, 177);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(179, 52);
+            this.btnBrowse.TabIndex = 10;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = false;
             // 
             // lblPeriodicUpdate
             // 
             this.lblPeriodicUpdate.AutoSize = true;
             this.lblPeriodicUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPeriodicUpdate.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblPeriodicUpdate.Location = new System.Drawing.Point(44, 88);
+            this.lblPeriodicUpdate.Location = new System.Drawing.Point(255, 104);
             this.lblPeriodicUpdate.Name = "lblPeriodicUpdate";
             this.lblPeriodicUpdate.Size = new System.Drawing.Size(256, 22);
             this.lblPeriodicUpdate.TabIndex = 11;
             this.lblPeriodicUpdate.Text = "Periodic Update in Minutes:";
             // 
-            // ConfiglistView
-            // 
-            this.ConfiglistView.AllowColumnReorder = true;
-            this.ConfiglistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.ConfiglistView.FullRowSelect = true;
-            this.ConfiglistView.GridLines = true;
-            this.ConfiglistView.Location = new System.Drawing.Point(48, 143);
-            this.ConfiglistView.Name = "ConfiglistView";
-            this.ConfiglistView.Size = new System.Drawing.Size(713, 486);
-            this.ConfiglistView.TabIndex = 12;
-            this.ConfiglistView.UseCompatibleStateImageBehavior = false;
-            this.ConfiglistView.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Modified Files";
-            this.columnHeader1.Width = 178;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Inactive Files";
-            this.columnHeader2.Width = 171;
-            // 
             // ConfigtoolTip
             // 
             this.ConfigtoolTip.IsBalloon = true;
+            // 
+            // txtProgramPath
+            // 
+            this.txtProgramPath.Location = new System.Drawing.Point(222, 191);
+            this.txtProgramPath.Name = "txtProgramPath";
+            this.txtProgramPath.Size = new System.Drawing.Size(421, 26);
+            this.txtProgramPath.TabIndex = 12;
+            // 
+            // btnProSaveChanges
+            // 
+            this.btnProSaveChanges.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnProSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnProSaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProSaveChanges.ForeColor = System.Drawing.Color.White;
+            this.btnProSaveChanges.Location = new System.Drawing.Point(222, 320);
+            this.btnProSaveChanges.Name = "btnProSaveChanges";
+            this.btnProSaveChanges.Size = new System.Drawing.Size(179, 52);
+            this.btnProSaveChanges.TabIndex = 14;
+            this.btnProSaveChanges.Text = "Save Changes";
+            this.btnProSaveChanges.UseVisualStyleBackColor = false;
+            // 
+            // btnProCancel
+            // 
+            this.btnProCancel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnProCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnProCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProCancel.ForeColor = System.Drawing.Color.White;
+            this.btnProCancel.Location = new System.Drawing.Point(464, 320);
+            this.btnProCancel.Name = "btnProCancel";
+            this.btnProCancel.Size = new System.Drawing.Size(179, 52);
+            this.btnProCancel.TabIndex = 15;
+            this.btnProCancel.Text = "Cancel";
+            this.btnProCancel.UseVisualStyleBackColor = false;
+            // 
+            // ProInactivecheckBox
+            // 
+            this.ProInactivecheckBox.AutoSize = true;
+            this.ProInactivecheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProInactivecheckBox.ForeColor = System.Drawing.Color.DarkRed;
+            this.ProInactivecheckBox.Location = new System.Drawing.Point(22, 103);
+            this.ProInactivecheckBox.Name = "ProInactivecheckBox";
+            this.ProInactivecheckBox.Size = new System.Drawing.Size(209, 26);
+            this.ProInactivecheckBox.TabIndex = 16;
+            this.ProInactivecheckBox.Text = "Show Inactive Files";
+            this.ProInactivecheckBox.UseVisualStyleBackColor = true;
+            // 
+            // lblUpdatePath
+            // 
+            this.lblUpdatePath.AutoSize = true;
+            this.lblUpdatePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdatePath.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblUpdatePath.Location = new System.Drawing.Point(18, 191);
+            this.lblUpdatePath.Name = "lblUpdatePath";
+            this.lblUpdatePath.Size = new System.Drawing.Size(190, 22);
+            this.lblUpdatePath.TabIndex = 17;
+            this.lblUpdatePath.Text = "Update Folder Path:";
             // 
             // FormFileAidConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(868, 692);
-            this.Controls.Add(this.ConfiglistView);
+            this.ClientSize = new System.Drawing.Size(868, 556);
+            this.Controls.Add(this.lblUpdatePath);
+            this.Controls.Add(this.ProInactivecheckBox);
+            this.Controls.Add(this.btnProCancel);
+            this.Controls.Add(this.btnProSaveChanges);
+            this.Controls.Add(this.txtProgramPath);
             this.Controls.Add(this.lblPeriodicUpdate);
-            this.Controls.Add(this.btnModifiedFiles);
+            this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.btnPeriodicUpdate);
             this.Controls.Add(this.PeriodicdateTimePicker);
             this.Controls.Add(this.lblMainInfo);
             this.Name = "FormFileAidConfig";
-            this.Text = "FileAidConfig";
+            this.Text = "FileAidProgramSetting";
             this.Load += new System.EventHandler(this.FileAidConfig_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,12 +188,14 @@
         private System.Windows.Forms.Label lblMainInfo;
         private System.Windows.Forms.DateTimePicker PeriodicdateTimePicker;
         private System.Windows.Forms.Button btnPeriodicUpdate;
-        private System.Windows.Forms.Button btnModifiedFiles;
+        private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Label lblPeriodicUpdate;
-        private System.Windows.Forms.ListView ConfiglistView;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ToolTip ConfigtoolTip;
+        private System.Windows.Forms.TextBox txtProgramPath;
+        private System.Windows.Forms.Button btnProSaveChanges;
+        private System.Windows.Forms.Button btnProCancel;
+        private System.Windows.Forms.CheckBox ProInactivecheckBox;
+        private System.Windows.Forms.Label lblUpdatePath;
     }
 }
 
