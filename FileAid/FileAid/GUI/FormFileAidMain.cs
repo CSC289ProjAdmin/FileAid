@@ -51,5 +51,10 @@ namespace FileAid.GUI
 
 
         }
+
+        private void btnViewHistory_Click(object sender, EventArgs e) {
+            FormFileAidViewHistory history = new FormFileAidViewHistory();
+            history.ShowDialog();
+        }
     }
 }
