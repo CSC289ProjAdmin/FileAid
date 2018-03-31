@@ -53,6 +53,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Tests\BatchManagerTest.cs" />
+    <Compile Include="Tests\ConfigManagerTest.cs" />
     <Compile Include="Tests\ConfigsTest.cs" />
     <Compile Include="Tests\DbManagerTest.cs" />
     <Compile Include="Tests\EventTest.cs" />
