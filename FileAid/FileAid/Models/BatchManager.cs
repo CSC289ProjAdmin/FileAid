@@ -43,6 +43,7 @@ namespace FileAid.Models {
                         // If not being tracked, don't update
 
                         // Add file to "Handled" dictionary (key = string, value = fileID)
+                        foundFiles.Add(nameWithExt, file.FileID);
                     } else { // Add to "Not Found" dictionary (key = string, value = fileID)
                         notFoundFiles.Add(nameWithExt, file.FileID);
                     }
