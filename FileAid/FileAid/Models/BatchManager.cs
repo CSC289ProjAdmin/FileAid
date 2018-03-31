@@ -48,26 +48,30 @@ namespace FileAid.Models {
 
             // For each unique path
             foreach (var path in searchPaths) {
-                // Enumerate files in path with MS Office extensions
-                foreach (var ext in officeFileExtensions) {
-                    try {
-                        var filesInFolder = Directory.EnumerateFiles(path, ext);
-                        // For each file in path
-                        foreach (var file in filesInFolder) {
-                            // If file in "Handled" dictionary, do nothing
-                            bool alreadyHandled = (foundFiles.ContainsKey(file.ToUpper()));
-                            if (!alreadyHandled) {
-                                // If file in "Not Found" dictionary
-                                bool wasMoved = (notFoundFiles.ContainsKey(file.ToUpper()));
-                                if (wasMoved) {
-                                    // Update path, move to "Handled"
-                                    // Update history if file is being tracked
-                                } else { // Add new file to database
+                bool isValidDirectory = Directory.Exists(path);
+                if (isValidDirectory) {
+                    // Enumerate files in path with MS Office extensions
+                    foreach (var ext in officeFileExtensions) {
+                        try {
+                            var filesInFolder = Directory.EnumerateFiles(path, ext);
+                            // For each file in path
+                            foreach (var file in filesInFolder) {
+                                // If file in "Handled" dictionary, do nothing
+                                bool alreadyHandled = (foundFiles.ContainsKey(file.ToUpper()));
+                                if (!alreadyHandled) {
+                                    // If file in "Not Found" dictionary
+                                    bool wasMoved = (notFoundFiles.ContainsKey(file.ToUpper()));
+                                    if (wasMoved) {
+                                        // Update path, move to "Handled"
+                                        // Update history if file is being tracked
+                                    } else { // Add new file to database
+                                    }
                                 }
                             }
                         }
-                    } catch (DirectoryNotFoundException) {
-                        // Swallow for now
+                        catch (DirectoryNotFoundException) {
+                            // Swallow for now
+                        }
                     }
                 }
             }
