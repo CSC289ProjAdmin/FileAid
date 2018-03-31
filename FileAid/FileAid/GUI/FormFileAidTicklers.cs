@@ -16,5 +16,11 @@ namespace FileAid.GUI
         {
             InitializeComponent();
         }
+
+        private void FormFileAidTicklers_Load(object sender, EventArgs e)
+        {
+            TicklerstoolTip.SetToolTip(btnPushToOutlook, "Push to outlook");
+            TicklerstoolTip.SetToolTip(btnResolved, "Mark as resolved");
+        }
     }
 }
