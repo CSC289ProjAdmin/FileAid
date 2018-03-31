@@ -28,7 +28,7 @@ namespace FileAid.Models {
                     }
 
                     // Create string from filename & extension
-                    string nameWithExt = file.Filename + '.' + file.FileExtension;
+                    string nameWithExt = (file.Filename + '.' + file.FileExtension).ToUpper();
 
                     // Locate file
                     FileInfo fi = new FileInfo(path + nameWithExt);
@@ -43,7 +43,7 @@ namespace FileAid.Models {
                         // If not being tracked, don't update
 
                         // Add file to "Handled" dictionary (key = string, value = fileID)
-                        foundFiles.Add(nameWithExt, file.FileID);
+                        foundFiles.Add(fi.FullName, file.FileID);
                     } else { // Add to "Not Found" dictionary (key = string, value = fileID)
                         notFoundFiles.Add(nameWithExt, file.FileID);
                     }
@@ -66,7 +66,7 @@ namespace FileAid.Models {
                                 bool alreadyHandled = (foundFiles.ContainsKey(file.ToUpper()));
                                 if (!alreadyHandled) {
                                     // If file in "Not Found" dictionary
-                                    bool wasMoved = (notFoundFiles.ContainsKey(file.ToUpper()));
+                                    bool wasMoved = (notFoundFiles.ContainsKey(Path.GetFileName(file.ToUpper())));
                                     if (wasMoved) {
                                         // Update path, move to "Handled"
                                         // Update history if file is being tracked
