@@ -44,6 +44,7 @@ namespace FileAid.Models {
 
                         // Add file to "Handled" dictionary (key = string, value = fileID)
                     } else { // Add to "Not Found" dictionary (key = string, value = fileID)
+                        notFoundFiles.Add(nameWithExt, file.FileID);
                     }
                 }
             }
@@ -82,6 +83,10 @@ namespace FileAid.Models {
             // For each file left in "Not Found" dictionary
             foreach (var pair in notFoundFiles) {
                 // Stop tracking
+                TrackedFile notFoundFile = FileManager.GetFile(pair.Value);
+                if (notFoundFile != null) {
+                    notFoundFile.StopTracking();
+                }
             }
         }
 
