@@ -34,20 +34,20 @@ namespace FileAid.GUI
 
         private void FormFileAidMain_Load(object sender, EventArgs e)
         {
-            FileAidMaintoolTip.SetToolTip(btnAdd, "Click Add Button to add new File");
-            FileAidMaintoolTip.SetToolTip(btnStopTrack, "Click Stop Tracking Button to stop the file tracking");
-            FileAidMaintoolTip.SetToolTip(btnTrack, "Click Track Button to track new File");
-            FileAidMaintoolTip.SetToolTip(btnAddLink, "Click Add Link Button to add file link");
-            FileAidMaintoolTip.SetToolTip(btnAddReminder, "Click Add Reminder Button to add reminder File");
+            FileAidMaintoolTip.SetToolTip(btnAdd, "Add new File");
+            FileAidMaintoolTip.SetToolTip(btnStopTrack, "Stop file tracking");
+            FileAidMaintoolTip.SetToolTip(btnTrack, "Restart file tracking");
+            FileAidMaintoolTip.SetToolTip(btnAddLink, "Add file link");
+            FileAidMaintoolTip.SetToolTip(btnAddReminder, "Add Reminder to files");
             FileAidMaintoolTip.SetToolTip(txtMemo, "Please enter the memo");
-            FileAidMaintoolTip.SetToolTip(btnUpdate, "Click Update Button to update the memo");
-            FileAidMaintoolTip.SetToolTip(btnMainPrintRepo, "Click Print Report Button to print report");
-            FileAidMaintoolTip.SetToolTip(FiltercheckBox, "Check Filter Checkbox");
-            FileAidMaintoolTip.SetToolTip(InactivecheckBox, "Check Inactive Files CheckBox");
-            FileAidMaintoolTip.SetToolTip(StartdateTimePicker, "Select the start date");
-            FileAidMaintoolTip.SetToolTip(EnddateTimePicker, "Select the end date");
+            FileAidMaintoolTip.SetToolTip(btnUpdate, "Update the memo");
+            FileAidMaintoolTip.SetToolTip(btnMainPrintRepo, "Print report");
+            FileAidMaintoolTip.SetToolTip(InactivecheckBox, "Show Inactive Files");
+            FileAidMaintoolTip.SetToolTip(StartdateTimePicker, "Select date modified start date");
+            FileAidMaintoolTip.SetToolTip(EnddateTimePicker, "Select date modified end date");
             FileAidMaintoolTip.SetToolTip(txtWild, "Please enter file name");
-            FileAidMaintoolTip.SetToolTip(btnWildSearch, "Click Search Button to search the file");
+            FileAidMaintoolTip.SetToolTip(btnWildSearch, "Search the file");
+            FileAidMaintoolTip.SetToolTip(btnViewHistory, "View history");
 
 
         }
