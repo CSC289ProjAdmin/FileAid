@@ -84,6 +84,11 @@ namespace FileAid.Models {
                             var filesInFolder = Directory.EnumerateFiles(path, ext, so);
                             // For each file in path
                             foreach (var file in filesInFolder) {
+                                // Don't add lock / owner files (MS Office, LibreOffice)
+                                if (file.Contains(@"~$") ||
+                                    file.Contains(@"~lock")) {
+                                    continue;
+                                }
                                 string full = file.ToUpper();
                                 string nameWithExt = Path.GetFileName(full);
                                 // If file in "Handled" dictionary, do nothing
