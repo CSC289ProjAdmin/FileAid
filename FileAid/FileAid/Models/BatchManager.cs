@@ -38,7 +38,19 @@ namespace FileAid.Models {
                         // If being tracked, compare file info & update
                         bool isTracked = (file.TrackingDisabledOn == new DateTime());
                         if (isTracked) {
-                            // Compare file info & update
+                            // Compare file info
+                            bool hasChanged = (
+                                fi.Length != file.FileSize ||
+                                fi.LastWriteTime != file.ModifiedOn ||
+                                fi.CreationTime != file.CreatedOn
+                            );
+                            if (hasChanged) {
+                                // Update info
+                                file.FileSize = (int)fi.Length;
+                                file.ModifiedOn = fi.LastWriteTime;
+                                file.CreatedOn = fi.CreationTime;
+                                file.UpdateInfo();
+                            }
                         }
                         // If not being tracked, don't update
 
