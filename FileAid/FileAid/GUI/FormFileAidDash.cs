@@ -99,5 +99,11 @@ namespace FileAid.GUI
             links.ShowDialog();
 
         }
+
+        private void btnBatchScan_Click(object sender, EventArgs e) {
+            Models.BatchManager.Scan(null, false);
+            MessageBox.Show("Scan complete.\nCheck TrackedFiles, Batches, and Events tables for details.",
+                "Manual scan");
+        }
     }
 }
