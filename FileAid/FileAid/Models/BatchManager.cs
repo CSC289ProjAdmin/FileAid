@@ -7,6 +7,16 @@ using System.IO;
 
 namespace FileAid.Models {
     public static class BatchManager {
+        public static List<Batch> GetBatches() {
+            List<Batch> allBatches = DAL.BatchManagerDAL.GetBatches();
+            return allBatches;
+        }
+
+        public static Batch GetBatch(int batchID) {
+            Batch specific = DAL.BatchManagerDAL.GetBatch(batchID);
+            return specific;
+        }
+
         public static void Scan(string masterPath, bool isPeriodic = false) {
             int nAdded, nModified, nDisabled;
             nAdded = nModified = nDisabled = 0;
@@ -152,22 +162,6 @@ namespace FileAid.Models {
             }
         }
 
-        private static List<string> GetActiveFiles() {
-            // stub
-            List<string> dummy = new List<string>();
-            return dummy;
-        }
-
-        private static List<string> BuildLocationList(List<string> filenames) {
-            // stub
-            List<string> dummy = new List<string>();
-            return dummy;
-        }
-
-        private static void ScanForKnown() {
-            // stub
-        }
-
         private static bool CompareFileInfo(TrackedFile tf, FileInfo fi) {
             bool hasSizeChanged = (tf.FileSize != (int)fi.Length);
             bool hasBeenModified = ((tf.ModifiedOn - fi.LastWriteTime).Duration() > TimeSpan.FromSeconds(1));
@@ -176,24 +170,15 @@ namespace FileAid.Models {
             return hasChanged;
         }
 
-        private static void QueueUpdatedInfo(string fileInfo) {
-            // stub
+        private static Batch AddBatch(int nAdded, int nModified, int nDisabled,
+            DateTime started, DateTime ended, bool isPeriodic) {
+            int newID = DAL.BatchManagerDAL.AddBatch(nAdded, nModified, nDisabled,
+                started, ended, isPeriodic);
+            Batch newBatch = GetBatch(newID);
+            return newBatch;
         }
 
-        private static void ScanForNew() {
-            // stub
-        }
-
-        private static void QueueNewFile(TrackedFile newFile) {
-            // stub
-        }
-
-        public static string Update() {
-            // stub
-            return "dummy";
-        }
-
-        public static void LogSummary(Batch summary) {
+        private static void LogSummary(Batch summary) {
             Event ev = new Event();
             ev.OccurredOn = DateTime.Now;
             ev.EventTypeID = EventTypes.BatchCompleted;
@@ -202,24 +187,6 @@ namespace FileAid.Models {
                 $"{summary.FilesModified} modified, {summary.FilesDisabled} disabled";
             ev.BatchID = summary.BatchID;
             Logger.Log(ev);
-        }
-
-        public static List<Batch> GetBatches() {
-            List<Batch> allBatches = DAL.BatchManagerDAL.GetBatches();
-            return allBatches;
-        }
-
-        public static Batch GetBatch(int batchID) {
-            Batch specific = DAL.BatchManagerDAL.GetBatch(batchID);
-            return specific;
-        }
-
-        public static Batch AddBatch(int nAdded, int nModified, int nDisabled,
-            DateTime started, DateTime ended, bool isPeriodic) {
-            int newID = DAL.BatchManagerDAL.AddBatch(nAdded, nModified, nDisabled,
-                started, ended, isPeriodic);
-            Batch newBatch = GetBatch(newID);
-            return newBatch;
         }
     }
 }
