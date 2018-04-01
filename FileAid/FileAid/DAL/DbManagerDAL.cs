@@ -37,8 +37,11 @@ namespace FileAid.DAL {
                 backupConn.Open();
 
                 using (SqlCommand backupcomm = new SqlCommand()) {
+                    string backupname = @"C:\Temp\FileAidDB_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") +
+                        ".bak";
                     backupcomm.Connection = backupConn;
-                    backupcomm.CommandText = @"BACKUP DATABASE FileAidDB TO DISK='c:\FileAidDB.bak'";
+                    backupcomm.CommandText = @"BACKUP DATABASE FileAidDB TO DISK='" +
+                        backupname + "'";
                     backupcomm.ExecuteNonQuery();
                 }
                 backupConn.Close();
@@ -46,7 +49,28 @@ namespace FileAid.DAL {
         }
 
         public static void Restore(string srcName) {
-            // stub
+            using (SqlConnection restoreConn = new SqlConnection()) {
+                restoreConn.ConnectionString = ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString;
+                restoreConn.Open();
+                using (SqlCommand restoreCmd = new SqlCommand()) {
+                    string database = @"FileAidDB"; // need to get programmatically
+
+                    string sqlStmt2 = string.Format("ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
+                    SqlCommand bu2 = new SqlCommand(sqlStmt2, restoreConn);
+                    bu2.ExecuteNonQuery();
+
+                    string backupname = @"C:\Temp\FileAidDB.bak"; // Get from user and validate
+                    string sqlStmt3 = "USE MASTER RESTORE DATABASE [" + database + "] FROM DISK='" 
+                        + backupname + "' WITH REPLACE;";
+                    restoreCmd.Connection = restoreConn;
+                    restoreCmd.CommandText = sqlStmt3;
+                    restoreCmd.ExecuteNonQuery();
+
+                    string sqlStmt4 = string.Format("ALTER DATABASE [" + database + "] SET MULTI_USER");
+                    SqlCommand bu4 = new SqlCommand(sqlStmt4, restoreConn);
+                    bu4.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
