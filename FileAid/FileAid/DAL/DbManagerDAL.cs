@@ -14,7 +14,7 @@ namespace FileAid.DAL {
         }
 
         public static void Backup(string destName) {
-            string master_ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Database=Master;Integrated Security=True;Connect Timeout=30;";
+            string master_ConnectionString = @"Data Source=(LocalDB)\ProjectsV13;Database=Master;Integrated Security=True;Connect Timeout=30;";
 
             using (SqlConnection masterdbConn = new SqlConnection()) {
                 masterdbConn.ConnectionString = master_ConnectionString;
