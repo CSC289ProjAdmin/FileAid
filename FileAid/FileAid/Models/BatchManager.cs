@@ -42,9 +42,9 @@ namespace FileAid.Models {
                         }
                         // If not being tracked, don't update
 
-                        // Add file to "Handled" dictionary (key = string, value = fileID)
+                        // Add file to "Handled" dictionary (key = full path and filename, value = fileID)
                         foundFiles.Add(fi.FullName, file.FileID);
-                    } else { // Add to "Not Found" dictionary (key = string, value = fileID)
+                    } else { // Add to "Not Found" dictionary (key = filename with extension, value = fileID)
                         notFoundFiles.Add(nameWithExt, file.FileID);
                     }
                 }
