@@ -79,7 +79,7 @@ namespace FileAid.Models {
                 bool isValidDirectory = Directory.Exists(path);
                 if (isValidDirectory) {
                     SearchOption so = (
-                        (path == masterPath.ToUpper())
+                        (!string.IsNullOrEmpty(masterPath) && path == masterPath.ToUpper())
                         ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly
                     );
                     // Enumerate files in path with MS Office extensions
