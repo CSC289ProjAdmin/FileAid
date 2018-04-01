@@ -17,7 +17,7 @@ namespace FileAid.Models {
             return specific;
         }
 
-        public static void Scan(string masterPath, bool isPeriodic = false) {
+        public static Batch Scan(string masterPath, bool isPeriodic = false) {
             int nAdded, nModified, nDisabled;
             nAdded = nModified = nDisabled = 0;
             DateTime start = DateTime.Now;
@@ -198,6 +198,7 @@ namespace FileAid.Models {
             if (summary != null) {
                 LogSummary(summary);
             }
+            return summary;
         }
 
         private static bool CompareFileInfo(TrackedFile tf, FileInfo fi) {

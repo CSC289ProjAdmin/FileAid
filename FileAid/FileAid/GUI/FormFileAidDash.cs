@@ -101,9 +101,10 @@ namespace FileAid.GUI
         }
 
         private void btnBatchScan_Click(object sender, EventArgs e) {
-            Models.BatchManager.Scan(null, false);
-            MessageBox.Show("Scan complete.\nCheck TrackedFiles, Batches, and Events tables for details.",
-                "Manual scan");
+            Models.Batch manual = Models.BatchManager.Scan(null, false);
+            string result = (manual == null) ? "Batch update failed" :
+                $"Scan complete.\n{manual.FilesAdded} added, {manual.FilesModified} modified, {manual.FilesDisabled} disabled";
+            MessageBox.Show(result, "Manual scan");
         }
     }
 }
