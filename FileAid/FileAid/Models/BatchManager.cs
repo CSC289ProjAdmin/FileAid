@@ -62,13 +62,21 @@ namespace FileAid.Models {
                             var filesInFolder = Directory.EnumerateFiles(path, ext);
                             // For each file in path
                             foreach (var file in filesInFolder) {
+                                string full = file.ToUpper();
+                                string nameWithExt = Path.GetFileName(full);
                                 // If file in "Handled" dictionary, do nothing
-                                bool alreadyHandled = (foundFiles.ContainsKey(file.ToUpper()));
+                                bool alreadyHandled = (foundFiles.ContainsKey(full));
                                 if (!alreadyHandled) {
                                     // If file in "Not Found" dictionary
-                                    bool wasMoved = (notFoundFiles.ContainsKey(Path.GetFileName(file.ToUpper())));
+                                    bool wasMoved = (notFoundFiles.ContainsKey(nameWithExt));
                                     if (wasMoved) {
-                                        // Update path, move to "Handled"
+                                        // Update path
+                                        TrackedFile currentFile = FileManager.GetFile(notFoundFiles[nameWithExt]);
+                                        currentFile.FilePath = path;
+                                        currentFile.UpdateInfo();
+                                        // Move to "Handled"
+                                        foundFiles.Add(full, currentFile.FileID);
+                                        notFoundFiles.Remove(nameWithExt);
                                         // Update history if file is being tracked
                                     } else { // Add new file to database
                                         FileInfo fi = new FileInfo(file);
