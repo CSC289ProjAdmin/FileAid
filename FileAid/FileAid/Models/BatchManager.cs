@@ -61,11 +61,20 @@ namespace FileAid.Models {
                             bool hasChanged = CompareFileInfo(file, fi);
                             if (hasChanged) {
                                 // Update info
+                                Event ev = new Event();
+                                ev.OccurredOn = DateTime.Now;
+                                ev.EventTypeID = EventTypes.FileModified;
+                                ev.Description = "File system info updated during batch update";
+                                ev.Initial = $"Size {file.FileSize}; Date Modified {file.ModifiedOn}; Date Created {file.CreatedOn}";
                                 file.FileSize = (int)fi.Length;
                                 file.ModifiedOn = fi.LastWriteTime;
                                 file.CreatedOn = fi.CreationTime;
+                                ev.New = $"Size {file.FileSize}; Date Modified {file.ModifiedOn}; Date Created {file.CreatedOn}";
                                 bool wasUpdated = file.UpdateInfo();
-                                if (wasUpdated) nModified++;
+                                if (wasUpdated) {
+                                    nModified++;
+                                    Logger.Log(ev);
+                                }
                             }
                         }
                         // If not being tracked, don't update
