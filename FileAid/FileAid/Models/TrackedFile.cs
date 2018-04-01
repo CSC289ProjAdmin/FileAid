@@ -31,6 +31,14 @@ namespace FileAid.Models {
             }
         }
 
+        public bool UpdateInfo() {
+            bool wasUpdated = DAL.TrackedFileDAL.UpdateInfo(this);
+            if (wasUpdated) {
+                GetInfo();
+            }
+            return wasUpdated;
+        }
+
         public List<FileLink> GetLinks() {
             List<FileLink> myLinks = DAL.TrackedFileDAL.GetLinks(this.FileID);
             return myLinks;

@@ -8,6 +8,24 @@ using System.Data.SqlClient;
 
 namespace FileAid.DAL {
     public static class TrackedFileDAL {
+        public static bool UpdateInfo(TrackedFile updatedFile) {
+            if (updatedFile.FileID <= 0) return false; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@FileID", updatedFile.FileID));
+            args.Add(new SqlParameter("@Path", updatedFile.FilePath));
+            args.Add(new SqlParameter("@Size", updatedFile.FileSize));
+            args.Add(new SqlParameter("@Modified", System.Data.SqlDbType.DateTime));
+            args[3].Value = updatedFile.ModifiedOn;
+            args.Add(new SqlParameter("@Created", System.Data.SqlDbType.DateTime));
+            args[4].Value = updatedFile.CreatedOn;
+            string update = "Update TrackedFiles Set dTrackUpdated = GetDate(), " +
+                "sFilePath = @Path, iSizeInBytes = @Size, dFileModified = @Modified, dFileCreated = @Created " + 
+                "Where FileID = @FileID And dTrackDeleted Is Null";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
+            bool wasUpdated = (modifiedRows == 1);
+            return wasUpdated;
+        }
+
         public static List<FileLink> GetLinks(int fileID) {
             if (fileID <= 0) return null; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
