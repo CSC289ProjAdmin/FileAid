@@ -8,7 +8,6 @@ using System.IO;
 namespace FileAid.Models {
     public static class BatchManager {
         public static void Scan() {
-            List<string> officeFileExtensions = new List<string> { "*.doc", "*.xls", "*.ppt" };
             List<string> searchPaths = new List<string>();
             Dictionary<string, int> foundFiles = new Dictionary<string, int>();
             Dictionary<string, int> notFoundFiles = new Dictionary<string, int>();
@@ -59,15 +58,26 @@ namespace FileAid.Models {
             }
 
             // Add other desired search paths (e.g. common or specific folders)
+            searchPaths.Add(@"D:\Users\Owner\My Documents".ToUpper());
 
-            // For each unique path
+            // For each unique path, look for MS Office files
+            List<string> officeExtensionPatterns = new List<string> {
+                // Note: *.3-character patterns cover all extensions starting with those characters
+                "*.doc", "*.dot", "*.wbk", // Word
+                "*.xls", "*.xlt", "*.xlm", "*.xla", "*.xll", "*.xlw", // Excel
+                "*.ppt", "*.pot", "*.pps", "*.ppam", "*.sldx", "*.sldm" // PowerPoint
+            };
             foreach (var path in searchPaths) {
                 bool isValidDirectory = Directory.Exists(path);
                 if (isValidDirectory) {
                     // Enumerate files in path with MS Office extensions
-                    foreach (var ext in officeFileExtensions) {
+                    foreach (var ext in officeExtensionPatterns) {
                         try {
-                            var filesInFolder = Directory.EnumerateFiles(path, ext);
+                            SearchOption so = (
+                                (path == @"D:\Users\Owner\My Documents".ToUpper()) 
+                                ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly
+                            );
+                            var filesInFolder = Directory.EnumerateFiles(path, ext, so);
                             // For each file in path
                             foreach (var file in filesInFolder) {
                                 string full = file.ToUpper();
@@ -97,6 +107,12 @@ namespace FileAid.Models {
                         }
                         catch (DirectoryNotFoundException) {
                             // Swallow for now
+                        }
+                        catch (UnauthorizedAccessException) {
+                            // Swallow
+                        }
+                        catch (PathTooLongException) {
+                            // Swallow
                         }
                     }
                 }
