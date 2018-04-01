@@ -99,5 +99,12 @@ namespace FileAid.GUI
             links.ShowDialog();
 
         }
+
+        private void btnBatchScan_Click(object sender, EventArgs e) {
+            Models.Batch manual = Models.BatchManager.Scan(null, false);
+            string result = (manual == null) ? "Batch update failed" :
+                $"Scan complete.\n{manual.FilesAdded} added, {manual.FilesModified} modified, {manual.FilesDisabled} disabled";
+            MessageBox.Show(result, "Manual scan");
+        }
     }
 }
