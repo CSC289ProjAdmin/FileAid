@@ -39,11 +39,7 @@ namespace FileAid.Models {
                         bool isTracked = (file.TrackingDisabledOn == new DateTime());
                         if (isTracked) {
                             // Compare file info
-                            bool hasChanged = (
-                                fi.Length != file.FileSize ||
-                                fi.LastWriteTime != file.ModifiedOn ||
-                                fi.CreationTime != file.CreatedOn
-                            );
+                            bool hasChanged = CompareFileInfo(file, fi);
                             if (hasChanged) {
                                 // Update info
                                 file.FileSize = (int)fi.Length;
@@ -131,9 +127,12 @@ namespace FileAid.Models {
             // stub
         }
 
-        private static bool CompareFileInfo(TrackedFile tf) {
-            // stub
-            return false;
+        private static bool CompareFileInfo(TrackedFile tf, FileInfo fi) {
+            bool hasSizeChanged = (tf.FileSize != (int)fi.Length);
+            bool hasBeenModified = ((tf.ModifiedOn - fi.LastWriteTime).Duration() > TimeSpan.FromSeconds(1));
+            bool hasBeenRecreated = ((tf.CreatedOn - fi.CreationTime).Duration() > TimeSpan.FromSeconds(1));
+            bool hasChanged = (hasSizeChanged || hasBeenModified || hasBeenRecreated);
+            return hasChanged;
         }
 
         private static void QueueUpdatedInfo(string fileInfo) {
