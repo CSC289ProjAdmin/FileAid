@@ -145,7 +145,7 @@ INSERT INTO [dbo].[TrackedFiles]
            ,
            ('Second File'
            ,'XLXS'
-           ,'C:\Users\Desktop'
+           ,'C:\Users\'
            ,50000
            ,getdate()
            ,getdate()
