@@ -10,8 +10,10 @@ namespace FileAid.Models {
         public static void Scan(string masterPath) {
             List<string> searchPaths = new List<string>();
             // Add any static search paths (e.g. common or specific folders)
-            if (!masterPath.EndsWith(@"\")) masterPath += @"\";
-            searchPaths.Add(masterPath.ToUpper());
+            if (!string.IsNullOrEmpty(masterPath)) {
+                if (!masterPath.EndsWith(@"\")) masterPath += @"\";
+                searchPaths.Add(masterPath.ToUpper());
+            }
 
             Dictionary<string, int> foundFiles = new Dictionary<string, int>();
             Dictionary<string, int> notFoundFiles = new Dictionary<string, int>();
