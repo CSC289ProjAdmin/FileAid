@@ -54,8 +54,8 @@ namespace FileAid.Models {
                                 file.FileSize = (int)fi.Length;
                                 file.ModifiedOn = fi.LastWriteTime;
                                 file.CreatedOn = fi.CreationTime;
-                                file.UpdateInfo();
-                                nModified++; // Should test bool return from UpdateInfo
+                                bool wasUpdated = file.UpdateInfo();
+                                if (wasUpdated) nModified++;
                             }
                         }
                         // If not being tracked, don't update
@@ -104,18 +104,19 @@ namespace FileAid.Models {
                                         // Update path
                                         TrackedFile currentFile = FileManager.GetFile(notFoundFiles[nameWithExt]);
                                         currentFile.FilePath = path;
-                                        currentFile.UpdateInfo();
-                                        nModified++; // Should test bool return from UpdateInfo
+                                        bool wasUpdated = currentFile.UpdateInfo();
+                                        if (wasUpdated) nModified++;
                                         // Move to "Handled"
                                         foundFiles.Add(full, currentFile.FileID);
                                         notFoundFiles.Remove(nameWithExt);
                                         // Update history if file is being tracked
                                     } else { // Add new file to database
                                         FileInfo fi = new FileInfo(file);
-                                        FileManager.AddFile(Path.GetFileNameWithoutExtension(fi.Name),
+                                        TrackedFile newFile = FileManager.AddFile(
+                                            Path.GetFileNameWithoutExtension(fi.Name),
                                             fi.Extension.Substring(1), fi.DirectoryName,
                                             (int)fi.Length, fi.CreationTime, fi.LastWriteTime);
-                                        nAdded++; // Should test return from AddFile
+                                        if (newFile != null) nAdded++;
                                     }
                                 }
                             }
@@ -138,8 +139,8 @@ namespace FileAid.Models {
                 // Stop tracking
                 TrackedFile notFoundFile = FileManager.GetFile(pair.Value);
                 if (notFoundFile != null) {
-                    notFoundFile.StopTracking();
-                    nDisabled++; // Should test bool return from StopTracking
+                    bool wasDisabled = notFoundFile.StopTracking();
+                    if (wasDisabled) nDisabled++;
                 }
             }
 

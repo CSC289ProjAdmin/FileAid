@@ -49,14 +49,16 @@ namespace FileAid.Models {
             return myReminder;
         }
 
-        public void UpdateMemo(string memo) {
+        public bool UpdateMemo(string memo) {
             bool wasUpdated = DAL.TrackedFileDAL.UpdateMemo(this.FileID, memo);
             if (wasUpdated) FileMemo = memo;
+            return wasUpdated;
         }
 
-        public void RemoveMemo() {
+        public bool RemoveMemo() {
             bool wasRemoved = DAL.TrackedFileDAL.RemoveMemo(this.FileID);
             if (wasRemoved) FileMemo = "";
+            return wasRemoved;
         }
 
         public List<Event> GetHistory() {
@@ -64,17 +66,17 @@ namespace FileAid.Models {
             return myHistory;
         }
 
-        public void StartTracking()
+        public bool StartTracking()
         {
             bool wasStarted = DAL.TrackedFileDAL.StartTracking(this.FileID);
             if (wasStarted) TrackingDisabledOn = new DateTime(); // 01-01-0001
+            return wasStarted;
         }
 
-        public void StopTracking() {
+        public bool StopTracking() {
             bool wasStopped = DAL.TrackedFileDAL.StopTracking(this.FileID);
             if (wasStopped) TrackingDisabledOn = DateTime.Now;
+            return wasStopped;
         }
-
-
     }
 }
