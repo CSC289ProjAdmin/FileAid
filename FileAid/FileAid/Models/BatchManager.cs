@@ -64,6 +64,7 @@ namespace FileAid.Models {
                                 Event ev = new Event();
                                 ev.OccurredOn = DateTime.Now;
                                 ev.EventTypeID = EventTypes.FileModified;
+                                ev.FileID = file.FileID;
                                 ev.Description = "File system info updated during batch update";
                                 ev.Initial = $"Size {file.FileSize}; Date Modified {file.ModifiedOn}; Date Created {file.CreatedOn}";
                                 file.FileSize = (int)fi.Length;
