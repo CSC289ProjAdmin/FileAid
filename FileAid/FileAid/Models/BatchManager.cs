@@ -7,11 +7,16 @@ using System.IO;
 
 namespace FileAid.Models {
     public static class BatchManager {
-        public static void Scan() {
+        public static void Scan(string masterPath) {
             List<string> searchPaths = new List<string>();
+            // Add any static search paths (e.g. common or specific folders)
+            if (!masterPath.EndsWith(@"\")) masterPath += @"\";
+            searchPaths.Add(masterPath.ToUpper());
+
             Dictionary<string, int> foundFiles = new Dictionary<string, int>();
             Dictionary<string, int> notFoundFiles = new Dictionary<string, int>();
 
+            // First look for files already in system
             List<TrackedFile> allFiles = FileManager.GetFiles();
             if (allFiles != null) {
                 // For each file in database
@@ -57,10 +62,7 @@ namespace FileAid.Models {
                 }
             }
 
-            // Add other desired search paths (e.g. common or specific folders)
-            searchPaths.Add(@"D:\Users\Owner\My Documents".ToUpper());
-
-            // For each unique path, look for MS Office files
+            // Second, for each unique path, look for new (or moved) MS Office files
             List<string> officeExtensionPatterns = new List<string> {
                 // Note: *.3-character patterns cover all extensions starting with those characters
                 "*.doc", "*.dot", "*.wbk", // Word
@@ -70,13 +72,13 @@ namespace FileAid.Models {
             foreach (var path in searchPaths) {
                 bool isValidDirectory = Directory.Exists(path);
                 if (isValidDirectory) {
+                    SearchOption so = (
+                        (path == masterPath.ToUpper())
+                        ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly
+                    );
                     // Enumerate files in path with MS Office extensions
                     foreach (var ext in officeExtensionPatterns) {
                         try {
-                            SearchOption so = (
-                                (path == @"D:\Users\Owner\My Documents".ToUpper()) 
-                                ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly
-                            );
                             var filesInFolder = Directory.EnumerateFiles(path, ext, so);
                             // For each file in path
                             foreach (var file in filesInFolder) {
@@ -117,7 +119,8 @@ namespace FileAid.Models {
                     }
                 }
             }
-            // For each file left in "Not Found" dictionary
+
+            // Finally, stop tracking any files that couldn't be found
             foreach (var pair in notFoundFiles) {
                 // Stop tracking
                 TrackedFile notFoundFile = FileManager.GetFile(pair.Value);
