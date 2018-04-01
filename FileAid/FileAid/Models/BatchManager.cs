@@ -61,11 +61,21 @@ namespace FileAid.Models {
                             bool hasChanged = CompareFileInfo(file, fi);
                             if (hasChanged) {
                                 // Update info
+                                Event ev = new Event();
+                                ev.OccurredOn = DateTime.Now;
+                                ev.EventTypeID = EventTypes.FileModified;
+                                ev.FileID = file.FileID;
+                                ev.Description = "File system info updated during batch update";
+                                ev.Initial = $"Size {file.FileSize}; Date Modified {file.ModifiedOn}; Date Created {file.CreatedOn}";
                                 file.FileSize = (int)fi.Length;
                                 file.ModifiedOn = fi.LastWriteTime;
                                 file.CreatedOn = fi.CreationTime;
+                                ev.New = $"Size {file.FileSize}; Date Modified {file.ModifiedOn}; Date Created {file.CreatedOn}";
                                 bool wasUpdated = file.UpdateInfo();
-                                if (wasUpdated) nModified++;
+                                if (wasUpdated) {
+                                    nModified++;
+                                    Logger.Log(ev);
+                                }
                             }
                         }
                         // If not being tracked, don't update
@@ -113,9 +123,20 @@ namespace FileAid.Models {
                                     if (wasMoved) {
                                         // Update path
                                         TrackedFile currentFile = FileManager.GetFile(notFoundFiles[nameWithExt]);
+                                        string initialPath = currentFile.FilePath;
                                         currentFile.FilePath = path;
                                         bool wasUpdated = currentFile.UpdateInfo();
-                                        if (wasUpdated) nModified++;
+                                        if (wasUpdated) {
+                                            nModified++;
+                                            Event ev = new Event();
+                                            ev.OccurredOn = DateTime.Now;
+                                            ev.EventTypeID = EventTypes.FileModified;
+                                            ev.Description = "Path updated during batch update";
+                                            ev.FileID = currentFile.FileID;
+                                            ev.Initial = initialPath;
+                                            ev.New = path;
+                                            Logger.Log(ev);
+                                        }
                                         // Move to "Handled"
                                         foundFiles.Add(full, currentFile.FileID);
                                         notFoundFiles.Remove(nameWithExt);
@@ -126,7 +147,16 @@ namespace FileAid.Models {
                                             Path.GetFileNameWithoutExtension(fi.Name),
                                             fi.Extension.Substring(1), fi.DirectoryName,
                                             (int)fi.Length, fi.CreationTime, fi.LastWriteTime);
-                                        if (newFile != null) nAdded++;
+                                        if (newFile != null) {
+                                            nAdded++;
+                                            Event ev =  new Event();
+                                            ev.OccurredOn = DateTime.Now;
+                                            ev.EventTypeID = EventTypes.FileAdded;
+                                            ev.Description = "File added during batch update";
+                                            ev.New = newFile.Filename + '.' + newFile.FileExtension;
+                                            ev.FileID = newFile.FileID;
+                                            Logger.Log(ev);
+                                        }
                                     }
                                 }
                             }
@@ -150,7 +180,15 @@ namespace FileAid.Models {
                 TrackedFile notFoundFile = FileManager.GetFile(pair.Value);
                 if (notFoundFile != null) {
                     bool wasDisabled = notFoundFile.StopTracking();
-                    if (wasDisabled) nDisabled++;
+                    if (wasDisabled) {
+                        nDisabled++;
+                        Event ev = new Event();
+                        ev.OccurredOn = DateTime.Now;
+                        ev.EventTypeID = EventTypes.FileTrackingStopped;
+                        ev.Description = "Tracking stopped because file could not be found during batch update";
+                        ev.FileID = notFoundFile.FileID;
+                        Logger.Log(ev);
+                    }
                 }
             }
 
