@@ -147,7 +147,16 @@ namespace FileAid.Models {
                                             Path.GetFileNameWithoutExtension(fi.Name),
                                             fi.Extension.Substring(1), fi.DirectoryName,
                                             (int)fi.Length, fi.CreationTime, fi.LastWriteTime);
-                                        if (newFile != null) nAdded++;
+                                        if (newFile != null) {
+                                            nAdded++;
+                                            Event ev =  new Event();
+                                            ev.OccurredOn = DateTime.Now;
+                                            ev.EventTypeID = EventTypes.FileAdded;
+                                            ev.Description = "File added during batch update";
+                                            ev.New = newFile.Filename + '.' + newFile.FileExtension;
+                                            ev.FileID = newFile.FileID;
+                                            Logger.Log(ev);
+                                        }
                                     }
                                 }
                             }
