@@ -147,7 +147,9 @@ namespace FileAid.Models {
             // Record batch summary details
             DateTime end = DateTime.Now;
             Batch summary = AddBatch(nAdded, nModified, nDisabled, start, end, isPeriodic);
-            LogSummary(""); // Should test return from AddBatch
+            if (summary != null) {
+                LogSummary(summary);
+            }
         }
 
         private static List<string> GetActiveFiles() {
@@ -191,8 +193,15 @@ namespace FileAid.Models {
             return "dummy";
         }
 
-        public static void LogSummary(string batchSummary) {
-            // stub
+        public static void LogSummary(Batch summary) {
+            Event ev = new Event();
+            ev.OccurredOn = DateTime.Now;
+            ev.EventTypeID = EventTypes.BatchCompleted;
+            ev.Description = summary.WasPeriodic ? "Periodic" : "Manual" +
+                $" update run at {summary.StartedAt} with {summary.FilesAdded} added, " +
+                $"{summary.FilesModified} modified, {summary.FilesDisabled} disabled";
+            ev.BatchID = summary.BatchID;
+            Logger.Log(ev);
         }
 
         public static List<Batch> GetBatches() {
