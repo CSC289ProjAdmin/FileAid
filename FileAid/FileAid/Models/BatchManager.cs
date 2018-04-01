@@ -7,7 +7,20 @@ using System.IO;
 
 namespace FileAid.Models {
     public static class BatchManager {
-        public static void Scan(string masterPath) {
+        public static List<Batch> GetBatches() {
+            List<Batch> allBatches = DAL.BatchManagerDAL.GetBatches();
+            return allBatches;
+        }
+
+        public static Batch GetBatch(int batchID) {
+            Batch specific = DAL.BatchManagerDAL.GetBatch(batchID);
+            return specific;
+        }
+
+        public static void Scan(string masterPath, bool isPeriodic = false) {
+            int nAdded, nModified, nDisabled;
+            nAdded = nModified = nDisabled = 0;
+            DateTime start = DateTime.Now;
             List<string> searchPaths = new List<string>();
             // Add any static search paths (e.g. common or specific folders)
             if (!string.IsNullOrEmpty(masterPath)) {
@@ -51,7 +64,8 @@ namespace FileAid.Models {
                                 file.FileSize = (int)fi.Length;
                                 file.ModifiedOn = fi.LastWriteTime;
                                 file.CreatedOn = fi.CreationTime;
-                                file.UpdateInfo();
+                                bool wasUpdated = file.UpdateInfo();
+                                if (wasUpdated) nModified++;
                             }
                         }
                         // If not being tracked, don't update
@@ -75,7 +89,7 @@ namespace FileAid.Models {
                 bool isValidDirectory = Directory.Exists(path);
                 if (isValidDirectory) {
                     SearchOption so = (
-                        (path == masterPath.ToUpper())
+                        (!string.IsNullOrEmpty(masterPath) && path == masterPath.ToUpper())
                         ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly
                     );
                     // Enumerate files in path with MS Office extensions
@@ -100,16 +114,19 @@ namespace FileAid.Models {
                                         // Update path
                                         TrackedFile currentFile = FileManager.GetFile(notFoundFiles[nameWithExt]);
                                         currentFile.FilePath = path;
-                                        currentFile.UpdateInfo();
+                                        bool wasUpdated = currentFile.UpdateInfo();
+                                        if (wasUpdated) nModified++;
                                         // Move to "Handled"
                                         foundFiles.Add(full, currentFile.FileID);
                                         notFoundFiles.Remove(nameWithExt);
                                         // Update history if file is being tracked
                                     } else { // Add new file to database
                                         FileInfo fi = new FileInfo(file);
-                                        FileManager.AddFile(Path.GetFileNameWithoutExtension(fi.Name),
+                                        TrackedFile newFile = FileManager.AddFile(
+                                            Path.GetFileNameWithoutExtension(fi.Name),
                                             fi.Extension.Substring(1), fi.DirectoryName,
                                             (int)fi.Length, fi.CreationTime, fi.LastWriteTime);
+                                        if (newFile != null) nAdded++;
                                     }
                                 }
                             }
@@ -132,25 +149,17 @@ namespace FileAid.Models {
                 // Stop tracking
                 TrackedFile notFoundFile = FileManager.GetFile(pair.Value);
                 if (notFoundFile != null) {
-                    notFoundFile.StopTracking();
+                    bool wasDisabled = notFoundFile.StopTracking();
+                    if (wasDisabled) nDisabled++;
                 }
             }
-        }
 
-        private static List<string> GetActiveFiles() {
-            // stub
-            List<string> dummy = new List<string>();
-            return dummy;
-        }
-
-        private static List<string> BuildLocationList(List<string> filenames) {
-            // stub
-            List<string> dummy = new List<string>();
-            return dummy;
-        }
-
-        private static void ScanForKnown() {
-            // stub
+            // Record batch summary details
+            DateTime end = DateTime.Now;
+            Batch summary = AddBatch(nAdded, nModified, nDisabled, start, end, isPeriodic);
+            if (summary != null) {
+                LogSummary(summary);
+            }
         }
 
         private static bool CompareFileInfo(TrackedFile tf, FileInfo fi) {
@@ -161,43 +170,23 @@ namespace FileAid.Models {
             return hasChanged;
         }
 
-        private static void QueueUpdatedInfo(string fileInfo) {
-            // stub
-        }
-
-        private static void ScanForNew() {
-            // stub
-        }
-
-        private static void QueueNewFile(TrackedFile newFile) {
-            // stub
-        }
-
-        public static string Update() {
-            // stub
-            return "dummy";
-        }
-
-        public static void LogSummary(string batchSummary) {
-            // stub
-        }
-
-        public static List<Batch> GetBatches() {
-            List<Batch> allBatches = DAL.BatchManagerDAL.GetBatches();
-            return allBatches;
-        }
-
-        public static Batch GetBatch(int batchID) {
-            Batch specific = DAL.BatchManagerDAL.GetBatch(batchID);
-            return specific;
-        }
-
-        public static Batch AddBatch(int nAdded, int nModified, int nDisabled,
+        private static Batch AddBatch(int nAdded, int nModified, int nDisabled,
             DateTime started, DateTime ended, bool isPeriodic) {
             int newID = DAL.BatchManagerDAL.AddBatch(nAdded, nModified, nDisabled,
                 started, ended, isPeriodic);
             Batch newBatch = GetBatch(newID);
             return newBatch;
+        }
+
+        private static void LogSummary(Batch summary) {
+            Event ev = new Event();
+            ev.OccurredOn = DateTime.Now;
+            ev.EventTypeID = EventTypes.BatchCompleted;
+            ev.Description = summary.WasPeriodic ? "Periodic" : "Manual" +
+                $" update run at {summary.StartedAt} with {summary.FilesAdded} added, " +
+                $"{summary.FilesModified} modified, {summary.FilesDisabled} disabled";
+            ev.BatchID = summary.BatchID;
+            Logger.Log(ev);
         }
     }
 }
