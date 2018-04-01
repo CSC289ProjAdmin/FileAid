@@ -113,9 +113,20 @@ namespace FileAid.Models {
                                     if (wasMoved) {
                                         // Update path
                                         TrackedFile currentFile = FileManager.GetFile(notFoundFiles[nameWithExt]);
+                                        string initialPath = currentFile.FilePath;
                                         currentFile.FilePath = path;
                                         bool wasUpdated = currentFile.UpdateInfo();
-                                        if (wasUpdated) nModified++;
+                                        if (wasUpdated) {
+                                            nModified++;
+                                            Event ev = new Event();
+                                            ev.OccurredOn = DateTime.Now;
+                                            ev.EventTypeID = EventTypes.FileModified;
+                                            ev.Description = "Path updated during batch update";
+                                            ev.FileID = currentFile.FileID;
+                                            ev.Initial = initialPath;
+                                            ev.New = path;
+                                            Logger.Log(ev);
+                                        }
                                         // Move to "Handled"
                                         foundFiles.Add(full, currentFile.FileID);
                                         notFoundFiles.Remove(nameWithExt);
