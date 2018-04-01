@@ -7,7 +7,10 @@ using System.IO;
 
 namespace FileAid.Models {
     public static class BatchManager {
-        public static void Scan(string masterPath) {
+        public static void Scan(string masterPath, bool isPeriodic = false) {
+            int nAdded, nModified, nDisabled;
+            nAdded = nModified = nDisabled = 0;
+            DateTime start = DateTime.Now;
             List<string> searchPaths = new List<string>();
             // Add any static search paths (e.g. common or specific folders)
             if (!string.IsNullOrEmpty(masterPath)) {
@@ -52,6 +55,7 @@ namespace FileAid.Models {
                                 file.ModifiedOn = fi.LastWriteTime;
                                 file.CreatedOn = fi.CreationTime;
                                 file.UpdateInfo();
+                                nModified++; // Should test bool return from UpdateInfo
                             }
                         }
                         // If not being tracked, don't update
@@ -101,6 +105,7 @@ namespace FileAid.Models {
                                         TrackedFile currentFile = FileManager.GetFile(notFoundFiles[nameWithExt]);
                                         currentFile.FilePath = path;
                                         currentFile.UpdateInfo();
+                                        nModified++; // Should test bool return from UpdateInfo
                                         // Move to "Handled"
                                         foundFiles.Add(full, currentFile.FileID);
                                         notFoundFiles.Remove(nameWithExt);
@@ -110,6 +115,7 @@ namespace FileAid.Models {
                                         FileManager.AddFile(Path.GetFileNameWithoutExtension(fi.Name),
                                             fi.Extension.Substring(1), fi.DirectoryName,
                                             (int)fi.Length, fi.CreationTime, fi.LastWriteTime);
+                                        nAdded++; // Should test return from AddFile
                                     }
                                 }
                             }
@@ -133,8 +139,14 @@ namespace FileAid.Models {
                 TrackedFile notFoundFile = FileManager.GetFile(pair.Value);
                 if (notFoundFile != null) {
                     notFoundFile.StopTracking();
+                    nDisabled++; // Should test bool return from StopTracking
                 }
             }
+
+            // Record batch summary details
+            DateTime end = DateTime.Now;
+            Batch summary = AddBatch(nAdded, nModified, nDisabled, start, end, isPeriodic);
+            LogSummary(""); // Should test return from AddBatch
         }
 
         private static List<string> GetActiveFiles() {
