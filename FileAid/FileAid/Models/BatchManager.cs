@@ -171,7 +171,15 @@ namespace FileAid.Models {
                 TrackedFile notFoundFile = FileManager.GetFile(pair.Value);
                 if (notFoundFile != null) {
                     bool wasDisabled = notFoundFile.StopTracking();
-                    if (wasDisabled) nDisabled++;
+                    if (wasDisabled) {
+                        nDisabled++;
+                        Event ev = new Event();
+                        ev.OccurredOn = DateTime.Now;
+                        ev.EventTypeID = EventTypes.FileTrackingStopped;
+                        ev.Description = "Tracking stopped because file could not be found during batch update";
+                        ev.FileID = notFoundFile.FileID;
+                        Logger.Log(ev);
+                    }
                 }
             }
 
