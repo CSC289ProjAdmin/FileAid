@@ -23,11 +23,13 @@ namespace FileAid {
             //Application.Run(new FormFileAidMain());
             //Application.Run(new FormFileAidNewFile());
 
+            /* NOTE: THIS SECTION IS TO BE ADDED / UNCOMMENTED BEFORE DEPLOYING
             bool isFirstRun = System.Deployment.Application.ApplicationDeployment.CurrentDeployment.IsFirstRun;
             if (isFirstRun) {
                 bool wasInitialized = InitFirstRun();
                 MessageBox.Show(wasInitialized ? "Initialized" : "Failed to initialize");
             }
+            */
 
             FormFileAidLogin login = new FormFileAidLogin();
 
