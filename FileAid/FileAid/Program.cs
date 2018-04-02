@@ -23,25 +23,41 @@ namespace FileAid {
             //Application.Run(new FormFileAidMain());
             //Application.Run(new FormFileAidNewFile());
 
-            FormFileAidLogin login = new FormFileAidLogin();
-            /*
-            //Testing real MDF connection
-            Models.FileManager.AddFile("test insert", "TST", @"C:\", 10, DateTime.Now, DateTime.Now);
-            List<Models.TrackedFile> files = DAL.FileManagerDAL.GetFiles();
-            if (files != null) {
-                MessageBox.Show($"File count: {files.Count}");
-                foreach (var f in files) {
-                    MessageBox.Show($"File name: {f.Filename}\nModified On: {f.ModifiedOn}");
-                }
+            /* NOTE: THIS SECTION IS TO BE ADDED / UNCOMMENTED BEFORE DEPLOYING
+            bool isFirstRun = System.Deployment.Application.ApplicationDeployment.CurrentDeployment.IsFirstRun;
+            if (isFirstRun) {
+                bool wasInitialized = InitFirstRun();
+                MessageBox.Show(wasInitialized ? "Initialized" : "Failed to initialize");
             }
-            // Testing real MDF connection
-            */         
+            */
+
+            FormFileAidLogin login = new FormFileAidLogin();
 
             if (login.ShowDialog() == DialogResult.OK) {
                 Application.Run(new FormFileAidDash());
             } else {
                 Application.Exit();
             }
+        }
+
+        static bool InitFirstRun() {
+            // Backup clean database for safekeeping
+            string destFolderName = System.Windows.Forms.Application.CommonAppDataPath;
+            if (!destFolderName.EndsWith(@"\")) destFolderName += @"\";
+            string filename = destFolderName + @"Data\FileAidDB_Reset.bak";
+            System.IO.FileInfo fi = new System.IO.FileInfo(filename);
+            if (fi.Exists) return false; // clean backup already exists
+            try {
+                string stopActivity = "Use Master; Alter Database FileAidDB Set Multi_User With Rollback Immediate;";
+                DAL.Db.ExecuteNonQuery(stopActivity);
+                System.Data.SqlClient.SqlConnection.ClearAllPools();
+                string backupDb = "Backup Database FileAidDB To Disk = '" + filename + "' With Init";
+                DAL. Db.ExecuteNonQuery(backupDb);
+            }
+            catch (System.Data.SqlClient.SqlException) {
+                return false;
+            }
+            return true;
         }
     }
 }
