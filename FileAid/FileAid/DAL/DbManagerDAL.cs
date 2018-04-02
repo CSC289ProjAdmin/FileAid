@@ -9,16 +9,12 @@ using System.Configuration;
 
 namespace FileAid.DAL {
     public static class DbManagerDAL {
-        public static string Reset() {
+        public static bool Reset() {
             // Restore using specific, known file
-            /*
-            bool wasReset = Restore(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath,
-                @"Data\FileAidDB_Restore.mdf"));
+            string freshDbFilename = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath,
+                @"Data\FileAidDB_Restore.mdf");          
+            bool wasReset = Restore(freshDbFilename);
             return wasReset;
-            */
-            string fullFileName = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath,
-                @"Data\FileAidDB_Restore.mdf");
-            return fullFileName;
         }
 
         public static bool Backup(string destFolderName) {
