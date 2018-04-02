@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace FileAid.Models {
     public static class DbManager {
-        public static void Reset() {
-            // stub
+        public static bool Reset() {
+            bool wasReset = false;
+            return wasReset;
         }
 
-        public static void Backup(string destFilename) {
-            // stub
+        public static bool Backup(string destFolderName) {
+            // TODO: Verify folder exists before trying to back up to it
+            bool wasBackedUp = DAL.DbManagerDAL.Backup(destFolderName);
+            return wasBackedUp;
         }
 
-        public static void Restore(string srcFilename) {
-            // stub
-        }
-
-        public static void Execute(string sql) {
-            // stub
+        public static bool Restore(string srcFilename) {
+            bool wasRestored = false;
+            return wasRestored;
         }
     }
 }

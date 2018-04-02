@@ -13,52 +13,21 @@ namespace FileAid.DAL {
             // stub
         }
 
-        public static void Backup(string destFolderName) {
-            /*
-            //string master_ConnectionString = @"Data Source=(LocalDB)\ProjectsV13;Database=Master;Integrated Security=True;Connect Timeout=30;";
-            string master_ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Database=Master;Integrated Security=True;Connect Timeout=30;";
+        public static bool Backup(string destFolderName) {
+            try {
+                string stopActivity = "Use Master; Alter Database FileAidDB Set Multi_User With Rollback Immediate;";
+                Db.ExecuteNonQuery(stopActivity);
+                SqlConnection.ClearAllPools();
 
-            using (SqlConnection masterdbConn = new SqlConnection()) {
-                masterdbConn.ConnectionString = master_ConnectionString;
-                masterdbConn.Open();
-
-                using (SqlCommand multiuser_rollback_dbcomm = new SqlCommand()) {
-                    multiuser_rollback_dbcomm.Connection = masterdbConn;
-                    multiuser_rollback_dbcomm.CommandText = @"ALTER DATABASE FileAidDB SET MULTI_USER WITH ROLLBACK IMMEDIATE";
-
-                    multiuser_rollback_dbcomm.ExecuteNonQuery();
-                }
-                masterdbConn.Close();
+                if (!destFolderName.EndsWith(@"\")) destFolderName += @"\";
+                string filename = destFolderName + "FileAidDB_" + Timestamp() + ".bak";
+                string backupDb = "Backup Database FileAidDB To Disk = '" + filename + "'";
+                Db.ExecuteNonQuery(backupDb);
             }
-
-            SqlConnection.ClearAllPools();
-
-            using (SqlConnection backupConn = new SqlConnection()) {
-                //backupConn.ConnectionString = 
-                //ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString;
-                backupConn.ConnectionString =
-                    ConfigurationManager.ConnectionStrings["FileAid.Properties.Settings.Setting"].ConnectionString;
-                backupConn.Open();
-
-                using (SqlCommand backupcomm = new SqlCommand()) {
-                    string backupname = @"C:\Temp\FileAidDB_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") +
-                        ".bak";
-                    backupcomm.Connection = backupConn;
-                    backupcomm.CommandText = @"BACKUP DATABASE FileAidDB TO DISK='" +
-                        backupname + "'";
-                    backupcomm.ExecuteNonQuery();
-                }
-                backupConn.Close();
+            catch (SqlException) {
+                return false;
             }
-            */
-            string stopActivity = "Use Master; Alter Database FileAidDB Set Multi_User With Rollback Immediate;";
-            Db.ExecuteNonQuery(stopActivity);
-            SqlConnection.ClearAllPools();
-
-            if (!destFolderName.EndsWith(@"\")) destFolderName += @"\";
-            string filename = destFolderName + "FileAidDB_" + Timestamp() + ".bak";
-            string backupDb = "Backup Database FileAidDB To Disk = '" + filename + "'";
-            Db.ExecuteNonQuery(backupDb);
+            return true;
         }
 
         public static void Restore(string srcName) {
