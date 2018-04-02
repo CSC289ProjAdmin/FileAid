@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using FileAid.Models;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace FileAid.DAL {
     public static class DbManagerDAL {
         public static bool Reset() {
-            return false;
+            bool wasReset = Restore(System.IO.Path.Combine(
+                System.Windows.Forms.Application.CommonAppDataPath,
+                @"Data\FileAidDB_Reset.bak"
+            ));
+            return wasReset;
         }
 
         public static bool Backup(string destFolderName) {
@@ -23,7 +26,8 @@ namespace FileAid.DAL {
                 string filename = destFolderName + "FileAidDB_" + Timestamp() + ".bak";
                 string backupDb = "Backup Database FileAidDB To Disk = '" + filename + "'";
                 Db.ExecuteNonQuery(backupDb);
-            } catch (SqlException) {
+            }
+            catch (SqlException) {
                 return false;
             }
             return true;

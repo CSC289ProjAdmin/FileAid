@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace FileAid.Models {
     public static class DbManager {
         public static bool Reset() {
-            bool wasReset = false;
+            // TODO: Verify clean backup file exists before trying to restore it
+            bool wasReset = DAL.DbManagerDAL.Reset();
             return wasReset;
         }
 
