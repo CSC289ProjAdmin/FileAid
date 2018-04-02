@@ -289,3 +289,4 @@ __pycache__/
 
 # JFM database file on Windows 10
 *.jfm
+FileAid/FileAid/Data/FileAidDB_Reset.bak
