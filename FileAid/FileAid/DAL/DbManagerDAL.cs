@@ -14,7 +14,8 @@ namespace FileAid.DAL {
         }
 
         public static void Backup(string destName) {
-            string master_ConnectionString = @"Data Source=(LocalDB)\ProjectsV13;Database=Master;Integrated Security=True;Connect Timeout=30;";
+            //string master_ConnectionString = @"Data Source=(LocalDB)\ProjectsV13;Database=Master;Integrated Security=True;Connect Timeout=30;";
+            string master_ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Database=Master;Integrated Security=True;Connect Timeout=30;";
 
             using (SqlConnection masterdbConn = new SqlConnection()) {
                 masterdbConn.ConnectionString = master_ConnectionString;
@@ -32,8 +33,10 @@ namespace FileAid.DAL {
             SqlConnection.ClearAllPools();
 
             using (SqlConnection backupConn = new SqlConnection()) {
-                backupConn.ConnectionString = 
-                    ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString; ;
+                //backupConn.ConnectionString = 
+                    //ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString;
+                backupConn.ConnectionString =
+                    ConfigurationManager.ConnectionStrings["FileAid.Properties.Settings.Setting"].ConnectionString;
                 backupConn.Open();
 
                 using (SqlCommand backupcomm = new SqlCommand()) {
@@ -50,7 +53,9 @@ namespace FileAid.DAL {
 
         public static void Restore(string srcName) {
             using (SqlConnection restoreConn = new SqlConnection()) {
-                restoreConn.ConnectionString = ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString;
+                //restoreConn.ConnectionString = ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString;
+                restoreConn.ConnectionString =
+                ConfigurationManager.ConnectionStrings["FileAid.Properties.Settings.Setting"].ConnectionString;
                 restoreConn.Open();
                 using (SqlCommand restoreCmd = new SqlCommand()) {
                     string database = @"FileAidDB"; // need to get programmatically
