@@ -12,13 +12,14 @@ namespace FileAid.Models {
         }
 
         public static bool Backup(string destFolderName) {
-            // TODO: Verify folder exists before trying to back up to it
+            // TODO: Verify folder exists before trying to save to it
             bool wasBackedUp = DAL.DbManagerDAL.Backup(destFolderName);
             return wasBackedUp;
         }
 
         public static bool Restore(string srcFilename) {
-            bool wasRestored = false;
+            // TODO: Verify file exists before trying to restore it
+            bool wasRestored = DAL.DbManagerDAL.Restore(srcFilename);
             return wasRestored;
         }
     }

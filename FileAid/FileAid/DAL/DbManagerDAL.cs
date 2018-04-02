@@ -23,48 +23,27 @@ namespace FileAid.DAL {
                 string filename = destFolderName + "FileAidDB_" + Timestamp() + ".bak";
                 string backupDb = "Backup Database FileAidDB To Disk = '" + filename + "'";
                 Db.ExecuteNonQuery(backupDb);
-            }
-            catch (SqlException) {
+            } catch (SqlException) {
                 return false;
             }
             return true;
         }
 
-        public static void Restore(string srcName) {
-            /*
-            using (SqlConnection restoreConn = new SqlConnection()) {
-                //restoreConn.ConnectionString = ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString;
-                restoreConn.ConnectionString =
-                ConfigurationManager.ConnectionStrings["FileAid.Properties.Settings.Setting"].ConnectionString;
-                restoreConn.Open();
-                using (SqlCommand restoreCmd = new SqlCommand()) {
-                    string database = @"FileAidDB"; // need to get programmatically
+        public static bool Restore(string srcName) {
+            try {
+                string setSingleUser = "Alter Database FileAidDB Set Single_User With Rollback Immediate;";
+                Db.ExecuteNonQuery(setSingleUser);
 
-                    string sqlStmt2 = string.Format("ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
-                    SqlCommand bu2 = new SqlCommand(sqlStmt2, restoreConn);
-                    bu2.ExecuteNonQuery();
+                string restoreDb = "Use Master; Restore Database FileAidDB From Disk = '" + srcName + "' With Replace;";
+                Db.ExecuteNonQuery(restoreDb);
 
-                    string backupname = @"C:\Temp\FileAidDB_20180401_210001.bak"; // Get from user and validate
-                    string sqlStmt3 = "USE MASTER RESTORE DATABASE [" + database + "] FROM DISK='"
-                        + backupname + "' WITH REPLACE;";
-                    restoreCmd.Connection = restoreConn;
-                    restoreCmd.CommandText = sqlStmt3;
-                    restoreCmd.ExecuteNonQuery();
-
-                    string sqlStmt4 = string.Format("ALTER DATABASE [" + database + "] SET MULTI_USER");
-                    SqlCommand bu4 = new SqlCommand(sqlStmt4, restoreConn);
-                    bu4.ExecuteNonQuery();
-                }
+                string setMultiUser = "Alter Database FileAidDB Set Multi_User;";
+                Db.ExecuteNonQuery(setMultiUser);
             }
-            */
-            string setSingleUser = "Alter Database FileAidDB Set Single_User With Rollback Immediate;";
-            Db.ExecuteNonQuery(setSingleUser);
-
-            string restoreDb = "Use Master; Restore Database FileAidDB From Disk = '" + srcName + "' With Replace;";
-            Db.ExecuteNonQuery(restoreDb);
-
-            string setMultiUser = "Alter Database FileAidDB Set Multi_User;";
-            Db.ExecuteNonQuery(setMultiUser);
+            catch (SqlException) {
+                return false;
+            }
+            return true;
         }
 
         private static string Timestamp() {
