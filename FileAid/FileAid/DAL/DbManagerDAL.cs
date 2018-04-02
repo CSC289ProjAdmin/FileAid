@@ -13,7 +13,8 @@ namespace FileAid.DAL {
             // stub
         }
 
-        public static void Backup(string destName) {
+        public static void Backup(string destFolderName) {
+            /*
             //string master_ConnectionString = @"Data Source=(LocalDB)\ProjectsV13;Database=Master;Integrated Security=True;Connect Timeout=30;";
             string master_ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Database=Master;Integrated Security=True;Connect Timeout=30;";
 
@@ -34,7 +35,7 @@ namespace FileAid.DAL {
 
             using (SqlConnection backupConn = new SqlConnection()) {
                 //backupConn.ConnectionString = 
-                    //ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString;
+                //ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString;
                 backupConn.ConnectionString =
                     ConfigurationManager.ConnectionStrings["FileAid.Properties.Settings.Setting"].ConnectionString;
                 backupConn.Open();
@@ -49,6 +50,15 @@ namespace FileAid.DAL {
                 }
                 backupConn.Close();
             }
+            */
+            string stopActivity = "Use Master; Alter Database FileAidDB Set Multi_User With Rollback Immediate;";
+            Db.ExecuteNonQuery(stopActivity);
+            SqlConnection.ClearAllPools();
+
+            if (!destFolderName.EndsWith(@"\")) destFolderName += @"\";
+            string filename = destFolderName + "FileAidDB_" + Timestamp() + ".bak";
+            string backupDb = "Backup Database FileAidDB To Disk = '" + filename + "'";
+            Db.ExecuteNonQuery(backupDb);
         }
 
         public static void Restore(string srcName) {
@@ -64,8 +74,8 @@ namespace FileAid.DAL {
                     SqlCommand bu2 = new SqlCommand(sqlStmt2, restoreConn);
                     bu2.ExecuteNonQuery();
 
-                    string backupname = @"C:\Temp\FileAidDB.bak"; // Get from user and validate
-                    string sqlStmt3 = "USE MASTER RESTORE DATABASE [" + database + "] FROM DISK='" 
+                    string backupname = @"C:\Temp\FileAidDB_20180401_210001.bak"; // Get from user and validate
+                    string sqlStmt3 = "USE MASTER RESTORE DATABASE [" + database + "] FROM DISK='"
                         + backupname + "' WITH REPLACE;";
                     restoreCmd.Connection = restoreConn;
                     restoreCmd.CommandText = sqlStmt3;
@@ -76,6 +86,10 @@ namespace FileAid.DAL {
                     bu4.ExecuteNonQuery();
                 }
             }
+        }
+
+        private static string Timestamp() {
+            return DateTime.Now.ToString("yyyyMMdd_HHmmss");
         }
     }
 }
