@@ -31,6 +31,7 @@ namespace FileAid.DAL {
         }
 
         public static void Restore(string srcName) {
+            /*
             using (SqlConnection restoreConn = new SqlConnection()) {
                 //restoreConn.ConnectionString = ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString;
                 restoreConn.ConnectionString =
@@ -55,6 +56,15 @@ namespace FileAid.DAL {
                     bu4.ExecuteNonQuery();
                 }
             }
+            */
+            string setSingleUser = "Alter Database FileAidDB Set Single_User With Rollback Immediate;";
+            Db.ExecuteNonQuery(setSingleUser);
+
+            string restoreDb = "Use Master; Restore Database FileAidDB From Disk = '" + srcName + "' With Replace;";
+            Db.ExecuteNonQuery(restoreDb);
+
+            string setMultiUser = "Alter Database FileAidDB Set Multi_User;";
+            Db.ExecuteNonQuery(setMultiUser);
         }
 
         private static string Timestamp() {
