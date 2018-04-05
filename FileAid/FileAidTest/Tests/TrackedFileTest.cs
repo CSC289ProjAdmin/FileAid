@@ -23,30 +23,43 @@ namespace FileAidTest.Tests {
         }
 
         [TestMethod]
-        public void GetLinksTest()
+        public void UpdateInfoTest()
         {
-            // Test Parameters
-            bool linksFound = false;
-
-            // Get tracked files
             List<TrackedFile> files = FileManagerDAL.GetFiles();
-
-            // Verify there are tracked files returned
-            Assert.IsNotNull(files, "No tracked files found.");
-
-            // Search for a link in the tracked files
-            foreach(var file in files)
+            if (files != null)
             {
-                if(file.GetLinks() != null)
-                {
-                    // Get Links Successful and break
-                    linksFound = true;
-                    break;
+                // Get one of the files and modify the file name
+                TrackedFile first = files[0];
+                string fileName = first.Filename;
+                string newFileName = fileName + "TestName";
+                first.Filename = newFileName;
+
+                // Verify the filename has been changed for the object
+                Assert.AreNotEqual(fileName, first.Filename);
+                Assert.AreEqual(newFileName, first.Filename);
+
+                // Update Info for the object
+                first.UpdateInfo();
+
+                // Verify info was updated for the object
+                Assert.AreEqual(fileName, first.Filename);
+                Assert.AreNotEqual(newFileName, first.Filename);
+
+            }
+        }
+
+        [TestMethod]
+        public void GetLinksTest() {
+            List<TrackedFile> files = FileManagerDAL.GetFiles();
+            if (files != null) {
+                TrackedFile first = files[0];
+                List<FileLink> links = first.GetLinks();
+                if (links != null) {
+                    int expectedLinkCount = 1;
+                    int actualLinkCount = links.Count;
+                    Assert.AreEqual(expectedLinkCount, actualLinkCount);
                 }
             }
-
-            // Verify a link was found with one of the files
-            Assert.IsTrue(linksFound, "No links found in the tracked files.");
         }
 
         [TestMethod]
