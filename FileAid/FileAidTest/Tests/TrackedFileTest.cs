@@ -23,6 +23,32 @@ namespace FileAidTest.Tests {
         }
 
         [TestMethod]
+        public void UpdateInfoTest()
+        {
+            List<TrackedFile> files = FileManagerDAL.GetFiles();
+            if (files != null)
+            {
+                // Get one of the files and modify the file name
+                TrackedFile first = files[0];
+                string fileName = first.Filename;
+                string newFileName = fileName + "TestName";
+                first.Filename = newFileName;
+
+                // Verify the filename has been changed for the object
+                Assert.AreNotEqual(fileName, first.Filename);
+                Assert.AreEqual(newFileName, first.Filename);
+
+                // Update Info for the object
+                first.UpdateInfo();
+
+                // Verify info was updated for the object
+                Assert.AreEqual(fileName, first.Filename);
+                Assert.AreNotEqual(newFileName, first.Filename);
+
+            }
+        }
+
+        [TestMethod]
         public void GetLinksTest() {
             List<TrackedFile> files = FileManagerDAL.GetFiles();
             if (files != null) {
