@@ -285,6 +285,7 @@
             this.btnSaveChanges.TabIndex = 21;
             this.btnSaveChanges.Text = "Save Changes";
             this.btnSaveChanges.UseVisualStyleBackColor = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // btnPerCancel
             // 
