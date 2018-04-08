@@ -42,9 +42,10 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(156, 28);
+            this.lblMainInfo.Location = new System.Drawing.Point(104, 18);
+            this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(573, 37);
+            this.lblMainInfo.Size = new System.Drawing.Size(402, 26);
             this.lblMainInfo.TabIndex = 3;
             this.lblMainInfo.Text = "Welcome to FileAid Report  Window.";
             // 
@@ -56,9 +57,10 @@
             this.columnHeader2});
             this.ReportslistView.FullRowSelect = true;
             this.ReportslistView.GridLines = true;
-            this.ReportslistView.Location = new System.Drawing.Point(59, 99);
+            this.ReportslistView.Location = new System.Drawing.Point(39, 64);
+            this.ReportslistView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ReportslistView.Name = "ReportslistView";
-            this.ReportslistView.Size = new System.Drawing.Size(777, 480);
+            this.ReportslistView.Size = new System.Drawing.Size(519, 313);
             this.ReportslistView.TabIndex = 4;
             this.ReportslistView.UseCompatibleStateImageBehavior = false;
             this.ReportslistView.View = System.Windows.Forms.View.Details;
@@ -66,12 +68,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 260;
+            this.columnHeader1.Width = 200;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Description";
-            this.columnHeader2.Width = 338;
+            this.columnHeader2.Width = 310;
             // 
             // btnRunReport
             // 
@@ -79,12 +81,14 @@
             this.btnRunReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRunReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRunReport.ForeColor = System.Drawing.Color.White;
-            this.btnRunReport.Location = new System.Drawing.Point(366, 602);
+            this.btnRunReport.Location = new System.Drawing.Point(244, 391);
+            this.btnRunReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRunReport.Name = "btnRunReport";
-            this.btnRunReport.Size = new System.Drawing.Size(170, 52);
+            this.btnRunReport.Size = new System.Drawing.Size(113, 34);
             this.btnRunReport.TabIndex = 11;
             this.btnRunReport.Text = "Run Report";
             this.btnRunReport.UseVisualStyleBackColor = false;
+            this.btnRunReport.Click += new System.EventHandler(this.btnRunReport_Click);
             // 
             // ReporttoolTip
             // 
@@ -92,12 +96,13 @@
             // 
             // FormFileAidReports
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 809);
+            this.ClientSize = new System.Drawing.Size(635, 526);
             this.Controls.Add(this.btnRunReport);
             this.Controls.Add(this.ReportslistView);
             this.Controls.Add(this.lblMainInfo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormFileAidReports";
             this.Text = "FileAid Reports";
             this.Load += new System.EventHandler(this.FormFileAidReports_Load);

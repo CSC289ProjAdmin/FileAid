@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using FileAid.Models;
 
 namespace FileAid.GUI
 {
@@ -22,9 +23,9 @@ namespace FileAid.GUI
         {
             ReporttoolTip.SetToolTip(btnRunReport, "Run report");
             try {
-                List<Models.Report> allReports = Models.ReportManager.GetReports();
+                List<Report> allReports = ReportManager.GetReports();
                 if (allReports == null) {
-                    Models.Messenger.Show("Unable to load report details.");
+                    Messenger.Show("Unable to load report details.");
                     return;
                 }
                 foreach (var rpt in allReports) {
@@ -32,11 +33,44 @@ namespace FileAid.GUI
                     reportDetails[0] = rpt.Name;
                     reportDetails[1] = rpt.Description;
                     ListViewItem row = new ListViewItem(reportDetails);
+                    row.Tag = rpt.ReportID;
                     ReportslistView.Items.Add(row);
                 }
             } catch (SqlException) {
-                Models.Messenger.Show("Could not communicate with database.");
+                Messenger.Show("Could not communicate with database.");
             }
+        }
+
+        private void btnRunReport_Click(object sender, EventArgs e) {
+            // stub - no reports implemented yet
+            // currently only logs that a report was run (even though it wasn't)
+            if (ReportslistView.SelectedItems.Count != 1) {
+                Messenger.Show("Please select a report to run.");
+                return;
+            }
+            try {
+                ListViewItem row = ReportslistView.SelectedItems[0];
+                int rptID = (int) row.Tag;
+                string rptName = row.SubItems[0].Text;
+                // TODO: Determine and run the report
+                bool wasLogged = LogReportRun(rptID, rptName);
+                if (!wasLogged) {
+                    Messenger.Show("Failed to log report run.");
+                }
+            }
+            catch (SqlException) {
+                Messenger.Show("Could not communicate with database.");
+            }
+        }
+
+        private bool LogReportRun(int reportID, string reportName) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.ReportRun;
+            ev.ReportID = reportID;
+            ev.OccurredOn = DateTime.Now;
+            ev.Description = $"Report run: {reportName}";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
         }
     }
 }
