@@ -22,5 +22,13 @@ namespace FileAid.Models {
         public static DialogResult ShowOkCancel(string message, string caption) {
             return MessageBox.Show(message, caption, MessageBoxButtons.OKCancel);
         }
+
+        public static void ShowDbMsg() {
+            string msg = "FileAid is unable to communicate with its database.\n" +
+                "Please verify that a valid database is in the expected location.\n\n" +
+                "Contact your system administrator if problem persists.";
+            string caption = "Database Error";
+            MessageBox.Show(msg, caption);
+        }
     }
 }
