@@ -18,7 +18,10 @@ Values
 Insert Into Reports
     (sReportName, sReportDescription, dReportCreated, dReportUpdated)
 Values
-    ('Logins', 'Record of all logins to FileAid', GetDate(), GetDate())
+    ('Logins', 'Record of all logins to FileAid', GetDate(), GetDate()),
+	('Tracked Files', 'Listing of all files in system', GetDate(), GetDate()),
+	('Events', 'All transactions that have been logged in system', GetDate(), GetDate()),
+	('Database Management', 'All database events such as backup and restore', GetDate(), GetDate())
 ;
 
 SET IDENTITY_INSERT [dbo].[EventTypes] ON
