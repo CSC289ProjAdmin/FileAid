@@ -33,13 +33,13 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.btnResolved = new System.Windows.Forms.Button();
             this.btnPushToOutlook = new System.Windows.Forms.Button();
             this.TicklerstoolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // TicklerslistView
@@ -54,7 +54,7 @@
             this.TicklerslistView.FullRowSelect = true;
             this.TicklerslistView.GridLines = true;
             this.TicklerslistView.Location = new System.Drawing.Point(54, 62);
-            this.TicklerslistView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TicklerslistView.Margin = new System.Windows.Forms.Padding(2);
             this.TicklerslistView.Name = "TicklerslistView";
             this.TicklerslistView.Size = new System.Drawing.Size(580, 310);
             this.TicklerslistView.TabIndex = 0;
@@ -69,21 +69,28 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Description";
-            this.columnHeader2.Width = 127;
+            this.columnHeader2.Width = 150;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "File Count";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // columnHeader4
+            // columnHeader6
             // 
-            this.columnHeader4.Text = "Pushed";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader6.Text = "Due On";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader6.Width = 140;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Resolved";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Pushed";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblMainInfo
             // 
@@ -104,12 +111,13 @@
             this.btnResolved.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResolved.ForeColor = System.Drawing.Color.White;
             this.btnResolved.Location = new System.Drawing.Point(345, 398);
-            this.btnResolved.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnResolved.Margin = new System.Windows.Forms.Padding(2);
             this.btnResolved.Name = "btnResolved";
             this.btnResolved.Size = new System.Drawing.Size(113, 34);
             this.btnResolved.TabIndex = 11;
             this.btnResolved.Text = "Mark as Resolved";
             this.btnResolved.UseVisualStyleBackColor = false;
+            this.btnResolved.Click += new System.EventHandler(this.btnResolved_Click);
             // 
             // btnPushToOutlook
             // 
@@ -118,21 +126,17 @@
             this.btnPushToOutlook.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPushToOutlook.ForeColor = System.Drawing.Color.White;
             this.btnPushToOutlook.Location = new System.Drawing.Point(183, 398);
-            this.btnPushToOutlook.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPushToOutlook.Margin = new System.Windows.Forms.Padding(2);
             this.btnPushToOutlook.Name = "btnPushToOutlook";
             this.btnPushToOutlook.Size = new System.Drawing.Size(113, 34);
             this.btnPushToOutlook.TabIndex = 12;
             this.btnPushToOutlook.Text = "Push to Outlook";
             this.btnPushToOutlook.UseVisualStyleBackColor = false;
+            this.btnPushToOutlook.Click += new System.EventHandler(this.btnPushToOutlook_Click);
             // 
             // TicklerstoolTip
             // 
             this.TicklerstoolTip.IsBalloon = true;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Due On";
-            this.columnHeader6.Width = 160;
             // 
             // FormFileAidTicklers
             // 
@@ -143,7 +147,7 @@
             this.Controls.Add(this.btnResolved);
             this.Controls.Add(this.lblMainInfo);
             this.Controls.Add(this.TicklerslistView);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidTicklers";
             this.Text = "FileAidTicklers";
             this.Load += new System.EventHandler(this.FormFileAidTicklers_Load);
