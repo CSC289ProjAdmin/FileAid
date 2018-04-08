@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace FileAid.GUI
 {
@@ -49,7 +50,27 @@ namespace FileAid.GUI
             FileAidMaintoolTip.SetToolTip(btnWildSearch, "Search the file");
             FileAidMaintoolTip.SetToolTip(btnViewHistory, "View history");
 
-
+            try {
+                List<Models.TrackedFile> allFiles = Models.FileManager.GetFiles();
+                if (allFiles == null) {
+                    // No files in system
+                    return;
+                }
+                foreach (var file in allFiles) {
+                    string[] fileDetails = new string[6];
+                    fileDetails[0] = file.Filename;
+                    fileDetails[1] = file.FileExtension;
+                    fileDetails[2] = file.FilePath;
+                    fileDetails[3] = file.FileSize.ToString();
+                    fileDetails[4] = file.ModifiedOn.ToString();
+                    fileDetails[5] = (file.TrackingDisabledOn > new DateTime()) ? "X" : "";
+                    ListViewItem row = new ListViewItem(fileDetails);
+                    MainListView.Items.Add(row);
+                }
+            }
+            catch (SqlException) {
+                Models.Messenger.Show("Could not communicate with database.");
+            }
         }
 
         private void btnViewHistory_Click(object sender, EventArgs e) {

@@ -36,8 +36,6 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.InactivecheckBox = new System.Windows.Forms.CheckBox();
             this.StartdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lblStart = new System.Windows.Forms.Label();
@@ -56,6 +54,7 @@
             this.btnMainPrintRepo = new System.Windows.Forms.Button();
             this.FileAidMaintoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnViewHistory = new System.Windows.Forms.Button();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -76,16 +75,15 @@
             this.MainListView.CheckBoxes = true;
             this.MainListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
+            this.columnHeader5,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
+            this.columnHeader6});
             this.MainListView.FullRowSelect = true;
             this.MainListView.GridLines = true;
             this.MainListView.Location = new System.Drawing.Point(127, 53);
-            this.MainListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MainListView.Margin = new System.Windows.Forms.Padding(2);
             this.MainListView.Name = "MainListView";
             this.MainListView.Size = new System.Drawing.Size(696, 239);
             this.MainListView.TabIndex = 1;
@@ -95,37 +93,27 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "File Name";
-            this.columnHeader1.Width = 90;
+            this.columnHeader1.Width = 150;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "File Path";
-            this.columnHeader2.Width = 90;
+            this.columnHeader2.Text = "Path";
+            this.columnHeader2.Width = 220;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "File Size";
-            this.columnHeader3.Width = 90;
+            this.columnHeader3.Text = "Size";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Date Modified";
-            this.columnHeader4.Width = 110;
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader4.Width = 140;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Update History";
-            this.columnHeader5.Width = 120;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "File Extension";
-            this.columnHeader6.Width = 120;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Tracked Files";
-            this.columnHeader7.Width = 120;
+            this.columnHeader5.Text = "Extension";
             // 
             // InactivecheckBox
             // 
@@ -133,7 +121,7 @@
             this.InactivecheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InactivecheckBox.ForeColor = System.Drawing.Color.DarkRed;
             this.InactivecheckBox.Location = new System.Drawing.Point(127, 33);
-            this.InactivecheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.InactivecheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.InactivecheckBox.Name = "InactivecheckBox";
             this.InactivecheckBox.Size = new System.Drawing.Size(149, 19);
             this.InactivecheckBox.TabIndex = 3;
@@ -144,7 +132,7 @@
             // 
             this.StartdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.StartdateTimePicker.Location = new System.Drawing.Point(321, 35);
-            this.StartdateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StartdateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.StartdateTimePicker.Name = "StartdateTimePicker";
             this.StartdateTimePicker.ShowUpDown = true;
             this.StartdateTimePicker.Size = new System.Drawing.Size(84, 20);
@@ -178,7 +166,7 @@
             // 
             this.EnddateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.EnddateTimePicker.Location = new System.Drawing.Point(453, 34);
-            this.EnddateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EnddateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.EnddateTimePicker.Name = "EnddateTimePicker";
             this.EnddateTimePicker.ShowUpDown = true;
             this.EnddateTimePicker.Size = new System.Drawing.Size(81, 20);
@@ -191,7 +179,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(9, 53);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(113, 34);
             this.btnAdd.TabIndex = 8;
@@ -206,7 +194,7 @@
             this.btnStopTrack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStopTrack.ForeColor = System.Drawing.Color.White;
             this.btnStopTrack.Location = new System.Drawing.Point(9, 99);
-            this.btnStopTrack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStopTrack.Margin = new System.Windows.Forms.Padding(2);
             this.btnStopTrack.Name = "btnStopTrack";
             this.btnStopTrack.Size = new System.Drawing.Size(113, 34);
             this.btnStopTrack.TabIndex = 9;
@@ -220,7 +208,7 @@
             this.btnTrack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrack.ForeColor = System.Drawing.Color.White;
             this.btnTrack.Location = new System.Drawing.Point(9, 153);
-            this.btnTrack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTrack.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrack.Name = "btnTrack";
             this.btnTrack.Size = new System.Drawing.Size(113, 34);
             this.btnTrack.TabIndex = 10;
@@ -234,7 +222,7 @@
             this.btnAddLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddLink.ForeColor = System.Drawing.Color.White;
             this.btnAddLink.Location = new System.Drawing.Point(9, 204);
-            this.btnAddLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddLink.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddLink.Name = "btnAddLink";
             this.btnAddLink.Size = new System.Drawing.Size(113, 34);
             this.btnAddLink.TabIndex = 11;
@@ -249,7 +237,7 @@
             this.btnAddReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddReminder.ForeColor = System.Drawing.Color.White;
             this.btnAddReminder.Location = new System.Drawing.Point(9, 257);
-            this.btnAddReminder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddReminder.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddReminder.Name = "btnAddReminder";
             this.btnAddReminder.Size = new System.Drawing.Size(113, 34);
             this.btnAddReminder.TabIndex = 12;
@@ -260,7 +248,7 @@
             // txtWild
             // 
             this.txtWild.Location = new System.Drawing.Point(537, 32);
-            this.txtWild.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtWild.Margin = new System.Windows.Forms.Padding(2);
             this.txtWild.Name = "txtWild";
             this.txtWild.Size = new System.Drawing.Size(222, 20);
             this.txtWild.TabIndex = 14;
@@ -272,7 +260,7 @@
             this.btnWildSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWildSearch.ForeColor = System.Drawing.Color.White;
             this.btnWildSearch.Location = new System.Drawing.Point(761, 23);
-            this.btnWildSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWildSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnWildSearch.Name = "btnWildSearch";
             this.btnWildSearch.Size = new System.Drawing.Size(60, 27);
             this.btnWildSearch.TabIndex = 15;
@@ -294,7 +282,7 @@
             // txtMemo
             // 
             this.txtMemo.Location = new System.Drawing.Point(271, 314);
-            this.txtMemo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMemo.Margin = new System.Windows.Forms.Padding(2);
             this.txtMemo.Name = "txtMemo";
             this.txtMemo.Size = new System.Drawing.Size(291, 20);
             this.txtMemo.TabIndex = 17;
@@ -306,7 +294,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Location = new System.Drawing.Point(573, 305);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(113, 34);
             this.btnUpdate.TabIndex = 18;
@@ -320,7 +308,7 @@
             this.btnMainPrintRepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMainPrintRepo.ForeColor = System.Drawing.Color.White;
             this.btnMainPrintRepo.Location = new System.Drawing.Point(708, 304);
-            this.btnMainPrintRepo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMainPrintRepo.Margin = new System.Windows.Forms.Padding(2);
             this.btnMainPrintRepo.Name = "btnMainPrintRepo";
             this.btnMainPrintRepo.Size = new System.Drawing.Size(113, 34);
             this.btnMainPrintRepo.TabIndex = 19;
@@ -338,13 +326,18 @@
             this.btnViewHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewHistory.ForeColor = System.Drawing.Color.White;
             this.btnViewHistory.Location = new System.Drawing.Point(9, 304);
-            this.btnViewHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewHistory.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewHistory.Name = "btnViewHistory";
             this.btnViewHistory.Size = new System.Drawing.Size(113, 34);
             this.btnViewHistory.TabIndex = 20;
             this.btnViewHistory.Text = "View History";
             this.btnViewHistory.UseVisualStyleBackColor = false;
             this.btnViewHistory.Click += new System.EventHandler(this.btnViewHistory_Click);
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Inactive";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FormFileAidMain
             // 
@@ -370,7 +363,7 @@
             this.Controls.Add(this.InactivecheckBox);
             this.Controls.Add(this.MainListView);
             this.Controls.Add(this.lblMainInfo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidMain";
             this.Text = "FileAidMain";
             this.Load += new System.EventHandler(this.FormFileAidMain_Load);
@@ -388,8 +381,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.CheckBox InactivecheckBox;
         private System.Windows.Forms.DateTimePicker StartdateTimePicker;
         private System.Windows.Forms.Label lblStart;
@@ -408,6 +399,7 @@
         private System.Windows.Forms.Button btnMainPrintRepo;
         private System.Windows.Forms.ToolTip FileAidMaintoolTip;
         private System.Windows.Forms.Button btnViewHistory;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
 
