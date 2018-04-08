@@ -69,7 +69,7 @@ namespace FileAid.GUI
                 }
             }
             catch (SqlException) {
-                Models.Messenger.Show("Could not communicate with database.");
+                Models.Messenger.ShowDbMsg();
             }
         }
 

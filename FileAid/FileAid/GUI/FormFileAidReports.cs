@@ -37,7 +37,7 @@ namespace FileAid.GUI
                     ReportslistView.Items.Add(row);
                 }
             } catch (SqlException) {
-                Messenger.Show("Could not communicate with database.");
+                Messenger.ShowDbMsg();
             }
         }
 
@@ -59,7 +59,7 @@ namespace FileAid.GUI
                 }
             }
             catch (SqlException) {
-                Messenger.Show("Could not communicate with database.");
+                Messenger.ShowDbMsg();
             }
         }
 
