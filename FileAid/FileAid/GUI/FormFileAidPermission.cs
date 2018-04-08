@@ -103,7 +103,7 @@ namespace FileAid.GUI
 
                     return;
                 }
-
+                
                 guestPerms.ChangeAdminPass = AdminPasscheckBox.Checked;
                 guestPerms.ChangeUserPass = UserPasscheckBox.Checked;
                 guestPerms.ChangeGuestPass = GuestPasscheckBox.Checked;
@@ -121,8 +121,18 @@ namespace FileAid.GUI
                 guestPerms.ProgramSetup = ProgramSetcheckBox.Checked;
                 guestPerms.LoginMgmt = LoginMancheckBox.Checked;
                 guestPerms.DbMgmt = DBMancheckBox.Checked;
-                Models.PermissionsManager.UpdatePermissionSet(guestPerms);
-                this.DialogResult = DialogResult.OK;
+                bool wasUpdate = Models.PermissionsManager.UpdatePermissionSet(guestPerms);
+                if (wasUpdate)
+                {
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to save changes");
+                    DialogResult = DialogResult.None; 
+                }
+              
             }
             catch (SqlException)
             {
@@ -132,7 +142,7 @@ namespace FileAid.GUI
 
         private void btnPerCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
