@@ -23,10 +23,53 @@ namespace FileAid.GUI
             TicklerstoolTip.SetToolTip(btnPushToOutlook, "Push to outlook");
             TicklerstoolTip.SetToolTip(btnResolved, "Mark as resolved");
 
+            FillListView();
+        }
+
+        private void btnPushToOutlook_Click(object sender, EventArgs e) {
+            if (TicklerslistView.SelectedItems.Count != 1) {
+                Models.Messenger.Show("Please select a reminder to push.");
+                return;
+            }
+            int remID = (int)TicklerslistView.SelectedItems[0].Tag;
             try {
+                Models.Reminder rem = Models.ReminderManager.GetReminder(remID);
+                bool wasPushed = rem.Push();
+                if (wasPushed) {
+                    // Refresh list
+                    FillListView();
+                }
+            }
+            catch (SqlException) {
+                Models.Messenger.Show("Could not communicate with database.");
+            }
+        }
+
+        private void btnResolved_Click(object sender, EventArgs e) {
+            if (TicklerslistView.SelectedItems.Count != 1) {
+                Models.Messenger.Show("Please select a reminder to resolve.");
+                return;
+            }
+            try {
+                int remID = (int)TicklerslistView.SelectedItems[0].Tag;
+                Models.Reminder rem = Models.ReminderManager.GetReminder(remID);
+                bool wasResolved = rem.Resolve();
+                if (wasResolved) {
+                    // Refresh list
+                    FillListView();
+                }
+            }
+            catch (SqlException) {
+                Models.Messenger.Show("Could not communicate with database.");
+            }
+        }
+
+        private void FillListView() {
+            try {
+                TicklerslistView.Items.Clear();
                 List<Models.Reminder> allReminders = Models.ReminderManager.GetReminders();
                 if (allReminders == null) {
-                    Models.Messenger.Show("Unable to load reminder details.");
+                    // No reminders found
                     return;
                 }
                 foreach (var rem in allReminders) {
@@ -38,6 +81,7 @@ namespace FileAid.GUI
                     remDetails[4] = (rem.ResolvedOn > new DateTime()) ? "X" : "";
                     remDetails[5] = (rem.PushedOn > new DateTime()) ? "X" : "";
                     ListViewItem row = new ListViewItem(remDetails);
+                    row.Tag = rem.ReminderID;
                     TicklerslistView.Items.Add(row);
                 }
             }
