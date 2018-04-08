@@ -299,6 +299,7 @@
             this.btnPerCancel.TabIndex = 22;
             this.btnPerCancel.Text = "Cancel";
             this.btnPerCancel.UseVisualStyleBackColor = false;
+            this.btnPerCancel.Click += new System.EventHandler(this.btnPerCancel_Click);
             // 
             // FormFileAidPermission
             // 

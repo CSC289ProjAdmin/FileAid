@@ -44,14 +44,14 @@ namespace FileAid.GUI
                 Models.Permissions guestPerms = Models.PermissionsManager.GetPermissionSet(guest.UserID);
                 if(guest == null)
                 {
-                    MessageBox.Show("Guest can not be null");
+                    MessageBox.Show("Unable to load guest account rights");
 
                     return;
 
                 }
                 if(guestPerms == null)
                 {
-                    MessageBox.Show("Guest permission can not be null");
+                    MessageBox.Show("Unable to load guest account rights");
 
                     return;
                 }
@@ -84,8 +84,54 @@ namespace FileAid.GUI
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            Models.User guest = Models.UserService.Find("Guest");
-            Models.Permissions guestPerms = Models.PermissionsManager.GetPermissionSet(guest.UserID);
+
+            try
+            {
+                Models.User guest = Models.UserService.Find("Guest");
+                Models.Permissions guestPerms = Models.PermissionsManager.GetPermissionSet(guest.UserID);
+
+                if (guest == null)
+                {
+                    MessageBox.Show("Unable to load guest account rights");
+
+                    return;
+
+                }
+                if (guestPerms == null)
+                {
+                    MessageBox.Show("Unable to load guest account rights");
+
+                    return;
+                }
+
+                guestPerms.ChangeAdminPass = AdminPasscheckBox.Checked;
+                guestPerms.ChangeUserPass = UserPasscheckBox.Checked;
+                guestPerms.ChangeGuestPass = GuestPasscheckBox.Checked;
+                guestPerms.EnableUser = EnableUsercheckBox.Checked;
+                guestPerms.EnableGuest = EnableGuestcheckBox.Checked;
+                guestPerms.ResetUserPass = ResetUsercheckBox.Checked;
+                guestPerms.ResetGuestPass = ResetGuestcheckBox.Checked;
+                guestPerms.UnlockUser = UnlockUsercheckBox.Checked;
+                guestPerms.UnlockGuest = UnlockGuestcheckBox.Checked;
+                guestPerms.RestrictGuest = RestrictGuestcheckBox.Checked;
+                guestPerms.ResetDb = ResetDBcheckBox.Checked;
+                guestPerms.BackupDb = BackupDBcheckBox.Checked;
+                guestPerms.RestoreDb = RestoreDBcheckBox.Checked;
+                guestPerms.BatchScan = BatchScancheckBox.Checked;
+                guestPerms.ProgramSetup = ProgramSetcheckBox.Checked;
+                guestPerms.LoginMgmt = LoginMancheckBox.Checked;
+                guestPerms.DbMgmt = DBMancheckBox.Checked;
+                Models.PermissionsManager.UpdatePermissionSet(guestPerms);
+                this.DialogResult = DialogResult.OK;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Database connection failed");
+            }
+        }
+
+        private void btnPerCancel_Click(object sender, EventArgs e)
+        {
 
         }
     }
