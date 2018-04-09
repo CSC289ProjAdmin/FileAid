@@ -72,7 +72,8 @@ INSERT INTO [dbo].[EventTypes]
 (31,'Batch Update',	'Started - Auto', getdate(), getdate(),null),
 (32,'Batch Update','Completed', getdate(), getdate(),null),
 
-(33,'Reports',	'Report Run', getdate(), getdate(),null)
+(33,'Reports',	'Report Run', getdate(), getdate(),null),
+(34,'Program Settings',	'Settings Changed', getdate(), getdate(),null)
 ;
 SET IDENTITY_INSERT [dbo].[EventTypes] OFF
 

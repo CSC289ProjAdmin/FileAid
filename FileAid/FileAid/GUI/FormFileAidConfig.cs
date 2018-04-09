@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using FileAid.Models;
 using System.Windows.Forms;
 
 namespace FileAid.GUI
@@ -30,7 +31,7 @@ namespace FileAid.GUI
 
             try
             {
-                Models.Configs getConfig = Models.ConfigManager.GetConfigs();
+                Configs getConfig = ConfigManager.GetConfigs();
 
                 if(getConfig == null)
                 {
@@ -42,7 +43,7 @@ namespace FileAid.GUI
             }
             catch (SqlException)
             {
-                MessageBox.Show("Database connection failed");
+                Messenger.ShowDbMsg();
             }
         }
 
@@ -50,7 +51,7 @@ namespace FileAid.GUI
         {
             try
             {
-                Models.Configs getConfig = Models.ConfigManager.GetConfigs();
+                Configs getConfig = ConfigManager.GetConfigs();
 
                 if (getConfig == null)
                 {
@@ -60,9 +61,14 @@ namespace FileAid.GUI
                 getConfig.ShowInactive = ProInactivecheckBox.Checked;
                 getConfig.UpdateTimerInMinutes = (int)PeriodicnumericUpDown.Value;
 
-                Models.Configs wasUpdate = Models.ConfigManager.UpdateConfigs(getConfig);
+                Configs wasUpdate = ConfigManager.UpdateConfigs(getConfig);
                 if (wasUpdate != null)
                 {
+                    bool wasLogged = LogProgramSetting(wasUpdate.ConfigID);
+                    if (!wasLogged)
+                    {
+                        Messenger.Show("Failed to record setting change event.");
+                    }
                     DialogResult = DialogResult.OK;
                     Close();
                 }
@@ -70,11 +76,11 @@ namespace FileAid.GUI
                 {
                     MessageBox.Show("Failed to save changes");
                     DialogResult = DialogResult.None;
-                }
+                }              
             }
             catch (SqlException)
             {
-                MessageBox.Show("Database connection failed");
+                Messenger.ShowDbMsg();
             }
 
         }
@@ -94,6 +100,17 @@ namespace FileAid.GUI
             }
 
         }
-  
+
+        private bool LogProgramSetting(int configId)
+        {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.ProgramSettingsChanged;
+            ev.ConfigID = configId;
+            ev.OccurredOn = DateTime.Now;
+            ev.Description = "Program settings changed";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
+        }
+
     }
 }
