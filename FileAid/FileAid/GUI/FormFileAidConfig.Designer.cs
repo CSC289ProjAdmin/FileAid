@@ -65,6 +65,7 @@
             this.btnBrowse.TabIndex = 10;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = false;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // lblPeriodicUpdate
             // 

@@ -13,6 +13,7 @@ namespace FileAid.GUI
 {
     public partial class FormFileAidConfig : Form
     {
+        
         public FormFileAidConfig()
         {
             InitializeComponent();
@@ -82,5 +83,17 @@ namespace FileAid.GUI
         {
             this.Close();
         }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+            if (folder.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = folder.SelectedPath;
+                txtProgramPath.Text = path;
+            }
+
+        }
+  
     }
 }
