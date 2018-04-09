@@ -285,6 +285,7 @@
             this.btnSaveChanges.TabIndex = 21;
             this.btnSaveChanges.Text = "Save Changes";
             this.btnSaveChanges.UseVisualStyleBackColor = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // btnPerCancel
             // 
@@ -298,6 +299,7 @@
             this.btnPerCancel.TabIndex = 22;
             this.btnPerCancel.Text = "Cancel";
             this.btnPerCancel.UseVisualStyleBackColor = false;
+            this.btnPerCancel.Click += new System.EventHandler(this.btnPerCancel_Click);
             // 
             // FormFileAidPermission
             // 
