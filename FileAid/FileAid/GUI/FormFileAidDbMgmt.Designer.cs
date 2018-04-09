@@ -60,12 +60,13 @@
             this.btnBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackup.ForeColor = System.Drawing.Color.White;
             this.btnBackup.Location = new System.Drawing.Point(43, 64);
-            this.btnBackup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBackup.Margin = new System.Windows.Forms.Padding(2);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(133, 32);
             this.btnBackup.TabIndex = 2;
             this.btnBackup.Text = "Backup";
             this.btnBackup.UseVisualStyleBackColor = false;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
             // btnRestore
             // 
@@ -74,12 +75,13 @@
             this.btnRestore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRestore.ForeColor = System.Drawing.Color.White;
             this.btnRestore.Location = new System.Drawing.Point(43, 153);
-            this.btnRestore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRestore.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(133, 32);
             this.btnRestore.TabIndex = 3;
             this.btnRestore.Text = "Restore";
             this.btnRestore.UseVisualStyleBackColor = false;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // btnReset
             // 
@@ -88,12 +90,13 @@
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
             this.btnReset.Location = new System.Drawing.Point(43, 261);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(133, 32);
             this.btnReset.TabIndex = 5;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // DBManlistView
             // 
@@ -105,7 +108,7 @@
             this.DBManlistView.FullRowSelect = true;
             this.DBManlistView.GridLines = true;
             this.DBManlistView.Location = new System.Drawing.Point(195, 64);
-            this.DBManlistView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DBManlistView.Margin = new System.Windows.Forms.Padding(2);
             this.DBManlistView.Name = "DBManlistView";
             this.DBManlistView.Size = new System.Drawing.Size(384, 337);
             this.DBManlistView.TabIndex = 6;
@@ -134,7 +137,7 @@
             this.btnDbPrintRepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDbPrintRepo.ForeColor = System.Drawing.Color.White;
             this.btnDbPrintRepo.Location = new System.Drawing.Point(43, 368);
-            this.btnDbPrintRepo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDbPrintRepo.Margin = new System.Windows.Forms.Padding(2);
             this.btnDbPrintRepo.Name = "btnDbPrintRepo";
             this.btnDbPrintRepo.Size = new System.Drawing.Size(133, 32);
             this.btnDbPrintRepo.TabIndex = 7;
@@ -156,7 +159,7 @@
             this.Controls.Add(this.btnRestore);
             this.Controls.Add(this.btnBackup);
             this.Controls.Add(this.lblUserDatabase);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidDbMgmt";
             this.Text = "FileAid Database Management";
             this.Load += new System.EventHandler(this.FormFileAidDbMgmt_Load);

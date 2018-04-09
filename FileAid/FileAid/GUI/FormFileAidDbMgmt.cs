@@ -52,5 +52,48 @@ namespace FileAid.GUI
                 Models.Messenger.ShowDbMsg();
             }
         }
+
+        private void btnBackup_Click(object sender, EventArgs e) {
+            FolderBrowserDialog dlg = new FolderBrowserDialog();
+            dlg.Description = $"Choose location to save database backup.";
+            if (dlg.ShowDialog() == DialogResult.OK) {
+                bool wasBackedUp = Models.DbManager.Backup(dlg.SelectedPath);
+                Models.Messenger.Show(wasBackedUp ? "Backup successful." : "Backup failed.");
+            }
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e) {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "SQL Server database backup files|*.bak";
+            dlg.Title = "Database restore";
+            if (dlg.ShowDialog() == DialogResult.OK) {
+                bool wasRestored = Models.DbManager.Restore(dlg.FileName);
+                Models.Messenger.Show(wasRestored ? "Restore successful." : "Restore failed.");
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e) {
+            // Prompt twice before resetting
+            string firstPrompt = "Resetting the database will clear all data, revert FileAid to its initial state,\n"
+                + "and cause FileAid to shutdown.\n\n"
+                + "Are you sure you want to reset?";
+            string secondPrompt = "Resetting the database is final and cannot be undone.\n"
+                + "Are you absolutely sure you want to reset?";
+            string caption = "Reset Database";
+            DialogResult dr = Models.Messenger.ShowYesNo(firstPrompt, caption);
+            bool wantsReset = (dr == DialogResult.Yes);
+            if (!wantsReset) return;
+            dr = Models.Messenger.ShowYesNo(secondPrompt, caption);
+            wantsReset = (dr == DialogResult.Yes);
+            if (!wantsReset) return;
+
+            bool wasReset = Models.DbManager.Reset();
+            if (wasReset) {
+                Models.Messenger.Show("Database has been reset.", caption);
+                Application.Exit();
+            } else {
+                Models.Messenger.Show("Failed to reset database.", caption);
+            }
+        }
     }
 }
