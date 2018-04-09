@@ -36,6 +36,7 @@ namespace FileAid.GUI
                 if(getConfig == null)
                 {
                     MessageBox.Show("Unable to load Program setting");
+                    return;
                 }
 
                 ProInactivecheckBox.Checked = getConfig.ShowInactive;
@@ -55,7 +56,8 @@ namespace FileAid.GUI
 
                 if (getConfig == null)
                 {
-                    MessageBox.Show("Unable to load Program setting");
+                    MessageBox.Show("Unable to load program settings. Cannot save changes.");
+                    return;
                 }
 
                 getConfig.ShowInactive = ProInactivecheckBox.Checked;
