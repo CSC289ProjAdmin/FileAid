@@ -52,5 +52,24 @@ namespace FileAid.GUI
                 Models.Messenger.ShowDbMsg();
             }
         }
+
+        private void btnBackup_Click(object sender, EventArgs e) {
+            FolderBrowserDialog dlg = new FolderBrowserDialog();
+            dlg.Description = $"Choose location to save database backup.";
+            if (dlg.ShowDialog() == DialogResult.OK) {
+                bool wasBackedUp = Models.DbManager.Backup(dlg.SelectedPath);
+                Models.Messenger.Show(wasBackedUp ? "Backup successful." : "Backup failed.");
+            }
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e) {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "SQL Server database backup files|*.bak";
+            dlg.Title = "Database restore";
+            if (dlg.ShowDialog() == DialogResult.OK) {
+                bool wasRestored = Models.DbManager.Restore(dlg.FileName);
+                Models.Messenger.Show(wasRestored ? "Restore successful." : "Restore failed.");
+            }
+        }
     }
 }
