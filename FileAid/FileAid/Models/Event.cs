@@ -46,7 +46,9 @@ namespace FileAid.Models {
         BatchAutoStarted = 31,
         BatchCompleted = 32,
 
-        ReportRun = 33
+        ReportRun = 33,
+
+        ProgramSettingsChanged = 34
     }
     public class Event {
         public int EventID { get; set; } = -999;

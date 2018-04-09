@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblMainInfo = new System.Windows.Forms.Label();
-            this.PeriodicdateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.btnPeriodicUpdate = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.lblPeriodicUpdate = new System.Windows.Forms.Label();
             this.ConfigtoolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -40,6 +38,8 @@
             this.btnProCancel = new System.Windows.Forms.Button();
             this.ProInactivecheckBox = new System.Windows.Forms.CheckBox();
             this.lblUpdatePath = new System.Windows.Forms.Label();
+            this.PeriodicnumericUpDown = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.PeriodicnumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -53,29 +53,6 @@
             this.lblMainInfo.TabIndex = 1;
             this.lblMainInfo.Text = "Welcome to File Aid Program Setting Window.";
             // 
-            // PeriodicdateTimePicker
-            // 
-            this.PeriodicdateTimePicker.CustomFormat = "m";
-            this.PeriodicdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.PeriodicdateTimePicker.Location = new System.Drawing.Point(547, 100);
-            this.PeriodicdateTimePicker.Name = "PeriodicdateTimePicker";
-            this.PeriodicdateTimePicker.ShowUpDown = true;
-            this.PeriodicdateTimePicker.Size = new System.Drawing.Size(96, 26);
-            this.PeriodicdateTimePicker.TabIndex = 2;
-            // 
-            // btnPeriodicUpdate
-            // 
-            this.btnPeriodicUpdate.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnPeriodicUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPeriodicUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPeriodicUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnPeriodicUpdate.Location = new System.Drawing.Point(660, 88);
-            this.btnPeriodicUpdate.Name = "btnPeriodicUpdate";
-            this.btnPeriodicUpdate.Size = new System.Drawing.Size(179, 52);
-            this.btnPeriodicUpdate.TabIndex = 9;
-            this.btnPeriodicUpdate.Text = "Periodic Update";
-            this.btnPeriodicUpdate.UseVisualStyleBackColor = false;
-            // 
             // btnBrowse
             // 
             this.btnBrowse.BackColor = System.Drawing.Color.DodgerBlue;
@@ -88,6 +65,7 @@
             this.btnBrowse.TabIndex = 10;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = false;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // lblPeriodicUpdate
             // 
@@ -123,6 +101,7 @@
             this.btnProSaveChanges.TabIndex = 14;
             this.btnProSaveChanges.Text = "Save Changes";
             this.btnProSaveChanges.UseVisualStyleBackColor = false;
+            this.btnProSaveChanges.Click += new System.EventHandler(this.btnProSaveChanges_Click);
             // 
             // btnProCancel
             // 
@@ -136,6 +115,7 @@
             this.btnProCancel.TabIndex = 15;
             this.btnProCancel.Text = "Cancel";
             this.btnProCancel.UseVisualStyleBackColor = false;
+            this.btnProCancel.Click += new System.EventHandler(this.btnProCancel_Click);
             // 
             // ProInactivecheckBox
             // 
@@ -160,11 +140,34 @@
             this.lblUpdatePath.TabIndex = 17;
             this.lblUpdatePath.Text = "Update Folder Path:";
             // 
+            // PeriodicnumericUpDown
+            // 
+            this.PeriodicnumericUpDown.Location = new System.Drawing.Point(541, 104);
+            this.PeriodicnumericUpDown.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.PeriodicnumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PeriodicnumericUpDown.Name = "PeriodicnumericUpDown";
+            this.PeriodicnumericUpDown.Size = new System.Drawing.Size(92, 26);
+            this.PeriodicnumericUpDown.TabIndex = 18;
+            this.PeriodicnumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // FormFileAidConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 556);
+            this.Controls.Add(this.PeriodicnumericUpDown);
             this.Controls.Add(this.lblUpdatePath);
             this.Controls.Add(this.ProInactivecheckBox);
             this.Controls.Add(this.btnProCancel);
@@ -172,12 +175,11 @@
             this.Controls.Add(this.txtProgramPath);
             this.Controls.Add(this.lblPeriodicUpdate);
             this.Controls.Add(this.btnBrowse);
-            this.Controls.Add(this.btnPeriodicUpdate);
-            this.Controls.Add(this.PeriodicdateTimePicker);
             this.Controls.Add(this.lblMainInfo);
             this.Name = "FormFileAidConfig";
             this.Text = "FileAidProgramSetting";
             this.Load += new System.EventHandler(this.FileAidConfig_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PeriodicnumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,8 +188,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblMainInfo;
-        private System.Windows.Forms.DateTimePicker PeriodicdateTimePicker;
-        private System.Windows.Forms.Button btnPeriodicUpdate;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Label lblPeriodicUpdate;
         private System.Windows.Forms.ToolTip ConfigtoolTip;
@@ -196,6 +196,7 @@
         private System.Windows.Forms.Button btnProCancel;
         private System.Windows.Forms.CheckBox ProInactivecheckBox;
         private System.Windows.Forms.Label lblUpdatePath;
+        private System.Windows.Forms.NumericUpDown PeriodicnumericUpDown;
     }
 }
 
