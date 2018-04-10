@@ -58,7 +58,7 @@
             this.ReportslistView.FullRowSelect = true;
             this.ReportslistView.GridLines = true;
             this.ReportslistView.Location = new System.Drawing.Point(39, 64);
-            this.ReportslistView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ReportslistView.Margin = new System.Windows.Forms.Padding(2);
             this.ReportslistView.Name = "ReportslistView";
             this.ReportslistView.Size = new System.Drawing.Size(519, 313);
             this.ReportslistView.TabIndex = 4;
@@ -82,7 +82,7 @@
             this.btnRunReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRunReport.ForeColor = System.Drawing.Color.White;
             this.btnRunReport.Location = new System.Drawing.Point(244, 391);
-            this.btnRunReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRunReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnRunReport.Name = "btnRunReport";
             this.btnRunReport.Size = new System.Drawing.Size(113, 34);
             this.btnRunReport.TabIndex = 11;
@@ -102,8 +102,9 @@
             this.Controls.Add(this.btnRunReport);
             this.Controls.Add(this.ReportslistView);
             this.Controls.Add(this.lblMainInfo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidReports";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FileAid Reports";
             this.Load += new System.EventHandler(this.FormFileAidReports_Load);
             this.ResumeLayout(false);

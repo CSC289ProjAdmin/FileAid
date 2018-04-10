@@ -161,6 +161,7 @@
             this.Controls.Add(this.lblUserDatabase);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidDbMgmt";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FileAid Database Management";
             this.Load += new System.EventHandler(this.FormFileAidDbMgmt_Load);
             this.ResumeLayout(false);

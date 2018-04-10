@@ -50,9 +50,10 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(271, 9);
+            this.lblMainInfo.Location = new System.Drawing.Point(181, 6);
+            this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(606, 37);
+            this.lblMainInfo.Size = new System.Drawing.Size(424, 26);
             this.lblMainInfo.TabIndex = 1;
             this.lblMainInfo.Text = "Welcome to File Aid Add Link Window.";
             // 
@@ -61,9 +62,10 @@
             this.lblMemo.AutoSize = true;
             this.lblMemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMemo.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblMemo.Location = new System.Drawing.Point(31, 105);
+            this.lblMemo.Location = new System.Drawing.Point(21, 68);
+            this.lblMemo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMemo.Name = "lblMemo";
-            this.lblMemo.Size = new System.Drawing.Size(68, 22);
+            this.lblMemo.Size = new System.Drawing.Size(51, 15);
             this.lblMemo.TabIndex = 6;
             this.lblMemo.Text = "Memo:";
             // 
@@ -73,9 +75,10 @@
             this.btnCancelLink.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelLink.ForeColor = System.Drawing.Color.White;
-            this.btnCancelLink.Location = new System.Drawing.Point(858, 90);
+            this.btnCancelLink.Location = new System.Drawing.Point(572, 58);
+            this.btnCancelLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelLink.Name = "btnCancelLink";
-            this.btnCancelLink.Size = new System.Drawing.Size(170, 52);
+            this.btnCancelLink.Size = new System.Drawing.Size(113, 34);
             this.btnCancelLink.TabIndex = 9;
             this.btnCancelLink.Text = "Cancel";
             this.btnCancelLink.UseVisualStyleBackColor = false;
@@ -86,9 +89,10 @@
             this.btnAddLink.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddLink.ForeColor = System.Drawing.Color.White;
-            this.btnAddLink.Location = new System.Drawing.Point(596, 91);
+            this.btnAddLink.Location = new System.Drawing.Point(397, 59);
+            this.btnAddLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddLink.Name = "btnAddLink";
-            this.btnAddLink.Size = new System.Drawing.Size(170, 52);
+            this.btnAddLink.Size = new System.Drawing.Size(113, 34);
             this.btnAddLink.TabIndex = 11;
             this.btnAddLink.Text = "Add Link";
             this.btnAddLink.UseVisualStyleBackColor = false;
@@ -96,9 +100,10 @@
             // txtLinkMemo
             // 
             this.txtLinkMemo.BackColor = System.Drawing.SystemColors.Window;
-            this.txtLinkMemo.Location = new System.Drawing.Point(116, 105);
+            this.txtLinkMemo.Location = new System.Drawing.Point(77, 68);
+            this.txtLinkMemo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLinkMemo.Name = "txtLinkMemo";
-            this.txtLinkMemo.Size = new System.Drawing.Size(426, 26);
+            this.txtLinkMemo.Size = new System.Drawing.Size(285, 20);
             this.txtLinkMemo.TabIndex = 12;
             // 
             // AddLinktoolTip
@@ -119,9 +124,10 @@
             this.columnHeader7});
             this.AddLinklistView.FullRowSelect = true;
             this.AddLinklistView.GridLines = true;
-            this.AddLinklistView.Location = new System.Drawing.Point(35, 186);
+            this.AddLinklistView.Location = new System.Drawing.Point(23, 121);
+            this.AddLinklistView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddLinklistView.Name = "AddLinklistView";
-            this.AddLinklistView.Size = new System.Drawing.Size(1243, 372);
+            this.AddLinklistView.Size = new System.Drawing.Size(830, 243);
             this.AddLinklistView.TabIndex = 13;
             this.AddLinklistView.UseCompatibleStateImageBehavior = false;
             this.AddLinklistView.View = System.Windows.Forms.View.Details;
@@ -163,16 +169,18 @@
             // 
             // FormFileAidLink
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1390, 618);
+            this.ClientSize = new System.Drawing.Size(927, 402);
             this.Controls.Add(this.AddLinklistView);
             this.Controls.Add(this.txtLinkMemo);
             this.Controls.Add(this.btnAddLink);
             this.Controls.Add(this.btnCancelLink);
             this.Controls.Add(this.lblMemo);
             this.Controls.Add(this.lblMainInfo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormFileAidLink";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FileAidLink";
             this.Load += new System.EventHandler(this.FormFileAidLink_Load);
             this.ResumeLayout(false);

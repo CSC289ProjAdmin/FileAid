@@ -149,6 +149,7 @@
             this.Controls.Add(this.TicklerslistView);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidTicklers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FileAidTicklers";
             this.Load += new System.EventHandler(this.FormFileAidTicklers_Load);
             this.ResumeLayout(false);

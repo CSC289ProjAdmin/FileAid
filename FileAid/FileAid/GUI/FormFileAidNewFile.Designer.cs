@@ -45,9 +45,10 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(119, 20);
+            this.lblMainInfo.Location = new System.Drawing.Point(79, 13);
+            this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(594, 37);
+            this.lblMainInfo.Size = new System.Drawing.Size(417, 26);
             this.lblMainInfo.TabIndex = 1;
             this.lblMainInfo.Text = "Welcome to File Aid NewFile Window.";
             // 
@@ -57,9 +58,10 @@
             this.btnNewSelectFiles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNewSelectFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewSelectFiles.ForeColor = System.Drawing.Color.White;
-            this.btnNewSelectFiles.Location = new System.Drawing.Point(12, 97);
+            this.btnNewSelectFiles.Location = new System.Drawing.Point(8, 63);
+            this.btnNewSelectFiles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNewSelectFiles.Name = "btnNewSelectFiles";
-            this.btnNewSelectFiles.Size = new System.Drawing.Size(170, 52);
+            this.btnNewSelectFiles.Size = new System.Drawing.Size(113, 34);
             this.btnNewSelectFiles.TabIndex = 9;
             this.btnNewSelectFiles.Text = "Select Files";
             this.btnNewSelectFiles.UseVisualStyleBackColor = false;
@@ -70,9 +72,10 @@
             this.btnNewFilePrintRepo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNewFilePrintRepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewFilePrintRepo.ForeColor = System.Drawing.Color.White;
-            this.btnNewFilePrintRepo.Location = new System.Drawing.Point(12, 225);
+            this.btnNewFilePrintRepo.Location = new System.Drawing.Point(8, 146);
+            this.btnNewFilePrintRepo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNewFilePrintRepo.Name = "btnNewFilePrintRepo";
-            this.btnNewFilePrintRepo.Size = new System.Drawing.Size(170, 52);
+            this.btnNewFilePrintRepo.Size = new System.Drawing.Size(113, 34);
             this.btnNewFilePrintRepo.TabIndex = 11;
             this.btnNewFilePrintRepo.Text = "Print Report";
             this.btnNewFilePrintRepo.UseVisualStyleBackColor = false;
@@ -87,9 +90,10 @@
             this.columnHeader4});
             this.NewFilelistView.FullRowSelect = true;
             this.NewFilelistView.GridLines = true;
-            this.NewFilelistView.Location = new System.Drawing.Point(207, 97);
+            this.NewFilelistView.Location = new System.Drawing.Point(138, 63);
+            this.NewFilelistView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NewFilelistView.Name = "NewFilelistView";
-            this.NewFilelistView.Size = new System.Drawing.Size(691, 504);
+            this.NewFilelistView.Size = new System.Drawing.Size(462, 329);
             this.NewFilelistView.TabIndex = 22;
             this.NewFilelistView.UseCompatibleStateImageBehavior = false;
             this.NewFilelistView.View = System.Windows.Forms.View.Details;
@@ -120,14 +124,16 @@
             // 
             // FormFileAidNewFile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 787);
+            this.ClientSize = new System.Drawing.Size(663, 512);
             this.Controls.Add(this.NewFilelistView);
             this.Controls.Add(this.btnNewFilePrintRepo);
             this.Controls.Add(this.btnNewSelectFiles);
             this.Controls.Add(this.lblMainInfo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormFileAidNewFile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FileAidNewFile";
             this.Load += new System.EventHandler(this.FormFileAidNewFile_Load);
             this.ResumeLayout(false);
