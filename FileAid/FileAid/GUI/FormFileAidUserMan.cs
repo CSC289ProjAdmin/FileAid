@@ -118,7 +118,7 @@ namespace FileAid.GUI
             ev.OccurredOn = DateTime.Now;
             ev.EventTypeID = EventTypes.AccountUnlocked;
             ev.UserID = selectedAcct.UserID;
-            ev.Description = $"Account Management: {selectedAcct.Username} unlocked.";
+            ev.Description = $"Account Management: {selectedAcct.Username} unlocked by {loggedUser.Username}.";
             Logger.Log(ev);
         }
 
@@ -127,7 +127,7 @@ namespace FileAid.GUI
             ev.OccurredOn = DateTime.Now;
             ev.EventTypeID = EventTypes.AccountLockedOut;
             ev.UserID = selectedAcct.UserID;
-            ev.Description = $"Account Management: {selectedAcct.Username} locked out.";
+            ev.Description = $"Account Management: {selectedAcct.Username} locked out by {loggedUser.Username}.";
             Logger.Log(ev);
         }
 
@@ -149,7 +149,7 @@ namespace FileAid.GUI
             ev.OccurredOn = DateTime.Now;
             ev.EventTypeID = EventTypes.AccountEnabled;
             ev.UserID = selectedAcct.UserID;
-            ev.Description = $"Account Management: {selectedAcct.Username} enabled.";
+            ev.Description = $"Account Management: {selectedAcct.Username} enabled by {loggedUser.Username}.";
             Logger.Log(ev);
         }
 
@@ -158,7 +158,7 @@ namespace FileAid.GUI
             ev.OccurredOn = DateTime.Now;
             ev.EventTypeID = EventTypes.AccountDisabled;
             ev.UserID = selectedAcct.UserID;
-            ev.Description = $"Account Management: {selectedAcct.Username} disabled.";
+            ev.Description = $"Account Management: {selectedAcct.Username} disabled by {loggedUser.Username}.";
             Logger.Log(ev);
         }
 
@@ -205,7 +205,7 @@ namespace FileAid.GUI
             ev.OccurredOn = DateTime.Now;
             ev.EventTypeID = EventTypes.AccountPasswordChanged;
             ev.UserID = selectedAcct.UserID;
-            ev.Description = $"Account Management: {selectedAcct.Username} password changed.";
+            ev.Description = $"Account Management: {selectedAcct.Username} password changed by {loggedUser.Username}.";
             Logger.Log(ev);
         }
 
@@ -222,7 +222,7 @@ namespace FileAid.GUI
             bool wasReset = UserService.ResetPassword(selectedAcct);
             if (wasReset) {
                 UserService.Disable(selectedAcct);
-                string description = $"{selectedAcct.Username} password reset. Account disabled.";
+                string description = $"{selectedAcct.Username} password reset and account disabled by {loggedUser.Username}.";
                 Messenger.Show(description, caption);
                 LogPasswordReset("Account Management: " + description);
             } else {
