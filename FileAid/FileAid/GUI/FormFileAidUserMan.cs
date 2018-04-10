@@ -16,6 +16,7 @@ namespace FileAid.GUI
         private User loggedUser;
         private Permissions perms;
         private User selectedAcct;
+        private string caption = "FileAid Account Management";
         public FormFileAidUserMan(User u)
         {
             InitializeComponent();
@@ -101,52 +102,142 @@ namespace FileAid.GUI
 
         private void btnLockUnlock_Click(object sender, EventArgs e) {
             bool isLocked = LockcheckBox.Checked;
-            if (isLocked) UserService.Unlock(selectedAcct);
-            else UserService.LockOut(selectedAcct);
-            SetupPage();
+            if (isLocked) {
+                bool wasUnlocked = UserService.Unlock(selectedAcct);
+                if (wasUnlocked) LogAccountUnlock();
+            }
+            else {
+                bool wasLocked = UserService.LockOut(selectedAcct);
+                if (wasLocked) LogAccountLock();
+            }
+            SetupPage(); // Refresh GUI
+        }
+
+        private void LogAccountUnlock() {
+            Event ev = new Event();
+            ev.OccurredOn = DateTime.Now;
+            ev.EventTypeID = EventTypes.AccountUnlocked;
+            ev.UserID = selectedAcct.UserID;
+            ev.Description = $"Account Management: {selectedAcct.Username} unlocked.";
+            Logger.Log(ev);
+        }
+
+        private void LogAccountLock() {
+            Event ev = new Event();
+            ev.OccurredOn = DateTime.Now;
+            ev.EventTypeID = EventTypes.AccountLockedOut;
+            ev.UserID = selectedAcct.UserID;
+            ev.Description = $"Account Management: {selectedAcct.Username} locked out.";
+            Logger.Log(ev);
         }
 
         private void btnDisableEnable_Click(object sender, EventArgs e) {
             bool isDisabled = DisablecheckBox.Checked;
-            if (isDisabled) UserService.Enable(selectedAcct);
-            else UserService.Disable(selectedAcct);
-            SetupPage();
+            if (isDisabled) {
+                bool wasEnabled = UserService.Enable(selectedAcct);
+                if (wasEnabled) LogAccountEnable();
+            }
+            else {
+                bool wasDisabled = UserService.Disable(selectedAcct);
+                if (wasDisabled) LogAccountDisable();
+            }
+            SetupPage(); // Refresh GUI
+        }
+
+        private void LogAccountEnable() {
+            Event ev = new Event();
+            ev.OccurredOn = DateTime.Now;
+            ev.EventTypeID = EventTypes.AccountEnabled;
+            ev.UserID = selectedAcct.UserID;
+            ev.Description = $"Account Management: {selectedAcct.Username} enabled.";
+            Logger.Log(ev);
+        }
+
+        private void LogAccountDisable() {
+            Event ev = new Event();
+            ev.OccurredOn = DateTime.Now;
+            ev.EventTypeID = EventTypes.AccountDisabled;
+            ev.UserID = selectedAcct.UserID;
+            ev.Description = $"Account Management: {selectedAcct.Username} disabled.";
+            Logger.Log(ev);
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e) {
             string newPassword = txtPassword.Text;
             string rptPassword = txtRepeatPass.Text;
+
             if (string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(rptPassword)) {
-                Messenger.Show("Both password fields are required.");
+                Messenger.Show("Both password fields are required.", caption);
                 return;
             }
 
             if (newPassword != rptPassword) {
-                Messenger.Show("Passwords fields must match.");
+                Messenger.Show("Passwords fields must match.", caption);
                 return;
             }
 
             bool isAlreadyPassword = UserService.VerifyCredentials(selectedAcct, newPassword);
             if (isAlreadyPassword) {
-                Messenger.Show("New password must be different than current.");
+                Messenger.Show("New password must be different than current.", caption);
                 return;
             }
 
             bool isValidPassword = UserService.VerifyPasswordRequirements(newPassword);
             if (!isValidPassword) {
                 Messenger.Show("Password does not meet requirements.\n\n" +
-                    "8+ characters, 1+ digit, 1+ uppercase, 1+ symbol in *&%$#@");
+                    "8+ characters, 1+ digit, 1+ uppercase, 1+ symbol in *&%$#@", caption);
                 return;
             }
 
             // Set new password
             bool wasChanged = UserService.ChangePassword(selectedAcct, newPassword);
             if (wasChanged) {
-                Messenger.Show($"{selectedAcct.Username} password changed.");
-                // Log event
+                Messenger.Show($"{selectedAcct.Username} password changed.", caption);
+                LogPasswordChange();
             } else {
-                Messenger.Show("Password was NOT changed.");
+                Messenger.Show("Password was NOT changed.", caption);
             }
+            SetupPage(); // Refresh GUI
+        }
+
+        private void LogPasswordChange() {
+            Event ev = new Event();
+            ev.OccurredOn = DateTime.Now;
+            ev.EventTypeID = EventTypes.AccountPasswordChanged;
+            ev.UserID = selectedAcct.UserID;
+            ev.Description = $"Account Management: {selectedAcct.Username} password changed.";
+            Logger.Log(ev);
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e) {
+            // First confirm that password should be reset
+            string resetPrompt = "Are you sure you want to reset the password\n" +
+                $"for {selectedAcct.Username} to the default?\n\n" +
+                "Note: This will also disable the account.";
+            bool wantsReset = (Messenger.ShowYesNo(resetPrompt, caption) == DialogResult.Yes);
+            if (!wantsReset) {
+                return;
+            }
+
+            bool wasReset = UserService.ResetPassword(selectedAcct);
+            if (wasReset) {
+                UserService.Disable(selectedAcct);
+                string description = $"{selectedAcct.Username} password reset. Account disabled.";
+                Messenger.Show(description, caption);
+                LogPasswordReset("Account Management: " + description);
+            } else {
+                Messenger.Show("Password was NOT reset.", caption);
+            }
+            SetupPage(); // Refresh GUI
+        }
+
+        private void LogPasswordReset(string description) {
+            Event ev = new Event();
+            ev.OccurredOn = DateTime.Now;
+            ev.EventTypeID = EventTypes.AccountPasswordReset;
+            ev.UserID = selectedAcct.UserID;
+            ev.Description = description;
+            Logger.Log(ev);
         }
     }
 }

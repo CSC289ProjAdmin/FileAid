@@ -214,6 +214,7 @@
             this.btnResetPassword.TabIndex = 29;
             this.btnResetPassword.Text = "Reset Password";
             this.btnResetPassword.UseVisualStyleBackColor = false;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // UserMantoolTip
             // 
