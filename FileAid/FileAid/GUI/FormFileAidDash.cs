@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FileAid.Models;
 
 namespace FileAid.GUI
 {
     public partial class FormFileAidDash : Form
     {
+        private User loggedUser;
         public FormFileAidDash()
         {
             InitializeComponent();
@@ -20,26 +22,31 @@ namespace FileAid.GUI
         private void btnTrackedFiles_Click(object sender, EventArgs e) {
             FormFileAidMain main = new FormFileAidMain();
             main.ShowDialog();
+            FillRelevantEvents();
         }
 
         private void btnDBMan_Click(object sender, EventArgs e) {
             FormFileAidDbMgmt dbmgmt = new FormFileAidDbMgmt();
             dbmgmt.ShowDialog();
+            FillRelevantEvents();
         }
 
         private void btnLogEvents_Click(object sender, EventArgs e) {
             FormFileAidEvents events = new FormFileAidEvents();
             events.ShowDialog();
+            FillRelevantEvents();
         }
 
         private void btnSettings_Click(object sender, EventArgs e) {
             FormFileAidConfig config = new FormFileAidConfig();
             config.ShowDialog();
+            FillRelevantEvents();
         }
 
         private void btnUserMan_Click(object sender, EventArgs e) {
             FormFileAidUserMan userMgmt = new FormFileAidUserMan();
             userMgmt.ShowDialog();
+            FillRelevantEvents();
         }
 
         private void btnUpdateMode_Click(object sender, EventArgs e) {
@@ -62,10 +69,40 @@ namespace FileAid.GUI
         private void showToolStripMenuItem_Click(object sender, EventArgs e) {
             iconFileAidTray.Visible = false;
             this.Show();
+            FillRelevantEvents();
         }
 
         private void FormFileAidDash_Load(object sender, EventArgs e)
         {
+            // Make user login
+            FormFileAidLogin login = new FormFileAidLogin();
+            if (login.ShowDialog() != DialogResult.OK) {
+                Application.Exit();
+            } 
+            // Get logged in account
+            string username = login.LoggedInUsername;
+            loggedUser = UserService.Find(username);
+            Permissions perms = PermissionsManager.GetPermissionSet(loggedUser.UserID);
+
+            // Disable / Enable buttons according to permission set
+            btnBatchScan.Enabled = perms.BatchScan;
+            btnDBMan.Enabled = perms.DbMgmt;
+            btnGuestPerms.Enabled = perms.RestrictGuest;
+            btnSettings.Enabled = perms.ProgramSetup;
+            btnUserMan.Enabled = perms.LoginMgmt;
+
+            // These buttons don't have access rights / permissions yet
+            btnLinks.Enabled = true;
+            btnLogEvents.Enabled = true;
+            btnReports.Enabled = true;
+            btnTrackedFiles.Enabled = true;
+            btnUpdateMode.Enabled = true;
+            btnViewTick.Enabled = true;
+
+            // Fill Listview with events relevant to user
+            FillRelevantEvents();
+
+
             DashtoolTip.SetToolTip(btnTrackedFiles, "Open tracked files window");
             DashtoolTip.SetToolTip(btnReports, "Open reports Window");
             DashtoolTip.SetToolTip(btnUserMan, "Open user management window");
@@ -79,25 +116,76 @@ namespace FileAid.GUI
             DashtoolTip.SetToolTip(btnUpdateMode, "Open update mode window");
         }
 
+        private void FillRelevantEvents() {
+            List<EventTypes> relevantTypes = new List<EventTypes>();
+            switch (loggedUser.Username) {
+                case "Admin":
+                    relevantTypes.Add(EventTypes.AccountDisabled);
+                    relevantTypes.Add(EventTypes.AccountEnabled);
+                    relevantTypes.Add(EventTypes.AccountLockedOut);
+                    relevantTypes.Add(EventTypes.AccountPasswordChanged);
+                    relevantTypes.Add(EventTypes.AccountPasswordReset);
+                    relevantTypes.Add(EventTypes.AccountPermsChanged);
+                    relevantTypes.Add(EventTypes.AccountUnlocked);
+                    relevantTypes.Add(EventTypes.DbBackedUp);
+                    relevantTypes.Add(EventTypes.DbReset);
+                    relevantTypes.Add(EventTypes.DbRestored);
+                    relevantTypes.Add(EventTypes.LoginSuccess);
+                    relevantTypes.Add(EventTypes.ProgramSettingsChanged);
+                    relevantTypes.Add(EventTypes.BatchCompleted);
+                    relevantTypes.Add(EventTypes.FileModified);
+                    break;
+                case "User":
+                    relevantTypes.Add(EventTypes.DbBackedUp);
+                    relevantTypes.Add(EventTypes.DbReset);
+                    relevantTypes.Add(EventTypes.DbRestored);
+                    relevantTypes.Add(EventTypes.BatchCompleted);
+                    relevantTypes.Add(EventTypes.FileModified);
+                    break;
+                case "Guest":
+                    relevantTypes.Add(EventTypes.FileModified);
+                    break;
+                default:
+                    break;
+            }
+
+            List<Event> allEvents = EventManager.GetEvents();
+            var relevantEvents = from ev in allEvents
+                where relevantTypes.Contains(ev.EventTypeID)
+                select ev;
+
+            DashboardlistView.Items.Clear();
+            foreach (Event ev in relevantEvents) {
+                string [] evDetails = new string[2];
+                evDetails[0] = ev.OccurredOn.ToString();
+                evDetails[1] = ev.Description;
+                ListViewItem row = new ListViewItem(evDetails);
+                DashboardlistView.Items.Add(row);
+            }
+        }
+
         private void btnViewTick_Click(object sender, EventArgs e) {
             FormFileAidTicklers ticklers = new FormFileAidTicklers();
             ticklers.ShowDialog();
+            FillRelevantEvents();
         }
 
         private void btnReports_Click(object sender, EventArgs e) {
             FormFileAidReports reports = new FormFileAidReports();
             reports.ShowDialog();
+            FillRelevantEvents();
         }
 
         private void btnGuestPerms_Click(object sender, EventArgs e) {
             FormFileAidPermission perms = new FormFileAidPermission();
             perms.ShowDialog();
+            FillRelevantEvents();
         }
 
         private void btnLinks_Click(object sender, EventArgs e) {
             FormFileAidFileLinks links = new FormFileAidFileLinks();
             links.ShowDialog();
-
+            FillRelevantEvents();
         }
 
         private void btnBatchScan_Click(object sender, EventArgs e) {
@@ -105,6 +193,7 @@ namespace FileAid.GUI
             string result = (manual == null) ? "Batch update failed" :
                 $"Scan complete.\n{manual.FilesAdded} added, {manual.FilesModified} modified, {manual.FilesDisabled} disabled";
             MessageBox.Show(result, "Manual scan");
+            FillRelevantEvents();
         }
     }
 }

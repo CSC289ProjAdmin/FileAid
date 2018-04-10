@@ -14,6 +14,7 @@ namespace FileAid.GUI
 {
     public partial class FormFileAidLogin : Form
     {
+        public string LoggedInUsername { get; private set; }
         public FormFileAidLogin()
         {
             InitializeComponent();
@@ -86,7 +87,8 @@ namespace FileAid.GUI
                 UserService.ClearFailures(u);
                 UserService.Unlock(u);
                 LogSuccessfulLogin(u);
-                // Calling form is responsible for getting account & rights.
+                // Calling form is responsible for getting account & rights. Just set the username
+                LoggedInUsername = u.Username;
                 DialogResult = DialogResult.OK;
                 Close();
             }

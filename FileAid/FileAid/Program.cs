@@ -31,13 +31,7 @@ namespace FileAid {
             }
             */
 
-            FormFileAidLogin login = new FormFileAidLogin();
-
-            if (login.ShowDialog() == DialogResult.OK) {
-                Application.Run(new FormFileAidDash());
-            } else {
-                Application.Exit();
-            }
+            Application.Run(new FormFileAidDash());
         }
 
         static bool InitFirstRun() {
