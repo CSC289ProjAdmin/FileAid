@@ -152,10 +152,10 @@ namespace FileAid.GUI
         private bool LogPermission(int permissionId)
         {
             Event ev = new Event();
-            ev.EventTypeID = EventTypes.UserPermsChanged;
+            ev.EventTypeID = EventTypes.AccountPermsChanged;
             ev.ReportID = permissionId;
             ev.OccurredOn = DateTime.Now;
-            ev.Description = "Permissions changed";
+            ev.Description = "Guest rights modified";
             bool wasLogged = Logger.Log(ev);
             return wasLogged;
         }
