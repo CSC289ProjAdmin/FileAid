@@ -30,26 +30,41 @@ namespace FileAid.GUI
             User u = UserService.Find(username);
             if (u == null) {
                 lblErrorMsg.Text = "Invalid credentials.";
+                txtUserName.Focus();
+                // TODO?: Log unauthorized access attempt?
                 return;
             }
 
             bool passMatches = UserService.VerifyCredentials(u, password);
             if (!passMatches) {
                 lblErrorMsg.Text = "Invalid credentials.";
-                bool isAdmin = !(u.Username == "Admin");
+                txtUserName.Focus();
+                LogBadCreds(u);
+                bool isAdmin = (u.Username == "Admin");
                 bool isLocked = UserService.IsLockedOut(u);
-                if (!isAdmin && !isLocked) {
+                bool isDisable = UserService.IsDisabled(u);
+                if (!isAdmin && !isLocked && !isDisable) { // Never lock out Admin or disabled accounts
                     UserService.IncrementFailures(u);
-                    // Log increment event
+                    LogFailureIncrement(u);
                     bool needsLocking = (u.LoginFailures >= 3);
                     if (needsLocking) {
                         bool wasLocked = UserService.LockOut(u);
                         if (wasLocked) {
-                            // Notify and log event
                             Messenger.Show("Account locked out for repeated failed logins.", "Account Locked");
+                            DateTime unlocksAt = u.LockedOutOn + TimeSpan.FromHours(1);
+                            lblErrorMsg.Text = $"Account is locked out until {unlocksAt.ToString()}.";
+                            // TODO: Log lockout event
                         }
                     }
                 }
+                return;
+            }
+
+            bool isDisabled = UserService.IsDisabled(u);
+            if (isDisabled) {
+                lblErrorMsg.Text = "Account is disabled and cannot log in.";
+                txtUserName.Focus();
+                // TODO: Log failed login due to disabled account
                 return;
             }
 
@@ -57,12 +72,8 @@ namespace FileAid.GUI
             if (isLockedOut) {
                 DateTime unlocksAt = u.LockedOutOn + TimeSpan.FromHours(1);
                 lblErrorMsg.Text = $"Account is locked out until {unlocksAt.ToString()}.";
-                return;
-            }
-
-            bool isDisabled = UserService.IsDisabled(u);
-            if (isDisabled) {
-                lblErrorMsg.Text = "Account is disabled and cannot log in.";
+                txtUserName.Focus();
+                // TODO: Log failed login due to lockout
                 return;
             }
 
@@ -71,6 +82,26 @@ namespace FileAid.GUI
             // Calling form is responsible for getting account & rights.
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void LogBadCreds(User u) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.LoginFailure;
+            ev.OccurredOn = DateTime.Now;
+            ev.UserID = u.UserID;
+            ev.Description = $"Login failure for {u.Username} due to incorrect password.";
+            Logger.Log(ev);
+        }
+
+        private void LogFailureIncrement(User u) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.LoginFailure;
+            ev.OccurredOn = DateTime.Now;
+            ev.UserID = u.UserID;
+            ev.Description = $"Login failure count for {u.Username} incremented.";
+            ev.Initial = (u.LoginFailures - 1).ToString();
+            ev.New = u.LoginFailures.ToString();
+            Logger.Log(ev);
         }
 
         private void FormFileAidLogin_Load(object sender, EventArgs e)
