@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using FileAid.Models;
 using System.Windows.Forms;
 
 namespace FileAid.GUI
@@ -40,19 +41,18 @@ namespace FileAid.GUI
 
             try
             {
-                Models.User guest = Models.UserService.Find("Guest");
-                Models.Permissions guestPerms = Models.PermissionsManager.GetPermissionSet(guest.UserID);
+                User guest = UserService.Find("Guest");
+                Permissions guestPerms = PermissionsManager.GetPermissionSet(guest.UserID);
+
                 if(guest == null)
                 {
                     MessageBox.Show("Unable to load guest account rights");
-
                     return;
 
                 }
                 if(guestPerms == null)
                 {
                     MessageBox.Show("Unable to load guest account rights");
-
                     return;
                 }
 
@@ -76,7 +76,7 @@ namespace FileAid.GUI
             }
             catch (SqlException)
             {
-                MessageBox.Show("Database connection failed");
+                Messenger.ShowDbMsg();
             }
 
 
@@ -87,20 +87,18 @@ namespace FileAid.GUI
 
             try
             {
-                Models.User guest = Models.UserService.Find("Guest");
-                Models.Permissions guestPerms = Models.PermissionsManager.GetPermissionSet(guest.UserID);
+                User guest = UserService.Find("Guest");
+                Permissions guestPerms = PermissionsManager.GetPermissionSet(guest.UserID);
 
                 if (guest == null)
                 {
-                    MessageBox.Show("Unable to load guest account rights");
-
+                    MessageBox.Show("Unable to load guest account rights. Cannot save changes.");
                     return;
 
                 }
                 if (guestPerms == null)
                 {
-                    MessageBox.Show("Unable to load guest account rights");
-
+                    MessageBox.Show("Unable to load guest account rights. Cannot save changes.");
                     return;
                 }
                 
@@ -121,9 +119,15 @@ namespace FileAid.GUI
                 guestPerms.ProgramSetup = ProgramSetcheckBox.Checked;
                 guestPerms.LoginMgmt = LoginMancheckBox.Checked;
                 guestPerms.DbMgmt = DBMancheckBox.Checked;
-                bool wasUpdate = Models.PermissionsManager.UpdatePermissionSet(guestPerms);
+
+                bool wasUpdate = PermissionsManager.UpdatePermissionSet(guestPerms);
                 if (wasUpdate)
                 {
+                    bool wasLogged = LogPermission(guestPerms.PermID);
+                    if (!wasLogged)
+                    {
+                        Messenger.Show("Failed to record setting change event.");
+                    }
                     DialogResult = DialogResult.OK;
                     Close();
                 }
@@ -136,13 +140,24 @@ namespace FileAid.GUI
             }
             catch (SqlException)
             {
-                MessageBox.Show("Database connection failed");
+                Messenger.ShowDbMsg();
             }
         }
 
         private void btnPerCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private bool LogPermission(int permissionId)
+        {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.UserPermsChanged;
+            ev.ReportID = permissionId;
+            ev.OccurredOn = DateTime.Now;
+            ev.Description = "Permissions changed";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
         }
     }
 }
