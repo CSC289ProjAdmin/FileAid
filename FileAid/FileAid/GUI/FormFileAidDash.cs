@@ -17,6 +17,10 @@ namespace FileAid.GUI
         public FormFileAidDash()
         {
             InitializeComponent();
+            Configs settings = ConfigManager.GetConfigs();
+            int intervalInMinutes = (settings == null) ? 15 : settings.UpdateTimerInMinutes;
+            updateTimer = new Timer();
+            updateTimer.Interval = intervalInMinutes * 60 * 1000; // milliseconds
         }
 
         private void btnTrackedFiles_Click(object sender, EventArgs e) {
@@ -67,9 +71,7 @@ namespace FileAid.GUI
         }
 
         private void showToolStripMenuItem_Click(object sender, EventArgs e) {
-            iconFileAidTray.Visible = false;
-            this.Show();
-            FillRelevantEvents();
+            ExitUpdateMode();
         }
 
         private void FormFileAidDash_Load(object sender, EventArgs e)
@@ -202,6 +204,36 @@ namespace FileAid.GUI
                 $"Scan complete.\n{result.FilesAdded} added, {result.FilesModified} modified, {result.FilesDisabled} disabled";
             MessageBox.Show(resultMsg, caption);
             FillRelevantEvents();
+        }
+
+        private void StartTimer() {
+            updateTimer.Start();
+        }
+
+        private void StopTimer() {
+            updateTimer.Stop();
+        }
+
+        private void StartPeriodicUpdate() {
+            // Balloon tooltip
+            // Disable contextmenu Exit/Show
+            // Run update
+            // Balloon tooltip with details
+            // Enable contextmenu Exit/Show
+            // Set next timer
+        }
+
+        private void ExitUpdateMode() {
+            // Stop timer
+            StopTimer();
+            // Hide tray icon and show the dashboard
+            iconFileAidTray.Visible = false;
+            this.Show();
+            FillRelevantEvents();
+        }
+
+        private void updateTimer_Tick(object sender, EventArgs e) {
+            StartPeriodicUpdate();
         }
     }
 }

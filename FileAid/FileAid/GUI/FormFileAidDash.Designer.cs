@@ -51,6 +51,7 @@
             this.DashboardlistView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -296,6 +297,10 @@
             this.columnHeader2.Text = "Event";
             this.columnHeader2.Width = 450;
             // 
+            // updateTimer
+            // 
+            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
+            // 
             // FormFileAidDash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,6 +353,7 @@
         private System.Windows.Forms.ListView DashboardlistView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Timer updateTimer;
     }
 }
 
