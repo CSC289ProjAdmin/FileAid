@@ -78,7 +78,8 @@ namespace FileAid.GUI
             FormFileAidLogin login = new FormFileAidLogin();
             if (login.ShowDialog() != DialogResult.OK) {
                 Application.Exit();
-            } 
+                return;
+            }
             // Get logged in account
             string username = login.LoggedInUsername;
             loggedUser = UserService.Find(username);
