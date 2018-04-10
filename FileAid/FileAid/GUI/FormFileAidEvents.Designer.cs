@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.EventslistView = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnReset = new System.Windows.Forms.Button();
@@ -62,9 +61,8 @@
             // 
             this.EventslistView.AllowColumnReorder = true;
             this.EventslistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader2});
             this.EventslistView.FullRowSelect = true;
             this.EventslistView.GridLines = true;
             this.EventslistView.Location = new System.Drawing.Point(24, 58);
@@ -75,20 +73,15 @@
             this.EventslistView.UseCompatibleStateImageBehavior = false;
             this.EventslistView.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "EventId";
-            this.columnHeader1.Width = 143;
-            // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Description";
-            this.columnHeader2.Width = 161;
+            this.columnHeader2.Text = "Event Description";
+            this.columnHeader2.Width = 365;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Occurred on";
-            this.columnHeader3.Width = 165;
+            this.columnHeader3.Text = "Date";
+            this.columnHeader3.Width = 150;
             // 
             // btnReset
             // 
@@ -118,6 +111,7 @@
             this.btnEventsReport.TabIndex = 10;
             this.btnEventsReport.Text = "Print Report";
             this.btnEventsReport.UseVisualStyleBackColor = false;
+            this.btnEventsReport.Click += new System.EventHandler(this.btnEventsReport_Click);
             // 
             // btnEventsSearch
             // 
@@ -132,6 +126,7 @@
             this.btnEventsSearch.TabIndex = 11;
             this.btnEventsSearch.Text = "Search";
             this.btnEventsSearch.UseVisualStyleBackColor = false;
+            this.btnEventsSearch.Click += new System.EventHandler(this.btnEventsSearch_Click);
             // 
             // lblEventsSearch
             // 
@@ -235,7 +230,6 @@
         private System.Windows.Forms.Button btnEventsSearch;
         private System.Windows.Forms.Label lblEventsSearch;
         private System.Windows.Forms.TextBox txtMemo;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ToolTip EventstoolTip;

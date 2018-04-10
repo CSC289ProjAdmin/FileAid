@@ -15,6 +15,7 @@ namespace FileAid.GUI
     public partial class FormFileAidEvents : Form
     {
         private User currentUser;
+        private string caption = "FileAid Event History";
         public FormFileAidEvents(User u)
         {
             InitializeComponent();
@@ -30,6 +31,9 @@ namespace FileAid.GUI
             EventstoolTip.SetToolTip(EventsStartdateTimePicker, "Select start date");
             EventstoolTip.SetToolTip(EventsEnddateTimePicker, "Select end date");
 
+            // Give values to controls and enable buttons
+            EventsEnddateTimePicker.Value = DateTime.Today;
+            EventsStartdateTimePicker.Value = EventsEnddateTimePicker.Value - TimeSpan.FromDays(30);
             bool isAdmin = (currentUser.Username == "Admin");
             btnReset.Enabled = isAdmin; // Only Admin can reset the event history
 
@@ -39,19 +43,25 @@ namespace FileAid.GUI
         private void FillListView() {
             try {
                 EventslistView.Items.Clear();
-                List<Models.Event> allEvents = Models.EventManager.GetEvents();
+                List<Event> allEvents = EventManager.GetEvents();
                 if (allEvents == null) return; // No events to load
-                foreach (var ev in allEvents) {
-                    string[] evDetails = new string[3];
-                    evDetails[0] = ev.EventID.ToString();
+                // TODO: Add wildcard filter
+                var filteredEvents = from ev in allEvents
+                                     where (ev.OccurredOn.Date > EventsStartdateTimePicker.Value.Date
+                                     && ev.OccurredOn.Date < EventsEnddateTimePicker.Value.Date + TimeSpan.FromDays(1))
+                                     select ev;
+                if (filteredEvents == null) return; // No events in range
+
+                foreach (var ev in filteredEvents) {
+                    string[] evDetails = new string[2];
+                    evDetails[0] = ev.OccurredOn.ToString();
                     evDetails[1] = ev.Description;
-                    evDetails[2] = ev.OccurredOn.ToString();
                     ListViewItem row = new ListViewItem(evDetails);
                     EventslistView.Items.Add(row);
                 }
             }
             catch (SqlException) {
-                Models.Messenger.ShowDbMsg();
+                Messenger.ShowDbMsg();
             }
         }
 
@@ -70,6 +80,35 @@ namespace FileAid.GUI
             //Messenger.Show("Resetting event history...", caption);
             bool wasDeleted = EventManager.DeleteEventHistory();
             if (wasDeleted) FillListView(); // Refresh GUI
+        }
+
+        private void btnEventsSearch_Click(object sender, EventArgs e) {
+            // Validate date pickers
+            bool isValidRange = (EventsStartdateTimePicker.Value <= EventsEnddateTimePicker.Value);
+            if (!isValidRange) {
+                string badRangePrompt = "Start date must be less than or equal to end date.";
+                Messenger.Show(badRangePrompt, caption);
+                return;
+            }
+            FillListView(); // Update GUI with filtered events
+        }
+
+        private void btnEventsReport_Click(object sender, EventArgs e) {
+            Messenger.Show("Placeholder for Events report", caption);
+            Report eventsRpt = ReportManager.GetReportByName("Events");
+            if (eventsRpt == null) return; // Could not find report
+            bool wasLogged = LogReportRun(eventsRpt.ReportID, eventsRpt.Name);
+            if (wasLogged) FillListView(); // Refresh GUI
+        }
+
+        private bool LogReportRun(int reportID, string reportName) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.ReportRun;
+            ev.ReportID = reportID;
+            ev.OccurredOn = DateTime.Now;
+            ev.Description = $"Report run: {reportName}";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
         }
     }
 }
