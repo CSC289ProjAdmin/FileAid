@@ -191,10 +191,16 @@ namespace FileAid.GUI
         }
 
         private void btnBatchScan_Click(object sender, EventArgs e) {
-            Models.Batch manual = Models.BatchManager.Scan(null, false);
-            string result = (manual == null) ? "Batch update failed" :
-                $"Scan complete.\n{manual.FilesAdded} added, {manual.FilesModified} modified, {manual.FilesDisabled} disabled";
-            MessageBox.Show(result, "Manual scan");
+            // First confirm that user wants to manually scan
+            string scanPrompt = "Are you sure you want to run a manual file scan?";
+            string caption = "FileAid Manual Scan";
+            bool wantsScan = (Messenger.ShowYesNo(scanPrompt, caption) == DialogResult.Yes);
+            if (!wantsScan) return;
+
+            Batch result = BatchManager.Scan(null, false);
+            string resultMsg = (result == null) ? "Batch update failed" :
+                $"Scan complete.\n{result.FilesAdded} added, {result.FilesModified} modified, {result.FilesDisabled} disabled";
+            MessageBox.Show(resultMsg, caption);
             FillRelevantEvents();
         }
     }

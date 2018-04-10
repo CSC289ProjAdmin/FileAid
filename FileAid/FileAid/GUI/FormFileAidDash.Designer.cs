@@ -227,7 +227,7 @@
             this.btnBatchScan.Name = "btnBatchScan";
             this.btnBatchScan.Size = new System.Drawing.Size(133, 32);
             this.btnBatchScan.TabIndex = 11;
-            this.btnBatchScan.Text = "Batch Scan";
+            this.btnBatchScan.Text = "Manual Scan";
             this.btnBatchScan.UseVisualStyleBackColor = false;
             this.btnBatchScan.Click += new System.EventHandler(this.btnBatchScan_Click);
             // 
