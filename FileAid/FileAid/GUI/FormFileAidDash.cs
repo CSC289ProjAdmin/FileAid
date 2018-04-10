@@ -44,7 +44,7 @@ namespace FileAid.GUI
         }
 
         private void btnUserMan_Click(object sender, EventArgs e) {
-            FormFileAidUserMan userMgmt = new FormFileAidUserMan();
+            FormFileAidUserMan userMgmt = new FormFileAidUserMan(loggedUser);
             userMgmt.ShowDialog();
             FillRelevantEvents();
         }
