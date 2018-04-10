@@ -48,9 +48,10 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(111, 27);
+            this.lblMainInfo.Location = new System.Drawing.Point(74, 18);
+            this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(617, 37);
+            this.lblMainInfo.Size = new System.Drawing.Size(434, 26);
             this.lblMainInfo.TabIndex = 1;
             this.lblMainInfo.Text = "Welcome to File Aid Reminder Window.";
             // 
@@ -59,9 +60,10 @@
             this.lblReminder.AutoSize = true;
             this.lblReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReminder.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblReminder.Location = new System.Drawing.Point(23, 114);
+            this.lblReminder.Location = new System.Drawing.Point(15, 74);
+            this.lblReminder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblReminder.Name = "lblReminder";
-            this.lblReminder.Size = new System.Drawing.Size(143, 22);
+            this.lblReminder.Size = new System.Drawing.Size(104, 15);
             this.lblReminder.TabIndex = 6;
             this.lblReminder.Text = "Reminder Due:";
             // 
@@ -69,10 +71,11 @@
             // 
             this.ReminderdateTimePicker.CustomFormat = "MM/dd/yyyy hh:mm:ss";
             this.ReminderdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ReminderdateTimePicker.Location = new System.Drawing.Point(192, 114);
+            this.ReminderdateTimePicker.Location = new System.Drawing.Point(128, 74);
+            this.ReminderdateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ReminderdateTimePicker.Name = "ReminderdateTimePicker";
             this.ReminderdateTimePicker.ShowUpDown = true;
-            this.ReminderdateTimePicker.Size = new System.Drawing.Size(197, 26);
+            this.ReminderdateTimePicker.Size = new System.Drawing.Size(133, 20);
             this.ReminderdateTimePicker.TabIndex = 7;
             // 
             // lblDescription
@@ -80,17 +83,19 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblDescription.Location = new System.Drawing.Point(49, 232);
+            this.lblDescription.Location = new System.Drawing.Point(33, 151);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(117, 22);
+            this.lblDescription.Size = new System.Drawing.Size(84, 15);
             this.lblDescription.TabIndex = 8;
             this.lblDescription.Text = "Description:";
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(192, 231);
+            this.txtDescription.Location = new System.Drawing.Point(128, 150);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(417, 26);
+            this.txtDescription.Size = new System.Drawing.Size(279, 20);
             this.txtDescription.TabIndex = 9;
             // 
             // btnAddReminder
@@ -99,9 +104,10 @@
             this.btnAddReminder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddReminder.ForeColor = System.Drawing.Color.White;
-            this.btnAddReminder.Location = new System.Drawing.Point(179, 289);
+            this.btnAddReminder.Location = new System.Drawing.Point(119, 188);
+            this.btnAddReminder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddReminder.Name = "btnAddReminder";
-            this.btnAddReminder.Size = new System.Drawing.Size(170, 52);
+            this.btnAddReminder.Size = new System.Drawing.Size(113, 34);
             this.btnAddReminder.TabIndex = 11;
             this.btnAddReminder.Text = "Add Reminder";
             this.btnAddReminder.UseVisualStyleBackColor = false;
@@ -112,18 +118,20 @@
             this.btnReminderCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnReminderCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReminderCancel.ForeColor = System.Drawing.Color.White;
-            this.btnReminderCancel.Location = new System.Drawing.Point(426, 289);
+            this.btnReminderCancel.Location = new System.Drawing.Point(284, 188);
+            this.btnReminderCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReminderCancel.Name = "btnReminderCancel";
-            this.btnReminderCancel.Size = new System.Drawing.Size(170, 52);
+            this.btnReminderCancel.Size = new System.Drawing.Size(113, 34);
             this.btnReminderCancel.TabIndex = 13;
             this.btnReminderCancel.Text = "Cancel";
             this.btnReminderCancel.UseVisualStyleBackColor = false;
             // 
             // txtReminderName
             // 
-            this.txtReminderName.Location = new System.Drawing.Point(192, 173);
+            this.txtReminderName.Location = new System.Drawing.Point(128, 112);
+            this.txtReminderName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtReminderName.Name = "txtReminderName";
-            this.txtReminderName.Size = new System.Drawing.Size(417, 26);
+            this.txtReminderName.Size = new System.Drawing.Size(279, 20);
             this.txtReminderName.TabIndex = 16;
             // 
             // lblReminderName
@@ -131,9 +139,10 @@
             this.lblReminderName.AutoSize = true;
             this.lblReminderName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReminderName.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblReminderName.Location = new System.Drawing.Point(8, 173);
+            this.lblReminderName.Location = new System.Drawing.Point(5, 112);
+            this.lblReminderName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblReminderName.Name = "lblReminderName";
-            this.lblReminderName.Size = new System.Drawing.Size(158, 22);
+            this.lblReminderName.Size = new System.Drawing.Size(116, 15);
             this.lblReminderName.TabIndex = 17;
             this.lblReminderName.Text = "Reminder Name:";
             // 
@@ -149,9 +158,10 @@
             this.columnHeader2});
             this.ReminderlistView.FullRowSelect = true;
             this.ReminderlistView.GridLines = true;
-            this.ReminderlistView.Location = new System.Drawing.Point(657, 114);
+            this.ReminderlistView.Location = new System.Drawing.Point(438, 74);
+            this.ReminderlistView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ReminderlistView.Name = "ReminderlistView";
-            this.ReminderlistView.Size = new System.Drawing.Size(308, 501);
+            this.ReminderlistView.Size = new System.Drawing.Size(207, 327);
             this.ReminderlistView.TabIndex = 18;
             this.ReminderlistView.UseCompatibleStateImageBehavior = false;
             this.ReminderlistView.View = System.Windows.Forms.View.Details;
@@ -163,9 +173,9 @@
             // 
             // FormFileAidReminder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 647);
+            this.ClientSize = new System.Drawing.Size(678, 421);
             this.Controls.Add(this.ReminderlistView);
             this.Controls.Add(this.lblReminderName);
             this.Controls.Add(this.txtReminderName);
@@ -176,7 +186,9 @@
             this.Controls.Add(this.ReminderdateTimePicker);
             this.Controls.Add(this.lblReminder);
             this.Controls.Add(this.lblMainInfo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormFileAidReminder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FileAidReminders";
             this.Load += new System.EventHandler(this.FormFileAidReminder_Load);
             this.ResumeLayout(false);

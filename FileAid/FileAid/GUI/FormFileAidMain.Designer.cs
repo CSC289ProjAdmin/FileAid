@@ -32,10 +32,11 @@
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.MainListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.InactivecheckBox = new System.Windows.Forms.CheckBox();
             this.StartdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lblStart = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.btnMainPrintRepo = new System.Windows.Forms.Button();
             this.FileAidMaintoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnViewHistory = new System.Windows.Forms.Button();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -95,6 +95,10 @@
             this.columnHeader1.Text = "File Name";
             this.columnHeader1.Width = 150;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Extension";
+            // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Path";
@@ -111,9 +115,10 @@
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader4.Width = 140;
             // 
-            // columnHeader5
+            // columnHeader6
             // 
-            this.columnHeader5.Text = "Extension";
+            this.columnHeader6.Text = "Inactive";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // InactivecheckBox
             // 
@@ -334,11 +339,6 @@
             this.btnViewHistory.UseVisualStyleBackColor = false;
             this.btnViewHistory.Click += new System.EventHandler(this.btnViewHistory_Click);
             // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Inactive";
-            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // FormFileAidMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,6 +365,7 @@
             this.Controls.Add(this.lblMainInfo);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FileAidMain";
             this.Load += new System.EventHandler(this.FormFileAidMain_Load);
             this.ResumeLayout(false);

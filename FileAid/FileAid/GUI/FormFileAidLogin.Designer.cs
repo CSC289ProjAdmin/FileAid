@@ -61,7 +61,7 @@
             // txtUserName
             // 
             this.txtUserName.Location = new System.Drawing.Point(162, 65);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(2);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(183, 20);
             this.txtUserName.TabIndex = 2;
@@ -81,7 +81,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(162, 112);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(183, 20);
             this.txtPassword.TabIndex = 6;
@@ -93,7 +93,7 @@
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(180, 160);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(133, 32);
             this.btnLogin.TabIndex = 7;
@@ -127,8 +127,9 @@
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblUserWelcome);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "File Aid Login";
             this.Load += new System.EventHandler(this.FormFileAidLogin_Load);
             this.ResumeLayout(false);

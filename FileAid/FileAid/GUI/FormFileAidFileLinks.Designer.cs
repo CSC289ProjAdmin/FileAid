@@ -42,7 +42,7 @@
             this.FileLinkslistView.FullRowSelect = true;
             this.FileLinkslistView.GridLines = true;
             this.FileLinkslistView.Location = new System.Drawing.Point(55, 57);
-            this.FileLinkslistView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FileLinkslistView.Margin = new System.Windows.Forms.Padding(2);
             this.FileLinkslistView.Name = "FileLinkslistView";
             this.FileLinkslistView.Size = new System.Drawing.Size(552, 292);
             this.FileLinkslistView.TabIndex = 0;
@@ -77,8 +77,9 @@
             this.ClientSize = new System.Drawing.Size(650, 395);
             this.Controls.Add(this.lblMainInfo);
             this.Controls.Add(this.FileLinkslistView);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidFileLinks";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FileAid File Links";
             this.Load += new System.EventHandler(this.FormFileAidFileLinks_Load);
             this.ResumeLayout(false);

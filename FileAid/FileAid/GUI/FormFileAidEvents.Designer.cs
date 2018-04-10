@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.EventslistView = new System.Windows.Forms.ListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnReset = new System.Windows.Forms.Button();
             this.btnEventsReport = new System.Windows.Forms.Button();
             this.btnEventsSearch = new System.Windows.Forms.Button();
@@ -73,15 +73,15 @@
             this.EventslistView.UseCompatibleStateImageBehavior = false;
             this.EventslistView.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Event Description";
-            this.columnHeader2.Width = 365;
-            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Date";
             this.columnHeader3.Width = 150;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Event Description";
+            this.columnHeader2.Width = 365;
             // 
             // btnReset
             // 
@@ -214,6 +214,7 @@
             this.Controls.Add(this.lblMainInfo);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidEvents";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FileAidEvents";
             this.Load += new System.EventHandler(this.FormFileAidEvents_Load);
             this.ResumeLayout(false);

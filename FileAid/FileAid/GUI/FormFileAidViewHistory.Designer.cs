@@ -40,9 +40,10 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(113, 19);
+            this.lblMainInfo.Location = new System.Drawing.Point(75, 12);
+            this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(661, 37);
+            this.lblMainInfo.Size = new System.Drawing.Size(465, 26);
             this.lblMainInfo.TabIndex = 2;
             this.lblMainInfo.Text = "Welcome to File Aid View History Window.";
             // 
@@ -56,9 +57,10 @@
             this.columnHeader3});
             this.ViewHistorylistView.FullRowSelect = true;
             this.ViewHistorylistView.GridLines = true;
-            this.ViewHistorylistView.Location = new System.Drawing.Point(51, 89);
+            this.ViewHistorylistView.Location = new System.Drawing.Point(34, 58);
+            this.ViewHistorylistView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ViewHistorylistView.Name = "ViewHistorylistView";
-            this.ViewHistorylistView.Size = new System.Drawing.Size(789, 398);
+            this.ViewHistorylistView.Size = new System.Drawing.Size(527, 260);
             this.ViewHistorylistView.TabIndex = 3;
             this.ViewHistorylistView.UseCompatibleStateImageBehavior = false;
             this.ViewHistorylistView.View = System.Windows.Forms.View.Details;
@@ -80,12 +82,14 @@
             // 
             // FormFileAidViewHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 587);
+            this.ClientSize = new System.Drawing.Size(604, 382);
             this.Controls.Add(this.ViewHistorylistView);
             this.Controls.Add(this.lblMainInfo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormFileAidViewHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FileAidViewHistory";
             this.ResumeLayout(false);
             this.PerformLayout();

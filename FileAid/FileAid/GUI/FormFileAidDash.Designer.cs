@@ -73,7 +73,7 @@
             this.btnTrackedFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrackedFiles.ForeColor = System.Drawing.Color.White;
             this.btnTrackedFiles.Location = new System.Drawing.Point(34, 44);
-            this.btnTrackedFiles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTrackedFiles.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrackedFiles.Name = "btnTrackedFiles";
             this.btnTrackedFiles.Size = new System.Drawing.Size(133, 32);
             this.btnTrackedFiles.TabIndex = 1;
@@ -88,7 +88,7 @@
             this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.White;
             this.btnReports.Location = new System.Drawing.Point(34, 95);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(2);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(133, 32);
             this.btnReports.TabIndex = 2;
@@ -103,7 +103,7 @@
             this.btnUserMan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserMan.ForeColor = System.Drawing.Color.White;
             this.btnUserMan.Location = new System.Drawing.Point(34, 153);
-            this.btnUserMan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUserMan.Margin = new System.Windows.Forms.Padding(2);
             this.btnUserMan.Name = "btnUserMan";
             this.btnUserMan.Size = new System.Drawing.Size(133, 32);
             this.btnUserMan.TabIndex = 3;
@@ -118,7 +118,7 @@
             this.btnDBMan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDBMan.ForeColor = System.Drawing.Color.White;
             this.btnDBMan.Location = new System.Drawing.Point(365, 95);
-            this.btnDBMan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDBMan.Margin = new System.Windows.Forms.Padding(2);
             this.btnDBMan.Name = "btnDBMan";
             this.btnDBMan.Size = new System.Drawing.Size(133, 32);
             this.btnDBMan.TabIndex = 4;
@@ -133,7 +133,7 @@
             this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.White;
             this.btnSettings.Location = new System.Drawing.Point(201, 153);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(133, 32);
             this.btnSettings.TabIndex = 5;
@@ -148,7 +148,7 @@
             this.btnLinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLinks.ForeColor = System.Drawing.Color.White;
             this.btnLinks.Location = new System.Drawing.Point(365, 153);
-            this.btnLinks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLinks.Margin = new System.Windows.Forms.Padding(2);
             this.btnLinks.Name = "btnLinks";
             this.btnLinks.Size = new System.Drawing.Size(133, 32);
             this.btnLinks.TabIndex = 6;
@@ -163,7 +163,7 @@
             this.btnLogEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogEvents.ForeColor = System.Drawing.Color.White;
             this.btnLogEvents.Location = new System.Drawing.Point(201, 44);
-            this.btnLogEvents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogEvents.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogEvents.Name = "btnLogEvents";
             this.btnLogEvents.Size = new System.Drawing.Size(133, 32);
             this.btnLogEvents.TabIndex = 7;
@@ -178,7 +178,7 @@
             this.btnViewTick.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewTick.ForeColor = System.Drawing.Color.White;
             this.btnViewTick.Location = new System.Drawing.Point(528, 44);
-            this.btnViewTick.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewTick.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewTick.Name = "btnViewTick";
             this.btnViewTick.Size = new System.Drawing.Size(133, 32);
             this.btnViewTick.TabIndex = 8;
@@ -193,7 +193,7 @@
             this.btnUpdateMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateMode.ForeColor = System.Drawing.Color.White;
             this.btnUpdateMode.Location = new System.Drawing.Point(528, 95);
-            this.btnUpdateMode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdateMode.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateMode.Name = "btnUpdateMode";
             this.btnUpdateMode.Size = new System.Drawing.Size(133, 32);
             this.btnUpdateMode.TabIndex = 9;
@@ -208,7 +208,7 @@
             this.btnGuestPerms.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuestPerms.ForeColor = System.Drawing.Color.White;
             this.btnGuestPerms.Location = new System.Drawing.Point(365, 44);
-            this.btnGuestPerms.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnGuestPerms.Margin = new System.Windows.Forms.Padding(1);
             this.btnGuestPerms.Name = "btnGuestPerms";
             this.btnGuestPerms.Size = new System.Drawing.Size(133, 32);
             this.btnGuestPerms.TabIndex = 10;
@@ -223,7 +223,7 @@
             this.btnBatchScan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBatchScan.ForeColor = System.Drawing.Color.White;
             this.btnBatchScan.Location = new System.Drawing.Point(201, 95);
-            this.btnBatchScan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBatchScan.Margin = new System.Windows.Forms.Padding(2);
             this.btnBatchScan.Name = "btnBatchScan";
             this.btnBatchScan.Size = new System.Drawing.Size(133, 32);
             this.btnBatchScan.TabIndex = 11;
@@ -279,7 +279,7 @@
             this.DashboardlistView.FullRowSelect = true;
             this.DashboardlistView.GridLines = true;
             this.DashboardlistView.Location = new System.Drawing.Point(34, 200);
-            this.DashboardlistView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DashboardlistView.Margin = new System.Windows.Forms.Padding(2);
             this.DashboardlistView.Name = "DashboardlistView";
             this.DashboardlistView.Size = new System.Drawing.Size(629, 246);
             this.DashboardlistView.TabIndex = 12;
@@ -314,8 +314,9 @@
             this.Controls.Add(this.btnReports);
             this.Controls.Add(this.btnTrackedFiles);
             this.Controls.Add(this.lblDashMessage);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidDash";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "File Aid Dashboard";
             this.Load += new System.EventHandler(this.FormFileAidDash_Load);
             this.contextMenuStrip1.ResumeLayout(false);
