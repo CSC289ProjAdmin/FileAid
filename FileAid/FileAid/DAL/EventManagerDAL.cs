@@ -31,5 +31,14 @@ namespace FileAid.DAL {
                 return null;
             }
         }
+
+        public static bool DeleteEventHistory() {
+            // Logically-deletes all non-deleted events
+            string update = "Update Events Set dEventUpdated = GetDate(), dEventDeleted = GetDate() " +
+                "Where dEventDeleted Is Null;";
+            int modifiedRows = Db.ExecuteNonQuery(update);
+            bool wasDeleted = (modifiedRows > 0);
+            return wasDeleted;
+        }
     }
 }

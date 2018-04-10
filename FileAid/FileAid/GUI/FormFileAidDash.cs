@@ -32,7 +32,7 @@ namespace FileAid.GUI
         }
 
         private void btnLogEvents_Click(object sender, EventArgs e) {
-            FormFileAidEvents events = new FormFileAidEvents();
+            FormFileAidEvents events = new FormFileAidEvents(loggedUser);
             events.ShowDialog();
             FillRelevantEvents();
         }
@@ -150,12 +150,13 @@ namespace FileAid.GUI
                     break;
             }
 
+            DashboardlistView.Items.Clear();
             List<Event> allEvents = EventManager.GetEvents();
+            if (allEvents == null) return; // No events to load
             var relevantEvents = from ev in allEvents
                 where relevantTypes.Contains(ev.EventTypeID)
                 select ev;
-
-            DashboardlistView.Items.Clear();
+            if (relevantEvents == null) return; // No events to load
             foreach (Event ev in relevantEvents) {
                 string [] evDetails = new string[2];
                 evDetails[0] = ev.OccurredOn.ToString();

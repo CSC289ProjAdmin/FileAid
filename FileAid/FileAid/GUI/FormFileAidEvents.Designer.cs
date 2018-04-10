@@ -68,7 +68,7 @@
             this.EventslistView.FullRowSelect = true;
             this.EventslistView.GridLines = true;
             this.EventslistView.Location = new System.Drawing.Point(24, 58);
-            this.EventslistView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EventslistView.Margin = new System.Windows.Forms.Padding(2);
             this.EventslistView.Name = "EventslistView";
             this.EventslistView.Size = new System.Drawing.Size(521, 316);
             this.EventslistView.TabIndex = 2;
@@ -97,12 +97,13 @@
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
             this.btnReset.Location = new System.Drawing.Point(563, 298);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(113, 34);
             this.btnReset.TabIndex = 9;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnEventsReport
             // 
@@ -111,7 +112,7 @@
             this.btnEventsReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEventsReport.ForeColor = System.Drawing.Color.White;
             this.btnEventsReport.Location = new System.Drawing.Point(563, 206);
-            this.btnEventsReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEventsReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnEventsReport.Name = "btnEventsReport";
             this.btnEventsReport.Size = new System.Drawing.Size(113, 34);
             this.btnEventsReport.TabIndex = 10;
@@ -125,7 +126,7 @@
             this.btnEventsSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEventsSearch.ForeColor = System.Drawing.Color.White;
             this.btnEventsSearch.Location = new System.Drawing.Point(563, 387);
-            this.btnEventsSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEventsSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnEventsSearch.Name = "btnEventsSearch";
             this.btnEventsSearch.Size = new System.Drawing.Size(113, 34);
             this.btnEventsSearch.TabIndex = 11;
@@ -147,7 +148,7 @@
             // txtMemo
             // 
             this.txtMemo.Location = new System.Drawing.Point(356, 395);
-            this.txtMemo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMemo.Margin = new System.Windows.Forms.Padding(2);
             this.txtMemo.Name = "txtMemo";
             this.txtMemo.Size = new System.Drawing.Size(197, 20);
             this.txtMemo.TabIndex = 18;
@@ -160,7 +161,7 @@
             // 
             this.EventsStartdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.EventsStartdateTimePicker.Location = new System.Drawing.Point(65, 397);
-            this.EventsStartdateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EventsStartdateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.EventsStartdateTimePicker.Name = "EventsStartdateTimePicker";
             this.EventsStartdateTimePicker.ShowUpDown = true;
             this.EventsStartdateTimePicker.Size = new System.Drawing.Size(84, 20);
@@ -170,7 +171,7 @@
             // 
             this.EventsEnddateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.EventsEnddateTimePicker.Location = new System.Drawing.Point(201, 397);
-            this.EventsEnddateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EventsEnddateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.EventsEnddateTimePicker.Name = "EventsEnddateTimePicker";
             this.EventsEnddateTimePicker.ShowUpDown = true;
             this.EventsEnddateTimePicker.Size = new System.Drawing.Size(84, 20);
@@ -216,7 +217,7 @@
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.EventslistView);
             this.Controls.Add(this.lblMainInfo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidEvents";
             this.Text = "FileAidEvents";
             this.Load += new System.EventHandler(this.FormFileAidEvents_Load);
