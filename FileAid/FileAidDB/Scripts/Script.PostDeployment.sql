@@ -369,7 +369,7 @@ INSERT INTO [dbo].[Users]
            ,(select min(roleID) from roles where sRoleName = 'User' and dRoleDeleted is null)
            ,0
            ,null
-           ,null
+           ,getdate() -- initially disabled
            ,getdate()
            ,getdate()
            ,null)
@@ -380,7 +380,7 @@ INSERT INTO [dbo].[Users]
            ,(select min(roleID) from roles where sRoleName = 'Guest' and dRoleDeleted is null)
            ,0
            ,null
-           ,null
+           ,getdate() -- initially disabled
            ,getdate()
            ,getdate()
            ,null)
