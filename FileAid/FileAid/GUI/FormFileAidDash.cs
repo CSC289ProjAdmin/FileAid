@@ -88,6 +88,7 @@ namespace FileAid.GUI
 
             // Disable / Enable buttons according to permission set
             btnBatchScan.Enabled = perms.BatchScan;
+            btnUpdateMode.Enabled = perms.BatchScan;
             btnDBMan.Enabled = perms.DbMgmt;
             btnGuestPerms.Enabled = perms.RestrictGuest;
             btnSettings.Enabled = perms.ProgramSetup;
@@ -98,7 +99,6 @@ namespace FileAid.GUI
             btnLogEvents.Enabled = true;
             btnReports.Enabled = true;
             btnTrackedFiles.Enabled = true;
-            btnUpdateMode.Enabled = true;
             btnViewTick.Enabled = true;
 
             // Fill Listview with events relevant to user
