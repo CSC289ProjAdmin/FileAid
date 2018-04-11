@@ -84,11 +84,13 @@
             this.MainListView.GridLines = true;
             this.MainListView.Location = new System.Drawing.Point(127, 53);
             this.MainListView.Margin = new System.Windows.Forms.Padding(2);
+            this.MainListView.MultiSelect = false;
             this.MainListView.Name = "MainListView";
             this.MainListView.Size = new System.Drawing.Size(696, 239);
             this.MainListView.TabIndex = 1;
             this.MainListView.UseCompatibleStateImageBehavior = false;
             this.MainListView.View = System.Windows.Forms.View.Details;
+            this.MainListView.SelectedIndexChanged += new System.EventHandler(this.MainListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -132,6 +134,7 @@
             this.InactivecheckBox.TabIndex = 3;
             this.InactivecheckBox.Text = "Show Inactive Files";
             this.InactivecheckBox.UseVisualStyleBackColor = true;
+            this.InactivecheckBox.CheckedChanged += new System.EventHandler(this.InactivecheckBox_CheckedChanged);
             // 
             // StartdateTimePicker
             // 
@@ -205,6 +208,7 @@
             this.btnStopTrack.TabIndex = 9;
             this.btnStopTrack.Text = "Stop Tracking";
             this.btnStopTrack.UseVisualStyleBackColor = false;
+            this.btnStopTrack.Click += new System.EventHandler(this.btnStopTrack_Click);
             // 
             // btnTrack
             // 
@@ -219,6 +223,7 @@
             this.btnTrack.TabIndex = 10;
             this.btnTrack.Text = "Restart Tracking";
             this.btnTrack.UseVisualStyleBackColor = false;
+            this.btnTrack.Click += new System.EventHandler(this.btnTrack_Click);
             // 
             // btnAddLink
             // 
@@ -271,18 +276,19 @@
             this.btnWildSearch.TabIndex = 15;
             this.btnWildSearch.Text = "Search";
             this.btnWildSearch.UseVisualStyleBackColor = false;
+            this.btnWildSearch.Click += new System.EventHandler(this.btnWildSearch_Click);
             // 
             // lblMemo
             // 
             this.lblMemo.AutoSize = true;
             this.lblMemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMemo.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblMemo.Location = new System.Drawing.Point(161, 317);
+            this.lblMemo.Location = new System.Drawing.Point(188, 315);
             this.lblMemo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMemo.Name = "lblMemo";
-            this.lblMemo.Size = new System.Drawing.Size(101, 15);
+            this.lblMemo.Size = new System.Drawing.Size(79, 15);
             this.lblMemo.TabIndex = 16;
-            this.lblMemo.Text = "Update Memo:";
+            this.lblMemo.Text = "File Memo:";
             // 
             // txtMemo
             // 
@@ -305,6 +311,7 @@
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnMainPrintRepo
             // 
@@ -319,6 +326,7 @@
             this.btnMainPrintRepo.TabIndex = 19;
             this.btnMainPrintRepo.Text = "Print Report";
             this.btnMainPrintRepo.UseVisualStyleBackColor = false;
+            this.btnMainPrintRepo.Click += new System.EventHandler(this.btnMainPrintRepo_Click);
             // 
             // FileAidMaintoolTip
             // 
