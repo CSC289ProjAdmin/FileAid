@@ -76,7 +76,8 @@ namespace FileAid.GUI
                     string[] remDetails = new string[6];
                     remDetails[0] = rem.Name;
                     remDetails[1] = rem.Memo;
-                    remDetails[2] = rem.GetFiles().Count.ToString();
+                    var files = rem.GetFiles();
+                    remDetails[2] = (files == null) ? "0" : files.Count.ToString();
                     remDetails[3] = rem.DueOn.ToString();
                     remDetails[4] = (rem.ResolvedOn > new DateTime()) ? "X" : "";
                     remDetails[5] = (rem.PushedOn > new DateTime()) ? "X" : "";

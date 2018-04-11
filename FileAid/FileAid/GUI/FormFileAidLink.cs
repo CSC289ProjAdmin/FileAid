@@ -88,9 +88,21 @@ namespace FileAid.GUI
             if (newLink == null) return; // Didn't create
 
             // Log link creation
+            LogLinkCreation(newLink.LinkMemoID, memberIDs.Count, linkMemo);
             Messenger.Show($"New link created between the {memberIDs.Count} files.", caption);
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private bool LogLinkCreation(int linkID, int fileCount, string memo) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.FileLinkAdded;
+            ev.OccurredOn = DateTime.Now;
+            ev.LinkID = linkID;
+            ev.New = memo;
+            ev.Description = $"File link added between {fileCount} files.";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
         }
     }
 }

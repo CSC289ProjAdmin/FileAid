@@ -101,11 +101,15 @@ namespace FileAid.GUI
             } else {
                 newRem = ReminderManager.AddReminder(memberIDs, reminderName, dueDate, reminderMemo);
             }
-            if (newRem == null) return; // Didn't create
+            if (newRem == null) {
+                Messenger.Show("Could not create reminder.\n\n" +
+                    "Check that chosen files do not have existing, unresolved reminders.", caption);
+                return; // Didn't create
+            }
 
             // Notify and close
             // Log reminder creation
-            Messenger.Show($"New reminder created for the {memberIDs.Count} file(s).", caption);
+            Messenger.Show($"New reminder created for {newRem.GetFiles().Count} file(s).", caption);
             DialogResult = DialogResult.OK;
             Close();
         }
