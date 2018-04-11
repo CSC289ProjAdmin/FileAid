@@ -83,7 +83,8 @@ namespace FileAid.DAL {
             string select = "Select EventID, EventTypeID, dEvent As OccurredOn, " +
                 "sEventDescription As Description, sInitial As Initial, sNew As New, " +
                 "FileID, LinkID, ReportID, ReminderID, BatchID, UserID, LoginID, PermID, ConfigID " +
-                "From Events Where FileID = @FileID And dEventDeleted Is Null;";
+                "From Events Where FileID = @FileID And dEventDeleted Is Null " +
+                "Order By dEvent Desc; ";
             //! TODO: ??Handle nullable ints
             return Db.ReadQuery<Event>(select, args.ToArray());
         }
