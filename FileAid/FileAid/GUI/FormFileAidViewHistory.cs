@@ -35,13 +35,6 @@ namespace FileAid.GUI
                 ViewHistorylistView.Items.Clear();
                 List<Event> history = selectedFile.GetHistory();
                 if (history == null) return; // No history in system for selected file
-                /*
-                // First filter by date range
-                var filteredFiles = from file in allFiles
-                                    where (file.ModifiedOn > StartdateTimePicker.Value
-                                    && file.ModifiedOn < EnddateTimePicker.Value)
-                                    select file;
-                */
                 foreach (var ev in history) {
                     string[] evDetails = new string[3];
                     evDetails[0] = ev.OccurredOn.ToString();
