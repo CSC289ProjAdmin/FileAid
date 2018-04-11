@@ -55,6 +55,7 @@
             this.btnMainPrintRepo = new System.Windows.Forms.Button();
             this.FileAidMaintoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnViewHistory = new System.Windows.Forms.Button();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -79,6 +80,7 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
+            this.columnHeader7,
             this.columnHeader6});
             this.MainListView.FullRowSelect = true;
             this.MainListView.GridLines = true;
@@ -104,7 +106,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Path";
-            this.columnHeader2.Width = 220;
+            this.columnHeader2.Width = 160;
             // 
             // columnHeader3
             // 
@@ -347,6 +349,11 @@
             this.btnViewHistory.UseVisualStyleBackColor = false;
             this.btnViewHistory.Click += new System.EventHandler(this.btnViewHistory_Click);
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Reminder";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // FormFileAidMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,6 +416,7 @@
         private System.Windows.Forms.ToolTip FileAidMaintoolTip;
         private System.Windows.Forms.Button btnViewHistory;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
 

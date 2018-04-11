@@ -113,13 +113,16 @@ namespace FileAid.GUI
                 // TODO: Filter files using wildcard filter
                 if (filteredFiles == null) return; // No files to show
                 foreach (var file in filteredFiles) {
-                    string[] fileDetails = new string[6];
+                    string[] fileDetails = new string[7];
                     fileDetails[0] = file.Filename;
                     fileDetails[1] = file.FileExtension;
                     fileDetails[2] = file.FilePath;
                     fileDetails[3] = file.FileSize.ToString();
                     fileDetails[4] = file.ModifiedOn.ToString();
-                    fileDetails[5] = (file.TrackingDisabledOn > new DateTime()) ? "X" : "";
+                    var rem = file.GetReminder();
+                    bool hasOpenReminder = (rem != null && rem.ResolvedOn == new DateTime());
+                    fileDetails[5] = hasOpenReminder ? "X" : "";
+                    fileDetails[6] = (file.TrackingDisabledOn > new DateTime()) ? "X" : "";
                     ListViewItem row = new ListViewItem(fileDetails);
                     row.Tag = file.FileID;
                     MainListView.Items.Add(row);
