@@ -31,5 +31,10 @@ namespace FileAid.Models {
             TrackedFile newFile = GetFile(newID);
             return newFile;
         }
+
+        public static bool Exists(string fullFilename) {
+            bool isInSystem = DAL.FileManagerDAL.Exists(fullFilename);
+            return isInSystem;
+        }
     }
 }

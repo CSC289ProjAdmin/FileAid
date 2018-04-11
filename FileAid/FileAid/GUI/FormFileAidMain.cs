@@ -22,7 +22,8 @@ namespace FileAid.GUI
 
         private void btnAdd_Click(object sender, EventArgs e) {
             FormFileAidNewFile newfile = new FormFileAidNewFile();
-            newfile.ShowDialog();
+            bool wasAdded = (newfile.ShowDialog() == DialogResult.OK);
+            if (wasAdded) FillListView(); // Refresh GUI
         }
 
         private void btnAddLink_Click(object sender, EventArgs e) {
