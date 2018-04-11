@@ -17,10 +17,6 @@ namespace FileAid.GUI
         public FormFileAidDash()
         {
             InitializeComponent();
-            Configs settings = ConfigManager.GetConfigs();
-            int intervalInMinutes = (settings == null) ? 15 : settings.UpdateTimerInMinutes;
-            updateTimer = new Timer();
-            updateTimer.Interval = intervalInMinutes * 60 * 1000; // milliseconds
         }
 
         private void btnTrackedFiles_Click(object sender, EventArgs e) {
@@ -56,18 +52,21 @@ namespace FileAid.GUI
         private void btnUpdateMode_Click(object sender, EventArgs e) {
             string promptTitle = "Update Mode";
             string promptMsg = "Do you want to put FileAid in Update Mode?\n\n" +
-                "This will minimize FileAid to the system tray.";
-            MessageBoxButtons promptBtns = MessageBoxButtons.YesNo;
-            DialogResult dr = MessageBox.Show(promptMsg, promptTitle, promptBtns);
-            if (dr == DialogResult.Yes) {
-                int tipDuration = 3000;
-                string tipTitle = "Update Mode";
-                string tipText = "FileAid is now in Update Mode.\nClick \"Show\" in menu to return to FileAid.";
-                ToolTipIcon tipIcon = ToolTipIcon.Info;
-                this.Hide();
-                iconFileAidTray.Visible = true;
-                iconFileAidTray.ShowBalloonTip(tipDuration, tipTitle, tipText, tipIcon);
-            }
+                "This will minimize FileAid to the system tray.";           
+            bool wantsUpdate = (Messenger.ShowYesNo(promptMsg, promptTitle) == DialogResult.Yes);
+            if (!wantsUpdate) return;
+
+            Configs settings = ConfigManager.GetConfigs();
+            int intervalInMinutes = (settings == null) ? 15 : settings.UpdateTimerInMinutes;
+            updateTimer.Interval = intervalInMinutes * 60 * 1000; // milliseconds
+            StartTimer();
+            int tipDuration = 3000;
+            string tipTitle = "Update Mode";
+            string tipText = "FileAid is now in Update Mode.\nClick \"Show\" in menu to return to FileAid.";
+            ToolTipIcon tipIcon = ToolTipIcon.Info;
+            this.Hide();
+            iconFileAidTray.Visible = true;
+            iconFileAidTray.ShowBalloonTip(tipDuration, tipTitle, tipText, tipIcon);
         }
 
         private void showToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -200,7 +199,7 @@ namespace FileAid.GUI
             if (!wantsScan) return;
 
             Batch result = BatchManager.Scan(null, false);
-            string resultMsg = (result == null) ? "Batch update failed" :
+            string resultMsg = (result == null) ? "Manual scan failed" :
                 $"Scan complete.\n{result.FilesAdded} added, {result.FilesModified} modified, {result.FilesDisabled} disabled";
             MessageBox.Show(resultMsg, caption);
             FillRelevantEvents();
@@ -215,16 +214,33 @@ namespace FileAid.GUI
         }
 
         private void StartPeriodicUpdate() {
+            StopTimer();
             // Balloon tooltip
+            int tipDuration = 3000;
+            string tipTitle = "FileAid Update";
+            string tipText = "A periodic update has started.";
+            ToolTipIcon tipIcon = ToolTipIcon.Info;
+            iconFileAidTray.ShowBalloonTip(tipDuration, tipTitle, tipText, tipIcon);
             // Disable contextmenu Exit/Show
+            var menuItems = contextMenuStrip1.Items;
+            foreach (ToolStripItem menuEntry in menuItems) {
+                menuEntry.Enabled = false;
+            }
             // Run update
+            Batch result = BatchManager.Scan(null, true);
             // Balloon tooltip with details
+            string resultMsg = (result == null) ? "Periodic update failed" :
+                $"Scan complete.\n{result.FilesAdded} added, {result.FilesModified} modified, {result.FilesDisabled} disabled";
+            iconFileAidTray.ShowBalloonTip(tipDuration, tipTitle, resultMsg, tipIcon);
             // Enable contextmenu Exit/Show
+            foreach (ToolStripItem menuEntry in menuItems) {
+                menuEntry.Enabled = true;
+            }
             // Set next timer
+            StartTimer();
         }
 
         private void ExitUpdateMode() {
-            // Stop timer
             StopTimer();
             // Hide tray icon and show the dashboard
             iconFileAidTray.Visible = false;
