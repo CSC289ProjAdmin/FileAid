@@ -42,8 +42,20 @@ namespace FileAid.GUI
         }
 
         private void btnAddReminder_Click(object sender, EventArgs e) {
-            FormFileAidReminder newReminder = new FormFileAidReminder();
-            newReminder.ShowDialog();
+            List<int> fileIDs = new List<int>();
+            var checkedItems = MainListView.CheckedItems;
+            if (checkedItems.Count < 1) { 
+                Messenger.Show("Select at least 1 file to create reminder.", caption);
+                return;
+            }
+            foreach (ListViewItem item in checkedItems) {
+                int fileID = (int)item.Tag;
+                fileIDs.Add(fileID);
+            }
+
+            FormFileAidReminder newReminder = new FormFileAidReminder(fileIDs);
+            bool wasAdded = (newReminder.ShowDialog() == DialogResult.OK);
+            if (wasAdded) FillListView(); // Refresh GUI -- Should this really refresh?
         }
 
         private void FormFileAidMain_Load(object sender, EventArgs e)
