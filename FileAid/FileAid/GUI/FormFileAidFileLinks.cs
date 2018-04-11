@@ -28,6 +28,8 @@ namespace FileAid.GUI
                 foreach (var link in allLinks) {
                     string[] remDetails = new string[2];
                     remDetails[0] = link.LinkMemo;
+                    if (string.IsNullOrEmpty(remDetails[0]))
+                        remDetails[0] = "(No Description Given)";
                     remDetails[1] = link.GetFiles().Count.ToString();
                     ListViewItem row = new ListViewItem(remDetails);
                     FileLinkslistView.Items.Add(row);
