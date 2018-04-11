@@ -26,8 +26,19 @@ namespace FileAid.GUI
         }
 
         private void btnAddLink_Click(object sender, EventArgs e) {
-            FormFileAidLink newLink = new FormFileAidLink();
-            newLink.ShowDialog();
+            List<int> fileIDs = new List<int>();
+            var checkedItems = MainListView.CheckedItems;
+            if (checkedItems.Count < 2) { // Need at least 2 files to create link
+                Messenger.Show("Select at least 2 files to link together.", caption);
+                return;
+            }
+            foreach (ListViewItem item in checkedItems) {
+                int fileID = (int)item.Tag;
+                fileIDs.Add(fileID);
+            }
+            FormFileAidLink newLink = new FormFileAidLink(fileIDs);
+            bool wasAdded = (newLink.ShowDialog() == DialogResult.OK);
+            if (wasAdded) FillListView(); // Refresh GUI -- Should this really refresh?
         }
 
         private void btnAddReminder_Click(object sender, EventArgs e) {
