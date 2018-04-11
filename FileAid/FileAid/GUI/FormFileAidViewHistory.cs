@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FileAid.Models;
 
 namespace FileAid.GUI
 {
     public partial class FormFileAidViewHistory : Form
     {
-        public FormFileAidViewHistory()
+        private TrackedFile selectedFile;
+        public FormFileAidViewHistory(TrackedFile tf)
         {
             InitializeComponent();
+            selectedFile = tf;
         }
     }
 }
