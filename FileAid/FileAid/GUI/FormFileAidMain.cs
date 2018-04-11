@@ -235,14 +235,14 @@ namespace FileAid.GUI
                 if (wantsRemoved) {
                     bool wasRemoved = tf.RemoveMemo();
                     if (wasRemoved) {
-                        // Log memo removal
+                        LogMemoRemoval(tf.FileID, originalMemo);
                         string removedPrompt = $"Memo removed for\n\n{tf.Filename}.{tf.FileExtension}";
                         Messenger.Show(removedPrompt, caption);
                     }
                 } else {
                     bool wasUpdated = tf.UpdateMemo(newMemo);
                     if (wasUpdated) {
-                        // Log memo change
+                        LogMemoChanged(tf.FileID, originalMemo, newMemo);
                         string updatedPrompt = $"Memo updated for\n\n{tf.Filename}.{tf.FileExtension}";
                         Messenger.Show(updatedPrompt, caption);
                     }
@@ -251,6 +251,29 @@ namespace FileAid.GUI
             catch (SqlException) {
                 Messenger.ShowDbMsg();
             }
+        }
+
+        private bool LogMemoRemoval(int fileID, string originalMemo) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.FileMemoRemoved;
+            ev.FileID = fileID;
+            ev.OccurredOn = DateTime.Now;
+            ev.Description = $"Memo removed";
+            ev.Initial = originalMemo;
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
+        }
+
+        private bool LogMemoChanged(int fileID, string originalMemo, string newMemo) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.FileMemoUpdated;
+            ev.FileID = fileID;
+            ev.OccurredOn = DateTime.Now;
+            ev.Description = $"Memo changed to: {newMemo}";
+            ev.Initial = originalMemo;
+            ev.New = newMemo;
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
         }
 
         private void MainListView_SelectedIndexChanged(object sender, EventArgs e) {
