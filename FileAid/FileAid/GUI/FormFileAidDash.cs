@@ -52,24 +52,25 @@ namespace FileAid.GUI
         private void btnUpdateMode_Click(object sender, EventArgs e) {
             string promptTitle = "Update Mode";
             string promptMsg = "Do you want to put FileAid in Update Mode?\n\n" +
-                "This will minimize FileAid to the system tray.";
-            MessageBoxButtons promptBtns = MessageBoxButtons.YesNo;
-            DialogResult dr = MessageBox.Show(promptMsg, promptTitle, promptBtns);
-            if (dr == DialogResult.Yes) {
-                int tipDuration = 3000;
-                string tipTitle = "Update Mode";
-                string tipText = "FileAid is now in Update Mode.\nClick \"Show\" in menu to return to FileAid.";
-                ToolTipIcon tipIcon = ToolTipIcon.Info;
-                this.Hide();
-                iconFileAidTray.Visible = true;
-                iconFileAidTray.ShowBalloonTip(tipDuration, tipTitle, tipText, tipIcon);
-            }
+                "This will minimize FileAid to the system tray.";           
+            bool wantsUpdate = (Messenger.ShowYesNo(promptMsg, promptTitle) == DialogResult.Yes);
+            if (!wantsUpdate) return;
+
+            Configs settings = ConfigManager.GetConfigs();
+            int intervalInMinutes = (settings == null) ? 15 : settings.UpdateTimerInMinutes;
+            updateTimer.Interval = intervalInMinutes * 60 * 1000; // milliseconds
+            StartTimer();
+            int tipDuration = 3000;
+            string tipTitle = "Update Mode";
+            string tipText = "FileAid is now in Update Mode.\nClick \"Show\" in menu to return to FileAid.";
+            ToolTipIcon tipIcon = ToolTipIcon.Info;
+            this.Hide();
+            iconFileAidTray.Visible = true;
+            iconFileAidTray.ShowBalloonTip(tipDuration, tipTitle, tipText, tipIcon);
         }
 
         private void showToolStripMenuItem_Click(object sender, EventArgs e) {
-            iconFileAidTray.Visible = false;
-            this.Show();
-            FillRelevantEvents();
+            ExitUpdateMode();
         }
 
         private void FormFileAidDash_Load(object sender, EventArgs e)
@@ -87,6 +88,7 @@ namespace FileAid.GUI
 
             // Disable / Enable buttons according to permission set
             btnBatchScan.Enabled = perms.BatchScan;
+            btnUpdateMode.Enabled = perms.BatchScan;
             btnDBMan.Enabled = perms.DbMgmt;
             btnGuestPerms.Enabled = perms.RestrictGuest;
             btnSettings.Enabled = perms.ProgramSetup;
@@ -97,7 +99,6 @@ namespace FileAid.GUI
             btnLogEvents.Enabled = true;
             btnReports.Enabled = true;
             btnTrackedFiles.Enabled = true;
-            btnUpdateMode.Enabled = true;
             btnViewTick.Enabled = true;
 
             // Fill Listview with events relevant to user
@@ -198,10 +199,71 @@ namespace FileAid.GUI
             if (!wantsScan) return;
 
             Batch result = BatchManager.Scan(null, false);
-            string resultMsg = (result == null) ? "Batch update failed" :
+            string resultMsg = (result == null) ? "Manual scan failed" :
                 $"Scan complete.\n{result.FilesAdded} added, {result.FilesModified} modified, {result.FilesDisabled} disabled";
             MessageBox.Show(resultMsg, caption);
             FillRelevantEvents();
+        }
+
+        private void StartTimer() {
+            updateTimer.Start();
+        }
+
+        private void StopTimer() {
+            updateTimer.Stop();
+        }
+
+        private void StartPeriodicUpdate() {
+            StopTimer();
+            // Balloon tooltip
+            int tipDuration = 3000;
+            string tipTitle = "FileAid Update";
+            string tipText = "A periodic update has started.";
+            ToolTipIcon tipIcon = ToolTipIcon.Info;
+            iconFileAidTray.ShowBalloonTip(tipDuration, tipTitle, tipText, tipIcon);
+            // Disable contextmenu Exit/Show
+            var menuItems = contextMenuStrip1.Items;
+            foreach (ToolStripItem menuEntry in menuItems) {
+                menuEntry.Enabled = false;
+            }
+            // Run update
+            Batch result = BatchManager.Scan(null, true);
+            // Balloon tooltip with details
+            string resultMsg = (result == null) ? "Periodic update failed" :
+                $"Scan complete.\n{result.FilesAdded} added, {result.FilesModified} modified, {result.FilesDisabled} disabled";
+            iconFileAidTray.ShowBalloonTip(tipDuration, tipTitle, resultMsg, tipIcon);
+            // Enable contextmenu Exit/Show
+            foreach (ToolStripItem menuEntry in menuItems) {
+                menuEntry.Enabled = true;
+            }
+            // Set next timer
+            StartTimer();
+        }
+
+        private void ExitUpdateMode() {
+            StopTimer();
+            // Hide tray icon and show the dashboard
+            iconFileAidTray.Visible = false;
+            this.Show();
+            FillRelevantEvents();
+        }
+
+        private void updateTimer_Tick(object sender, EventArgs e) {
+            StartPeriodicUpdate();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
+            // Make sure not to start update while prompting to exit
+            StopTimer();
+            // Prompt before exiting
+            string exitPrompt = "Are you sure you want to exit FileAid?";
+            string caption = "FileAid";
+            bool wantsExit = (Messenger.ShowYesNo(exitPrompt, caption) == DialogResult.Yes);
+            if (!wantsExit) {
+                StartTimer();
+                return;
+            }
+            Close();
         }
     }
 }

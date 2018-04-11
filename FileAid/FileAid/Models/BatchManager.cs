@@ -221,8 +221,8 @@ namespace FileAid.Models {
             Event ev = new Event();
             ev.OccurredOn = DateTime.Now;
             ev.EventTypeID = EventTypes.BatchCompleted;
-            ev.Description = summary.WasPeriodic ? "Periodic" : "Manual" +
-                $" update run at {summary.StartedAt} with {summary.FilesAdded} added, " +
+            ev.Description = (summary.WasPeriodic ? "Periodic" : "Manual") +
+                $" update run with {summary.FilesAdded} added, " +
                 $"{summary.FilesModified} modified, {summary.FilesDisabled} disabled";
             ev.BatchID = summary.BatchID;
             Logger.Log(ev);
