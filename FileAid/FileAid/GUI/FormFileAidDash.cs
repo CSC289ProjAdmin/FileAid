@@ -251,5 +251,19 @@ namespace FileAid.GUI
         private void updateTimer_Tick(object sender, EventArgs e) {
             StartPeriodicUpdate();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
+            // Make sure not to start update while prompting to exit
+            StopTimer();
+            // Prompt before exiting
+            string exitPrompt = "Are you sure you want to exit FileAid?";
+            string caption = "FileAid";
+            bool wantsExit = (Messenger.ShowYesNo(exitPrompt, caption) == DialogResult.Yes);
+            if (!wantsExit) {
+                StartTimer();
+                return;
+            }
+            Close();
+        }
     }
 }
