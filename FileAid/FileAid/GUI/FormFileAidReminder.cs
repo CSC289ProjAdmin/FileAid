@@ -74,6 +74,8 @@ namespace FileAid.GUI
         }
 
         private void btnAddReminder_Click(object sender, EventArgs e) {
+            if (filesToLink.Count < 1) return; // Need at least one file to create reminder
+
             // Validate fields
             DateTime dueDate = ReminderdateTimePicker.Value;
             if (dueDate < DateTime.Today) {
@@ -87,7 +89,6 @@ namespace FileAid.GUI
             }
 
             // Add reminder
-            if (filesToLink.Count < 1) return; // Need at least one file to create reminder
             List<int> memberIDs = new List<int>();
             foreach (var file in filesToLink) {
                 memberIDs.Add(file.FileID);
@@ -104,14 +105,26 @@ namespace FileAid.GUI
             if (newRem == null) {
                 Messenger.Show("Could not create reminder.\n\n" +
                     "Check that chosen files do not have existing, unresolved reminders.", caption);
-                return; // Didn't create
+                return;
             }
 
-            // Notify and close
-            // Log reminder creation
-            Messenger.Show($"New reminder created for {newRem.GetFiles().Count} file(s).", caption);
+            // Log, notify and close
+            var files = newRem.GetFiles();
+            int nFiles = (files == null) ? 0 : files.Count;
+            LogReminderCreation(newRem.ReminderID, nFiles, newRem.Name);
+            Messenger.Show($"New reminder created for {nFiles} file(s).", caption);
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private bool LogReminderCreation(int reminderID, int fileCount, string name) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.ReminderAdded;
+            ev.OccurredOn = DateTime.Now;
+            ev.ReminderID = reminderID;
+            ev.Description = $"Reminder '{name}' added to {fileCount} file(s).";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
         }
     }
 }

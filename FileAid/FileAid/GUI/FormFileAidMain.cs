@@ -50,6 +50,15 @@ namespace FileAid.GUI
             }
             foreach (ListViewItem item in checkedItems) {
                 int fileID = (int)item.Tag;
+                // Check if file already has a reminder
+                TrackedFile tf = FileManager.GetFile(fileID);
+                Reminder rem = ReminderManager.GetReminder(tf.ReminderID);
+                bool hasReminder = (rem != null && rem.ResolvedOn == new DateTime());
+                if (hasReminder) {
+                    Messenger.Show("One of more of the chosen files already has an existing, unresolved reminder.\n\n"
+                        , caption);
+                    return;
+                }
                 fileIDs.Add(fileID);
             }
 
