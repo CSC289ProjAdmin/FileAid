@@ -41,6 +41,7 @@ namespace FileAid.GUI
 
                 ProInactivecheckBox.Checked = getConfig.ShowInactive;
                 PeriodicnumericUpDown.Value = getConfig.UpdateTimerInMinutes;
+                txtProgramPath.Text = (string.IsNullOrEmpty(getConfig.MasterPath) ? "" : getConfig.MasterPath);
             }
             catch (SqlException)
             {
@@ -62,6 +63,7 @@ namespace FileAid.GUI
 
                 getConfig.ShowInactive = ProInactivecheckBox.Checked;
                 getConfig.UpdateTimerInMinutes = (int)PeriodicnumericUpDown.Value;
+                getConfig.MasterPath = txtProgramPath.Text.Trim();
 
                 Configs wasUpdate = ConfigManager.UpdateConfigs(getConfig);
                 if (wasUpdate != null)

@@ -11,7 +11,7 @@ namespace FileAid.DAL {
         public static Configs GetConfigs() {
             string select = "Select ConfigID, iUpdateTimer As UpdateTimerInMinutes, " +
                 "bShowInactive As ShowInactive, bUpdateMode As InUpdateMode " +
-                //", sSearchFolder As SearchFolder " + 
+                ", sMasterPath As MasterPath " + 
                 "From Configurations Where dConfigDeleted Is Null; " ;
             List<Configs> results = Db.ReadQuery<Configs>(select);
             if (results != null) {
@@ -28,10 +28,10 @@ namespace FileAid.DAL {
             args.Add(new SqlParameter("@Timer", c.UpdateTimerInMinutes));
             args.Add(new SqlParameter("@Inactive", c.ShowInactive));
             args.Add(new SqlParameter("@Updating", c.InUpdateMode));
-            //args.Add(new SqlParameter("@Folder", c.SearchFolder));
+            args.Add(new SqlParameter("@Folder", c.MasterPath));
             string update = "Update Configurations Set dConfigUpdated = GetDate(), " +
                 "iUpdateTimer = @Timer, bShowInactive = @Inactive, bUpdateMode = @Updating " +
-                //", sSearchFolder = @Folder " +
+                ", sMasterPath = @Folder " +
                 "Where dConfigDeleted Is Null And ConfigID = @ConfigID";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
             bool wasUpdated = (modifiedRows == 1);

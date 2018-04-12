@@ -199,7 +199,9 @@ namespace FileAid.GUI
             bool wantsScan = (Messenger.ShowYesNo(scanPrompt, caption) == DialogResult.Yes);
             if (!wantsScan) return;
 
-            Batch result = BatchManager.Scan(null, false);
+            Configs settings = ConfigManager.GetConfigs();
+            string masterPath = (settings == null) ? "" : settings.MasterPath;
+            Batch result = BatchManager.Scan(masterPath, false);
             string resultMsg = (result == null) ? "Manual scan failed" :
                 $"Scan complete.\n{result.FilesAdded} added, {result.FilesModified} modified, {result.FilesDisabled} disabled";
             MessageBox.Show(resultMsg, caption);
@@ -228,7 +230,9 @@ namespace FileAid.GUI
                 menuEntry.Enabled = false;
             }
             // Run update
-            Batch result = BatchManager.Scan(null, true);
+            Configs settings = ConfigManager.GetConfigs();
+            string masterPath = (settings == null) ? "" : settings.MasterPath;
+            Batch result = BatchManager.Scan(masterPath, true);
             // Balloon tooltip with details
             string resultMsg = (result == null) ? "Periodic update failed" :
                 $"Scan complete.\n{result.FilesAdded} added, {result.FilesModified} modified, {result.FilesDisabled} disabled";
