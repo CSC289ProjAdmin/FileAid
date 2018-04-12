@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using FileAid.Models;
 
 namespace FileAid.GUI
 {
     public partial class FormFileAidDbMgmt : Form
     {
+        private string caption = "Database Management";
         public FormFileAidDbMgmt()
         {
             InitializeComponent();
@@ -31,10 +33,7 @@ namespace FileAid.GUI
         private void FillListView() {
             try {
                 List<Models.Event> allEvents = Models.EventManager.GetEvents();
-                if (allEvents == null) {
-                    Models.Messenger.Show("Unable to load event history.");
-                    return;
-                }
+                if (allEvents == null) return;
                 var dbEventIDs = new Models.EventTypes[]{
                     Models.EventTypes.DbBackedUp,
                     Models.EventTypes.DbReset,
@@ -44,11 +43,11 @@ namespace FileAid.GUI
                                where dbEventIDs.Contains(ev.EventTypeID)
                                select ev;
                 DBManlistView.Items.Clear();
+                if (dbEvents == null || dbEvents.Count() == 0) return; // No database event history
                 foreach (var ev in dbEvents) {
-                    string[] evDetails = new string[3];
-                    evDetails[0] = ev.EventID.ToString();
+                    string[] evDetails = new string[2];
+                    evDetails[0] = ev.OccurredOn.ToString();
                     evDetails[1] = ev.Description;
-                    evDetails[2] = ev.OccurredOn.ToString();
                     ListViewItem row = new ListViewItem(evDetails);
                     DBManlistView.Items.Add(row);
                 }
@@ -63,12 +62,12 @@ namespace FileAid.GUI
             dlg.Description = $"Choose location to save database backup.";
             if (dlg.ShowDialog() == DialogResult.OK) {
                 bool wasBackedUp = Models.DbManager.Backup(dlg.SelectedPath);
-                Models.Messenger.Show(wasBackedUp ? "Backup successful." : "Backup failed.");
+                Models.Messenger.Show(wasBackedUp ? "Backup successful." : "Backup failed.", caption);
                 bool wasLogged = LogBackupEvent(dlg.SelectedPath);
                 if (wasLogged) {
                     FillListView(); // Refresh event list
                 } else {
-                    Models.Messenger.Show("Failed to log backup event.", "FileAid");
+                    Models.Messenger.Show("Failed to log backup event.", caption);
                 }
             }
         }
@@ -79,12 +78,12 @@ namespace FileAid.GUI
             dlg.Title = "Database restore";
             if (dlg.ShowDialog() == DialogResult.OK) {
                 bool wasRestored = Models.DbManager.Restore(dlg.FileName);
-                Models.Messenger.Show(wasRestored ? "Restore successful." : "Restore failed.");
+                Models.Messenger.Show(wasRestored ? "Restore successful." : "Restore failed.", caption);
                 bool wasLogged = LogRestoreEvent(System.IO.Path.GetFileName(dlg.FileName));
                 if (wasLogged) {
                     FillListView(); // Refresh event list
                 } else {
-                    Models.Messenger.Show("Failed to log restore event.", "FileAid");
+                    Models.Messenger.Show("Failed to log restore event.", caption);
                 }
             }
         }
@@ -98,7 +97,6 @@ namespace FileAid.GUI
                 + "Are you sure you want to reset?";
             string secondPrompt = "Resetting the database is final and cannot be undone.\n\n"
                 + "Are you absolutely sure you want to reset?";
-            string caption = "Reset Database";
             DialogResult dr = Models.Messenger.ShowYesNo(firstPrompt, caption);
             bool wantsReset = (dr == DialogResult.Yes);
             if (!wantsReset) return;
@@ -141,6 +139,24 @@ namespace FileAid.GUI
             ev.OccurredOn = DateTime.Now;
             ev.Description = $"Database reset to initial state";
             bool wasLogged = Models.Logger.Log(ev);
+            return wasLogged;
+        }
+
+        private void btnDbPrintRepo_Click(object sender, EventArgs e) {
+            Messenger.Show("Placeholder for Database Management report", caption);
+            Report eventsRpt = ReportManager.GetReportByName("Database Management");
+            if (eventsRpt == null) return; // Could not find report
+            bool wasLogged = LogReportRun(eventsRpt.ReportID, eventsRpt.Name);
+            if (wasLogged) FillListView(); // Refresh GUI
+        }
+
+        private bool LogReportRun(int reportID, string reportName) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.ReportRun;
+            ev.ReportID = reportID;
+            ev.OccurredOn = DateTime.Now;
+            ev.Description = $"Report run: {reportName}";
+            bool wasLogged = Logger.Log(ev);
             return wasLogged;
         }
     }
