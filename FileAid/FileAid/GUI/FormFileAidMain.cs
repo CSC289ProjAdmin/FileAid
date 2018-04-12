@@ -30,7 +30,7 @@ namespace FileAid.GUI
             List<int> fileIDs = new List<int>();
             var checkedItems = MainListView.CheckedItems;
             if (checkedItems.Count < 2) { // Need at least 2 files to create link
-                Messenger.Show("Select at least 2 files to link together.", caption);
+                Messenger.Show("Check at least 2 files to link together.", caption);
                 return;
             }
             foreach (ListViewItem item in checkedItems) {
@@ -46,7 +46,7 @@ namespace FileAid.GUI
             List<int> fileIDs = new List<int>();
             var checkedItems = MainListView.CheckedItems;
             if (checkedItems.Count < 1) { 
-                Messenger.Show("Select at least 1 file to create reminder.", caption);
+                Messenger.Show("Check at least 1 file to create reminder.", caption);
                 return;
             }
             foreach (ListViewItem item in checkedItems) {
@@ -371,6 +371,36 @@ namespace FileAid.GUI
                 linkForm.ShowDialog();
 
                 // Always refresh gui here because links may have been removed
+                FillListView();
+            }
+            catch (SqlException) {
+                Messenger.ShowDbMsg();
+            }
+        }
+
+        private void btnViewReminder_Click(object sender, EventArgs e) {
+            string prompt = "Select a file to view its reminder.";
+            bool isSelected = ForceSingleSelection(prompt);
+            if (!isSelected) return;
+
+            try {
+                ListViewItem row = MainListView.SelectedItems[0];
+                bool hasReminder = (row.SubItems[6].Text == "X"); // Reminder column
+                if (!hasReminder) {
+                    string noReminderPrompt = "Selected file does not have an open, unresolved reminder.";
+                    Messenger.Show(noReminderPrompt, caption);
+                    return;
+                }
+
+                int fileID = (int)row.Tag;
+                TrackedFile tf = FileManager.GetFile(fileID);
+                if (tf == null) return;
+                Reminder rem = tf.GetReminder();
+                if (rem == null) return;
+                FormFileAidViewReminder viewRem = new FormFileAidViewReminder(rem);
+                viewRem.ShowDialog();
+
+                // Always refresh gui here because reminder may have been removed
                 FillListView();
             }
             catch (SqlException) {
