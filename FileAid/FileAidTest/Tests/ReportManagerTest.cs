@@ -16,7 +16,7 @@ namespace FileAidTest.Tests
             // Verify reports were retrieved
             Assert.IsNotNull(reports);
 
-            // Verif at least one report was retrieved
+            // Verify at least one report was retrieved
             Assert.AreNotEqual(0, reports.Count);
         }
 
