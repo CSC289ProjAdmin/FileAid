@@ -40,6 +40,7 @@
             this.btnResolved = new System.Windows.Forms.Button();
             this.btnPushToOutlook = new System.Windows.Forms.Button();
             this.TicklerstoolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnViewFiles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TicklerslistView
@@ -110,7 +111,7 @@
             this.btnResolved.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnResolved.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResolved.ForeColor = System.Drawing.Color.White;
-            this.btnResolved.Location = new System.Drawing.Point(345, 398);
+            this.btnResolved.Location = new System.Drawing.Point(282, 413);
             this.btnResolved.Margin = new System.Windows.Forms.Padding(2);
             this.btnResolved.Name = "btnResolved";
             this.btnResolved.Size = new System.Drawing.Size(113, 34);
@@ -125,7 +126,7 @@
             this.btnPushToOutlook.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPushToOutlook.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPushToOutlook.ForeColor = System.Drawing.Color.White;
-            this.btnPushToOutlook.Location = new System.Drawing.Point(183, 398);
+            this.btnPushToOutlook.Location = new System.Drawing.Point(454, 413);
             this.btnPushToOutlook.Margin = new System.Windows.Forms.Padding(2);
             this.btnPushToOutlook.Name = "btnPushToOutlook";
             this.btnPushToOutlook.Size = new System.Drawing.Size(113, 34);
@@ -138,11 +139,27 @@
             // 
             this.TicklerstoolTip.IsBalloon = true;
             // 
+            // btnViewFiles
+            // 
+            this.btnViewFiles.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnViewFiles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnViewFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewFiles.ForeColor = System.Drawing.Color.White;
+            this.btnViewFiles.Location = new System.Drawing.Point(110, 413);
+            this.btnViewFiles.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewFiles.Name = "btnViewFiles";
+            this.btnViewFiles.Size = new System.Drawing.Size(113, 34);
+            this.btnViewFiles.TabIndex = 13;
+            this.btnViewFiles.Text = "View Files";
+            this.btnViewFiles.UseVisualStyleBackColor = false;
+            this.btnViewFiles.Click += new System.EventHandler(this.btnViewFiles_Click);
+            // 
             // FormFileAidTicklers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 523);
+            this.Controls.Add(this.btnViewFiles);
             this.Controls.Add(this.btnPushToOutlook);
             this.Controls.Add(this.btnResolved);
             this.Controls.Add(this.lblMainInfo);
@@ -170,6 +187,7 @@
         private System.Windows.Forms.Button btnPushToOutlook;
         private System.Windows.Forms.ToolTip TicklerstoolTip;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Button btnViewFiles;
     }
 }
 

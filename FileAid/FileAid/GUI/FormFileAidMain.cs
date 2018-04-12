@@ -30,7 +30,7 @@ namespace FileAid.GUI
             List<int> fileIDs = new List<int>();
             var checkedItems = MainListView.CheckedItems;
             if (checkedItems.Count < 2) { // Need at least 2 files to create link
-                Messenger.Show("Select at least 2 files to link together.", caption);
+                Messenger.Show("Check at least 2 files to link together.", caption);
                 return;
             }
             foreach (ListViewItem item in checkedItems) {
@@ -46,7 +46,7 @@ namespace FileAid.GUI
             List<int> fileIDs = new List<int>();
             var checkedItems = MainListView.CheckedItems;
             if (checkedItems.Count < 1) { 
-                Messenger.Show("Select at least 1 file to create reminder.", caption);
+                Messenger.Show("Check at least 1 file to create reminder.", caption);
                 return;
             }
             foreach (ListViewItem item in checkedItems) {
@@ -397,10 +397,8 @@ namespace FileAid.GUI
                 if (tf == null) return;
                 Reminder rem = tf.GetReminder();
                 if (rem == null) return;
-                // open new reminder GUI
                 FormFileAidViewReminder viewRem = new FormFileAidViewReminder(rem);
                 viewRem.ShowDialog();
-                //Messenger.Show("Placeholder", caption);
 
                 // Always refresh gui here because reminder may have been removed
                 FillListView();
