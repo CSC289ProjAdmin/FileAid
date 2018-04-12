@@ -60,6 +60,7 @@ namespace FileAid.GUI
         private void btnAddFiles_Click(object sender, EventArgs e) {
             if (filesToAdd == null || filesToAdd.Count == 0) return;
             int nAdded = 0;
+            List<TrackedFile> newFiles = new List<TrackedFile>();
             foreach (var file in filesToAdd) {
                 FileInfo fi = new FileInfo(file);
                 if (!fi.Exists) continue;
@@ -72,11 +73,27 @@ namespace FileAid.GUI
                         (int)fi.Length, fi.CreationTime, fi.LastWriteTime);
                     if (newFile != null) {
                         LogFileAdded(newFile);
+                        newFiles.Add(newFile);
                         nAdded++;
                     }
                 }
             }
-            string resultPrompt = $"Added {nAdded} file(s).";
+            bool wantsLink = chkLinkFiles.Checked;
+            string linkResult = null;
+            if (wantsLink && nAdded > 1 && newFiles.Count > 1) {
+                string memo = txtMemo.Text.Trim();
+                var fileIDs = from file in newFiles
+                                select file.FileID;
+                FileLink newLink = LinkManager.AddLink(fileIDs.ToList(), memo);
+                if (newLink != null) {
+                    // Log link creation and each file joined
+                    LogLinkCreation(newLink.LinkMemoID, nAdded, memo);
+                    linkResult = $"\n\nLinked {nAdded} files" +
+                        (string.IsNullOrEmpty(memo) ? "." : $" as '{memo}'.");
+                }
+            }
+            string resultPrompt = $"Added {nAdded} file(s)." +
+                linkResult;
             Messenger.Show(resultPrompt, caption);
             DialogResult = DialogResult.OK;
             Close();
@@ -88,6 +105,17 @@ namespace FileAid.GUI
             ev.FileID = tf.FileID;
             ev.OccurredOn = DateTime.Now;
             ev.Description = $"File added manually: {tf.Filename}.{tf.FileExtension}";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
+        }
+
+        private bool LogLinkCreation(int linkID, int fileCount, string memo) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.FileLinkAdded;
+            ev.OccurredOn = DateTime.Now;
+            ev.LinkID = linkID;
+            ev.New = memo;
+            ev.Description = $"File link added between {fileCount} files.";
             bool wasLogged = Logger.Log(ev);
             return wasLogged;
         }

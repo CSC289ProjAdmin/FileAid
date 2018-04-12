@@ -35,15 +35,18 @@
             this.btnAddFiles = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.AddFilelistView = new System.Windows.Forms.ListView();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRemoveFile = new System.Windows.Forms.Button();
+            this.chkLinkFiles = new System.Windows.Forms.CheckBox();
+            this.lblLinkMemo = new System.Windows.Forms.Label();
+            this.txtMemo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -129,6 +132,17 @@
             this.AddFilelistView.UseCompatibleStateImageBehavior = false;
             this.AddFilelistView.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "fakefirst";
+            this.columnHeader7.Width = 0;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Already Exists";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader6.Width = 80;
+            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "File Name";
@@ -155,12 +169,6 @@
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader4.Width = 130;
             // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Already Exists";
-            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 80;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -169,11 +177,6 @@
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 26;
             this.label1.Text = "Files To Add:";
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "fakefirst";
-            this.columnHeader7.Width = 0;
             // 
             // btnRemoveFile
             // 
@@ -190,11 +193,40 @@
             this.btnRemoveFile.UseVisualStyleBackColor = false;
             this.btnRemoveFile.Click += new System.EventHandler(this.btnRemoveFile_Click);
             // 
+            // chkLinkFiles
+            // 
+            this.chkLinkFiles.AutoSize = true;
+            this.chkLinkFiles.Location = new System.Drawing.Point(306, 404);
+            this.chkLinkFiles.Name = "chkLinkFiles";
+            this.chkLinkFiles.Size = new System.Drawing.Size(90, 17);
+            this.chkLinkFiles.TabIndex = 28;
+            this.chkLinkFiles.Text = "Link new files";
+            this.chkLinkFiles.UseVisualStyleBackColor = true;
+            // 
+            // lblLinkMemo
+            // 
+            this.lblLinkMemo.AutoSize = true;
+            this.lblLinkMemo.Location = new System.Drawing.Point(402, 405);
+            this.lblLinkMemo.Name = "lblLinkMemo";
+            this.lblLinkMemo.Size = new System.Drawing.Size(108, 13);
+            this.lblLinkMemo.TabIndex = 29;
+            this.lblLinkMemo.Text = "Link Memo (optional):";
+            // 
+            // txtMemo
+            // 
+            this.txtMemo.Location = new System.Drawing.Point(516, 402);
+            this.txtMemo.Name = "txtMemo";
+            this.txtMemo.Size = new System.Drawing.Size(294, 20);
+            this.txtMemo.TabIndex = 30;
+            // 
             // FormFileAidNewFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 512);
+            this.Controls.Add(this.txtMemo);
+            this.Controls.Add(this.lblLinkMemo);
+            this.Controls.Add(this.chkLinkFiles);
             this.Controls.Add(this.btnRemoveFile);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddFilelistView);
@@ -229,6 +261,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Button btnRemoveFile;
+        private System.Windows.Forms.CheckBox chkLinkFiles;
+        private System.Windows.Forms.Label lblLinkMemo;
+        private System.Windows.Forms.TextBox txtMemo;
     }
 }
 
