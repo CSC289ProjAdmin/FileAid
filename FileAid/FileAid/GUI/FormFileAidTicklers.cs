@@ -97,10 +97,17 @@ namespace FileAid.GUI
                     return;
                 }
                 foreach (var rem in allReminders) {
+                    var files = rem.GetFiles();
+                    bool hasFiles = (files != null && files.Count > 0);
+                    if (!hasFiles) {
+                        // If no files, silently delete the reminder and don't add to list
+                        rem.RemoveFiles(new List<int> { -999 }); // removing any file checks for deletion
+                        continue;
+                    }
+
                     string[] remDetails = new string[6];
                     remDetails[0] = rem.Name;
                     remDetails[1] = rem.Memo;
-                    var files = rem.GetFiles();
                     remDetails[2] = (files == null) ? "0" : files.Count.ToString();
                     remDetails[3] = rem.DueOn.ToString();
                     remDetails[4] = (rem.ResolvedOn > new DateTime()) ? "X" : "";
