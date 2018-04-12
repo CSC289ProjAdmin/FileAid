@@ -115,18 +115,5 @@ namespace FileAid.GUI
             bool wasLogged = Logger.Log(ev);
             return wasLogged;
         }
-        /*
-
-        private bool LogLinkCreation(int linkID, int fileCount, string memo) {
-            Event ev = new Event();
-            ev.EventTypeID = EventTypes.FileLinkAdded;
-            ev.OccurredOn = DateTime.Now;
-            ev.LinkID = linkID;
-            ev.New = memo;
-            ev.Description = $"File link added between {fileCount} files.";
-            bool wasLogged = Logger.Log(ev);
-            return wasLogged;
-        }
-        */
     }
 }
