@@ -34,7 +34,6 @@
             this.btnRestore = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.DBManlistView = new System.Windows.Forms.ListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDbPrintRepo = new System.Windows.Forms.Button();
@@ -59,7 +58,7 @@
             this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackup.ForeColor = System.Drawing.Color.White;
-            this.btnBackup.Location = new System.Drawing.Point(43, 64);
+            this.btnBackup.Location = new System.Drawing.Point(11, 64);
             this.btnBackup.Margin = new System.Windows.Forms.Padding(2);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(133, 32);
@@ -74,7 +73,7 @@
             this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRestore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRestore.ForeColor = System.Drawing.Color.White;
-            this.btnRestore.Location = new System.Drawing.Point(43, 153);
+            this.btnRestore.Location = new System.Drawing.Point(11, 153);
             this.btnRestore.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(133, 32);
@@ -89,7 +88,7 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(43, 261);
+            this.btnReset.Location = new System.Drawing.Point(11, 242);
             this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(133, 32);
@@ -102,33 +101,27 @@
             // 
             this.DBManlistView.AllowColumnReorder = true;
             this.DBManlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader3});
             this.DBManlistView.FullRowSelect = true;
             this.DBManlistView.GridLines = true;
-            this.DBManlistView.Location = new System.Drawing.Point(195, 64);
+            this.DBManlistView.Location = new System.Drawing.Point(148, 64);
             this.DBManlistView.Margin = new System.Windows.Forms.Padding(2);
             this.DBManlistView.Name = "DBManlistView";
-            this.DBManlistView.Size = new System.Drawing.Size(384, 337);
+            this.DBManlistView.Size = new System.Drawing.Size(465, 337);
             this.DBManlistView.TabIndex = 6;
             this.DBManlistView.UseCompatibleStateImageBehavior = false;
             this.DBManlistView.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Event ID";
-            this.columnHeader2.Width = 152;
-            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Description";
-            this.columnHeader3.Width = 124;
+            this.columnHeader3.Width = 310;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Occurred On";
-            this.columnHeader4.Width = 122;
+            this.columnHeader4.Text = "Date";
+            this.columnHeader4.Width = 120;
             // 
             // btnDbPrintRepo
             // 
@@ -136,13 +129,14 @@
             this.btnDbPrintRepo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDbPrintRepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDbPrintRepo.ForeColor = System.Drawing.Color.White;
-            this.btnDbPrintRepo.Location = new System.Drawing.Point(43, 368);
+            this.btnDbPrintRepo.Location = new System.Drawing.Point(11, 331);
             this.btnDbPrintRepo.Margin = new System.Windows.Forms.Padding(2);
             this.btnDbPrintRepo.Name = "btnDbPrintRepo";
             this.btnDbPrintRepo.Size = new System.Drawing.Size(133, 32);
             this.btnDbPrintRepo.TabIndex = 7;
             this.btnDbPrintRepo.Text = "Print Report";
             this.btnDbPrintRepo.UseVisualStyleBackColor = false;
+            this.btnDbPrintRepo.Click += new System.EventHandler(this.btnDbPrintRepo_Click);
             // 
             // DBMantoolTip
             // 
@@ -176,7 +170,6 @@
         private System.Windows.Forms.Button btnRestore;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.ListView DBManlistView;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button btnDbPrintRepo;
