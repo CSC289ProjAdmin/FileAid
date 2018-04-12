@@ -89,6 +89,7 @@ namespace FileAid.GUI
 
             // Log link creation
             LogLinkCreation(newLink.LinkMemoID, memberIDs.Count, linkMemo);
+            // TODO: LOG FILE JOINED LINK
             Messenger.Show($"New link created between the {memberIDs.Count} files.", caption);
             DialogResult = DialogResult.OK;
             Close();

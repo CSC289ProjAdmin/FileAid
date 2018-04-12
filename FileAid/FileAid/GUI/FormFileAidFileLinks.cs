@@ -159,15 +159,8 @@ namespace FileAid.GUI
                 if (selected.Count != 1) return;
                 ListViewItem row = selected[0];
 
-                // Retrieve FileLink for selected row
+                // View members files for selected row
                 int linkID = (int)row.Tag;
-                /*
-                FileLink link = LinkManager.GetLink(linkID);
-                if (link == null) return;
-                // Open new GUI showing files in group
-                List<TrackedFile> myFiles = link.GetFiles();
-                if (myFiles == null || myFiles.Count == 0) return;
-                */
                 FormFileAidViewFiles viewFiles = new FormFileAidViewFiles(linkID);
                 viewFiles.ShowDialog();
                 FillListView(); // Refresh GUI

@@ -105,17 +105,17 @@ namespace FileAid.GUI
             FillRelevantEvents();
 
 
-            DashtoolTip.SetToolTip(btnTrackedFiles, "Open tracked files window");
-            DashtoolTip.SetToolTip(btnReports, "Open reports Window");
-            DashtoolTip.SetToolTip(btnUserMan, "Open user management window");
-            DashtoolTip.SetToolTip(btnDBMan, "Open Database management window");
-            DashtoolTip.SetToolTip(btnSettings, "Open program settings window");
-            DashtoolTip.SetToolTip(btnLinks, "Open links/groups window");
-            DashtoolTip.SetToolTip(btnLogEvents, "Open log events window");
-            DashtoolTip.SetToolTip(btnBatchScan, "Open batch scan window");
+            DashtoolTip.SetToolTip(btnTrackedFiles, "View files tracked in system");
+            DashtoolTip.SetToolTip(btnReports, "Run reports");
+            DashtoolTip.SetToolTip(btnUserMan, "Manage user accounts");
+            DashtoolTip.SetToolTip(btnDBMan, "Manage database");
+            DashtoolTip.SetToolTip(btnSettings, "Configure program settings");
+            DashtoolTip.SetToolTip(btnLinks, "View file links / groups");
+            DashtoolTip.SetToolTip(btnLogEvents, "View event history");
+            DashtoolTip.SetToolTip(btnBatchScan, "Manually scan for tracked files");
             DashtoolTip.SetToolTip(btnGuestPerms, "Modify Guest Permissions");
-            DashtoolTip.SetToolTip(btnViewTick, "Open ticklers window");
-            DashtoolTip.SetToolTip(btnUpdateMode, "Open update mode window");
+            DashtoolTip.SetToolTip(btnViewTick, "View ticklers / reminders");
+            DashtoolTip.SetToolTip(btnUpdateMode, "Put FileAid in Update Mode");
         }
 
         private void FillRelevantEvents() {

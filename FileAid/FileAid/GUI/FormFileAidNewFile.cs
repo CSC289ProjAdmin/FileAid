@@ -88,6 +88,7 @@ namespace FileAid.GUI
                 if (newLink != null) {
                     // Log link creation and each file joined
                     LogLinkCreation(newLink.LinkMemoID, nAdded, memo);
+                    // TODO: LOG FILE JOINED LINK
                     linkResult = $"\n\nLinked {nAdded} files" +
                         (string.IsNullOrEmpty(memo) ? "." : $" as '{memo}'.");
                 }
