@@ -37,7 +37,7 @@
             this.btnEventsReport = new System.Windows.Forms.Button();
             this.btnEventsSearch = new System.Windows.Forms.Button();
             this.lblEventsSearch = new System.Windows.Forms.Label();
-            this.txtMemo = new System.Windows.Forms.TextBox();
+            this.txtWild = new System.Windows.Forms.TextBox();
             this.EventstoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.EventsStartdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.EventsEnddateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -140,13 +140,13 @@
             this.lblEventsSearch.TabIndex = 12;
             this.lblEventsSearch.Text = "Search:";
             // 
-            // txtMemo
+            // txtWild
             // 
-            this.txtMemo.Location = new System.Drawing.Point(356, 395);
-            this.txtMemo.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMemo.Name = "txtMemo";
-            this.txtMemo.Size = new System.Drawing.Size(197, 20);
-            this.txtMemo.TabIndex = 18;
+            this.txtWild.Location = new System.Drawing.Point(356, 395);
+            this.txtWild.Margin = new System.Windows.Forms.Padding(2);
+            this.txtWild.Name = "txtWild";
+            this.txtWild.Size = new System.Drawing.Size(197, 20);
+            this.txtWild.TabIndex = 18;
             // 
             // EventstoolTip
             // 
@@ -205,7 +205,7 @@
             this.Controls.Add(this.lblStart);
             this.Controls.Add(this.EventsEnddateTimePicker);
             this.Controls.Add(this.EventsStartdateTimePicker);
-            this.Controls.Add(this.txtMemo);
+            this.Controls.Add(this.txtWild);
             this.Controls.Add(this.lblEventsSearch);
             this.Controls.Add(this.btnEventsSearch);
             this.Controls.Add(this.btnEventsReport);
@@ -230,7 +230,7 @@
         private System.Windows.Forms.Button btnEventsReport;
         private System.Windows.Forms.Button btnEventsSearch;
         private System.Windows.Forms.Label lblEventsSearch;
-        private System.Windows.Forms.TextBox txtMemo;
+        private System.Windows.Forms.TextBox txtWild;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ToolTip EventstoolTip;
