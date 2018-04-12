@@ -36,6 +36,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.InactivecheckBox = new System.Windows.Forms.CheckBox();
@@ -57,7 +58,7 @@
             this.FileAidMaintoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnViewHistory = new System.Windows.Forms.Button();
             this.btnViewLinks = new System.Windows.Forms.Button();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnViewReminder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -121,6 +122,11 @@
             this.columnHeader4.Text = "Date Modified";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader4.Width = 140;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "# Links";
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // columnHeader7
             // 
@@ -372,16 +378,27 @@
             this.btnViewLinks.UseVisualStyleBackColor = false;
             this.btnViewLinks.Click += new System.EventHandler(this.btnViewLinks_Click);
             // 
-            // columnHeader8
+            // btnViewReminder
             // 
-            this.columnHeader8.Text = "# Links";
-            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnViewReminder.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnViewReminder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnViewReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewReminder.ForeColor = System.Drawing.Color.White;
+            this.btnViewReminder.Location = new System.Drawing.Point(9, 398);
+            this.btnViewReminder.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewReminder.Name = "btnViewReminder";
+            this.btnViewReminder.Size = new System.Drawing.Size(113, 34);
+            this.btnViewReminder.TabIndex = 22;
+            this.btnViewReminder.Text = "View Reminder";
+            this.btnViewReminder.UseVisualStyleBackColor = false;
+            this.btnViewReminder.Click += new System.EventHandler(this.btnViewReminder_Click);
             // 
             // FormFileAidMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 675);
+            this.Controls.Add(this.btnViewReminder);
             this.Controls.Add(this.btnViewLinks);
             this.Controls.Add(this.btnViewHistory);
             this.Controls.Add(this.btnMainPrintRepo);
@@ -443,6 +460,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Button btnViewLinks;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Button btnViewReminder;
     }
 }
 

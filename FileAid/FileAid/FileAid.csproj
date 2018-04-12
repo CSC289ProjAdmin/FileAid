@@ -198,6 +198,12 @@
     <Compile Include="GUI\FormFileAidViewHistory.Designer.cs">
       <DependentUpon>FormFileAidViewHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidViewReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidViewReminder.Designer.cs">
+      <DependentUpon>FormFileAidViewReminder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Batch.cs" />
     <Compile Include="Models\BatchManager.cs" />
     <Compile Include="Models\ConfigManager.cs" />
@@ -270,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidViewHistory.resx">
       <DependentUpon>FormFileAidViewHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidViewReminder.resx">
+      <DependentUpon>FormFileAidViewReminder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

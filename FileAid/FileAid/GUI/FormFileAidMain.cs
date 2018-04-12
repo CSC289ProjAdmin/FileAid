@@ -377,5 +377,37 @@ namespace FileAid.GUI
                 Messenger.ShowDbMsg();
             }
         }
+
+        private void btnViewReminder_Click(object sender, EventArgs e) {
+            string prompt = "Select a file to view its reminder.";
+            bool isSelected = ForceSingleSelection(prompt);
+            if (!isSelected) return;
+
+            try {
+                ListViewItem row = MainListView.SelectedItems[0];
+                bool hasReminder = (row.SubItems[6].Text == "X"); // Reminder column
+                if (!hasReminder) {
+                    string noReminderPrompt = "Selected file does not have an open, unresolved reminder.";
+                    Messenger.Show(noReminderPrompt, caption);
+                    return;
+                }
+
+                int fileID = (int)row.Tag;
+                TrackedFile tf = FileManager.GetFile(fileID);
+                if (tf == null) return;
+                Reminder rem = tf.GetReminder();
+                if (rem == null) return;
+                // open new reminder GUI
+                FormFileAidViewReminder viewRem = new FormFileAidViewReminder(rem);
+                viewRem.ShowDialog();
+                //Messenger.Show("Placeholder", caption);
+
+                // Always refresh gui here because reminder may have been removed
+                FillListView();
+            }
+            catch (SqlException) {
+                Messenger.ShowDbMsg();
+            }
+        }
     }
 }
