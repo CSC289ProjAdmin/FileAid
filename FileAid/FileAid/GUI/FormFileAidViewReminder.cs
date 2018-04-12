@@ -24,14 +24,6 @@ namespace FileAid.GUI
 
         private void FormFileAidReminder_Load(object sender, EventArgs e)
         {
-            /*
-            RemindertoolTip.SetToolTip(ReminderdateTimePicker, "Select reminder due");
-            RemindertoolTip.SetToolTip(txtDescription, "Enter description");
-            RemindertoolTip.SetToolTip(txtReminderName, "Enter reminder name");
-            RemindertoolTip.SetToolTip(btnAddReminder, "Add reminder");
-            RemindertoolTip.SetToolTip(btnReminderCancel, "Cancel reminder");
-            */
-            // Due date must be greater than today for new reminders
             if (myRem == null) return;
             ReminderdateTimePicker.Value = myRem.DueOn;
             ReminderdateTimePicker.Enabled = false;
