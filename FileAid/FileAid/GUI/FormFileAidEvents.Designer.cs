@@ -37,12 +37,14 @@
             this.btnEventsReport = new System.Windows.Forms.Button();
             this.btnEventsSearch = new System.Windows.Forms.Button();
             this.lblEventsSearch = new System.Windows.Forms.Label();
-            this.txtMemo = new System.Windows.Forms.TextBox();
+            this.txtWild = new System.Windows.Forms.TextBox();
             this.EventstoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.EventsStartdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.EventsEnddateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lblStart = new System.Windows.Forms.Label();
             this.lblEnd = new System.Windows.Forms.Label();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -50,7 +52,7 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(116, 14);
+            this.lblMainInfo.Location = new System.Drawing.Point(207, 14);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(404, 26);
@@ -62,13 +64,15 @@
             this.EventslistView.AllowColumnReorder = true;
             this.EventslistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader1,
+            this.columnHeader4});
             this.EventslistView.FullRowSelect = true;
             this.EventslistView.GridLines = true;
-            this.EventslistView.Location = new System.Drawing.Point(24, 58);
+            this.EventslistView.Location = new System.Drawing.Point(11, 83);
             this.EventslistView.Margin = new System.Windows.Forms.Padding(2);
             this.EventslistView.Name = "EventslistView";
-            this.EventslistView.Size = new System.Drawing.Size(521, 316);
+            this.EventslistView.Size = new System.Drawing.Size(797, 316);
             this.EventslistView.TabIndex = 2;
             this.EventslistView.UseCompatibleStateImageBehavior = false;
             this.EventslistView.View = System.Windows.Forms.View.Details;
@@ -76,12 +80,12 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Date";
-            this.columnHeader3.Width = 150;
+            this.columnHeader3.Width = 140;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Event Description";
-            this.columnHeader2.Width = 365;
+            this.columnHeader2.Width = 350;
             // 
             // btnReset
             // 
@@ -89,7 +93,7 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(563, 298);
+            this.btnReset.Location = new System.Drawing.Point(275, 421);
             this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(113, 34);
@@ -104,7 +108,7 @@
             this.btnEventsReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEventsReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEventsReport.ForeColor = System.Drawing.Color.White;
-            this.btnEventsReport.Location = new System.Drawing.Point(563, 206);
+            this.btnEventsReport.Location = new System.Drawing.Point(430, 421);
             this.btnEventsReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnEventsReport.Name = "btnEventsReport";
             this.btnEventsReport.Size = new System.Drawing.Size(113, 34);
@@ -119,7 +123,7 @@
             this.btnEventsSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEventsSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEventsSearch.ForeColor = System.Drawing.Color.White;
-            this.btnEventsSearch.Location = new System.Drawing.Point(563, 387);
+            this.btnEventsSearch.Location = new System.Drawing.Point(612, 45);
             this.btnEventsSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnEventsSearch.Name = "btnEventsSearch";
             this.btnEventsSearch.Size = new System.Drawing.Size(113, 34);
@@ -133,20 +137,20 @@
             this.lblEventsSearch.AutoSize = true;
             this.lblEventsSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEventsSearch.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblEventsSearch.Location = new System.Drawing.Point(288, 397);
+            this.lblEventsSearch.Location = new System.Drawing.Point(344, 62);
             this.lblEventsSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEventsSearch.Name = "lblEventsSearch";
             this.lblEventsSearch.Size = new System.Drawing.Size(56, 15);
             this.lblEventsSearch.TabIndex = 12;
             this.lblEventsSearch.Text = "Search:";
             // 
-            // txtMemo
+            // txtWild
             // 
-            this.txtMemo.Location = new System.Drawing.Point(356, 395);
-            this.txtMemo.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMemo.Name = "txtMemo";
-            this.txtMemo.Size = new System.Drawing.Size(197, 20);
-            this.txtMemo.TabIndex = 18;
+            this.txtWild.Location = new System.Drawing.Point(412, 60);
+            this.txtWild.Margin = new System.Windows.Forms.Padding(2);
+            this.txtWild.Name = "txtWild";
+            this.txtWild.Size = new System.Drawing.Size(197, 20);
+            this.txtWild.TabIndex = 18;
             // 
             // EventstoolTip
             // 
@@ -155,7 +159,7 @@
             // EventsStartdateTimePicker
             // 
             this.EventsStartdateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.EventsStartdateTimePicker.Location = new System.Drawing.Point(65, 397);
+            this.EventsStartdateTimePicker.Location = new System.Drawing.Point(121, 62);
             this.EventsStartdateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.EventsStartdateTimePicker.Name = "EventsStartdateTimePicker";
             this.EventsStartdateTimePicker.ShowUpDown = true;
@@ -165,7 +169,7 @@
             // EventsEnddateTimePicker
             // 
             this.EventsEnddateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.EventsEnddateTimePicker.Location = new System.Drawing.Point(201, 397);
+            this.EventsEnddateTimePicker.Location = new System.Drawing.Point(257, 62);
             this.EventsEnddateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.EventsEnddateTimePicker.Name = "EventsEnddateTimePicker";
             this.EventsEnddateTimePicker.ShowUpDown = true;
@@ -177,7 +181,7 @@
             this.lblStart.AutoSize = true;
             this.lblStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStart.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblStart.Location = new System.Drawing.Point(21, 399);
+            this.lblStart.Location = new System.Drawing.Point(77, 64);
             this.lblStart.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStart.Name = "lblStart";
             this.lblStart.Size = new System.Drawing.Size(41, 15);
@@ -189,23 +193,33 @@
             this.lblEnd.AutoSize = true;
             this.lblEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnd.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblEnd.Location = new System.Drawing.Point(157, 399);
+            this.lblEnd.Location = new System.Drawing.Point(213, 64);
             this.lblEnd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEnd.Name = "lblEnd";
             this.lblEnd.Size = new System.Drawing.Size(36, 15);
             this.lblEnd.TabIndex = 22;
             this.lblEnd.Text = "End:";
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Initial";
+            this.columnHeader1.Width = 150;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "New";
+            this.columnHeader4.Width = 150;
+            // 
             // FormFileAidEvents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 489);
+            this.ClientSize = new System.Drawing.Size(819, 489);
             this.Controls.Add(this.lblEnd);
             this.Controls.Add(this.lblStart);
             this.Controls.Add(this.EventsEnddateTimePicker);
             this.Controls.Add(this.EventsStartdateTimePicker);
-            this.Controls.Add(this.txtMemo);
+            this.Controls.Add(this.txtWild);
             this.Controls.Add(this.lblEventsSearch);
             this.Controls.Add(this.btnEventsSearch);
             this.Controls.Add(this.btnEventsReport);
@@ -230,7 +244,7 @@
         private System.Windows.Forms.Button btnEventsReport;
         private System.Windows.Forms.Button btnEventsSearch;
         private System.Windows.Forms.Label lblEventsSearch;
-        private System.Windows.Forms.TextBox txtMemo;
+        private System.Windows.Forms.TextBox txtWild;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ToolTip EventstoolTip;
@@ -238,6 +252,8 @@
         private System.Windows.Forms.DateTimePicker EventsEnddateTimePicker;
         private System.Windows.Forms.Label lblStart;
         private System.Windows.Forms.Label lblEnd;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
 

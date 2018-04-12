@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using FileAid.Models;
+using System.Text.RegularExpressions;
 
 namespace FileAid.GUI
 {
@@ -81,8 +82,8 @@ namespace FileAid.GUI
             FileAidMaintoolTip.SetToolTip(InactivecheckBox, "Show Inactive Files");
             FileAidMaintoolTip.SetToolTip(StartdateTimePicker, "Select date modified start date");
             FileAidMaintoolTip.SetToolTip(EnddateTimePicker, "Select date modified end date");
-            FileAidMaintoolTip.SetToolTip(txtWild, "Please enter file name");
-            FileAidMaintoolTip.SetToolTip(btnWildSearch, "Search the file");
+            FileAidMaintoolTip.SetToolTip(txtWild, "Enter a search pattern");
+            FileAidMaintoolTip.SetToolTip(btnWildSearch, "Search filenames, paths, and memos");
             FileAidMaintoolTip.SetToolTip(btnViewHistory, "View history");
 
             // Give values to controls
@@ -106,12 +107,25 @@ namespace FileAid.GUI
                                     select file;
                 // Second, remove inactive files if necessary
                 bool wantsInactive = InactivecheckBox.Checked;
-                if (!wantsInactive) {
+                if (!wantsInactive) { // Remove inactive files
                     filteredFiles = from file in filteredFiles
                                     where (file.TrackingDisabledOn == new DateTime())
                                     select file;
                 }
-                // TODO: Filter files using wildcard filter
+                string searchPattern = txtWild.Text.Trim();
+                if (!string.IsNullOrEmpty(searchPattern)) {
+                    filteredFiles = from file in filteredFiles
+                                    where (
+                                        Regex.IsMatch(file.Filename+"."+file.FileExtension,
+                                            WildcardToRegular(searchPattern), RegexOptions.IgnoreCase) ||
+                                        Regex.IsMatch(file.FilePath,
+                                            WildcardToRegular(searchPattern), RegexOptions.IgnoreCase) ||
+                                        Regex.IsMatch(string.IsNullOrEmpty(file.FileMemo) ? "" : file.FileMemo,
+                                            WildcardToRegular(searchPattern), RegexOptions.IgnoreCase)
+                                    )
+                                    select file;
+                }
+
                 if (filteredFiles == null) return; // No files to show
                 foreach (var file in filteredFiles) {
                     string[] fileDetails = new string[8];
@@ -406,6 +420,10 @@ namespace FileAid.GUI
             catch (SqlException) {
                 Messenger.ShowDbMsg();
             }
+        }
+
+        private static string WildcardToRegular(string value) {
+            return "^" + Regex.Escape(value).Replace("\\?", ".").Replace("\\*",".*") + "$";
         }
     }
 }
