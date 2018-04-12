@@ -72,5 +72,24 @@ namespace FileAid.DAL {
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
             return newID;
         }
+
+        public static bool Exists(string fullFilename) {
+            string filename = System.IO.Path.GetFileNameWithoutExtension(fullFilename);
+            string extension = System.IO.Path.GetExtension(fullFilename).Substring(1);
+            string path = System.IO.Path.GetDirectoryName(fullFilename);
+            string pathWithDelimiter = (path.EndsWith("\\") ? path : path + "\\");
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@FileName", filename));
+            args.Add(new SqlParameter("@FileExt", extension));
+            args.Add(new SqlParameter("@FilePath", path));
+            args.Add(new SqlParameter("@FilePath2", pathWithDelimiter));
+            string select = "Select Count(*) From TrackedFiles " +
+                "Where sFileName = @FileName And sFileExt = @FileExt " +
+                "And (sFilePath = @FilePath Or sFilePath = @FilePath2) " +
+                "And dTrackDeleted Is Null;";
+            int count = (int)Db.ExecuteScalar(select, args.ToArray());
+            bool isInSystem = (count == 1);
+            return isInSystem;
+        }
     }
 }

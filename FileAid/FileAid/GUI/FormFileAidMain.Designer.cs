@@ -32,10 +32,12 @@
             this.lblMainInfo = new System.Windows.Forms.Label();
             this.MainListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.InactivecheckBox = new System.Windows.Forms.CheckBox();
             this.StartdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lblStart = new System.Windows.Forms.Label();
@@ -54,7 +56,6 @@
             this.btnMainPrintRepo = new System.Windows.Forms.Button();
             this.FileAidMaintoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnViewHistory = new System.Windows.Forms.Button();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -79,26 +80,33 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
+            this.columnHeader7,
             this.columnHeader6});
             this.MainListView.FullRowSelect = true;
             this.MainListView.GridLines = true;
             this.MainListView.Location = new System.Drawing.Point(127, 53);
             this.MainListView.Margin = new System.Windows.Forms.Padding(2);
+            this.MainListView.MultiSelect = false;
             this.MainListView.Name = "MainListView";
-            this.MainListView.Size = new System.Drawing.Size(696, 239);
+            this.MainListView.Size = new System.Drawing.Size(696, 470);
             this.MainListView.TabIndex = 1;
             this.MainListView.UseCompatibleStateImageBehavior = false;
             this.MainListView.View = System.Windows.Forms.View.Details;
+            this.MainListView.SelectedIndexChanged += new System.EventHandler(this.MainListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "File Name";
             this.columnHeader1.Width = 150;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Extension";
+            // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Path";
-            this.columnHeader2.Width = 220;
+            this.columnHeader2.Width = 160;
             // 
             // columnHeader3
             // 
@@ -111,9 +119,15 @@
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader4.Width = 140;
             // 
-            // columnHeader5
+            // columnHeader7
             // 
-            this.columnHeader5.Text = "Extension";
+            this.columnHeader7.Text = "Reminder";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Inactive";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // InactivecheckBox
             // 
@@ -127,6 +141,7 @@
             this.InactivecheckBox.TabIndex = 3;
             this.InactivecheckBox.Text = "Show Inactive Files";
             this.InactivecheckBox.UseVisualStyleBackColor = true;
+            this.InactivecheckBox.CheckedChanged += new System.EventHandler(this.InactivecheckBox_CheckedChanged);
             // 
             // StartdateTimePicker
             // 
@@ -200,6 +215,7 @@
             this.btnStopTrack.TabIndex = 9;
             this.btnStopTrack.Text = "Stop Tracking";
             this.btnStopTrack.UseVisualStyleBackColor = false;
+            this.btnStopTrack.Click += new System.EventHandler(this.btnStopTrack_Click);
             // 
             // btnTrack
             // 
@@ -214,6 +230,7 @@
             this.btnTrack.TabIndex = 10;
             this.btnTrack.Text = "Restart Tracking";
             this.btnTrack.UseVisualStyleBackColor = false;
+            this.btnTrack.Click += new System.EventHandler(this.btnTrack_Click);
             // 
             // btnAddLink
             // 
@@ -266,22 +283,23 @@
             this.btnWildSearch.TabIndex = 15;
             this.btnWildSearch.Text = "Search";
             this.btnWildSearch.UseVisualStyleBackColor = false;
+            this.btnWildSearch.Click += new System.EventHandler(this.btnWildSearch_Click);
             // 
             // lblMemo
             // 
             this.lblMemo.AutoSize = true;
             this.lblMemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMemo.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblMemo.Location = new System.Drawing.Point(161, 317);
+            this.lblMemo.Location = new System.Drawing.Point(188, 559);
             this.lblMemo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMemo.Name = "lblMemo";
-            this.lblMemo.Size = new System.Drawing.Size(101, 15);
+            this.lblMemo.Size = new System.Drawing.Size(79, 15);
             this.lblMemo.TabIndex = 16;
-            this.lblMemo.Text = "Update Memo:";
+            this.lblMemo.Text = "File Memo:";
             // 
             // txtMemo
             // 
-            this.txtMemo.Location = new System.Drawing.Point(271, 314);
+            this.txtMemo.Location = new System.Drawing.Point(271, 558);
             this.txtMemo.Margin = new System.Windows.Forms.Padding(2);
             this.txtMemo.Name = "txtMemo";
             this.txtMemo.Size = new System.Drawing.Size(291, 20);
@@ -293,13 +311,14 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(573, 305);
+            this.btnUpdate.Location = new System.Drawing.Point(573, 549);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(113, 34);
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnMainPrintRepo
             // 
@@ -307,13 +326,14 @@
             this.btnMainPrintRepo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMainPrintRepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMainPrintRepo.ForeColor = System.Drawing.Color.White;
-            this.btnMainPrintRepo.Location = new System.Drawing.Point(708, 304);
+            this.btnMainPrintRepo.Location = new System.Drawing.Point(708, 548);
             this.btnMainPrintRepo.Margin = new System.Windows.Forms.Padding(2);
             this.btnMainPrintRepo.Name = "btnMainPrintRepo";
             this.btnMainPrintRepo.Size = new System.Drawing.Size(113, 34);
             this.btnMainPrintRepo.TabIndex = 19;
             this.btnMainPrintRepo.Text = "Print Report";
             this.btnMainPrintRepo.UseVisualStyleBackColor = false;
+            this.btnMainPrintRepo.Click += new System.EventHandler(this.btnMainPrintRepo_Click);
             // 
             // FileAidMaintoolTip
             // 
@@ -333,11 +353,6 @@
             this.btnViewHistory.Text = "View History";
             this.btnViewHistory.UseVisualStyleBackColor = false;
             this.btnViewHistory.Click += new System.EventHandler(this.btnViewHistory_Click);
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Inactive";
-            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FormFileAidMain
             // 
@@ -365,6 +380,7 @@
             this.Controls.Add(this.lblMainInfo);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FileAidMain";
             this.Load += new System.EventHandler(this.FormFileAidMain_Load);
             this.ResumeLayout(false);
@@ -400,6 +416,7 @@
         private System.Windows.Forms.ToolTip FileAidMaintoolTip;
         private System.Windows.Forms.Button btnViewHistory;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
 

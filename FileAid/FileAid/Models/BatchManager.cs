@@ -42,7 +42,8 @@ namespace FileAid.Models {
                         path += @"\";
                     }
                     bool pathAlreadyAdded = searchPaths.Contains(path);
-                    if (!pathAlreadyAdded) {
+                    bool isFileTracked = (file.TrackingDisabledOn == new DateTime());
+                    if (!pathAlreadyAdded && isFileTracked) {
                         searchPaths.Add(path);
                     }
 
@@ -91,6 +92,7 @@ namespace FileAid.Models {
             // Second, for each unique path, look for new (or moved) MS Office files
             List<string> officeExtensionPatterns = new List<string> {
                 // Note: *.3-character patterns cover all extensions starting with those characters
+                "*.txt", // Text files
                 "*.doc", "*.dot", "*.wbk", // Word
                 "*.xls", "*.xlt", "*.xlm", "*.xla", "*.xll", "*.xlw", // Excel
                 "*.ppt", "*.pot", "*.pps", "*.ppam", "*.sldx", "*.sldm" // PowerPoint
@@ -152,8 +154,8 @@ namespace FileAid.Models {
                                             Event ev =  new Event();
                                             ev.OccurredOn = DateTime.Now;
                                             ev.EventTypeID = EventTypes.FileAdded;
-                                            ev.Description = "File added during batch update";
                                             ev.New = newFile.Filename + '.' + newFile.FileExtension;
+                                            ev.Description = $"File added during batch update: {ev.New}";
                                             ev.FileID = newFile.FileID;
                                             Logger.Log(ev);
                                         }
@@ -221,8 +223,8 @@ namespace FileAid.Models {
             Event ev = new Event();
             ev.OccurredOn = DateTime.Now;
             ev.EventTypeID = EventTypes.BatchCompleted;
-            ev.Description = summary.WasPeriodic ? "Periodic" : "Manual" +
-                $" update run at {summary.StartedAt} with {summary.FilesAdded} added, " +
+            ev.Description = (summary.WasPeriodic ? "Periodic" : "Manual") +
+                $" update run with {summary.FilesAdded} added, " +
                 $"{summary.FilesModified} modified, {summary.FilesDisabled} disabled";
             ev.BatchID = summary.BatchID;
             Logger.Log(ev);

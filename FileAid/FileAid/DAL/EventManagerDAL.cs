@@ -12,7 +12,7 @@ namespace FileAid.DAL {
             string select = "Select EventID, EventTypeID, dEvent As OccurredOn, " +
                 "sEventDescription As Description, sInitial As Initial, sNew As New, " +
                 "FileID, LinkID, ReportID, ReminderID, BatchID, UserID, LoginID, PermID, ConfigID " +
-                "From Events Where dEventDeleted Is Null;";
+                "From Events Where dEventDeleted Is Null Order By dEvent Desc;";
             return Db.ReadQuery<Event>(select);
         }
 
@@ -30,6 +30,15 @@ namespace FileAid.DAL {
             } else {
                 return null;
             }
+        }
+
+        public static bool DeleteEventHistory() {
+            // Logically-deletes all non-deleted events
+            string update = "Update Events Set dEventUpdated = GetDate(), dEventDeleted = GetDate() " +
+                "Where dEventDeleted Is Null;";
+            int modifiedRows = Db.ExecuteNonQuery(update);
+            bool wasDeleted = (modifiedRows > 0);
+            return wasDeleted;
         }
     }
 }

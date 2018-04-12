@@ -15,5 +15,10 @@ namespace FileAid.Models {
             Event specific = DAL.EventManagerDAL.GetEvent(eventID);
             return specific;
         }
+
+        public static bool DeleteEventHistory() {
+            bool wasDeleted = DAL.EventManagerDAL.DeleteEventHistory();
+            return wasDeleted;
+        }
     }
 }

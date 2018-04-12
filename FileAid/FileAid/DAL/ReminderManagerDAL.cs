@@ -46,8 +46,20 @@ namespace FileAid.DAL {
                 "Select Convert(int, Scope_Identity());";
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
             // Add list of files to the group
+            int nJoined = 0;
             foreach (int id in fileIDs) {
-                ReminderDAL.Join(newID, id);
+                bool wasJoined = ReminderDAL.Join(newID, id);
+                if (wasJoined) nJoined++;
+            }
+            bool hasFiles = (nJoined > 0);
+            if (!hasFiles) {
+                // Delete the reminder since nothing could be added
+                List<SqlParameter> deleteArgs = new List<SqlParameter>();
+                deleteArgs.Add(new SqlParameter("@ReminderID", newID));
+                string update = "Update Reminders Set dReminderUpdated = GetDate(), " +
+                    "dReminderDeleted = GetDate() Where ReminderID = @ReminderID;";
+                int modifiedRows = (int)Db.ExecuteNonQuery(update, deleteArgs.ToArray());
+                return -999;
             }
             return newID;
         }
@@ -64,8 +76,20 @@ namespace FileAid.DAL {
                 "Select Convert(int, Scope_Identity());";
             int newID = (int)Db.ExecuteScalar(insert, args.ToArray());
             // Add list of files to the group
+            int nJoined = 0;
             foreach (int id in fileIDs) {
-                ReminderDAL.Join(newID, id);
+                bool wasJoined = ReminderDAL.Join(newID, id);
+                if (wasJoined) nJoined++;
+            }
+            bool hasFiles = (nJoined > 0);
+            if (!hasFiles) {
+                // Delete the reminder since nothing could be added
+                List<SqlParameter> deleteArgs = new List<SqlParameter>();
+                deleteArgs.Add(new SqlParameter("@ReminderID", newID));
+                string update = "Update Reminders Set dReminderUpdated = GetDate(), " +
+                    "dReminderDeleted = GetDate() Where ReminderID = @ReminderID;";
+                int modifiedRows = (int)Db.ExecuteNonQuery(update, deleteArgs.ToArray());
+                return -999;
             }
             return newID;
         }

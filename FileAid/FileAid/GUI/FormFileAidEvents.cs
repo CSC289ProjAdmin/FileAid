@@ -8,14 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using FileAid.Models;
 
 namespace FileAid.GUI
 {
     public partial class FormFileAidEvents : Form
     {
-        public FormFileAidEvents()
+        private User currentUser;
+        private string caption = "FileAid Event History";
+        public FormFileAidEvents(User u)
         {
             InitializeComponent();
+            currentUser = u;
         }
 
         private void FormFileAidEvents_Load(object sender, EventArgs e)
@@ -27,25 +31,84 @@ namespace FileAid.GUI
             EventstoolTip.SetToolTip(EventsStartdateTimePicker, "Select start date");
             EventstoolTip.SetToolTip(EventsEnddateTimePicker, "Select end date");
 
+            // Give values to controls and enable buttons
+            EventsEnddateTimePicker.Value = DateTime.Today;
+            EventsStartdateTimePicker.Value = EventsEnddateTimePicker.Value - TimeSpan.FromDays(30);
+            bool isAdmin = (currentUser.Username == "Admin");
+            btnReset.Enabled = isAdmin; // Only Admin can reset the event history
+
+            FillListView();
+        }
+
+        private void FillListView() {
             try {
-                List<Models.Event> allEvents = Models.EventManager.GetEvents();
-                if (allEvents == null) {
-                    Models.Messenger.Show("Unable to load event history.");
-                    return;
-                }
-                foreach (var ev in allEvents) {
-                    string[] evDetails = new string[3];
-                    evDetails[0] = ev.EventID.ToString();
+                EventslistView.Items.Clear();
+                List<Event> allEvents = EventManager.GetEvents();
+                if (allEvents == null) return; // No events to load
+                // TODO: Add wildcard filter
+                var filteredEvents = from ev in allEvents
+                                     where (ev.OccurredOn.Date > EventsStartdateTimePicker.Value.Date
+                                     && ev.OccurredOn.Date < EventsEnddateTimePicker.Value.Date + TimeSpan.FromDays(1))
+                                     select ev;
+                if (filteredEvents == null) return; // No events in range
+
+                foreach (var ev in filteredEvents) {
+                    string[] evDetails = new string[2];
+                    evDetails[0] = ev.OccurredOn.ToString();
                     evDetails[1] = ev.Description;
-                    evDetails[2] = ev.OccurredOn.ToString();
                     ListViewItem row = new ListViewItem(evDetails);
                     EventslistView.Items.Add(row);
                 }
             }
             catch (SqlException) {
-                Models.Messenger.ShowDbMsg();
+                Messenger.ShowDbMsg();
             }
         }
 
+        private void btnReset_Click(object sender, EventArgs e) {
+            // First confirm that Admin wants to reset event history (2 prompts)
+            string resetPrompt = "Are you sure you want to delete all event history?\n\n" +
+                "Note: This will not remove tracked files or affect user accounts.";
+            string resetPrompt2 = "Are you absolutely sure you want to delete all event history?";
+            string caption = "FileAid Event History";
+            bool wantsReset = (Messenger.ShowYesNo(resetPrompt, caption) == DialogResult.Yes);
+            if (!wantsReset) return;
+            wantsReset = (Messenger.ShowYesNo(resetPrompt2, caption) == DialogResult.Yes);
+            if (!wantsReset) return;
+
+            // Fake resetting for now.
+            //Messenger.Show("Resetting event history...", caption);
+            bool wasDeleted = EventManager.DeleteEventHistory();
+            if (wasDeleted) FillListView(); // Refresh GUI
+        }
+
+        private void btnEventsSearch_Click(object sender, EventArgs e) {
+            // Validate date pickers
+            bool isValidRange = (EventsStartdateTimePicker.Value <= EventsEnddateTimePicker.Value);
+            if (!isValidRange) {
+                string badRangePrompt = "Start date must be less than or equal to end date.";
+                Messenger.Show(badRangePrompt, caption);
+                return;
+            }
+            FillListView(); // Update GUI with filtered events
+        }
+
+        private void btnEventsReport_Click(object sender, EventArgs e) {
+            Messenger.Show("Placeholder for Events report", caption);
+            Report eventsRpt = ReportManager.GetReportByName("Events");
+            if (eventsRpt == null) return; // Could not find report
+            bool wasLogged = LogReportRun(eventsRpt.ReportID, eventsRpt.Name);
+            if (wasLogged) FillListView(); // Refresh GUI
+        }
+
+        private bool LogReportRun(int reportID, string reportName) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.ReportRun;
+            ev.ReportID = reportID;
+            ev.OccurredOn = DateTime.Now;
+            ev.Description = $"Report run: {reportName}";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
+        }
     }
 }
