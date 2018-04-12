@@ -82,8 +82,8 @@ namespace FileAid.GUI
             FileAidMaintoolTip.SetToolTip(InactivecheckBox, "Show Inactive Files");
             FileAidMaintoolTip.SetToolTip(StartdateTimePicker, "Select date modified start date");
             FileAidMaintoolTip.SetToolTip(EnddateTimePicker, "Select date modified end date");
-            FileAidMaintoolTip.SetToolTip(txtWild, "Please enter file name");
-            FileAidMaintoolTip.SetToolTip(btnWildSearch, "Search the file");
+            FileAidMaintoolTip.SetToolTip(txtWild, "Enter a search pattern");
+            FileAidMaintoolTip.SetToolTip(btnWildSearch, "Search filenames, paths, and memos");
             FileAidMaintoolTip.SetToolTip(btnViewHistory, "View history");
 
             // Give values to controls

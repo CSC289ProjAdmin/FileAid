@@ -27,7 +27,7 @@ namespace FileAid.GUI
         {
             EventstoolTip.SetToolTip(btnReset, "Reset the events");
             EventstoolTip.SetToolTip(btnEventsReport, "Print the events report");
-            EventstoolTip.SetToolTip(txtWild, "Enter the memo");
+            EventstoolTip.SetToolTip(txtWild, "Enter a search pattern");
             EventstoolTip.SetToolTip(btnEventsSearch, "Search the files");
             EventstoolTip.SetToolTip(EventsStartdateTimePicker, "Select start date");
             EventstoolTip.SetToolTip(EventsEnddateTimePicker, "Select end date");
@@ -67,9 +67,11 @@ namespace FileAid.GUI
 
                 if (filteredEvents == null) return; // No events in range
                 foreach (var ev in filteredEvents) {
-                    string[] evDetails = new string[2];
+                    string[] evDetails = new string[4];
                     evDetails[0] = ev.OccurredOn.ToString();
                     evDetails[1] = ev.Description;
+                    evDetails[2] = string.IsNullOrEmpty(ev.Initial) ? "" : ev.Initial;
+                    evDetails[3] = string.IsNullOrEmpty(ev.New) ? "" : ev.New;
                     ListViewItem row = new ListViewItem(evDetails);
                     EventslistView.Items.Add(row);
                 }
