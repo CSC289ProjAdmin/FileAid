@@ -38,6 +38,7 @@ namespace FileAid.GUI
                 Models.Reminder rem = Models.ReminderManager.GetReminder(remID);
                 bool wasPushed = rem.Push();
                 if (wasPushed) {
+                    LogReminderPushed(rem);
                     // Refresh list
                     FillListView();
                 }
@@ -45,6 +46,16 @@ namespace FileAid.GUI
             catch (SqlException) {
                 Models.Messenger.ShowDbMsg();
             }
+        }
+
+        private bool LogReminderPushed(Reminder rem) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.ReminderPushed;
+            ev.OccurredOn = DateTime.Now;
+            ev.ReminderID = rem.ReminderID;
+            ev.Description = $"Reminder pushed to Outlook: {rem.Name}";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
         }
 
         private void btnResolved_Click(object sender, EventArgs e) {
@@ -57,6 +68,7 @@ namespace FileAid.GUI
                 Models.Reminder rem = Models.ReminderManager.GetReminder(remID);
                 bool wasResolved = rem.Resolve();
                 if (wasResolved) {
+                    LogReminderResolved(rem);
                     // Refresh list
                     FillListView();
                 }
@@ -64,6 +76,16 @@ namespace FileAid.GUI
             catch (SqlException) {
                 Models.Messenger.ShowDbMsg();
             }
+        }
+
+        private bool LogReminderResolved(Reminder rem) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.ReminderResolved;
+            ev.OccurredOn = DateTime.Now;
+            ev.ReminderID = rem.ReminderID;
+            ev.Description = $"Reminder resolved: {rem.Name}";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
         }
 
         private void FillListView() {
