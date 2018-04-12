@@ -56,6 +56,8 @@
             this.btnMainPrintRepo = new System.Windows.Forms.Button();
             this.FileAidMaintoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnViewHistory = new System.Windows.Forms.Button();
+            this.btnViewLinks = new System.Windows.Forms.Button();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -80,6 +82,7 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
+            this.columnHeader8,
             this.columnHeader7,
             this.columnHeader6});
             this.MainListView.FullRowSelect = true;
@@ -88,7 +91,7 @@
             this.MainListView.Margin = new System.Windows.Forms.Padding(2);
             this.MainListView.MultiSelect = false;
             this.MainListView.Name = "MainListView";
-            this.MainListView.Size = new System.Drawing.Size(696, 470);
+            this.MainListView.Size = new System.Drawing.Size(755, 470);
             this.MainListView.TabIndex = 1;
             this.MainListView.UseCompatibleStateImageBehavior = false;
             this.MainListView.View = System.Windows.Forms.View.Details;
@@ -354,11 +357,32 @@
             this.btnViewHistory.UseVisualStyleBackColor = false;
             this.btnViewHistory.Click += new System.EventHandler(this.btnViewHistory_Click);
             // 
+            // btnViewLinks
+            // 
+            this.btnViewLinks.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnViewLinks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnViewLinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewLinks.ForeColor = System.Drawing.Color.White;
+            this.btnViewLinks.Location = new System.Drawing.Point(9, 351);
+            this.btnViewLinks.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewLinks.Name = "btnViewLinks";
+            this.btnViewLinks.Size = new System.Drawing.Size(113, 34);
+            this.btnViewLinks.TabIndex = 21;
+            this.btnViewLinks.Text = "View Links";
+            this.btnViewLinks.UseVisualStyleBackColor = false;
+            this.btnViewLinks.Click += new System.EventHandler(this.btnViewLinks_Click);
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "# Links";
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // FormFileAidMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 675);
+            this.ClientSize = new System.Drawing.Size(894, 675);
+            this.Controls.Add(this.btnViewLinks);
             this.Controls.Add(this.btnViewHistory);
             this.Controls.Add(this.btnMainPrintRepo);
             this.Controls.Add(this.btnUpdate);
@@ -417,6 +441,8 @@
         private System.Windows.Forms.Button btnViewHistory;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.Button btnViewLinks;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
     }
 }
 

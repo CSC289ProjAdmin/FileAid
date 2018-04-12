@@ -114,16 +114,19 @@ namespace FileAid.GUI
                 // TODO: Filter files using wildcard filter
                 if (filteredFiles == null) return; // No files to show
                 foreach (var file in filteredFiles) {
-                    string[] fileDetails = new string[7];
+                    string[] fileDetails = new string[8];
                     fileDetails[0] = file.Filename;
                     fileDetails[1] = file.FileExtension;
                     fileDetails[2] = file.FilePath;
                     fileDetails[3] = file.FileSize.ToString();
                     fileDetails[4] = file.ModifiedOn.ToString();
+                    var links = file.GetLinks();
+                    bool hasLinks = (links != null && links.Count > 0);
+                    fileDetails[5] = hasLinks ? links.Count.ToString()  : "";
                     var rem = file.GetReminder();
                     bool hasOpenReminder = (rem != null && rem.ResolvedOn == new DateTime());
-                    fileDetails[5] = hasOpenReminder ? "X" : "";
-                    fileDetails[6] = (file.TrackingDisabledOn > new DateTime()) ? "X" : "";
+                    fileDetails[6] = hasOpenReminder ? "X" : "";
+                    fileDetails[7] = (file.TrackingDisabledOn > new DateTime()) ? "X" : "";
                     ListViewItem row = new ListViewItem(fileDetails);
                     row.Tag = file.FileID;
                     MainListView.Items.Add(row);
@@ -344,6 +347,35 @@ namespace FileAid.GUI
             }
             // TODO: Add / validate wildcard filter
             FillListView();
+        }
+
+        private void btnViewLinks_Click(object sender, EventArgs e) {
+            string prompt = "Select a file to view its links / groups.";
+            bool isSelected = ForceSingleSelection(prompt);
+            if (!isSelected) return;
+
+            try {
+                ListViewItem row = MainListView.SelectedItems[0];
+                bool hasLinks = (row.SubItems[5].Text != ""); // # Links column
+                if (!hasLinks) {
+                    string noLinksPrompt = "Selected file is not a member of any filelink groups.";
+                    Messenger.Show(noLinksPrompt, caption);
+                    return;
+                }
+
+                int fileID = (int)row.Tag;
+                TrackedFile tf = FileManager.GetFile(fileID);
+                if (tf == null) return;
+                List<FileLink> myLinks = tf.GetLinks();
+                FormFileAidFileLinks linkForm = new FormFileAidFileLinks(myLinks);
+                linkForm.ShowDialog();
+
+                // Always refresh gui here because links may have been removed
+                FillListView();
+            }
+            catch (SqlException) {
+                Messenger.ShowDbMsg();
+            }
         }
     }
 }
