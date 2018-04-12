@@ -124,6 +124,7 @@
             this.btnViewFiles.TabIndex = 22;
             this.btnViewFiles.Text = "View Files";
             this.btnViewFiles.UseVisualStyleBackColor = false;
+            this.btnViewFiles.Click += new System.EventHandler(this.btnViewFiles_Click);
             // 
             // FormFileAidFileLinks
             // 
