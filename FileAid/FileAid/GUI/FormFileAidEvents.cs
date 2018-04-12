@@ -92,8 +92,6 @@ namespace FileAid.GUI
             wantsReset = (Messenger.ShowYesNo(resetPrompt2, caption) == DialogResult.Yes);
             if (!wantsReset) return;
 
-            // Fake resetting for now.
-            //Messenger.Show("Resetting event history...", caption);
             bool wasDeleted = EventManager.DeleteEventHistory();
             if (wasDeleted) FillListView(); // Refresh GUI
         }

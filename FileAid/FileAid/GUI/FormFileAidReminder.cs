@@ -112,6 +112,7 @@ namespace FileAid.GUI
             var files = newRem.GetFiles();
             int nFiles = (files == null) ? 0 : files.Count;
             LogReminderCreation(newRem.ReminderID, nFiles, newRem.Name);
+            LogReminderJoined(newRem, files);
             Messenger.Show($"New reminder created for {nFiles} file(s).", caption);
             DialogResult = DialogResult.OK;
             Close();
@@ -125,6 +126,22 @@ namespace FileAid.GUI
             ev.Description = $"Reminder '{name}' added to {fileCount} file(s).";
             bool wasLogged = Logger.Log(ev);
             return wasLogged;
+        }
+
+        private int LogReminderJoined(Reminder rem, List<TrackedFile> memberFiles) {
+            if (rem == null || memberFiles == null || memberFiles.Count == 0) return 0;
+            int nJoined = 0;
+            foreach (var file in memberFiles) {
+                Event ev = new Event();
+                ev.EventTypeID = EventTypes.FileReminderSet;
+                ev.OccurredOn = DateTime.Now;
+                ev.ReminderID = rem.ReminderID;
+                ev.FileID = file.FileID;
+                ev.Description = $"Reminder '{rem.Name}' added to {file.Filename}.{file.FileExtension}";
+                bool wasJoined = Logger.Log(ev);
+                if (wasJoined) nJoined++;
+            }
+            return nJoined;
         }
     }
 }

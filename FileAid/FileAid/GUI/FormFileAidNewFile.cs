@@ -88,6 +88,7 @@ namespace FileAid.GUI
                 if (newLink != null) {
                     // Log link creation and each file joined
                     LogLinkCreation(newLink.LinkMemoID, nAdded, memo);
+                    LogLinkJoined(newLink, newLink.GetFiles());
                     linkResult = $"\n\nLinked {nAdded} files" +
                         (string.IsNullOrEmpty(memo) ? "." : $" as '{memo}'.");
                 }
@@ -118,6 +119,23 @@ namespace FileAid.GUI
             ev.Description = $"File link added between {fileCount} files.";
             bool wasLogged = Logger.Log(ev);
             return wasLogged;
+        }
+
+        private int LogLinkJoined(FileLink link, List<TrackedFile> memberFiles) {
+            if (link == null || memberFiles == null || memberFiles.Count == 0) return 0;
+            int nJoined = 0;
+            foreach (var file in memberFiles) {
+                Event ev = new Event();
+                ev.EventTypeID = EventTypes.FileLinkJoinedGroup;
+                ev.OccurredOn = DateTime.Now;
+                ev.LinkID = link.LinkMemoID;
+                ev.FileID = file.FileID;
+                ev.Description = $"{file.Filename}.{file.FileExtension} joined " +
+                    (string.IsNullOrEmpty(link.LinkMemo) ? "unnamed file group" : $"file group: {link.LinkMemo}");
+                bool wasJoined = Logger.Log(ev);
+                if (wasJoined) nJoined++;
+            }
+            return nJoined;
         }
 
         private void btnNewSelectFiles_Click(object sender, EventArgs e) {
