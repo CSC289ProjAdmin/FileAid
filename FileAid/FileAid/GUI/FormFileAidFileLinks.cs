@@ -42,5 +42,13 @@ namespace FileAid.GUI
             }
 
         }
+
+        private void FileLinkslistView_SelectedIndexChanged(object sender, EventArgs e) {
+            // Put memo in the textbox
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e) {
+            // Handle changing and removing link memo
+        }
     }
 }
