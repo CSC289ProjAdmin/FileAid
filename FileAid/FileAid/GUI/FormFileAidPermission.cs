@@ -42,14 +42,12 @@ namespace FileAid.GUI
             try
             {
                 User guest = UserService.Find("Guest");
-                Permissions guestPerms = PermissionsManager.GetPermissionSet(guest.UserID);
-
-                if(guest == null)
-                {
+                if (guest == null) {
                     MessageBox.Show("Unable to load guest account rights");
                     return;
-
                 }
+
+                Permissions guestPerms = PermissionsManager.GetPermissionSet(guest.UserID);
                 if(guestPerms == null)
                 {
                     MessageBox.Show("Unable to load guest account rights");
@@ -88,14 +86,12 @@ namespace FileAid.GUI
             try
             {
                 User guest = UserService.Find("Guest");
-                Permissions guestPerms = PermissionsManager.GetPermissionSet(guest.UserID);
-
-                if (guest == null)
-                {
+                if (guest == null) {
                     MessageBox.Show("Unable to load guest account rights. Cannot save changes.");
                     return;
-
                 }
+
+                Permissions guestPerms = PermissionsManager.GetPermissionSet(guest.UserID);
                 if (guestPerms == null)
                 {
                     MessageBox.Show("Unable to load guest account rights. Cannot save changes.");
