@@ -8,24 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using FileAid.Models;
 
 namespace FileAid.GUI
 {
     public partial class FormFileAidFileLinks : Form
     {
-        public FormFileAidFileLinks()
+        private List<FileLink> myLinks;
+        public FormFileAidFileLinks(List<FileLink> links)
         {
             InitializeComponent();
+            myLinks = links;
         }
 
         private void FormFileAidFileLinks_Load(object sender, EventArgs e) {
             try {
-                List<Models.FileLink> allLinks = Models.LinkManager.GetLinks();
-                if (allLinks == null) {
+                if (myLinks == null) {
                     // No links in system yet.
                     return;
                 }
-                foreach (var link in allLinks) {
+                foreach (var link in myLinks) {
                     string[] remDetails = new string[2];
                     remDetails[0] = link.LinkMemo;
                     if (string.IsNullOrEmpty(remDetails[0]))
@@ -36,7 +38,7 @@ namespace FileAid.GUI
                 }
             }
             catch (SqlException) {
-                Models.Messenger.ShowDbMsg();
+                Messenger.ShowDbMsg();
             }
 
         }

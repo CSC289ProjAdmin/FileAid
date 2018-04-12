@@ -186,7 +186,8 @@ namespace FileAid.GUI
         }
 
         private void btnLinks_Click(object sender, EventArgs e) {
-            FormFileAidFileLinks links = new FormFileAidFileLinks();
+            List<FileLink> allLinks = LinkManager.GetLinks();
+            FormFileAidFileLinks links = new FormFileAidFileLinks(allLinks);
             links.ShowDialog();
             FillRelevantEvents();
         }
