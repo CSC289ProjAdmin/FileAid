@@ -65,9 +65,12 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -174,6 +177,12 @@
     <Compile Include="GUI\FormFileAidReports.Designer.cs">
       <DependentUpon>FormFileAidReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidRptViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptViewer.Designer.cs">
+      <DependentUpon>FormFileAidRptViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidTicklers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +238,14 @@
     <Compile Include="Models\UserService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\TrackedFilesDataSet.cs">
+      <DependentUpon>TrackedFilesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TrackedFilesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrackedFilesDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUI\FormFileAidConfig.resx">
       <DependentUpon>FormFileAidConfig.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +282,9 @@
     <EmbeddedResource Include="GUI\FormFileAidReports.resx">
       <DependentUpon>FormFileAidReports.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptViewer.resx">
+      <DependentUpon>FormFileAidRptViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidTicklers.resx">
       <DependentUpon>FormFileAidTicklers.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +309,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\RptFiles.rdlc" />
+    <EmbeddedResource Include="Reports\RptTrackedFiles.rdlc" />
+    <None Include="Properties\DataSources\FileAid.GUI.ReportFile.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -298,6 +321,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Reports\TrackedFilesDataSet.xsc">
+      <DependentUpon>TrackedFilesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\TrackedFilesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TrackedFilesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\TrackedFilesDataSet.xss">
+      <DependentUpon>TrackedFilesDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

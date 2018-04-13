@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TrackedFilesDataSet" targetNamespace="http://tempuri.org/TrackedFilesDataSet.xsd" xmlns:mstns="http://tempuri.org/TrackedFilesDataSet.xsd" xmlns="http://tempuri.org/TrackedFilesDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TrackedFilesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="TrackedFilesDataSet" msprop:Generator_UserDSName="TrackedFilesDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FileName" msprop:Generator_ColumnVarNameInTable="columnFileName" msprop:Generator_ColumnPropNameInRow="FileName" msprop:Generator_ColumnPropNameInTable="FileNameColumn" msprop:Generator_UserColumnName="FileName" type="xs:string" minOccurs="0" />
+              <xs:element name="Extension" msprop:Generator_ColumnVarNameInTable="columnExtension" msprop:Generator_ColumnPropNameInRow="Extension" msprop:Generator_ColumnPropNameInTable="ExtensionColumn" msprop:Generator_UserColumnName="Extension" type="xs:string" minOccurs="0" />
+              <xs:element name="Path" msprop:Generator_ColumnVarNameInTable="columnPath" msprop:Generator_ColumnPropNameInRow="Path" msprop:Generator_ColumnPropNameInTable="PathColumn" msprop:Generator_UserColumnName="Path" type="xs:string" minOccurs="0" />
+              <xs:element name="Size" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" type="xs:string" minOccurs="0" />
+              <xs:element name="DateModified" msprop:Generator_ColumnVarNameInTable="columnDateModified" msprop:Generator_ColumnPropNameInRow="DateModified" msprop:Generator_ColumnPropNameInTable="DateModifiedColumn" msprop:Generator_UserColumnName="DateModified" type="xs:string" minOccurs="0" />
+              <xs:element name="NumLinks" msprop:Generator_ColumnVarNameInTable="columnNumLinks" msprop:Generator_ColumnPropNameInRow="NumLinks" msprop:Generator_ColumnPropNameInTable="NumLinksColumn" msprop:Generator_UserColumnName="NumLinks" type="xs:string" minOccurs="0" />
+              <xs:element name="Reminder" msprop:Generator_ColumnVarNameInTable="columnReminder" msprop:Generator_ColumnPropNameInRow="Reminder" msprop:Generator_ColumnPropNameInTable="ReminderColumn" msprop:Generator_UserColumnName="Reminder" type="xs:string" minOccurs="0" />
+              <xs:element name="Inactive" msprop:Generator_ColumnVarNameInTable="columnInactive" msprop:Generator_ColumnPropNameInRow="Inactive" msprop:Generator_ColumnPropNameInTable="InactiveColumn" msprop:Generator_UserColumnName="Inactive" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
