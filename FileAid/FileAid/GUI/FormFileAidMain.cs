@@ -245,7 +245,10 @@ namespace FileAid.GUI
         }
 
         private void btnMainPrintRepo_Click(object sender, EventArgs e) {
-            Messenger.Show("Placeholder for Tracked Files report", caption);
+            // Create objects to give report, attach them to it, attach report to viewer and open it
+            FormFileAidRptViewer rptForm = new FormFileAidRptViewer(MainListView.Items);
+            rptForm.ShowDialog();
+            //Messenger.Show("Placeholder for Tracked Files report", caption);
             Report eventsRpt = ReportManager.GetReportByName("Tracked Files");
             if (eventsRpt == null) return; // Could not find report
             bool wasLogged = LogReportRun(eventsRpt.ReportID, eventsRpt.Name);
