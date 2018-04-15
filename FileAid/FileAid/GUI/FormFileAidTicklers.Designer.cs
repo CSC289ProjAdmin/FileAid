@@ -75,7 +75,7 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "File Count";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // columnHeader6
             // 
