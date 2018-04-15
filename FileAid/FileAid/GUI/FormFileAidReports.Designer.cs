@@ -42,12 +42,12 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(104, 18);
+            this.lblMainInfo.Location = new System.Drawing.Point(185, 18);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(402, 26);
-            this.lblMainInfo.TabIndex = 3;
-            this.lblMainInfo.Text = "Welcome to FileAid Report  Window.";
+            this.lblMainInfo.Size = new System.Drawing.Size(176, 26);
+            this.lblMainInfo.TabIndex = 0;
+            this.lblMainInfo.Text = "FileAid Reports";
             // 
             // ReportslistView
             // 
@@ -57,11 +57,11 @@
             this.columnHeader2});
             this.ReportslistView.FullRowSelect = true;
             this.ReportslistView.GridLines = true;
-            this.ReportslistView.Location = new System.Drawing.Point(39, 64);
+            this.ReportslistView.Location = new System.Drawing.Point(11, 64);
             this.ReportslistView.Margin = new System.Windows.Forms.Padding(2);
             this.ReportslistView.Name = "ReportslistView";
             this.ReportslistView.Size = new System.Drawing.Size(519, 313);
-            this.ReportslistView.TabIndex = 4;
+            this.ReportslistView.TabIndex = 1;
             this.ReportslistView.UseCompatibleStateImageBehavior = false;
             this.ReportslistView.View = System.Windows.Forms.View.Details;
             // 
@@ -81,11 +81,11 @@
             this.btnRunReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRunReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRunReport.ForeColor = System.Drawing.Color.White;
-            this.btnRunReport.Location = new System.Drawing.Point(244, 391);
+            this.btnRunReport.Location = new System.Drawing.Point(217, 406);
             this.btnRunReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnRunReport.Name = "btnRunReport";
             this.btnRunReport.Size = new System.Drawing.Size(113, 34);
-            this.btnRunReport.TabIndex = 11;
+            this.btnRunReport.TabIndex = 2;
             this.btnRunReport.Text = "Run Report";
             this.btnRunReport.UseVisualStyleBackColor = false;
             this.btnRunReport.Click += new System.EventHandler(this.btnRunReport_Click);
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 526);
+            this.ClientSize = new System.Drawing.Size(547, 483);
             this.Controls.Add(this.btnRunReport);
             this.Controls.Add(this.ReportslistView);
             this.Controls.Add(this.lblMainInfo);

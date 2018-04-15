@@ -49,12 +49,12 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(202, 6);
+            this.lblMainInfo.Location = new System.Drawing.Point(312, 6);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(441, 26);
-            this.lblMainInfo.TabIndex = 1;
-            this.lblMainInfo.Text = "Welcome to File Aid View Files Window.";
+            this.lblMainInfo.Size = new System.Drawing.Size(221, 26);
+            this.lblMainInfo.TabIndex = 0;
+            this.lblMainInfo.Text = "FileAid Linked Files";
             // 
             // btnClose
             // 
@@ -66,7 +66,7 @@
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(113, 34);
-            this.btnClose.TabIndex = 9;
+            this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Cancel);
@@ -81,7 +81,7 @@
             this.btnRemoveFile.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveFile.Name = "btnRemoveFile";
             this.btnRemoveFile.Size = new System.Drawing.Size(113, 34);
-            this.btnRemoveFile.TabIndex = 11;
+            this.btnRemoveFile.TabIndex = 4;
             this.btnRemoveFile.Text = "Remove File";
             this.btnRemoveFile.UseVisualStyleBackColor = false;
             this.btnRemoveFile.Click += new System.EventHandler(this.btnRemoveFile_Click);
@@ -107,7 +107,7 @@
             this.ViewFileslistView.MultiSelect = false;
             this.ViewFileslistView.Name = "ViewFileslistView";
             this.ViewFileslistView.Size = new System.Drawing.Size(799, 243);
-            this.ViewFileslistView.TabIndex = 13;
+            this.ViewFileslistView.TabIndex = 3;
             this.ViewFileslistView.UseCompatibleStateImageBehavior = false;
             this.ViewFileslistView.View = System.Windows.Forms.View.Details;
             // 
@@ -148,7 +148,7 @@
             this.label1.Location = new System.Drawing.Point(23, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 13);
-            this.label1.TabIndex = 14;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Files in group:";
             // 
             // lblGroupName
@@ -158,7 +158,7 @@
             this.lblGroupName.Location = new System.Drawing.Point(102, 42);
             this.lblGroupName.Name = "lblGroupName";
             this.lblGroupName.Size = new System.Drawing.Size(41, 13);
-            this.lblGroupName.TabIndex = 15;
+            this.lblGroupName.TabIndex = 2;
             this.lblGroupName.Text = "label2";
             // 
             // FormFileAidViewFiles
@@ -175,7 +175,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidViewFiles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FileAidLink";
+            this.Text = "FileAid Linked Files";
             this.Load += new System.EventHandler(this.FormFileAidViewFiles_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -50,7 +50,7 @@
             this.FileLinkslistView.MultiSelect = false;
             this.FileLinkslistView.Name = "FileLinkslistView";
             this.FileLinkslistView.Size = new System.Drawing.Size(552, 292);
-            this.FileLinkslistView.TabIndex = 0;
+            this.FileLinkslistView.TabIndex = 5;
             this.FileLinkslistView.UseCompatibleStateImageBehavior = false;
             this.FileLinkslistView.View = System.Windows.Forms.View.Details;
             this.FileLinkslistView.SelectedIndexChanged += new System.EventHandler(this.FileLinkslistView_SelectedIndexChanged);
@@ -63,18 +63,19 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "File Count";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblMainInfo
             // 
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(103, 15);
+            this.lblMainInfo.Location = new System.Drawing.Point(228, 15);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(426, 26);
-            this.lblMainInfo.TabIndex = 2;
-            this.lblMainInfo.Text = "Welcome to FileAid File Links Window.";
+            this.lblMainInfo.Size = new System.Drawing.Size(195, 26);
+            this.lblMainInfo.TabIndex = 0;
+            this.lblMainInfo.Text = "FileAid File Links";
             // 
             // btnUpdate
             // 
@@ -86,7 +87,7 @@
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(113, 34);
-            this.btnUpdate.TabIndex = 21;
+            this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -97,7 +98,7 @@
             this.txtMemo.Margin = new System.Windows.Forms.Padding(2);
             this.txtMemo.Name = "txtMemo";
             this.txtMemo.Size = new System.Drawing.Size(291, 20);
-            this.txtMemo.TabIndex = 20;
+            this.txtMemo.TabIndex = 3;
             // 
             // lblMemo
             // 
@@ -108,7 +109,7 @@
             this.lblMemo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMemo.Name = "lblMemo";
             this.lblMemo.Size = new System.Drawing.Size(82, 15);
-            this.lblMemo.TabIndex = 19;
+            this.lblMemo.TabIndex = 2;
             this.lblMemo.Text = "Link Memo:";
             // 
             // btnViewFiles
@@ -121,7 +122,7 @@
             this.btnViewFiles.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewFiles.Name = "btnViewFiles";
             this.btnViewFiles.Size = new System.Drawing.Size(113, 34);
-            this.btnViewFiles.TabIndex = 22;
+            this.btnViewFiles.TabIndex = 1;
             this.btnViewFiles.Text = "View Files";
             this.btnViewFiles.UseVisualStyleBackColor = false;
             this.btnViewFiles.Click += new System.EventHandler(this.btnViewFiles_Click);

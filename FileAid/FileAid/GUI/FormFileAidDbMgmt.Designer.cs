@@ -34,8 +34,8 @@
             this.btnRestore = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.DBManlistView = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDbPrintRepo = new System.Windows.Forms.Button();
             this.DBMantoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
@@ -45,12 +45,12 @@
             this.lblUserDatabase.AutoSize = true;
             this.lblUserDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserDatabase.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblUserDatabase.Location = new System.Drawing.Point(125, 16);
+            this.lblUserDatabase.Location = new System.Drawing.Point(143, 16);
             this.lblUserDatabase.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUserDatabase.Name = "lblUserDatabase";
-            this.lblUserDatabase.Size = new System.Drawing.Size(390, 26);
-            this.lblUserDatabase.TabIndex = 1;
-            this.lblUserDatabase.Text = "Welcome to Database Management";
+            this.lblUserDatabase.Size = new System.Drawing.Size(338, 26);
+            this.lblUserDatabase.TabIndex = 0;
+            this.lblUserDatabase.Text = "FileAid Database Management";
             // 
             // btnBackup
             // 
@@ -62,7 +62,7 @@
             this.btnBackup.Margin = new System.Windows.Forms.Padding(2);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(133, 32);
-            this.btnBackup.TabIndex = 2;
+            this.btnBackup.TabIndex = 1;
             this.btnBackup.Text = "Backup";
             this.btnBackup.UseVisualStyleBackColor = false;
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
@@ -77,7 +77,7 @@
             this.btnRestore.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(133, 32);
-            this.btnRestore.TabIndex = 3;
+            this.btnRestore.TabIndex = 2;
             this.btnRestore.Text = "Restore";
             this.btnRestore.UseVisualStyleBackColor = false;
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
@@ -92,7 +92,7 @@
             this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(133, 32);
-            this.btnReset.TabIndex = 5;
+            this.btnReset.TabIndex = 3;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -109,19 +109,19 @@
             this.DBManlistView.Margin = new System.Windows.Forms.Padding(2);
             this.DBManlistView.Name = "DBManlistView";
             this.DBManlistView.Size = new System.Drawing.Size(465, 337);
-            this.DBManlistView.TabIndex = 6;
+            this.DBManlistView.TabIndex = 5;
             this.DBManlistView.UseCompatibleStateImageBehavior = false;
             this.DBManlistView.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Description";
-            this.columnHeader3.Width = 310;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Date";
             this.columnHeader4.Width = 120;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Description";
+            this.columnHeader3.Width = 310;
             // 
             // btnDbPrintRepo
             // 
@@ -133,7 +133,7 @@
             this.btnDbPrintRepo.Margin = new System.Windows.Forms.Padding(2);
             this.btnDbPrintRepo.Name = "btnDbPrintRepo";
             this.btnDbPrintRepo.Size = new System.Drawing.Size(133, 32);
-            this.btnDbPrintRepo.TabIndex = 7;
+            this.btnDbPrintRepo.TabIndex = 4;
             this.btnDbPrintRepo.Text = "Print Report";
             this.btnDbPrintRepo.UseVisualStyleBackColor = false;
             this.btnDbPrintRepo.Click += new System.EventHandler(this.btnDbPrintRepo_Click);

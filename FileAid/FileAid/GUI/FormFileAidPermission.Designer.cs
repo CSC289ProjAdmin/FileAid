@@ -57,23 +57,23 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(134, 6);
+            this.lblMainInfo.Location = new System.Drawing.Point(284, 6);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(450, 26);
-            this.lblMainInfo.TabIndex = 2;
-            this.lblMainInfo.Text = "Welcome to FileAid  Permission Window.";
+            this.lblMainInfo.Size = new System.Drawing.Size(231, 26);
+            this.lblMainInfo.TabIndex = 0;
+            this.lblMainInfo.Text = "FileAid Guest Rights";
             // 
             // AdminPasscheckBox
             // 
             this.AdminPasscheckBox.AutoSize = true;
             this.AdminPasscheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdminPasscheckBox.ForeColor = System.Drawing.Color.Black;
-            this.AdminPasscheckBox.Location = new System.Drawing.Point(69, 53);
-            this.AdminPasscheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AdminPasscheckBox.Location = new System.Drawing.Point(378, 71);
+            this.AdminPasscheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.AdminPasscheckBox.Name = "AdminPasscheckBox";
             this.AdminPasscheckBox.Size = new System.Drawing.Size(189, 19);
-            this.AdminPasscheckBox.TabIndex = 3;
+            this.AdminPasscheckBox.TabIndex = 10;
             this.AdminPasscheckBox.Text = "Change Admin Password ";
             this.PermissiontoolTip.SetToolTip(this.AdminPasscheckBox, "Check the CheckBox");
             this.AdminPasscheckBox.UseVisualStyleBackColor = true;
@@ -88,11 +88,11 @@
             this.UserPasscheckBox.AutoSize = true;
             this.UserPasscheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserPasscheckBox.ForeColor = System.Drawing.Color.Black;
-            this.UserPasscheckBox.Location = new System.Drawing.Point(69, 90);
-            this.UserPasscheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UserPasscheckBox.Location = new System.Drawing.Point(378, 108);
+            this.UserPasscheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.UserPasscheckBox.Name = "UserPasscheckBox";
             this.UserPasscheckBox.Size = new System.Drawing.Size(175, 19);
-            this.UserPasscheckBox.TabIndex = 4;
+            this.UserPasscheckBox.TabIndex = 11;
             this.UserPasscheckBox.Text = "Change User Password";
             this.UserPasscheckBox.UseVisualStyleBackColor = true;
             // 
@@ -101,11 +101,11 @@
             this.GuestPasscheckBox.AutoSize = true;
             this.GuestPasscheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuestPasscheckBox.ForeColor = System.Drawing.Color.Black;
-            this.GuestPasscheckBox.Location = new System.Drawing.Point(69, 128);
-            this.GuestPasscheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GuestPasscheckBox.Location = new System.Drawing.Point(378, 145);
+            this.GuestPasscheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.GuestPasscheckBox.Name = "GuestPasscheckBox";
             this.GuestPasscheckBox.Size = new System.Drawing.Size(182, 19);
-            this.GuestPasscheckBox.TabIndex = 6;
+            this.GuestPasscheckBox.TabIndex = 12;
             this.GuestPasscheckBox.Text = "Change Guest Password";
             this.GuestPasscheckBox.UseVisualStyleBackColor = true;
             // 
@@ -114,11 +114,11 @@
             this.EnableUsercheckBox.AutoSize = true;
             this.EnableUsercheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EnableUsercheckBox.ForeColor = System.Drawing.Color.Black;
-            this.EnableUsercheckBox.Location = new System.Drawing.Point(69, 164);
-            this.EnableUsercheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EnableUsercheckBox.Location = new System.Drawing.Point(210, 143);
+            this.EnableUsercheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.EnableUsercheckBox.Name = "EnableUsercheckBox";
             this.EnableUsercheckBox.Size = new System.Drawing.Size(105, 19);
-            this.EnableUsercheckBox.TabIndex = 7;
+            this.EnableUsercheckBox.TabIndex = 8;
             this.EnableUsercheckBox.Text = "Enable User";
             this.EnableUsercheckBox.UseVisualStyleBackColor = true;
             // 
@@ -127,11 +127,11 @@
             this.EnableGuestcheckBox.AutoSize = true;
             this.EnableGuestcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EnableGuestcheckBox.ForeColor = System.Drawing.Color.Black;
-            this.EnableGuestcheckBox.Location = new System.Drawing.Point(69, 198);
-            this.EnableGuestcheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EnableGuestcheckBox.Location = new System.Drawing.Point(210, 180);
+            this.EnableGuestcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.EnableGuestcheckBox.Name = "EnableGuestcheckBox";
             this.EnableGuestcheckBox.Size = new System.Drawing.Size(112, 19);
-            this.EnableGuestcheckBox.TabIndex = 8;
+            this.EnableGuestcheckBox.TabIndex = 9;
             this.EnableGuestcheckBox.Text = "Enable Guest";
             this.EnableGuestcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -140,11 +140,11 @@
             this.ResetUsercheckBox.AutoSize = true;
             this.ResetUsercheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResetUsercheckBox.ForeColor = System.Drawing.Color.Black;
-            this.ResetUsercheckBox.Location = new System.Drawing.Point(307, 164);
-            this.ResetUsercheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ResetUsercheckBox.Location = new System.Drawing.Point(378, 184);
+            this.ResetUsercheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.ResetUsercheckBox.Name = "ResetUsercheckBox";
             this.ResetUsercheckBox.Size = new System.Drawing.Size(163, 19);
-            this.ResetUsercheckBox.TabIndex = 9;
+            this.ResetUsercheckBox.TabIndex = 13;
             this.ResetUsercheckBox.Text = "Reset User Password";
             this.ResetUsercheckBox.UseVisualStyleBackColor = true;
             // 
@@ -153,11 +153,11 @@
             this.ResetGuestcheckBox.AutoSize = true;
             this.ResetGuestcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResetGuestcheckBox.ForeColor = System.Drawing.Color.Black;
-            this.ResetGuestcheckBox.Location = new System.Drawing.Point(307, 198);
-            this.ResetGuestcheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ResetGuestcheckBox.Location = new System.Drawing.Point(378, 222);
+            this.ResetGuestcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.ResetGuestcheckBox.Name = "ResetGuestcheckBox";
             this.ResetGuestcheckBox.Size = new System.Drawing.Size(170, 19);
-            this.ResetGuestcheckBox.TabIndex = 10;
+            this.ResetGuestcheckBox.TabIndex = 14;
             this.ResetGuestcheckBox.Text = "Reset Guest Password";
             this.ResetGuestcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -166,11 +166,11 @@
             this.UnlockUsercheckBox.AutoSize = true;
             this.UnlockUsercheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UnlockUsercheckBox.ForeColor = System.Drawing.Color.Black;
-            this.UnlockUsercheckBox.Location = new System.Drawing.Point(69, 235);
-            this.UnlockUsercheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UnlockUsercheckBox.Location = new System.Drawing.Point(210, 71);
+            this.UnlockUsercheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.UnlockUsercheckBox.Name = "UnlockUsercheckBox";
             this.UnlockUsercheckBox.Size = new System.Drawing.Size(104, 19);
-            this.UnlockUsercheckBox.TabIndex = 11;
+            this.UnlockUsercheckBox.TabIndex = 6;
             this.UnlockUsercheckBox.Text = "Unlock User";
             this.UnlockUsercheckBox.UseVisualStyleBackColor = true;
             // 
@@ -179,11 +179,11 @@
             this.UnlockGuestcheckBox.AutoSize = true;
             this.UnlockGuestcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UnlockGuestcheckBox.ForeColor = System.Drawing.Color.Black;
-            this.UnlockGuestcheckBox.Location = new System.Drawing.Point(307, 235);
-            this.UnlockGuestcheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UnlockGuestcheckBox.Location = new System.Drawing.Point(210, 108);
+            this.UnlockGuestcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.UnlockGuestcheckBox.Name = "UnlockGuestcheckBox";
             this.UnlockGuestcheckBox.Size = new System.Drawing.Size(111, 19);
-            this.UnlockGuestcheckBox.TabIndex = 12;
+            this.UnlockGuestcheckBox.TabIndex = 7;
             this.UnlockGuestcheckBox.Text = "Unlock Guest";
             this.UnlockGuestcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -192,12 +192,12 @@
             this.RestrictGuestcheckBox.AutoSize = true;
             this.RestrictGuestcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RestrictGuestcheckBox.ForeColor = System.Drawing.Color.Black;
-            this.RestrictGuestcheckBox.Location = new System.Drawing.Point(307, 53);
-            this.RestrictGuestcheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RestrictGuestcheckBox.Location = new System.Drawing.Point(11, 184);
+            this.RestrictGuestcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.RestrictGuestcheckBox.Name = "RestrictGuestcheckBox";
-            this.RestrictGuestcheckBox.Size = new System.Drawing.Size(116, 19);
-            this.RestrictGuestcheckBox.TabIndex = 13;
-            this.RestrictGuestcheckBox.Text = "Restrict Guest";
+            this.RestrictGuestcheckBox.Size = new System.Drawing.Size(137, 19);
+            this.RestrictGuestcheckBox.TabIndex = 4;
+            this.RestrictGuestcheckBox.Text = "Edit Guest Rights";
             this.RestrictGuestcheckBox.UseVisualStyleBackColor = true;
             // 
             // ResetDBcheckBox
@@ -205,11 +205,11 @@
             this.ResetDBcheckBox.AutoSize = true;
             this.ResetDBcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResetDBcheckBox.ForeColor = System.Drawing.Color.Black;
-            this.ResetDBcheckBox.Location = new System.Drawing.Point(490, 53);
-            this.ResetDBcheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ResetDBcheckBox.Location = new System.Drawing.Point(631, 112);
+            this.ResetDBcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.ResetDBcheckBox.Name = "ResetDBcheckBox";
             this.ResetDBcheckBox.Size = new System.Drawing.Size(128, 19);
-            this.ResetDBcheckBox.TabIndex = 14;
+            this.ResetDBcheckBox.TabIndex = 16;
             this.ResetDBcheckBox.Text = "Reset Database";
             this.ResetDBcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -218,8 +218,8 @@
             this.BackupDBcheckBox.AutoSize = true;
             this.BackupDBcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackupDBcheckBox.ForeColor = System.Drawing.Color.Black;
-            this.BackupDBcheckBox.Location = new System.Drawing.Point(307, 90);
-            this.BackupDBcheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackupDBcheckBox.Location = new System.Drawing.Point(631, 71);
+            this.BackupDBcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.BackupDBcheckBox.Name = "BackupDBcheckBox";
             this.BackupDBcheckBox.Size = new System.Drawing.Size(138, 19);
             this.BackupDBcheckBox.TabIndex = 15;
@@ -231,11 +231,11 @@
             this.RestoreDBcheckBox.AutoSize = true;
             this.RestoreDBcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RestoreDBcheckBox.ForeColor = System.Drawing.Color.Black;
-            this.RestoreDBcheckBox.Location = new System.Drawing.Point(490, 90);
-            this.RestoreDBcheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RestoreDBcheckBox.Location = new System.Drawing.Point(631, 154);
+            this.RestoreDBcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.RestoreDBcheckBox.Name = "RestoreDBcheckBox";
             this.RestoreDBcheckBox.Size = new System.Drawing.Size(141, 19);
-            this.RestoreDBcheckBox.TabIndex = 16;
+            this.RestoreDBcheckBox.TabIndex = 17;
             this.RestoreDBcheckBox.Text = "Restore Database";
             this.RestoreDBcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -244,12 +244,12 @@
             this.BatchScancheckBox.AutoSize = true;
             this.BatchScancheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BatchScancheckBox.ForeColor = System.Drawing.Color.Black;
-            this.BatchScancheckBox.Location = new System.Drawing.Point(307, 128);
-            this.BatchScancheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BatchScancheckBox.Location = new System.Drawing.Point(11, 71);
+            this.BatchScancheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.BatchScancheckBox.Name = "BatchScancheckBox";
-            this.BatchScancheckBox.Size = new System.Drawing.Size(98, 19);
-            this.BatchScancheckBox.TabIndex = 17;
-            this.BatchScancheckBox.Text = "Batch Scan";
+            this.BatchScancheckBox.Size = new System.Drawing.Size(135, 19);
+            this.BatchScancheckBox.TabIndex = 1;
+            this.BatchScancheckBox.Text = "Run Batch Scans";
             this.BatchScancheckBox.UseVisualStyleBackColor = true;
             // 
             // ProgramSetcheckBox
@@ -257,11 +257,11 @@
             this.ProgramSetcheckBox.AutoSize = true;
             this.ProgramSetcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProgramSetcheckBox.ForeColor = System.Drawing.Color.Black;
-            this.ProgramSetcheckBox.Location = new System.Drawing.Point(490, 128);
-            this.ProgramSetcheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProgramSetcheckBox.Location = new System.Drawing.Point(11, 108);
+            this.ProgramSetcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.ProgramSetcheckBox.Name = "ProgramSetcheckBox";
             this.ProgramSetcheckBox.Size = new System.Drawing.Size(122, 19);
-            this.ProgramSetcheckBox.TabIndex = 18;
+            this.ProgramSetcheckBox.TabIndex = 2;
             this.ProgramSetcheckBox.Text = "Program Setup";
             this.ProgramSetcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -270,12 +270,12 @@
             this.LoginMancheckBox.AutoSize = true;
             this.LoginMancheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginMancheckBox.ForeColor = System.Drawing.Color.Black;
-            this.LoginMancheckBox.Location = new System.Drawing.Point(490, 164);
-            this.LoginMancheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoginMancheckBox.Location = new System.Drawing.Point(11, 145);
+            this.LoginMancheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.LoginMancheckBox.Name = "LoginMancheckBox";
-            this.LoginMancheckBox.Size = new System.Drawing.Size(150, 19);
-            this.LoginMancheckBox.TabIndex = 19;
-            this.LoginMancheckBox.Text = "Login Management";
+            this.LoginMancheckBox.Size = new System.Drawing.Size(144, 19);
+            this.LoginMancheckBox.TabIndex = 3;
+            this.LoginMancheckBox.Text = "User Management";
             this.LoginMancheckBox.UseVisualStyleBackColor = true;
             // 
             // DBMancheckBox
@@ -283,11 +283,11 @@
             this.DBMancheckBox.AutoSize = true;
             this.DBMancheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DBMancheckBox.ForeColor = System.Drawing.Color.Black;
-            this.DBMancheckBox.Location = new System.Drawing.Point(490, 198);
-            this.DBMancheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DBMancheckBox.Location = new System.Drawing.Point(11, 222);
+            this.DBMancheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.DBMancheckBox.Name = "DBMancheckBox";
             this.DBMancheckBox.Size = new System.Drawing.Size(175, 19);
-            this.DBMancheckBox.TabIndex = 20;
+            this.DBMancheckBox.TabIndex = 5;
             this.DBMancheckBox.Text = "Database Management";
             this.DBMancheckBox.UseVisualStyleBackColor = true;
             // 
@@ -297,11 +297,11 @@
             this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveChanges.ForeColor = System.Drawing.Color.White;
-            this.btnSaveChanges.Location = new System.Drawing.Point(159, 307);
-            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveChanges.Location = new System.Drawing.Point(242, 304);
+            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(133, 32);
-            this.btnSaveChanges.TabIndex = 21;
+            this.btnSaveChanges.TabIndex = 18;
             this.btnSaveChanges.Text = "Save Changes";
             this.btnSaveChanges.UseVisualStyleBackColor = false;
             this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
@@ -312,11 +312,11 @@
             this.btnPerCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPerCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPerCancel.ForeColor = System.Drawing.Color.White;
-            this.btnPerCancel.Location = new System.Drawing.Point(357, 307);
-            this.btnPerCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPerCancel.Location = new System.Drawing.Point(423, 304);
+            this.btnPerCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnPerCancel.Name = "btnPerCancel";
             this.btnPerCancel.Size = new System.Drawing.Size(133, 32);
-            this.btnPerCancel.TabIndex = 22;
+            this.btnPerCancel.TabIndex = 19;
             this.btnPerCancel.Text = "Cancel";
             this.btnPerCancel.UseVisualStyleBackColor = false;
             this.btnPerCancel.Click += new System.EventHandler(this.btnPerCancel_Click);
@@ -325,7 +325,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 506);
+            this.ClientSize = new System.Drawing.Size(799, 434);
             this.Controls.Add(this.btnPerCancel);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.DBMancheckBox);
@@ -346,10 +346,10 @@
             this.Controls.Add(this.UserPasscheckBox);
             this.Controls.Add(this.AdminPasscheckBox);
             this.Controls.Add(this.lblMainInfo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidPermission";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FileAid Permission";
+            this.Text = "FileAid Guest Rights";
             this.Load += new System.EventHandler(this.FormFileAidPermission_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

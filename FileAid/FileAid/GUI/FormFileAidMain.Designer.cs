@@ -66,12 +66,12 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(256, 9);
+            this.lblMainInfo.Location = new System.Drawing.Point(330, 9);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(382, 26);
+            this.lblMainInfo.Size = new System.Drawing.Size(235, 26);
             this.lblMainInfo.TabIndex = 0;
-            this.lblMainInfo.Text = "Welcome to File Aid Main Window.";
+            this.lblMainInfo.Text = "FileAid Tracked Files";
             // 
             // MainListView
             // 
@@ -93,7 +93,7 @@
             this.MainListView.MultiSelect = false;
             this.MainListView.Name = "MainListView";
             this.MainListView.Size = new System.Drawing.Size(755, 470);
-            this.MainListView.TabIndex = 1;
+            this.MainListView.TabIndex = 20;
             this.MainListView.UseCompatibleStateImageBehavior = false;
             this.MainListView.View = System.Windows.Forms.View.Details;
             this.MainListView.SelectedIndexChanged += new System.EventHandler(this.MainListView_SelectedIndexChanged);
@@ -147,7 +147,7 @@
             this.InactivecheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.InactivecheckBox.Name = "InactivecheckBox";
             this.InactivecheckBox.Size = new System.Drawing.Size(149, 19);
-            this.InactivecheckBox.TabIndex = 3;
+            this.InactivecheckBox.TabIndex = 1;
             this.InactivecheckBox.Text = "Show Inactive Files";
             this.InactivecheckBox.UseVisualStyleBackColor = true;
             this.InactivecheckBox.CheckedChanged += new System.EventHandler(this.InactivecheckBox_CheckedChanged);
@@ -160,7 +160,7 @@
             this.StartdateTimePicker.Name = "StartdateTimePicker";
             this.StartdateTimePicker.ShowUpDown = true;
             this.StartdateTimePicker.Size = new System.Drawing.Size(84, 20);
-            this.StartdateTimePicker.TabIndex = 4;
+            this.StartdateTimePicker.TabIndex = 3;
             // 
             // lblStart
             // 
@@ -171,7 +171,7 @@
             this.lblStart.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStart.Name = "lblStart";
             this.lblStart.Size = new System.Drawing.Size(41, 15);
-            this.lblStart.TabIndex = 5;
+            this.lblStart.TabIndex = 2;
             this.lblStart.Text = "Start:";
             // 
             // lblEnd
@@ -183,7 +183,7 @@
             this.lblEnd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEnd.Name = "lblEnd";
             this.lblEnd.Size = new System.Drawing.Size(36, 15);
-            this.lblEnd.TabIndex = 6;
+            this.lblEnd.TabIndex = 4;
             this.lblEnd.Text = "End:";
             // 
             // EnddateTimePicker
@@ -194,7 +194,7 @@
             this.EnddateTimePicker.Name = "EnddateTimePicker";
             this.EnddateTimePicker.ShowUpDown = true;
             this.EnddateTimePicker.Size = new System.Drawing.Size(81, 20);
-            this.EnddateTimePicker.TabIndex = 7;
+            this.EnddateTimePicker.TabIndex = 5;
             // 
             // btnAdd
             // 
@@ -217,11 +217,11 @@
             this.btnStopTrack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStopTrack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStopTrack.ForeColor = System.Drawing.Color.White;
-            this.btnStopTrack.Location = new System.Drawing.Point(10, 116);
+            this.btnStopTrack.Location = new System.Drawing.Point(10, 415);
             this.btnStopTrack.Margin = new System.Windows.Forms.Padding(2);
             this.btnStopTrack.Name = "btnStopTrack";
             this.btnStopTrack.Size = new System.Drawing.Size(113, 34);
-            this.btnStopTrack.TabIndex = 9;
+            this.btnStopTrack.TabIndex = 14;
             this.btnStopTrack.Text = "Stop Tracking";
             this.btnStopTrack.UseVisualStyleBackColor = false;
             this.btnStopTrack.Click += new System.EventHandler(this.btnStopTrack_Click);
@@ -232,11 +232,11 @@
             this.btnTrack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTrack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrack.ForeColor = System.Drawing.Color.White;
-            this.btnTrack.Location = new System.Drawing.Point(10, 170);
+            this.btnTrack.Location = new System.Drawing.Point(10, 465);
             this.btnTrack.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrack.Name = "btnTrack";
             this.btnTrack.Size = new System.Drawing.Size(113, 34);
-            this.btnTrack.TabIndex = 10;
+            this.btnTrack.TabIndex = 15;
             this.btnTrack.Text = "Restart Tracking";
             this.btnTrack.UseVisualStyleBackColor = false;
             this.btnTrack.Click += new System.EventHandler(this.btnTrack_Click);
@@ -247,11 +247,11 @@
             this.btnAddLink.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddLink.ForeColor = System.Drawing.Color.White;
-            this.btnAddLink.Location = new System.Drawing.Point(10, 221);
+            this.btnAddLink.Location = new System.Drawing.Point(10, 119);
             this.btnAddLink.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddLink.Name = "btnAddLink";
             this.btnAddLink.Size = new System.Drawing.Size(113, 34);
-            this.btnAddLink.TabIndex = 11;
+            this.btnAddLink.TabIndex = 9;
             this.btnAddLink.Text = "Add Link";
             this.btnAddLink.UseVisualStyleBackColor = false;
             this.btnAddLink.Click += new System.EventHandler(this.btnAddLink_Click);
@@ -262,11 +262,11 @@
             this.btnAddReminder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddReminder.ForeColor = System.Drawing.Color.White;
-            this.btnAddReminder.Location = new System.Drawing.Point(10, 274);
+            this.btnAddReminder.Location = new System.Drawing.Point(11, 168);
             this.btnAddReminder.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddReminder.Name = "btnAddReminder";
             this.btnAddReminder.Size = new System.Drawing.Size(113, 34);
-            this.btnAddReminder.TabIndex = 12;
+            this.btnAddReminder.TabIndex = 10;
             this.btnAddReminder.Text = "Add Reminder";
             this.btnAddReminder.UseVisualStyleBackColor = false;
             this.btnAddReminder.Click += new System.EventHandler(this.btnAddReminder_Click);
@@ -277,7 +277,7 @@
             this.txtWild.Margin = new System.Windows.Forms.Padding(2);
             this.txtWild.Name = "txtWild";
             this.txtWild.Size = new System.Drawing.Size(222, 20);
-            this.txtWild.TabIndex = 14;
+            this.txtWild.TabIndex = 6;
             // 
             // btnWildSearch
             // 
@@ -289,7 +289,7 @@
             this.btnWildSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnWildSearch.Name = "btnWildSearch";
             this.btnWildSearch.Size = new System.Drawing.Size(60, 27);
-            this.btnWildSearch.TabIndex = 15;
+            this.btnWildSearch.TabIndex = 7;
             this.btnWildSearch.Text = "Search";
             this.btnWildSearch.UseVisualStyleBackColor = false;
             this.btnWildSearch.Click += new System.EventHandler(this.btnWildSearch_Click);
@@ -354,11 +354,11 @@
             this.btnViewHistory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnViewHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewHistory.ForeColor = System.Drawing.Color.White;
-            this.btnViewHistory.Location = new System.Drawing.Point(10, 321);
+            this.btnViewHistory.Location = new System.Drawing.Point(10, 242);
             this.btnViewHistory.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewHistory.Name = "btnViewHistory";
             this.btnViewHistory.Size = new System.Drawing.Size(113, 34);
-            this.btnViewHistory.TabIndex = 20;
+            this.btnViewHistory.TabIndex = 11;
             this.btnViewHistory.Text = "View History";
             this.btnViewHistory.UseVisualStyleBackColor = false;
             this.btnViewHistory.Click += new System.EventHandler(this.btnViewHistory_Click);
@@ -369,11 +369,11 @@
             this.btnViewLinks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnViewLinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewLinks.ForeColor = System.Drawing.Color.White;
-            this.btnViewLinks.Location = new System.Drawing.Point(10, 368);
+            this.btnViewLinks.Location = new System.Drawing.Point(11, 290);
             this.btnViewLinks.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewLinks.Name = "btnViewLinks";
             this.btnViewLinks.Size = new System.Drawing.Size(113, 34);
-            this.btnViewLinks.TabIndex = 21;
+            this.btnViewLinks.TabIndex = 12;
             this.btnViewLinks.Text = "View Links";
             this.btnViewLinks.UseVisualStyleBackColor = false;
             this.btnViewLinks.Click += new System.EventHandler(this.btnViewLinks_Click);
@@ -384,11 +384,11 @@
             this.btnViewReminder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnViewReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewReminder.ForeColor = System.Drawing.Color.White;
-            this.btnViewReminder.Location = new System.Drawing.Point(10, 415);
+            this.btnViewReminder.Location = new System.Drawing.Point(10, 338);
             this.btnViewReminder.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewReminder.Name = "btnViewReminder";
             this.btnViewReminder.Size = new System.Drawing.Size(113, 34);
-            this.btnViewReminder.TabIndex = 22;
+            this.btnViewReminder.TabIndex = 13;
             this.btnViewReminder.Text = "View Reminder";
             this.btnViewReminder.UseVisualStyleBackColor = false;
             this.btnViewReminder.Click += new System.EventHandler(this.btnViewReminder_Click);
@@ -422,7 +422,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FileAidMain";
+            this.Text = "FileAid Tracked Files";
             this.Load += new System.EventHandler(this.FormFileAidMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
