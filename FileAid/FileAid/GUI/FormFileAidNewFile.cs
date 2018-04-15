@@ -146,8 +146,11 @@ namespace FileAid.GUI
             extensions.Append("|MS Excel|*.xls*;*.xlt*;*.xlm*;*.xla*;*.xll*;*.xlw*");
             extensions.Append("|MS Powerpoint|*.ppt*;*.pot*;*.pps*;*.ppam*;*.sldx;*.sldm");
 
+            Configs settings = ConfigManager.GetConfigs();
+
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.InitialDirectory = "C:\\"; // Use search folder once its added
+            bool useMasterPath = (settings != null && System.IO.Directory.Exists(settings.MasterPath));
+            ofd.InitialDirectory = (useMasterPath) ? settings.MasterPath : "C:\\";
             ofd.Filter = extensions.ToString();
             ofd.FilterIndex = 1;
             ofd.RestoreDirectory = true;
