@@ -36,6 +36,7 @@
             this.txtMemo = new System.Windows.Forms.TextBox();
             this.lblMemo = new System.Windows.Forms.Label();
             this.btnViewFiles = new System.Windows.Forms.Button();
+            this.btnReprot = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FileLinkslistView
@@ -118,7 +119,7 @@
             this.btnViewFiles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnViewFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewFiles.ForeColor = System.Drawing.Color.White;
-            this.btnViewFiles.Location = new System.Drawing.Point(269, 353);
+            this.btnViewFiles.Location = new System.Drawing.Point(210, 353);
             this.btnViewFiles.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewFiles.Name = "btnViewFiles";
             this.btnViewFiles.Size = new System.Drawing.Size(113, 34);
@@ -127,11 +128,27 @@
             this.btnViewFiles.UseVisualStyleBackColor = false;
             this.btnViewFiles.Click += new System.EventHandler(this.btnViewFiles_Click);
             // 
+            // btnReprot
+            // 
+            this.btnReprot.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnReprot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReprot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReprot.ForeColor = System.Drawing.Color.White;
+            this.btnReprot.Location = new System.Drawing.Point(327, 353);
+            this.btnReprot.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReprot.Name = "btnReprot";
+            this.btnReprot.Size = new System.Drawing.Size(113, 34);
+            this.btnReprot.TabIndex = 6;
+            this.btnReprot.Text = "Print Report";
+            this.btnReprot.UseVisualStyleBackColor = false;
+            this.btnReprot.Click += new System.EventHandler(this.btnReprot_Click);
+            // 
             // FormFileAidFileLinks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 481);
+            this.Controls.Add(this.btnReprot);
             this.Controls.Add(this.btnViewFiles);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtMemo);
@@ -158,6 +175,7 @@
         private System.Windows.Forms.TextBox txtMemo;
         private System.Windows.Forms.Label lblMemo;
         private System.Windows.Forms.Button btnViewFiles;
+        private System.Windows.Forms.Button btnReprot;
     }
 }
 

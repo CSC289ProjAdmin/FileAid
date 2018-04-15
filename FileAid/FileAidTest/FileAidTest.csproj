@@ -52,28 +52,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Tests\BatchManagerTest.cs" />
     <Compile Include="Tests\ConfigManagerTest.cs" />
-    <Compile Include="Tests\ConfigsTest.cs" />
-    <Compile Include="Tests\DbManagerTest.cs" />
-    <Compile Include="Tests\EventTest.cs" />
     <Compile Include="Tests\FileLinkTest.cs" />
     <Compile Include="Tests\FileManagerTest.cs" />
     <Compile Include="Tests\LinkManagerTest.cs" />
-    <Compile Include="Tests\LoggerTest.cs" />
-    <Compile Include="Tests\MessengerTest.cs" />
     <Compile Include="Tests\PermissionsManagerTest.cs" />
-    <Compile Include="Tests\PermissionsTest.cs" />
     <Compile Include="Tests\ReminderTest.cs" />
     <Compile Include="Tests\ReminderManagerTest.cs" />
     <Compile Include="Tests\ReportManagerTest.cs" />
-    <Compile Include="Tests\ReportTest.cs" />
     <Compile Include="Tests\TrackedFileTest.cs" />
     <Compile Include="Tests\LoginManagerTest.cs" />
     <Compile Include="Tests\EventManagerTest.cs" />
     <Compile Include="Tests\UserServiceTest.cs" />
-    <Compile Include="Tests\UserTest.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -170,5 +170,10 @@ namespace FileAid.GUI
                 Messenger.ShowDbMsg();
             }
         }
+
+        private void btnReprot_Click(object sender, EventArgs e) {
+            Messenger.Show("Placeholder for FileLinks report", caption);
+            // Log report run
+        }
     }
 }

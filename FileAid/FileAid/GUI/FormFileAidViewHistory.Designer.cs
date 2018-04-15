@@ -37,6 +37,8 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblSelectedFile = new System.Windows.Forms.Label();
             this.lblFilename = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -115,11 +117,43 @@
             this.lblFilename.TabIndex = 2;
             this.lblFilename.Text = "label1";
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(435, 413);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(113, 34);
+            this.btnClose.TabIndex = 6;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Location = new System.Drawing.Point(318, 413);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(113, 34);
+            this.btnReport.TabIndex = 7;
+            this.btnReport.Text = "Print Report";
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // FormFileAidViewHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(867, 402);
+            this.ClientSize = new System.Drawing.Size(867, 472);
+            this.Controls.Add(this.btnReport);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblFilename);
             this.Controls.Add(this.lblSelectedFile);
             this.Controls.Add(this.ViewHistorylistView);
@@ -144,6 +178,8 @@
         private System.Windows.Forms.Label lblFilename;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnReport;
     }
 }
 

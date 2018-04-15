@@ -42,6 +42,7 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.lblGroupName = new System.Windows.Forms.Label();
+            this.btnReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -161,11 +162,27 @@
             this.lblGroupName.TabIndex = 2;
             this.lblGroupName.Text = "label2";
             // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Location = new System.Drawing.Point(709, 307);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(113, 34);
+            this.btnReport.TabIndex = 6;
+            this.btnReport.Text = "Print Report";
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // FormFileAidViewFiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 433);
+            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.lblGroupName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ViewFileslistView);
@@ -197,6 +214,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblGroupName;
+        private System.Windows.Forms.Button btnReport;
     }
 }
 

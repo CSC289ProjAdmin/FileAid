@@ -41,6 +41,7 @@
             this.btnPushToOutlook = new System.Windows.Forms.Button();
             this.TicklerstoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnViewFiles = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TicklerslistView
@@ -111,7 +112,7 @@
             this.btnResolved.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnResolved.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResolved.ForeColor = System.Drawing.Color.White;
-            this.btnResolved.Location = new System.Drawing.Point(282, 413);
+            this.btnResolved.Location = new System.Drawing.Point(209, 413);
             this.btnResolved.Margin = new System.Windows.Forms.Padding(2);
             this.btnResolved.Name = "btnResolved";
             this.btnResolved.Size = new System.Drawing.Size(113, 34);
@@ -126,7 +127,7 @@
             this.btnPushToOutlook.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPushToOutlook.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPushToOutlook.ForeColor = System.Drawing.Color.White;
-            this.btnPushToOutlook.Location = new System.Drawing.Point(454, 413);
+            this.btnPushToOutlook.Location = new System.Drawing.Point(364, 413);
             this.btnPushToOutlook.Margin = new System.Windows.Forms.Padding(2);
             this.btnPushToOutlook.Name = "btnPushToOutlook";
             this.btnPushToOutlook.Size = new System.Drawing.Size(113, 34);
@@ -145,7 +146,7 @@
             this.btnViewFiles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnViewFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewFiles.ForeColor = System.Drawing.Color.White;
-            this.btnViewFiles.Location = new System.Drawing.Point(110, 413);
+            this.btnViewFiles.Location = new System.Drawing.Point(54, 413);
             this.btnViewFiles.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewFiles.Name = "btnViewFiles";
             this.btnViewFiles.Size = new System.Drawing.Size(113, 34);
@@ -154,11 +155,27 @@
             this.btnViewFiles.UseVisualStyleBackColor = false;
             this.btnViewFiles.Click += new System.EventHandler(this.btnViewFiles_Click);
             // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Location = new System.Drawing.Point(519, 413);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(113, 34);
+            this.btnReport.TabIndex = 5;
+            this.btnReport.Text = "Print Report";
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // FormFileAidTicklers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 523);
+            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnViewFiles);
             this.Controls.Add(this.btnPushToOutlook);
             this.Controls.Add(this.btnResolved);
@@ -188,6 +205,7 @@
         private System.Windows.Forms.ToolTip TicklerstoolTip;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Button btnViewFiles;
+        private System.Windows.Forms.Button btnReport;
     }
 }
 
