@@ -127,5 +127,16 @@ namespace FileAid.DAL {
             bool wasChanged = (modifiedRows == 1);
             return wasChanged;
         }
+
+        public static bool ClearResetFlag(int userID) {
+            if (userID <= 0) return false; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@UserID", userID));
+            string update = "Update Users Set bNeedsPasswordReset = 0, dUserUpdated = GetDate() " +
+                "Where UserID = @UserID And dUserDeleted Is Null";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
+            bool wasChanged = (modifiedRows == 1);
+            return wasChanged;
+        }
     }
 }

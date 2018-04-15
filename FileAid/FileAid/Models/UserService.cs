@@ -93,5 +93,10 @@ namespace FileAid.Models {
             if (hasLength && hasDigit && hasCap && hasSymbol) isValid = true;
             return isValid;
         }
+
+        public static bool ClearResetFlag(User u) {
+            bool wasCleared = DAL.UserServiceDAL.ClearResetFlag(u.UserID);
+            return wasCleared;
+        }
     }
 }

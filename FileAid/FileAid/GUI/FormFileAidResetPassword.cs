@@ -42,52 +42,55 @@ namespace FileAid.GUI
                 txtCurrentPassword.Focus();
                 return;
             }
+            try {
+                bool currentPassMatches = UserService.VerifyCredentials(loggedUser, currPass);
+                if (!currentPassMatches) {
+                    lblErrorMsg.Text = "Current password entered is incorrect.";
+                    txtCurrentPassword.Focus();
+                    return;
+                }
 
-            bool currentPassMatches = UserService.VerifyCredentials(loggedUser, currPass);
-            if (!currentPassMatches) {
-                lblErrorMsg.Text = "Current password entered is incorrect.";
-                txtCurrentPassword.Focus();
-                return;
+                bool newPasswordsMatch = (newPass == rptPass);
+                if (!newPasswordsMatch) {
+                    lblErrorMsg.Text = "New password fields must match.";
+                    txtNewPassword.Focus();
+                    return;
+                }
+
+                bool isDifferentPassword = (newPass != currPass);
+                if (!isDifferentPassword) {
+                    lblErrorMsg.Text = "New password must be different from current password.";
+                    txtNewPassword.Focus();
+                    return;
+                }
+
+                bool isValidPassword = UserService.VerifyPasswordRequirements(newPass);
+                if (!isValidPassword) {
+                    lblErrorMsg.Text = "New password does neet meet password rules:\n" +
+                        "8+ characters, 1+ digit, 1+ uppercase, 1+ symbol in *&%$#@";
+                    txtNewPassword.Focus();
+                    return;
+                }
+
+                lblErrorMsg.Text = "";
+
+                // Set new password
+                bool wasChanged = UserService.ChangePassword(loggedUser, newPass);
+                if (wasChanged) {
+                    Messenger.Show($"{loggedUser.Username} password changed.", caption);
+                    LogPasswordChange();
+
+                    // Change reset flag
+                    UserService.ClearResetFlag(loggedUser);
+                } else {
+                    Messenger.Show("Password was NOT changed.", caption);
+                }
+                DialogResult = DialogResult.OK;
+                Close();
             }
-
-            bool newPasswordsMatch = (newPass == rptPass);
-            if (!newPasswordsMatch) {
-                lblErrorMsg.Text = "New password fields must match.";
-                txtNewPassword.Focus();
-                return;
+            catch (SqlException) {
+                Messenger.ShowDbMsg();
             }
-
-            bool isDifferentPassword = (newPass != currPass);
-            if (!isDifferentPassword) {
-                lblErrorMsg.Text = "New password must be different from current password.";
-                txtNewPassword.Focus();
-                return;
-            }
-
-            bool isValidPassword = UserService.VerifyPasswordRequirements(newPass);
-            if (!isValidPassword) {
-                lblErrorMsg.Text = "New password does neet meet password rules:\n" +
-                    "8+ characters, 1+ digit, 1+ uppercase, 1+ symbol in *&%$#@";
-                txtNewPassword.Focus();
-                return;
-            }
-
-            lblErrorMsg.Text = "";
-
-            // Set new password
-            bool wasChanged = UserService.ChangePassword(loggedUser, newPass);
-            if (wasChanged) {
-                Messenger.Show($"{loggedUser.Username} password changed.", caption);
-                LogPasswordChange();
-
-                // Change reset flag
-
-            } else {
-                Messenger.Show("Password was NOT changed.", caption);
-            }
-
-            DialogResult = DialogResult.OK;
-            Close();
         }
 
         private void LogPasswordChange() {
