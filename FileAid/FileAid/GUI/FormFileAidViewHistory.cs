@@ -36,10 +36,12 @@ namespace FileAid.GUI
                 List<Event> history = selectedFile.GetHistory();
                 if (history == null) return; // No history in system for selected file
                 foreach (var ev in history) {
-                    string[] evDetails = new string[3];
+                    string[] evDetails = new string[5];
                     evDetails[0] = ev.OccurredOn.ToString();
                     evDetails[1] = ev.EventTypeID.ToString();
                     evDetails[2] = ev.Description;
+                    evDetails[3] = ev.Initial;
+                    evDetails[4] = ev.New;
                     ListViewItem row = new ListViewItem(evDetails);
                     ViewHistorylistView.Items.Add(row);
                 }

@@ -39,8 +39,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -50,12 +50,12 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(210, 6);
+            this.lblMainInfo.Location = new System.Drawing.Point(286, 6);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(424, 26);
+            this.lblMainInfo.Size = new System.Drawing.Size(272, 26);
             this.lblMainInfo.TabIndex = 1;
-            this.lblMainInfo.Text = "Welcome to File Aid Add Link Window.";
+            this.lblMainInfo.Text = "FileAid Add Link / Group";
             // 
             // lblMemo
             // 
@@ -146,17 +146,17 @@
             this.columnHeader3.Text = "Path";
             this.columnHeader3.Width = 250;
             // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Date Modified";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader4.Width = 130;
-            // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Size";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader5.Width = 90;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Date Modified";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader4.Width = 130;
             // 
             // columnHeader6
             // 
@@ -187,7 +187,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidLink";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FileAidLink";
+            this.Text = "FileAid Add Link";
             this.Load += new System.EventHandler(this.FormFileAidLink_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

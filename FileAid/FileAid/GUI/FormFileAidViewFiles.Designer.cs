@@ -49,12 +49,12 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(202, 6);
+            this.lblMainInfo.Location = new System.Drawing.Point(312, 6);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(441, 26);
+            this.lblMainInfo.Size = new System.Drawing.Size(221, 26);
             this.lblMainInfo.TabIndex = 1;
-            this.lblMainInfo.Text = "Welcome to File Aid View Files Window.";
+            this.lblMainInfo.Text = "FileAid Linked Files";
             // 
             // btnClose
             // 
@@ -175,7 +175,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidViewFiles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FileAidLink";
+            this.Text = "FileAid Linked Files";
             this.Load += new System.EventHandler(this.FormFileAidViewFiles_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

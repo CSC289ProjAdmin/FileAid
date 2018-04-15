@@ -54,12 +54,12 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(195, 18);
+            this.lblMainInfo.Location = new System.Drawing.Point(290, 18);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(434, 26);
+            this.lblMainInfo.Size = new System.Drawing.Size(245, 26);
             this.lblMainInfo.TabIndex = 1;
-            this.lblMainInfo.Text = "Welcome to File Aid Reminder Window.";
+            this.lblMainInfo.Text = "FileAid Add Reminder";
             // 
             // lblReminder
             // 
@@ -237,7 +237,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidReminder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FileAidReminders";
+            this.Text = "FileAid Add Reminder";
             this.Load += new System.EventHandler(this.FormFileAidReminder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

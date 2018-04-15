@@ -98,12 +98,12 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(247, 12);
+            this.lblMainInfo.Location = new System.Drawing.Point(183, 12);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(182, 26);
+            this.lblMainInfo.Size = new System.Drawing.Size(311, 26);
             this.lblMainInfo.TabIndex = 2;
-            this.lblMainInfo.Text = "FileAid Ticklers ";
+            this.lblMainInfo.Text = "FileAid Reminders / Ticklers";
             // 
             // btnResolved
             // 
@@ -167,7 +167,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidTicklers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FileAid Ticklers";
+            this.Text = "FileAid Reminders";
             this.Load += new System.EventHandler(this.FormFileAidTicklers_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
