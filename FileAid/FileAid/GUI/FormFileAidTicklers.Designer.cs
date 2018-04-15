@@ -58,7 +58,7 @@
             this.TicklerslistView.Margin = new System.Windows.Forms.Padding(2);
             this.TicklerslistView.Name = "TicklerslistView";
             this.TicklerslistView.Size = new System.Drawing.Size(580, 310);
-            this.TicklerslistView.TabIndex = 0;
+            this.TicklerslistView.TabIndex = 1;
             this.TicklerslistView.UseCompatibleStateImageBehavior = false;
             this.TicklerslistView.View = System.Windows.Forms.View.Details;
             // 
@@ -102,7 +102,7 @@
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(311, 26);
-            this.lblMainInfo.TabIndex = 2;
+            this.lblMainInfo.TabIndex = 0;
             this.lblMainInfo.Text = "FileAid Reminders / Ticklers";
             // 
             // btnResolved
@@ -115,7 +115,7 @@
             this.btnResolved.Margin = new System.Windows.Forms.Padding(2);
             this.btnResolved.Name = "btnResolved";
             this.btnResolved.Size = new System.Drawing.Size(113, 34);
-            this.btnResolved.TabIndex = 11;
+            this.btnResolved.TabIndex = 3;
             this.btnResolved.Text = "Mark as Resolved";
             this.btnResolved.UseVisualStyleBackColor = false;
             this.btnResolved.Click += new System.EventHandler(this.btnResolved_Click);
@@ -130,7 +130,7 @@
             this.btnPushToOutlook.Margin = new System.Windows.Forms.Padding(2);
             this.btnPushToOutlook.Name = "btnPushToOutlook";
             this.btnPushToOutlook.Size = new System.Drawing.Size(113, 34);
-            this.btnPushToOutlook.TabIndex = 12;
+            this.btnPushToOutlook.TabIndex = 4;
             this.btnPushToOutlook.Text = "Push to Outlook";
             this.btnPushToOutlook.UseVisualStyleBackColor = false;
             this.btnPushToOutlook.Click += new System.EventHandler(this.btnPushToOutlook_Click);
@@ -149,7 +149,7 @@
             this.btnViewFiles.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewFiles.Name = "btnViewFiles";
             this.btnViewFiles.Size = new System.Drawing.Size(113, 34);
-            this.btnViewFiles.TabIndex = 13;
+            this.btnViewFiles.TabIndex = 2;
             this.btnViewFiles.Text = "View Files";
             this.btnViewFiles.UseVisualStyleBackColor = false;
             this.btnViewFiles.Click += new System.EventHandler(this.btnViewFiles_Click);

@@ -61,7 +61,7 @@
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(231, 26);
-            this.lblMainInfo.TabIndex = 2;
+            this.lblMainInfo.TabIndex = 0;
             this.lblMainInfo.Text = "FileAid Guest Rights";
             // 
             // AdminPasscheckBox
@@ -73,7 +73,7 @@
             this.AdminPasscheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.AdminPasscheckBox.Name = "AdminPasscheckBox";
             this.AdminPasscheckBox.Size = new System.Drawing.Size(189, 19);
-            this.AdminPasscheckBox.TabIndex = 3;
+            this.AdminPasscheckBox.TabIndex = 10;
             this.AdminPasscheckBox.Text = "Change Admin Password ";
             this.PermissiontoolTip.SetToolTip(this.AdminPasscheckBox, "Check the CheckBox");
             this.AdminPasscheckBox.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             this.UserPasscheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.UserPasscheckBox.Name = "UserPasscheckBox";
             this.UserPasscheckBox.Size = new System.Drawing.Size(175, 19);
-            this.UserPasscheckBox.TabIndex = 4;
+            this.UserPasscheckBox.TabIndex = 11;
             this.UserPasscheckBox.Text = "Change User Password";
             this.UserPasscheckBox.UseVisualStyleBackColor = true;
             // 
@@ -105,7 +105,7 @@
             this.GuestPasscheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.GuestPasscheckBox.Name = "GuestPasscheckBox";
             this.GuestPasscheckBox.Size = new System.Drawing.Size(182, 19);
-            this.GuestPasscheckBox.TabIndex = 6;
+            this.GuestPasscheckBox.TabIndex = 12;
             this.GuestPasscheckBox.Text = "Change Guest Password";
             this.GuestPasscheckBox.UseVisualStyleBackColor = true;
             // 
@@ -118,7 +118,7 @@
             this.EnableUsercheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.EnableUsercheckBox.Name = "EnableUsercheckBox";
             this.EnableUsercheckBox.Size = new System.Drawing.Size(105, 19);
-            this.EnableUsercheckBox.TabIndex = 7;
+            this.EnableUsercheckBox.TabIndex = 8;
             this.EnableUsercheckBox.Text = "Enable User";
             this.EnableUsercheckBox.UseVisualStyleBackColor = true;
             // 
@@ -131,7 +131,7 @@
             this.EnableGuestcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.EnableGuestcheckBox.Name = "EnableGuestcheckBox";
             this.EnableGuestcheckBox.Size = new System.Drawing.Size(112, 19);
-            this.EnableGuestcheckBox.TabIndex = 8;
+            this.EnableGuestcheckBox.TabIndex = 9;
             this.EnableGuestcheckBox.Text = "Enable Guest";
             this.EnableGuestcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -144,7 +144,7 @@
             this.ResetUsercheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.ResetUsercheckBox.Name = "ResetUsercheckBox";
             this.ResetUsercheckBox.Size = new System.Drawing.Size(163, 19);
-            this.ResetUsercheckBox.TabIndex = 9;
+            this.ResetUsercheckBox.TabIndex = 13;
             this.ResetUsercheckBox.Text = "Reset User Password";
             this.ResetUsercheckBox.UseVisualStyleBackColor = true;
             // 
@@ -157,7 +157,7 @@
             this.ResetGuestcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.ResetGuestcheckBox.Name = "ResetGuestcheckBox";
             this.ResetGuestcheckBox.Size = new System.Drawing.Size(170, 19);
-            this.ResetGuestcheckBox.TabIndex = 10;
+            this.ResetGuestcheckBox.TabIndex = 14;
             this.ResetGuestcheckBox.Text = "Reset Guest Password";
             this.ResetGuestcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -170,7 +170,7 @@
             this.UnlockUsercheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.UnlockUsercheckBox.Name = "UnlockUsercheckBox";
             this.UnlockUsercheckBox.Size = new System.Drawing.Size(104, 19);
-            this.UnlockUsercheckBox.TabIndex = 11;
+            this.UnlockUsercheckBox.TabIndex = 6;
             this.UnlockUsercheckBox.Text = "Unlock User";
             this.UnlockUsercheckBox.UseVisualStyleBackColor = true;
             // 
@@ -183,7 +183,7 @@
             this.UnlockGuestcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.UnlockGuestcheckBox.Name = "UnlockGuestcheckBox";
             this.UnlockGuestcheckBox.Size = new System.Drawing.Size(111, 19);
-            this.UnlockGuestcheckBox.TabIndex = 12;
+            this.UnlockGuestcheckBox.TabIndex = 7;
             this.UnlockGuestcheckBox.Text = "Unlock Guest";
             this.UnlockGuestcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -196,7 +196,7 @@
             this.RestrictGuestcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.RestrictGuestcheckBox.Name = "RestrictGuestcheckBox";
             this.RestrictGuestcheckBox.Size = new System.Drawing.Size(137, 19);
-            this.RestrictGuestcheckBox.TabIndex = 13;
+            this.RestrictGuestcheckBox.TabIndex = 4;
             this.RestrictGuestcheckBox.Text = "Edit Guest Rights";
             this.RestrictGuestcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -209,7 +209,7 @@
             this.ResetDBcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.ResetDBcheckBox.Name = "ResetDBcheckBox";
             this.ResetDBcheckBox.Size = new System.Drawing.Size(128, 19);
-            this.ResetDBcheckBox.TabIndex = 14;
+            this.ResetDBcheckBox.TabIndex = 16;
             this.ResetDBcheckBox.Text = "Reset Database";
             this.ResetDBcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -235,7 +235,7 @@
             this.RestoreDBcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.RestoreDBcheckBox.Name = "RestoreDBcheckBox";
             this.RestoreDBcheckBox.Size = new System.Drawing.Size(141, 19);
-            this.RestoreDBcheckBox.TabIndex = 16;
+            this.RestoreDBcheckBox.TabIndex = 17;
             this.RestoreDBcheckBox.Text = "Restore Database";
             this.RestoreDBcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -248,7 +248,7 @@
             this.BatchScancheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.BatchScancheckBox.Name = "BatchScancheckBox";
             this.BatchScancheckBox.Size = new System.Drawing.Size(135, 19);
-            this.BatchScancheckBox.TabIndex = 17;
+            this.BatchScancheckBox.TabIndex = 1;
             this.BatchScancheckBox.Text = "Run Batch Scans";
             this.BatchScancheckBox.UseVisualStyleBackColor = true;
             // 
@@ -261,7 +261,7 @@
             this.ProgramSetcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.ProgramSetcheckBox.Name = "ProgramSetcheckBox";
             this.ProgramSetcheckBox.Size = new System.Drawing.Size(122, 19);
-            this.ProgramSetcheckBox.TabIndex = 18;
+            this.ProgramSetcheckBox.TabIndex = 2;
             this.ProgramSetcheckBox.Text = "Program Setup";
             this.ProgramSetcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -274,7 +274,7 @@
             this.LoginMancheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.LoginMancheckBox.Name = "LoginMancheckBox";
             this.LoginMancheckBox.Size = new System.Drawing.Size(144, 19);
-            this.LoginMancheckBox.TabIndex = 19;
+            this.LoginMancheckBox.TabIndex = 3;
             this.LoginMancheckBox.Text = "User Management";
             this.LoginMancheckBox.UseVisualStyleBackColor = true;
             // 
@@ -287,7 +287,7 @@
             this.DBMancheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.DBMancheckBox.Name = "DBMancheckBox";
             this.DBMancheckBox.Size = new System.Drawing.Size(175, 19);
-            this.DBMancheckBox.TabIndex = 20;
+            this.DBMancheckBox.TabIndex = 5;
             this.DBMancheckBox.Text = "Database Management";
             this.DBMancheckBox.UseVisualStyleBackColor = true;
             // 
@@ -301,7 +301,7 @@
             this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(133, 32);
-            this.btnSaveChanges.TabIndex = 21;
+            this.btnSaveChanges.TabIndex = 18;
             this.btnSaveChanges.Text = "Save Changes";
             this.btnSaveChanges.UseVisualStyleBackColor = false;
             this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
@@ -316,7 +316,7 @@
             this.btnPerCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnPerCancel.Name = "btnPerCancel";
             this.btnPerCancel.Size = new System.Drawing.Size(133, 32);
-            this.btnPerCancel.TabIndex = 22;
+            this.btnPerCancel.TabIndex = 19;
             this.btnPerCancel.Text = "Cancel";
             this.btnPerCancel.UseVisualStyleBackColor = false;
             this.btnPerCancel.Click += new System.EventHandler(this.btnPerCancel_Click);

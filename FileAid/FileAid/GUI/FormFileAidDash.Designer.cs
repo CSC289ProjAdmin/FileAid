@@ -93,7 +93,7 @@
             this.btnReports.Margin = new System.Windows.Forms.Padding(2);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(133, 32);
-            this.btnReports.TabIndex = 2;
+            this.btnReports.TabIndex = 5;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = false;
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
@@ -108,7 +108,7 @@
             this.btnUserMan.Margin = new System.Windows.Forms.Padding(2);
             this.btnUserMan.Name = "btnUserMan";
             this.btnUserMan.Size = new System.Drawing.Size(133, 32);
-            this.btnUserMan.TabIndex = 3;
+            this.btnUserMan.TabIndex = 10;
             this.btnUserMan.Text = "User Management";
             this.btnUserMan.UseVisualStyleBackColor = false;
             this.btnUserMan.Click += new System.EventHandler(this.btnUserMan_Click);
@@ -123,7 +123,7 @@
             this.btnDBMan.Margin = new System.Windows.Forms.Padding(2);
             this.btnDBMan.Name = "btnDBMan";
             this.btnDBMan.Size = new System.Drawing.Size(133, 32);
-            this.btnDBMan.TabIndex = 4;
+            this.btnDBMan.TabIndex = 12;
             this.btnDBMan.Text = "DB Management";
             this.btnDBMan.UseVisualStyleBackColor = false;
             this.btnDBMan.Click += new System.EventHandler(this.btnDBMan_Click);
@@ -138,7 +138,7 @@
             this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(133, 32);
-            this.btnSettings.TabIndex = 5;
+            this.btnSettings.TabIndex = 9;
             this.btnSettings.Text = "Program Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
@@ -153,7 +153,7 @@
             this.btnLinks.Margin = new System.Windows.Forms.Padding(2);
             this.btnLinks.Name = "btnLinks";
             this.btnLinks.Size = new System.Drawing.Size(133, 32);
-            this.btnLinks.TabIndex = 6;
+            this.btnLinks.TabIndex = 2;
             this.btnLinks.Text = "Links / Groups";
             this.btnLinks.UseVisualStyleBackColor = false;
             this.btnLinks.Click += new System.EventHandler(this.btnLinks_Click);
@@ -168,7 +168,7 @@
             this.btnLogEvents.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogEvents.Name = "btnLogEvents";
             this.btnLogEvents.Size = new System.Drawing.Size(133, 32);
-            this.btnLogEvents.TabIndex = 7;
+            this.btnLogEvents.TabIndex = 4;
             this.btnLogEvents.Text = "Event History";
             this.btnLogEvents.UseVisualStyleBackColor = false;
             this.btnLogEvents.Click += new System.EventHandler(this.btnLogEvents_Click);
@@ -183,7 +183,7 @@
             this.btnViewTick.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewTick.Name = "btnViewTick";
             this.btnViewTick.Size = new System.Drawing.Size(133, 32);
-            this.btnViewTick.TabIndex = 8;
+            this.btnViewTick.TabIndex = 3;
             this.btnViewTick.Text = "Reminders";
             this.btnViewTick.UseVisualStyleBackColor = false;
             this.btnViewTick.Click += new System.EventHandler(this.btnViewTick_Click);
@@ -198,7 +198,7 @@
             this.btnUpdateMode.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateMode.Name = "btnUpdateMode";
             this.btnUpdateMode.Size = new System.Drawing.Size(133, 32);
-            this.btnUpdateMode.TabIndex = 9;
+            this.btnUpdateMode.TabIndex = 7;
             this.btnUpdateMode.Text = "Update Mode";
             this.btnUpdateMode.UseVisualStyleBackColor = false;
             this.btnUpdateMode.Click += new System.EventHandler(this.btnUpdateMode_Click);
@@ -213,7 +213,7 @@
             this.btnGuestPerms.Margin = new System.Windows.Forms.Padding(1);
             this.btnGuestPerms.Name = "btnGuestPerms";
             this.btnGuestPerms.Size = new System.Drawing.Size(133, 32);
-            this.btnGuestPerms.TabIndex = 10;
+            this.btnGuestPerms.TabIndex = 11;
             this.btnGuestPerms.Text = "Guest Rights";
             this.btnGuestPerms.UseVisualStyleBackColor = false;
             this.btnGuestPerms.Click += new System.EventHandler(this.btnGuestPerms_Click);
@@ -228,7 +228,7 @@
             this.btnBatchScan.Margin = new System.Windows.Forms.Padding(2);
             this.btnBatchScan.Name = "btnBatchScan";
             this.btnBatchScan.Size = new System.Drawing.Size(133, 32);
-            this.btnBatchScan.TabIndex = 11;
+            this.btnBatchScan.TabIndex = 6;
             this.btnBatchScan.Text = "Manual Scan";
             this.btnBatchScan.UseVisualStyleBackColor = false;
             this.btnBatchScan.Click += new System.EventHandler(this.btnBatchScan_Click);
@@ -286,7 +286,7 @@
             this.DashboardlistView.Margin = new System.Windows.Forms.Padding(2);
             this.DashboardlistView.Name = "DashboardlistView";
             this.DashboardlistView.Size = new System.Drawing.Size(629, 322);
-            this.DashboardlistView.TabIndex = 12;
+            this.DashboardlistView.TabIndex = 13;
             this.DashboardlistView.UseCompatibleStateImageBehavior = false;
             this.DashboardlistView.View = System.Windows.Forms.View.Details;
             // 
@@ -314,7 +314,7 @@
             this.btnAboutFileAid.Margin = new System.Windows.Forms.Padding(2);
             this.btnAboutFileAid.Name = "btnAboutFileAid";
             this.btnAboutFileAid.Size = new System.Drawing.Size(133, 32);
-            this.btnAboutFileAid.TabIndex = 13;
+            this.btnAboutFileAid.TabIndex = 8;
             this.btnAboutFileAid.Text = "About FileAid";
             this.btnAboutFileAid.UseVisualStyleBackColor = false;
             this.btnAboutFileAid.Click += new System.EventHandler(this.btnAboutFileAid_Click);

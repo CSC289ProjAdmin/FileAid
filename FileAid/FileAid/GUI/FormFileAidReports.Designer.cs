@@ -46,7 +46,7 @@
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(176, 26);
-            this.lblMainInfo.TabIndex = 3;
+            this.lblMainInfo.TabIndex = 0;
             this.lblMainInfo.Text = "FileAid Reports";
             // 
             // ReportslistView
@@ -61,7 +61,7 @@
             this.ReportslistView.Margin = new System.Windows.Forms.Padding(2);
             this.ReportslistView.Name = "ReportslistView";
             this.ReportslistView.Size = new System.Drawing.Size(519, 313);
-            this.ReportslistView.TabIndex = 4;
+            this.ReportslistView.TabIndex = 1;
             this.ReportslistView.UseCompatibleStateImageBehavior = false;
             this.ReportslistView.View = System.Windows.Forms.View.Details;
             // 
@@ -85,7 +85,7 @@
             this.btnRunReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnRunReport.Name = "btnRunReport";
             this.btnRunReport.Size = new System.Drawing.Size(113, 34);
-            this.btnRunReport.TabIndex = 11;
+            this.btnRunReport.TabIndex = 2;
             this.btnRunReport.Text = "Run Report";
             this.btnRunReport.UseVisualStyleBackColor = false;
             this.btnRunReport.Click += new System.EventHandler(this.btnRunReport_Click);

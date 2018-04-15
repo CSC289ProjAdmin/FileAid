@@ -56,7 +56,7 @@
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(243, 26);
-            this.lblMainInfo.TabIndex = 1;
+            this.lblMainInfo.TabIndex = 0;
             this.lblMainInfo.Text = "File Aid Event History";
             // 
             // EventslistView
@@ -73,7 +73,7 @@
             this.EventslistView.Margin = new System.Windows.Forms.Padding(2);
             this.EventslistView.Name = "EventslistView";
             this.EventslistView.Size = new System.Drawing.Size(797, 316);
-            this.EventslistView.TabIndex = 2;
+            this.EventslistView.TabIndex = 10;
             this.EventslistView.UseCompatibleStateImageBehavior = false;
             this.EventslistView.View = System.Windows.Forms.View.Details;
             // 
@@ -107,7 +107,7 @@
             this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(113, 34);
-            this.btnReset.TabIndex = 9;
+            this.btnReset.TabIndex = 8;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -122,7 +122,7 @@
             this.btnEventsReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnEventsReport.Name = "btnEventsReport";
             this.btnEventsReport.Size = new System.Drawing.Size(113, 34);
-            this.btnEventsReport.TabIndex = 10;
+            this.btnEventsReport.TabIndex = 9;
             this.btnEventsReport.Text = "Print Report";
             this.btnEventsReport.UseVisualStyleBackColor = false;
             this.btnEventsReport.Click += new System.EventHandler(this.btnEventsReport_Click);
@@ -137,7 +137,7 @@
             this.btnEventsSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnEventsSearch.Name = "btnEventsSearch";
             this.btnEventsSearch.Size = new System.Drawing.Size(113, 34);
-            this.btnEventsSearch.TabIndex = 11;
+            this.btnEventsSearch.TabIndex = 7;
             this.btnEventsSearch.Text = "Search";
             this.btnEventsSearch.UseVisualStyleBackColor = false;
             this.btnEventsSearch.Click += new System.EventHandler(this.btnEventsSearch_Click);
@@ -151,7 +151,7 @@
             this.lblEventsSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEventsSearch.Name = "lblEventsSearch";
             this.lblEventsSearch.Size = new System.Drawing.Size(56, 15);
-            this.lblEventsSearch.TabIndex = 12;
+            this.lblEventsSearch.TabIndex = 5;
             this.lblEventsSearch.Text = "Search:";
             // 
             // txtWild
@@ -160,7 +160,7 @@
             this.txtWild.Margin = new System.Windows.Forms.Padding(2);
             this.txtWild.Name = "txtWild";
             this.txtWild.Size = new System.Drawing.Size(197, 20);
-            this.txtWild.TabIndex = 18;
+            this.txtWild.TabIndex = 6;
             // 
             // EventstoolTip
             // 
@@ -174,7 +174,7 @@
             this.EventsStartdateTimePicker.Name = "EventsStartdateTimePicker";
             this.EventsStartdateTimePicker.ShowUpDown = true;
             this.EventsStartdateTimePicker.Size = new System.Drawing.Size(84, 20);
-            this.EventsStartdateTimePicker.TabIndex = 19;
+            this.EventsStartdateTimePicker.TabIndex = 2;
             // 
             // EventsEnddateTimePicker
             // 
@@ -184,7 +184,7 @@
             this.EventsEnddateTimePicker.Name = "EventsEnddateTimePicker";
             this.EventsEnddateTimePicker.ShowUpDown = true;
             this.EventsEnddateTimePicker.Size = new System.Drawing.Size(84, 20);
-            this.EventsEnddateTimePicker.TabIndex = 20;
+            this.EventsEnddateTimePicker.TabIndex = 4;
             // 
             // lblStart
             // 
@@ -195,7 +195,7 @@
             this.lblStart.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStart.Name = "lblStart";
             this.lblStart.Size = new System.Drawing.Size(41, 15);
-            this.lblStart.TabIndex = 21;
+            this.lblStart.TabIndex = 1;
             this.lblStart.Text = "Start:";
             // 
             // lblEnd
@@ -207,7 +207,7 @@
             this.lblEnd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEnd.Name = "lblEnd";
             this.lblEnd.Size = new System.Drawing.Size(36, 15);
-            this.lblEnd.TabIndex = 22;
+            this.lblEnd.TabIndex = 3;
             this.lblEnd.Text = "End:";
             // 
             // FormFileAidEvents

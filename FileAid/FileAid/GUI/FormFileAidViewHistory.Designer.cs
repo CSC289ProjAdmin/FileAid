@@ -33,10 +33,10 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lblSelectedFile = new System.Windows.Forms.Label();
-            this.lblFilename = new System.Windows.Forms.Label();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblSelectedFile = new System.Windows.Forms.Label();
+            this.lblFilename = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -48,7 +48,7 @@
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(214, 26);
-            this.lblMainInfo.TabIndex = 2;
+            this.lblMainInfo.TabIndex = 0;
             this.lblMainInfo.Text = "FileAid File History";
             // 
             // ViewHistorylistView
@@ -85,26 +85,6 @@
             this.columnHeader2.Text = "Description";
             this.columnHeader2.Width = 300;
             // 
-            // lblSelectedFile
-            // 
-            this.lblSelectedFile.AutoSize = true;
-            this.lblSelectedFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedFile.Location = new System.Drawing.Point(12, 47);
-            this.lblSelectedFile.Name = "lblSelectedFile";
-            this.lblSelectedFile.Size = new System.Drawing.Size(71, 13);
-            this.lblSelectedFile.TabIndex = 4;
-            this.lblSelectedFile.Text = "Selected File:";
-            // 
-            // lblFilename
-            // 
-            this.lblFilename.AutoSize = true;
-            this.lblFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFilename.Location = new System.Drawing.Point(89, 47);
-            this.lblFilename.Name = "lblFilename";
-            this.lblFilename.Size = new System.Drawing.Size(41, 13);
-            this.lblFilename.TabIndex = 5;
-            this.lblFilename.Text = "label1";
-            // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Initial";
@@ -114,6 +94,26 @@
             // 
             this.columnHeader5.Text = "New";
             this.columnHeader5.Width = 140;
+            // 
+            // lblSelectedFile
+            // 
+            this.lblSelectedFile.AutoSize = true;
+            this.lblSelectedFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelectedFile.Location = new System.Drawing.Point(12, 47);
+            this.lblSelectedFile.Name = "lblSelectedFile";
+            this.lblSelectedFile.Size = new System.Drawing.Size(71, 13);
+            this.lblSelectedFile.TabIndex = 1;
+            this.lblSelectedFile.Text = "Selected File:";
+            // 
+            // lblFilename
+            // 
+            this.lblFilename.AutoSize = true;
+            this.lblFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFilename.Location = new System.Drawing.Point(89, 47);
+            this.lblFilename.Name = "lblFilename";
+            this.lblFilename.Size = new System.Drawing.Size(41, 13);
+            this.lblFilename.TabIndex = 2;
+            this.lblFilename.Text = "label1";
             // 
             // FormFileAidViewHistory
             // 

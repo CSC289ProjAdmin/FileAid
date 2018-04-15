@@ -75,7 +75,7 @@
             this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(82, 17);
-            this.lblPassword.TabIndex = 5;
+            this.lblPassword.TabIndex = 3;
             this.lblPassword.Text = "Password:";
             // 
             // txtPassword
@@ -84,7 +84,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(183, 20);
-            this.txtPassword.TabIndex = 6;
+            this.txtPassword.TabIndex = 4;
             // 
             // btnLogin
             // 
@@ -96,7 +96,7 @@
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(133, 32);
-            this.btnLogin.TabIndex = 7;
+            this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -112,7 +112,7 @@
             this.lblErrorMsg.Location = new System.Drawing.Point(-2, 211);
             this.lblErrorMsg.Name = "lblErrorMsg";
             this.lblErrorMsg.Size = new System.Drawing.Size(572, 23);
-            this.lblErrorMsg.TabIndex = 8;
+            this.lblErrorMsg.TabIndex = 6;
             this.lblErrorMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormFileAidLogin

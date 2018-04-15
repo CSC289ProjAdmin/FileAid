@@ -58,7 +58,7 @@
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(277, 26);
-            this.lblMainInfo.TabIndex = 1;
+            this.lblMainInfo.TabIndex = 0;
             this.lblMainInfo.Text = "FileAid Reminder Details";
             // 
             // lblReminder
@@ -70,7 +70,7 @@
             this.lblReminder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblReminder.Name = "lblReminder";
             this.lblReminder.Size = new System.Drawing.Size(71, 15);
-            this.lblReminder.TabIndex = 6;
+            this.lblReminder.TabIndex = 3;
             this.lblReminder.Text = "Due Date:";
             // 
             // ReminderdateTimePicker
@@ -82,7 +82,7 @@
             this.ReminderdateTimePicker.Name = "ReminderdateTimePicker";
             this.ReminderdateTimePicker.ShowUpDown = true;
             this.ReminderdateTimePicker.Size = new System.Drawing.Size(133, 20);
-            this.ReminderdateTimePicker.TabIndex = 7;
+            this.ReminderdateTimePicker.TabIndex = 4;
             // 
             // lblDescription
             // 
@@ -93,7 +93,7 @@
             this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(150, 15);
-            this.lblDescription.TabIndex = 8;
+            this.lblDescription.TabIndex = 7;
             this.lblDescription.Text = "Description (optional):";
             // 
             // txtDescription
@@ -102,7 +102,7 @@
             this.txtDescription.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(279, 20);
-            this.txtDescription.TabIndex = 9;
+            this.txtDescription.TabIndex = 8;
             // 
             // btnRemoveFile
             // 
@@ -114,7 +114,7 @@
             this.btnRemoveFile.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveFile.Name = "btnRemoveFile";
             this.btnRemoveFile.Size = new System.Drawing.Size(113, 34);
-            this.btnRemoveFile.TabIndex = 11;
+            this.btnRemoveFile.TabIndex = 9;
             this.btnRemoveFile.Text = "Remove File";
             this.btnRemoveFile.UseVisualStyleBackColor = false;
             this.btnRemoveFile.Click += new System.EventHandler(this.btnRemoveFile_Click);
@@ -129,7 +129,7 @@
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(113, 34);
-            this.btnClose.TabIndex = 13;
+            this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -140,7 +140,7 @@
             this.txtReminderName.Margin = new System.Windows.Forms.Padding(2);
             this.txtReminderName.Name = "txtReminderName";
             this.txtReminderName.Size = new System.Drawing.Size(279, 20);
-            this.txtReminderName.TabIndex = 16;
+            this.txtReminderName.TabIndex = 6;
             // 
             // lblReminderName
             // 
@@ -151,7 +151,7 @@
             this.lblReminderName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblReminderName.Name = "lblReminderName";
             this.lblReminderName.Size = new System.Drawing.Size(116, 15);
-            this.lblReminderName.TabIndex = 17;
+            this.lblReminderName.TabIndex = 5;
             this.lblReminderName.Text = "Reminder Name:";
             // 
             // RemindertoolTip
@@ -175,7 +175,7 @@
             this.ReminderlistView.MultiSelect = false;
             this.ReminderlistView.Name = "ReminderlistView";
             this.ReminderlistView.Size = new System.Drawing.Size(799, 243);
-            this.ReminderlistView.TabIndex = 19;
+            this.ReminderlistView.TabIndex = 2;
             this.ReminderlistView.UseCompatibleStateImageBehavior = false;
             this.ReminderlistView.View = System.Windows.Forms.View.Details;
             // 
@@ -216,7 +216,7 @@
             this.label1.Location = new System.Drawing.Point(11, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 13);
-            this.label1.TabIndex = 20;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Files attached to reminder:";
             // 
             // FormFileAidViewReminder

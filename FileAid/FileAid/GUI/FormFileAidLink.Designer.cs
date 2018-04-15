@@ -54,7 +54,7 @@
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(272, 26);
-            this.lblMainInfo.TabIndex = 1;
+            this.lblMainInfo.TabIndex = 0;
             this.lblMainInfo.Text = "FileAid Add Link / Group";
             // 
             // lblMemo
@@ -66,7 +66,7 @@
             this.lblMemo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMemo.Name = "lblMemo";
             this.lblMemo.Size = new System.Drawing.Size(160, 15);
-            this.lblMemo.TabIndex = 6;
+            this.lblMemo.TabIndex = 1;
             this.lblMemo.Text = "Group Memo (optional):";
             // 
             // btnCancelLink
@@ -79,7 +79,7 @@
             this.btnCancelLink.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelLink.Name = "btnCancelLink";
             this.btnCancelLink.Size = new System.Drawing.Size(113, 34);
-            this.btnCancelLink.TabIndex = 9;
+            this.btnCancelLink.TabIndex = 4;
             this.btnCancelLink.Text = "Cancel";
             this.btnCancelLink.UseVisualStyleBackColor = false;
             this.btnCancelLink.Click += new System.EventHandler(this.btnCancelLink_Click);
@@ -94,7 +94,7 @@
             this.btnAddLink.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddLink.Name = "btnAddLink";
             this.btnAddLink.Size = new System.Drawing.Size(113, 34);
-            this.btnAddLink.TabIndex = 11;
+            this.btnAddLink.TabIndex = 3;
             this.btnAddLink.Text = "Add Link";
             this.btnAddLink.UseVisualStyleBackColor = false;
             this.btnAddLink.Click += new System.EventHandler(this.btnAddLink_Click);
@@ -106,7 +106,7 @@
             this.txtLinkMemo.Margin = new System.Windows.Forms.Padding(2);
             this.txtLinkMemo.Name = "txtLinkMemo";
             this.txtLinkMemo.Size = new System.Drawing.Size(269, 20);
-            this.txtLinkMemo.TabIndex = 12;
+            this.txtLinkMemo.TabIndex = 2;
             // 
             // AddLinktoolTip
             // 
@@ -128,7 +128,7 @@
             this.AddLinklistView.Margin = new System.Windows.Forms.Padding(2);
             this.AddLinklistView.Name = "AddLinklistView";
             this.AddLinklistView.Size = new System.Drawing.Size(799, 243);
-            this.AddLinklistView.TabIndex = 13;
+            this.AddLinklistView.TabIndex = 5;
             this.AddLinklistView.UseCompatibleStateImageBehavior = false;
             this.AddLinklistView.View = System.Windows.Forms.View.Details;
             // 
@@ -169,7 +169,7 @@
             this.label1.Location = new System.Drawing.Point(23, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 14;
+            this.label1.TabIndex = 6;
             this.label1.Text = "Files to link:";
             // 
             // FormFileAidLink

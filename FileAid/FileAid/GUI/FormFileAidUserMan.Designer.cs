@@ -54,7 +54,7 @@
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(323, 26);
-            this.lblMainInfo.TabIndex = 1;
+            this.lblMainInfo.TabIndex = 0;
             this.lblMainInfo.Text = "FileAid Account Management";
             // 
             // txtPassword
@@ -63,7 +63,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(263, 20);
-            this.txtPassword.TabIndex = 12;
+            this.txtPassword.TabIndex = 8;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtRepeatPass
@@ -72,7 +72,7 @@
             this.txtRepeatPass.Margin = new System.Windows.Forms.Padding(2);
             this.txtRepeatPass.Name = "txtRepeatPass";
             this.txtRepeatPass.Size = new System.Drawing.Size(263, 20);
-            this.txtRepeatPass.TabIndex = 13;
+            this.txtRepeatPass.TabIndex = 10;
             this.txtRepeatPass.UseSystemPasswordChar = true;
             // 
             // RolecomboBox
@@ -89,7 +89,7 @@
             this.RolecomboBox.Margin = new System.Windows.Forms.Padding(2);
             this.RolecomboBox.Name = "RolecomboBox";
             this.RolecomboBox.Size = new System.Drawing.Size(237, 24);
-            this.RolecomboBox.TabIndex = 15;
+            this.RolecomboBox.TabIndex = 2;
             this.RolecomboBox.SelectedIndexChanged += new System.EventHandler(this.RolecomboBox_SelectedIndexChanged);
             // 
             // lblPassword
@@ -101,7 +101,7 @@
             this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(141, 15);
-            this.lblPassword.TabIndex = 21;
+            this.lblPassword.TabIndex = 7;
             this.lblPassword.Text = "Password (required):";
             // 
             // lblRepeatPass
@@ -113,7 +113,7 @@
             this.lblRepeatPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRepeatPass.Name = "lblRepeatPass";
             this.lblRepeatPass.Size = new System.Drawing.Size(125, 15);
-            this.lblRepeatPass.TabIndex = 22;
+            this.lblRepeatPass.TabIndex = 9;
             this.lblRepeatPass.Text = "Repeat (required):";
             // 
             // lblRole
@@ -125,7 +125,7 @@
             this.lblRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(61, 15);
-            this.lblRole.TabIndex = 23;
+            this.lblRole.TabIndex = 1;
             this.lblRole.Text = "Account:";
             // 
             // btnLockUnlock
@@ -138,7 +138,7 @@
             this.btnLockUnlock.Margin = new System.Windows.Forms.Padding(2);
             this.btnLockUnlock.Name = "btnLockUnlock";
             this.btnLockUnlock.Size = new System.Drawing.Size(113, 34);
-            this.btnLockUnlock.TabIndex = 24;
+            this.btnLockUnlock.TabIndex = 4;
             this.btnLockUnlock.Text = "Lock/Unlock";
             this.btnLockUnlock.UseVisualStyleBackColor = false;
             this.btnLockUnlock.Click += new System.EventHandler(this.btnLockUnlock_Click);
@@ -153,7 +153,7 @@
             this.btnDisableEnable.Margin = new System.Windows.Forms.Padding(2);
             this.btnDisableEnable.Name = "btnDisableEnable";
             this.btnDisableEnable.Size = new System.Drawing.Size(113, 34);
-            this.btnDisableEnable.TabIndex = 25;
+            this.btnDisableEnable.TabIndex = 6;
             this.btnDisableEnable.Text = "Disable/Enable";
             this.btnDisableEnable.UseVisualStyleBackColor = false;
             this.btnDisableEnable.Click += new System.EventHandler(this.btnDisableEnable_Click);
@@ -168,7 +168,7 @@
             this.btnChangePassword.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(113, 34);
-            this.btnChangePassword.TabIndex = 26;
+            this.btnChangePassword.TabIndex = 11;
             this.btnChangePassword.Text = "Change Password";
             this.btnChangePassword.UseVisualStyleBackColor = false;
             this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
@@ -183,7 +183,7 @@
             this.LockcheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.LockcheckBox.Name = "LockcheckBox";
             this.LockcheckBox.Size = new System.Drawing.Size(106, 19);
-            this.LockcheckBox.TabIndex = 27;
+            this.LockcheckBox.TabIndex = 3;
             this.LockcheckBox.Text = "Locked Out?";
             this.LockcheckBox.UseVisualStyleBackColor = true;
             // 
@@ -197,7 +197,7 @@
             this.DisablecheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.DisablecheckBox.Name = "DisablecheckBox";
             this.DisablecheckBox.Size = new System.Drawing.Size(91, 19);
-            this.DisablecheckBox.TabIndex = 28;
+            this.DisablecheckBox.TabIndex = 5;
             this.DisablecheckBox.Text = "Disabled?";
             this.DisablecheckBox.UseVisualStyleBackColor = true;
             // 
@@ -211,7 +211,7 @@
             this.btnResetPassword.Margin = new System.Windows.Forms.Padding(2);
             this.btnResetPassword.Name = "btnResetPassword";
             this.btnResetPassword.Size = new System.Drawing.Size(113, 34);
-            this.btnResetPassword.TabIndex = 29;
+            this.btnResetPassword.TabIndex = 12;
             this.btnResetPassword.Text = "Reset Password";
             this.btnResetPassword.UseVisualStyleBackColor = false;
             this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);

@@ -51,7 +51,7 @@
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(278, 26);
-            this.lblMainInfo.TabIndex = 1;
+            this.lblMainInfo.TabIndex = 0;
             this.lblMainInfo.Text = "FileAid Program Settings";
             // 
             // btnBrowse
@@ -64,7 +64,7 @@
             this.btnBrowse.Margin = new System.Windows.Forms.Padding(2);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(119, 34);
-            this.btnBrowse.TabIndex = 10;
+            this.btnBrowse.TabIndex = 3;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = false;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -78,7 +78,7 @@
             this.lblPeriodicUpdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPeriodicUpdate.Name = "lblPeriodicUpdate";
             this.lblPeriodicUpdate.Size = new System.Drawing.Size(163, 15);
-            this.lblPeriodicUpdate.TabIndex = 11;
+            this.lblPeriodicUpdate.TabIndex = 4;
             this.lblPeriodicUpdate.Text = "Update Timer (minutes):";
             // 
             // ConfigtoolTip
@@ -91,7 +91,7 @@
             this.txtProgramPath.Margin = new System.Windows.Forms.Padding(2);
             this.txtProgramPath.Name = "txtProgramPath";
             this.txtProgramPath.Size = new System.Drawing.Size(257, 20);
-            this.txtProgramPath.TabIndex = 12;
+            this.txtProgramPath.TabIndex = 2;
             // 
             // btnProSaveChanges
             // 
@@ -103,7 +103,7 @@
             this.btnProSaveChanges.Margin = new System.Windows.Forms.Padding(2);
             this.btnProSaveChanges.Name = "btnProSaveChanges";
             this.btnProSaveChanges.Size = new System.Drawing.Size(119, 34);
-            this.btnProSaveChanges.TabIndex = 14;
+            this.btnProSaveChanges.TabIndex = 7;
             this.btnProSaveChanges.Text = "Save Changes";
             this.btnProSaveChanges.UseVisualStyleBackColor = false;
             this.btnProSaveChanges.Click += new System.EventHandler(this.btnProSaveChanges_Click);
@@ -118,7 +118,7 @@
             this.btnProCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnProCancel.Name = "btnProCancel";
             this.btnProCancel.Size = new System.Drawing.Size(119, 34);
-            this.btnProCancel.TabIndex = 15;
+            this.btnProCancel.TabIndex = 8;
             this.btnProCancel.Text = "Cancel";
             this.btnProCancel.UseVisualStyleBackColor = false;
             this.btnProCancel.Click += new System.EventHandler(this.btnProCancel_Click);
@@ -132,7 +132,7 @@
             this.ProInactivecheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.ProInactivecheckBox.Name = "ProInactivecheckBox";
             this.ProInactivecheckBox.Size = new System.Drawing.Size(211, 19);
-            this.ProInactivecheckBox.TabIndex = 16;
+            this.ProInactivecheckBox.TabIndex = 6;
             this.ProInactivecheckBox.Text = "Show inactive files by default";
             this.ProInactivecheckBox.UseVisualStyleBackColor = true;
             // 
@@ -145,7 +145,7 @@
             this.lblUpdatePath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUpdatePath.Name = "lblUpdatePath";
             this.lblUpdatePath.Size = new System.Drawing.Size(137, 15);
-            this.lblUpdatePath.TabIndex = 17;
+            this.lblUpdatePath.TabIndex = 1;
             this.lblUpdatePath.Text = "Search folder / path:";
             // 
             // PeriodicnumericUpDown
@@ -164,7 +164,7 @@
             0});
             this.PeriodicnumericUpDown.Name = "PeriodicnumericUpDown";
             this.PeriodicnumericUpDown.Size = new System.Drawing.Size(46, 20);
-            this.PeriodicnumericUpDown.TabIndex = 18;
+            this.PeriodicnumericUpDown.TabIndex = 5;
             this.PeriodicnumericUpDown.Value = new decimal(new int[] {
             1,
             0,

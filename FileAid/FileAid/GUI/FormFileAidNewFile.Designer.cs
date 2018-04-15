@@ -58,7 +58,7 @@
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(193, 26);
-            this.lblMainInfo.TabIndex = 1;
+            this.lblMainInfo.TabIndex = 0;
             this.lblMainInfo.Text = "FileAid Add Files";
             // 
             // btnNewSelectFiles
@@ -71,7 +71,7 @@
             this.btnNewSelectFiles.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewSelectFiles.Name = "btnNewSelectFiles";
             this.btnNewSelectFiles.Size = new System.Drawing.Size(113, 34);
-            this.btnNewSelectFiles.TabIndex = 9;
+            this.btnNewSelectFiles.TabIndex = 3;
             this.btnNewSelectFiles.Text = "Select Files";
             this.btnNewSelectFiles.UseVisualStyleBackColor = false;
             this.btnNewSelectFiles.Click += new System.EventHandler(this.btnNewSelectFiles_Click);
@@ -90,7 +90,7 @@
             this.btnAddFiles.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddFiles.Name = "btnAddFiles";
             this.btnAddFiles.Size = new System.Drawing.Size(113, 34);
-            this.btnAddFiles.TabIndex = 23;
+            this.btnAddFiles.TabIndex = 8;
             this.btnAddFiles.Text = "Add Files";
             this.btnAddFiles.UseVisualStyleBackColor = false;
             this.btnAddFiles.Click += new System.EventHandler(this.btnAddFiles_Click);
@@ -105,7 +105,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(113, 34);
-            this.btnCancel.TabIndex = 24;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -128,7 +128,7 @@
             this.AddFilelistView.MultiSelect = false;
             this.AddFilelistView.Name = "AddFilelistView";
             this.AddFilelistView.Size = new System.Drawing.Size(799, 321);
-            this.AddFilelistView.TabIndex = 25;
+            this.AddFilelistView.TabIndex = 2;
             this.AddFilelistView.UseCompatibleStateImageBehavior = false;
             this.AddFilelistView.View = System.Windows.Forms.View.Details;
             // 
@@ -175,7 +175,7 @@
             this.label1.Location = new System.Drawing.Point(11, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 26;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Files To Add:";
             // 
             // btnRemoveFile
@@ -188,7 +188,7 @@
             this.btnRemoveFile.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveFile.Name = "btnRemoveFile";
             this.btnRemoveFile.Size = new System.Drawing.Size(113, 34);
-            this.btnRemoveFile.TabIndex = 27;
+            this.btnRemoveFile.TabIndex = 4;
             this.btnRemoveFile.Text = "Remove File";
             this.btnRemoveFile.UseVisualStyleBackColor = false;
             this.btnRemoveFile.Click += new System.EventHandler(this.btnRemoveFile_Click);
@@ -199,7 +199,7 @@
             this.chkLinkFiles.Location = new System.Drawing.Point(306, 404);
             this.chkLinkFiles.Name = "chkLinkFiles";
             this.chkLinkFiles.Size = new System.Drawing.Size(90, 17);
-            this.chkLinkFiles.TabIndex = 28;
+            this.chkLinkFiles.TabIndex = 5;
             this.chkLinkFiles.Text = "Link new files";
             this.chkLinkFiles.UseVisualStyleBackColor = true;
             // 
@@ -209,7 +209,7 @@
             this.lblLinkMemo.Location = new System.Drawing.Point(402, 405);
             this.lblLinkMemo.Name = "lblLinkMemo";
             this.lblLinkMemo.Size = new System.Drawing.Size(108, 13);
-            this.lblLinkMemo.TabIndex = 29;
+            this.lblLinkMemo.TabIndex = 6;
             this.lblLinkMemo.Text = "Link Memo (optional):";
             // 
             // txtMemo
@@ -217,7 +217,7 @@
             this.txtMemo.Location = new System.Drawing.Point(516, 402);
             this.txtMemo.Name = "txtMemo";
             this.txtMemo.Size = new System.Drawing.Size(294, 20);
-            this.txtMemo.TabIndex = 30;
+            this.txtMemo.TabIndex = 7;
             // 
             // FormFileAidNewFile
             // 
