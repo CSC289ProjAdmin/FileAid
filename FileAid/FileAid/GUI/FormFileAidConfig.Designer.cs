@@ -39,6 +39,7 @@
             this.ProInactivecheckBox = new System.Windows.Forms.CheckBox();
             this.lblUpdatePath = new System.Windows.Forms.Label();
             this.PeriodicnumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.lblFolderMsg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PeriodicnumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,11 +172,22 @@
             0,
             0});
             // 
+            // lblFolderMsg
+            // 
+            this.lblFolderMsg.AutoSize = true;
+            this.lblFolderMsg.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblFolderMsg.Location = new System.Drawing.Point(30, 97);
+            this.lblFolderMsg.Name = "lblFolderMsg";
+            this.lblFolderMsg.Size = new System.Drawing.Size(351, 13);
+            this.lblFolderMsg.TabIndex = 9;
+            this.lblFolderMsg.Text = "This folder will be searched recursively during updates.  Choose carefully.";
+            // 
             // FormFileAidConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 324);
+            this.Controls.Add(this.lblFolderMsg);
             this.Controls.Add(this.PeriodicnumericUpDown);
             this.Controls.Add(this.lblUpdatePath);
             this.Controls.Add(this.ProInactivecheckBox);
@@ -208,6 +220,7 @@
         private System.Windows.Forms.CheckBox ProInactivecheckBox;
         private System.Windows.Forms.Label lblUpdatePath;
         private System.Windows.Forms.NumericUpDown PeriodicnumericUpDown;
+        private System.Windows.Forms.Label lblFolderMsg;
     }
 }
 
