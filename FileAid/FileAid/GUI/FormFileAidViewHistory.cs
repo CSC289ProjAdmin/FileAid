@@ -14,6 +14,7 @@ namespace FileAid.GUI
 {
     public partial class FormFileAidViewHistory : Form
     {
+        private string caption = "File History";
         private TrackedFile selectedFile;
         public FormFileAidViewHistory(TrackedFile tf)
         {
@@ -49,6 +50,15 @@ namespace FileAid.GUI
             catch (SqlException) {
                 Messenger.ShowDbMsg();
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e) {
+            Close();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e) {
+            Messenger.Show("Placeholder for File History report", caption);
+            // Log report run
         }
     }
 }

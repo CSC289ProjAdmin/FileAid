@@ -115,5 +115,10 @@ namespace FileAid.GUI
             bool wasLogged = Logger.Log(ev);
             return wasLogged;
         }
+
+        private void btnReport_Click(object sender, EventArgs e) {
+            Messenger.Show("Placeholder for Linked Files report", caption);
+            // Log report run
+        }
     }
 }

@@ -149,5 +149,10 @@ namespace FileAid.GUI
             Messenger.Show(prompt, caption);
             return false;
         }
+
+        private void btnReport_Click(object sender, EventArgs e) {
+            Messenger.Show("Placeholder for Reminders report.", caption);
+            // Log report run
+        }
     }
 }

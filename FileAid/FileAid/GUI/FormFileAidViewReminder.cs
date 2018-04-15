@@ -118,5 +118,10 @@ namespace FileAid.GUI
             bool wasLogged = Logger.Log(ev);
             return wasLogged;
         }
+
+        private void btnReport_Click(object sender, EventArgs e) {
+            Messenger.Show("Placeholder for Reminder Details report", caption);
+            // Log report run
+        }
     }
 }
