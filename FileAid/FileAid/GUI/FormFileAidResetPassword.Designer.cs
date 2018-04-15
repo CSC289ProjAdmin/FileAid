@@ -57,7 +57,7 @@
             this.lblNewPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNewPassword.Name = "lblNewPassword";
             this.lblNewPassword.Size = new System.Drawing.Size(117, 17);
-            this.lblNewPassword.TabIndex = 1;
+            this.lblNewPassword.TabIndex = 3;
             this.lblNewPassword.Text = "New Password:";
             // 
             // txtNewPassword
@@ -66,7 +66,8 @@
             this.txtNewPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(183, 20);
-            this.txtNewPassword.TabIndex = 2;
+            this.txtNewPassword.TabIndex = 4;
+            this.txtNewPassword.UseSystemPasswordChar = true;
             // 
             // lblCurrentPassword
             // 
@@ -77,7 +78,7 @@
             this.lblCurrentPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCurrentPassword.Name = "lblCurrentPassword";
             this.lblCurrentPassword.Size = new System.Drawing.Size(141, 17);
-            this.lblCurrentPassword.TabIndex = 3;
+            this.lblCurrentPassword.TabIndex = 1;
             this.lblCurrentPassword.Text = "Current Password:";
             // 
             // txtCurrentPassword
@@ -86,7 +87,8 @@
             this.txtCurrentPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtCurrentPassword.Name = "txtCurrentPassword";
             this.txtCurrentPassword.Size = new System.Drawing.Size(183, 20);
-            this.txtCurrentPassword.TabIndex = 4;
+            this.txtCurrentPassword.TabIndex = 2;
+            this.txtCurrentPassword.UseSystemPasswordChar = true;
             // 
             // btnResetPassword
             // 
@@ -98,7 +100,7 @@
             this.btnResetPassword.Margin = new System.Windows.Forms.Padding(2);
             this.btnResetPassword.Name = "btnResetPassword";
             this.btnResetPassword.Size = new System.Drawing.Size(133, 32);
-            this.btnResetPassword.TabIndex = 5;
+            this.btnResetPassword.TabIndex = 8;
             this.btnResetPassword.Text = "Reset Password";
             this.btnResetPassword.UseVisualStyleBackColor = false;
             this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
@@ -113,7 +115,8 @@
             this.txtRepeatPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtRepeatPassword.Name = "txtRepeatPassword";
             this.txtRepeatPassword.Size = new System.Drawing.Size(183, 20);
-            this.txtRepeatPassword.TabIndex = 8;
+            this.txtRepeatPassword.TabIndex = 6;
+            this.txtRepeatPassword.UseSystemPasswordChar = true;
             // 
             // lblRepeatPassword
             // 
@@ -124,7 +127,7 @@
             this.lblRepeatPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRepeatPassword.Name = "lblRepeatPassword";
             this.lblRepeatPassword.Size = new System.Drawing.Size(139, 17);
-            this.lblRepeatPassword.TabIndex = 7;
+            this.lblRepeatPassword.TabIndex = 5;
             this.lblRepeatPassword.Text = "Repeat Password:";
             // 
             // lblErrorMsg
@@ -134,7 +137,7 @@
             this.lblErrorMsg.Location = new System.Drawing.Point(0, 265);
             this.lblErrorMsg.Name = "lblErrorMsg";
             this.lblErrorMsg.Size = new System.Drawing.Size(572, 65);
-            this.lblErrorMsg.TabIndex = 9;
+            this.lblErrorMsg.TabIndex = 7;
             this.lblErrorMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormFileAidResetPassword

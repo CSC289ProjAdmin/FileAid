@@ -14,6 +14,7 @@ namespace FileAid.GUI
 {
     public partial class FormFileAidResetPassword : Form
     {
+        private string caption = "FileAdd Password Reset";
         private User loggedUser;
         public FormFileAidResetPassword(User currentUser)
         {
@@ -73,10 +74,29 @@ namespace FileAid.GUI
 
             lblErrorMsg.Text = "";
 
-            // TODO: Change to password and log
+            // Set new password
+            bool wasChanged = UserService.ChangePassword(loggedUser, newPass);
+            if (wasChanged) {
+                Messenger.Show($"{loggedUser.Username} password changed.", caption);
+                LogPasswordChange();
+
+                // Change reset flag
+
+            } else {
+                Messenger.Show("Password was NOT changed.", caption);
+            }
 
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void LogPasswordChange() {
+            Event ev = new Event();
+            ev.OccurredOn = DateTime.Now;
+            ev.EventTypeID = EventTypes.AccountPasswordChanged;
+            ev.UserID = loggedUser.UserID;
+            ev.Description = $"Account Management: {loggedUser.Username} changed their password during login.";
+            Logger.Log(ev);
         }
 
         private void FormFileAidLogin_Load(object sender, EventArgs e)
@@ -84,6 +104,7 @@ namespace FileAid.GUI
             LogintoolTip.SetToolTip(txtCurrentPassword, "Enter current password");
             LogintoolTip.SetToolTip(txtNewPassword, "Enter new password");
             LogintoolTip.SetToolTip(btnResetPassword, "Reset Password");
+            txtCurrentPassword.Focus();
         }
     }
 }
