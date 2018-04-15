@@ -217,7 +217,7 @@
             this.btnStopTrack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStopTrack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStopTrack.ForeColor = System.Drawing.Color.White;
-            this.btnStopTrack.Location = new System.Drawing.Point(10, 116);
+            this.btnStopTrack.Location = new System.Drawing.Point(10, 415);
             this.btnStopTrack.Margin = new System.Windows.Forms.Padding(2);
             this.btnStopTrack.Name = "btnStopTrack";
             this.btnStopTrack.Size = new System.Drawing.Size(113, 34);
@@ -232,7 +232,7 @@
             this.btnTrack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTrack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrack.ForeColor = System.Drawing.Color.White;
-            this.btnTrack.Location = new System.Drawing.Point(10, 170);
+            this.btnTrack.Location = new System.Drawing.Point(10, 465);
             this.btnTrack.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrack.Name = "btnTrack";
             this.btnTrack.Size = new System.Drawing.Size(113, 34);
@@ -247,7 +247,7 @@
             this.btnAddLink.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddLink.ForeColor = System.Drawing.Color.White;
-            this.btnAddLink.Location = new System.Drawing.Point(10, 221);
+            this.btnAddLink.Location = new System.Drawing.Point(10, 119);
             this.btnAddLink.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddLink.Name = "btnAddLink";
             this.btnAddLink.Size = new System.Drawing.Size(113, 34);
@@ -262,7 +262,7 @@
             this.btnAddReminder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddReminder.ForeColor = System.Drawing.Color.White;
-            this.btnAddReminder.Location = new System.Drawing.Point(10, 274);
+            this.btnAddReminder.Location = new System.Drawing.Point(11, 168);
             this.btnAddReminder.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddReminder.Name = "btnAddReminder";
             this.btnAddReminder.Size = new System.Drawing.Size(113, 34);
@@ -354,7 +354,7 @@
             this.btnViewHistory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnViewHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewHistory.ForeColor = System.Drawing.Color.White;
-            this.btnViewHistory.Location = new System.Drawing.Point(10, 321);
+            this.btnViewHistory.Location = new System.Drawing.Point(10, 242);
             this.btnViewHistory.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewHistory.Name = "btnViewHistory";
             this.btnViewHistory.Size = new System.Drawing.Size(113, 34);
@@ -369,7 +369,7 @@
             this.btnViewLinks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnViewLinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewLinks.ForeColor = System.Drawing.Color.White;
-            this.btnViewLinks.Location = new System.Drawing.Point(10, 368);
+            this.btnViewLinks.Location = new System.Drawing.Point(11, 290);
             this.btnViewLinks.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewLinks.Name = "btnViewLinks";
             this.btnViewLinks.Size = new System.Drawing.Size(113, 34);
@@ -384,7 +384,7 @@
             this.btnViewReminder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnViewReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewReminder.ForeColor = System.Drawing.Color.White;
-            this.btnViewReminder.Location = new System.Drawing.Point(10, 415);
+            this.btnViewReminder.Location = new System.Drawing.Point(10, 338);
             this.btnViewReminder.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewReminder.Name = "btnViewReminder";
             this.btnViewReminder.Size = new System.Drawing.Size(113, 34);
