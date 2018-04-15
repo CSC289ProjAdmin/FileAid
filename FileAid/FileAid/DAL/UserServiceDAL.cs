@@ -12,7 +12,8 @@ namespace FileAid.DAL {
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@Name", username));
             string select = "Select UserID, sUserName As Username, RoleID, iFailures As LoginFailures, " +
-                "dLockedOut As LockedOutOn, dUserDisabled As DisabledOn From Users " +
+                "dLockedOut As LockedOutOn, dUserDisabled As DisabledOn, bNeedsPasswordReset As NeedsPasswordReset " +
+                "From Users " +
                 "Where sUserName = @Name Collate SQL_Latin1_General_CP1_CS_AS And dUserDeleted Is Null;";
             List<User> results = Db.ReadQuery<User>(select, args.ToArray());
             if (results != null) {
@@ -107,7 +108,8 @@ namespace FileAid.DAL {
             if (userID <= 0) return false; // not required but prevents an unnecessary db call
             List<SqlParameter> args = new List<SqlParameter>();
             args.Add(new SqlParameter("@UserID", userID));
-            string update = "Update Users Set sPassword = sDefaultPassword, dUserUpdated = GetDate() " +
+            string update = "Update Users Set sPassword = sDefaultPassword, dUserUpdated = GetDate(), " +
+                "bNeedsPasswordReset = 1 " +
                 "Where UserID = @UserID And dUserDeleted Is Null";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
             bool wasReset = (modifiedRows == 1);
@@ -120,6 +122,17 @@ namespace FileAid.DAL {
             args.Add(new SqlParameter("@UserID", userID));
             args.Add(new SqlParameter("@Password", newPassword));
             string update = "Update Users Set sPassword = @Password, dUserUpdated = GetDate() " +
+                "Where UserID = @UserID And dUserDeleted Is Null";
+            int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
+            bool wasChanged = (modifiedRows == 1);
+            return wasChanged;
+        }
+
+        public static bool ClearResetFlag(int userID) {
+            if (userID <= 0) return false; // not required but prevents an unnecessary db call
+            List<SqlParameter> args = new List<SqlParameter>();
+            args.Add(new SqlParameter("@UserID", userID));
+            string update = "Update Users Set bNeedsPasswordReset = 0, dUserUpdated = GetDate() " +
                 "Where UserID = @UserID And dUserDeleted Is Null";
             int modifiedRows = (int)Db.ExecuteNonQuery(update, args.ToArray());
             bool wasChanged = (modifiedRows == 1);

@@ -41,7 +41,7 @@
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.LockcheckBox = new System.Windows.Forms.CheckBox();
             this.DisablecheckBox = new System.Windows.Forms.CheckBox();
-            this.btnResetPassword = new System.Windows.Forms.Button();
+            this.btnResetAccount = new System.Windows.Forms.Button();
             this.UserMantoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
@@ -201,20 +201,20 @@
             this.DisablecheckBox.Text = "Disabled?";
             this.DisablecheckBox.UseVisualStyleBackColor = true;
             // 
-            // btnResetPassword
+            // btnResetAccount
             // 
-            this.btnResetPassword.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnResetPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnResetPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetPassword.ForeColor = System.Drawing.Color.White;
-            this.btnResetPassword.Location = new System.Drawing.Point(330, 291);
-            this.btnResetPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.btnResetPassword.Name = "btnResetPassword";
-            this.btnResetPassword.Size = new System.Drawing.Size(113, 34);
-            this.btnResetPassword.TabIndex = 12;
-            this.btnResetPassword.Text = "Reset Password";
-            this.btnResetPassword.UseVisualStyleBackColor = false;
-            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
+            this.btnResetAccount.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnResetAccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnResetAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetAccount.ForeColor = System.Drawing.Color.White;
+            this.btnResetAccount.Location = new System.Drawing.Point(330, 291);
+            this.btnResetAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnResetAccount.Name = "btnResetAccount";
+            this.btnResetAccount.Size = new System.Drawing.Size(113, 34);
+            this.btnResetAccount.TabIndex = 12;
+            this.btnResetAccount.Text = "Reset Account";
+            this.btnResetAccount.UseVisualStyleBackColor = false;
+            this.btnResetAccount.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // UserMantoolTip
             // 
@@ -225,7 +225,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 418);
-            this.Controls.Add(this.btnResetPassword);
+            this.Controls.Add(this.btnResetAccount);
             this.Controls.Add(this.DisablecheckBox);
             this.Controls.Add(this.LockcheckBox);
             this.Controls.Add(this.btnChangePassword);
@@ -262,7 +262,7 @@
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.CheckBox LockcheckBox;
         private System.Windows.Forms.CheckBox DisablecheckBox;
-        private System.Windows.Forms.Button btnResetPassword;
+        private System.Windows.Forms.Button btnResetAccount;
         private System.Windows.Forms.ToolTip UserMantoolTip;
     }
 }

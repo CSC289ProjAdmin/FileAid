@@ -177,6 +177,12 @@
     <Compile Include="GUI\FormFileAidReports.Designer.cs">
       <DependentUpon>FormFileAidReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidResetPassword.Designer.cs">
+      <DependentUpon>FormFileAidResetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidRptViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidReports.resx">
       <DependentUpon>FormFileAidReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidResetPassword.resx">
+      <DependentUpon>FormFileAidResetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidRptViewer.resx">
       <DependentUpon>FormFileAidRptViewer.cs</DependentUpon>

@@ -86,6 +86,16 @@ namespace FileAid.GUI
             loggedUser = UserService.Find(username);
             Permissions perms = PermissionsManager.GetPermissionSet(loggedUser.UserID);
 
+            // Check for and initiate password reset
+            bool needsNewPassword = (loggedUser.NeedsPasswordReset);
+            if (needsNewPassword) {
+                FormFileAidResetPassword reset = new FormFileAidResetPassword(loggedUser);
+                if (reset.ShowDialog() != DialogResult.OK) {
+                    Application.Exit();
+                    return;
+                }
+            }
+
             // Disable / Enable buttons according to permission set
             btnBatchScan.Enabled = perms.BatchScan;
             btnUpdateMode.Enabled = perms.BatchScan;
