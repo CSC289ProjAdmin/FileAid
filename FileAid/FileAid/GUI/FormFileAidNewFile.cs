@@ -149,7 +149,8 @@ namespace FileAid.GUI
             Configs settings = ConfigManager.GetConfigs();
 
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.InitialDirectory = (settings == null) ? "C:\\" : settings.MasterPath;
+            bool useMasterPath = (settings != null && System.IO.Directory.Exists(settings.MasterPath));
+            ofd.InitialDirectory = (useMasterPath) ? settings.MasterPath : "C:\\";
             ofd.Filter = extensions.ToString();
             ofd.FilterIndex = 1;
             ofd.RestoreDirectory = true;
