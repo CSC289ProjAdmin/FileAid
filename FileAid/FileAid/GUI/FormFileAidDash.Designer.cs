@@ -61,12 +61,12 @@
             this.lblDashMessage.AutoSize = true;
             this.lblDashMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDashMessage.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblDashMessage.Location = new System.Drawing.Point(184, 6);
+            this.lblDashMessage.Location = new System.Drawing.Point(221, 6);
             this.lblDashMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDashMessage.Name = "lblDashMessage";
-            this.lblDashMessage.Size = new System.Drawing.Size(333, 20);
+            this.lblDashMessage.Size = new System.Drawing.Size(256, 20);
             this.lblDashMessage.TabIndex = 0;
-            this.lblDashMessage.Text = "Welcome to File Aid Dashboard Window.";
+            this.lblDashMessage.Text = "Welcome to FileAid Dashboard";
             // 
             // btnTrackedFiles
             // 
@@ -341,7 +341,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidDash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "File Aid Dashboard";
+            this.Text = "FileAid Dashboard";
             this.Load += new System.EventHandler(this.FormFileAidDash_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);

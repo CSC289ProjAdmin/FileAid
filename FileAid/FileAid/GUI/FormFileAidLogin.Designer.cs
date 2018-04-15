@@ -39,12 +39,12 @@
             this.lblUserWelcome.AutoSize = true;
             this.lblUserWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserWelcome.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblUserWelcome.Location = new System.Drawing.Point(140, 14);
+            this.lblUserWelcome.Location = new System.Drawing.Point(143, 14);
             this.lblUserWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUserWelcome.Name = "lblUserWelcome";
-            this.lblUserWelcome.Size = new System.Drawing.Size(291, 26);
+            this.lblUserWelcome.Size = new System.Drawing.Size(284, 26);
             this.lblUserWelcome.TabIndex = 0;
-            this.lblUserWelcome.Text = "Welcome to File Aid Login";
+            this.lblUserWelcome.Text = "Welcome to FileAid Login";
             // 
             // lblUserName
             // 
@@ -130,7 +130,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "File Aid Login";
+            this.Text = "FileAid Login";
             this.Load += new System.EventHandler(this.FormFileAidLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

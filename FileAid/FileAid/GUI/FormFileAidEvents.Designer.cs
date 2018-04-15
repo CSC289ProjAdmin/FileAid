@@ -33,6 +33,8 @@
             this.EventslistView = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnReset = new System.Windows.Forms.Button();
             this.btnEventsReport = new System.Windows.Forms.Button();
             this.btnEventsSearch = new System.Windows.Forms.Button();
@@ -43,8 +45,6 @@
             this.EventsEnddateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lblStart = new System.Windows.Forms.Label();
             this.lblEnd = new System.Windows.Forms.Label();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -52,12 +52,12 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(207, 14);
+            this.lblMainInfo.Location = new System.Drawing.Point(288, 14);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(404, 26);
+            this.lblMainInfo.Size = new System.Drawing.Size(243, 26);
             this.lblMainInfo.TabIndex = 1;
-            this.lblMainInfo.Text = "Welcome to File Aid Events Window.";
+            this.lblMainInfo.Text = "File Aid Event History";
             // 
             // EventslistView
             // 
@@ -86,6 +86,16 @@
             // 
             this.columnHeader2.Text = "Event Description";
             this.columnHeader2.Width = 350;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Initial";
+            this.columnHeader1.Width = 150;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "New";
+            this.columnHeader4.Width = 150;
             // 
             // btnReset
             // 
@@ -200,16 +210,6 @@
             this.lblEnd.TabIndex = 22;
             this.lblEnd.Text = "End:";
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Initial";
-            this.columnHeader1.Width = 150;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "New";
-            this.columnHeader4.Width = 150;
-            // 
             // FormFileAidEvents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,7 +229,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidEvents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FileAidEvents";
+            this.Text = "FileAid Event History";
             this.Load += new System.EventHandler(this.FormFileAidEvents_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

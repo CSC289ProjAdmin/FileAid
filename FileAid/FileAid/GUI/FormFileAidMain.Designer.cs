@@ -66,12 +66,12 @@
             this.lblMainInfo.AutoSize = true;
             this.lblMainInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainInfo.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lblMainInfo.Location = new System.Drawing.Point(256, 9);
+            this.lblMainInfo.Location = new System.Drawing.Point(330, 9);
             this.lblMainInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainInfo.Name = "lblMainInfo";
-            this.lblMainInfo.Size = new System.Drawing.Size(382, 26);
+            this.lblMainInfo.Size = new System.Drawing.Size(235, 26);
             this.lblMainInfo.TabIndex = 0;
-            this.lblMainInfo.Text = "Welcome to File Aid Main Window.";
+            this.lblMainInfo.Text = "FileAid Tracked Files";
             // 
             // MainListView
             // 
@@ -422,7 +422,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormFileAidMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FileAidMain";
+            this.Text = "FileAid Tracked Files";
             this.Load += new System.EventHandler(this.FormFileAidMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
