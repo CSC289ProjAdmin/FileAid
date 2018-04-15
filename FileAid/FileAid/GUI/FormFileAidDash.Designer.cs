@@ -52,6 +52,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnAboutFileAid = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,7 +104,7 @@
             this.btnUserMan.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUserMan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserMan.ForeColor = System.Drawing.Color.White;
-            this.btnUserMan.Location = new System.Drawing.Point(34, 153);
+            this.btnUserMan.Location = new System.Drawing.Point(201, 153);
             this.btnUserMan.Margin = new System.Windows.Forms.Padding(2);
             this.btnUserMan.Name = "btnUserMan";
             this.btnUserMan.Size = new System.Drawing.Size(133, 32);
@@ -118,7 +119,7 @@
             this.btnDBMan.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDBMan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDBMan.ForeColor = System.Drawing.Color.White;
-            this.btnDBMan.Location = new System.Drawing.Point(365, 95);
+            this.btnDBMan.Location = new System.Drawing.Point(530, 153);
             this.btnDBMan.Margin = new System.Windows.Forms.Padding(2);
             this.btnDBMan.Name = "btnDBMan";
             this.btnDBMan.Size = new System.Drawing.Size(133, 32);
@@ -133,7 +134,7 @@
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(201, 153);
+            this.btnSettings.Location = new System.Drawing.Point(34, 153);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(133, 32);
@@ -148,7 +149,7 @@
             this.btnLinks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLinks.ForeColor = System.Drawing.Color.White;
-            this.btnLinks.Location = new System.Drawing.Point(365, 153);
+            this.btnLinks.Location = new System.Drawing.Point(201, 44);
             this.btnLinks.Margin = new System.Windows.Forms.Padding(2);
             this.btnLinks.Name = "btnLinks";
             this.btnLinks.Size = new System.Drawing.Size(133, 32);
@@ -163,12 +164,12 @@
             this.btnLogEvents.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogEvents.ForeColor = System.Drawing.Color.White;
-            this.btnLogEvents.Location = new System.Drawing.Point(201, 44);
+            this.btnLogEvents.Location = new System.Drawing.Point(530, 44);
             this.btnLogEvents.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogEvents.Name = "btnLogEvents";
             this.btnLogEvents.Size = new System.Drawing.Size(133, 32);
             this.btnLogEvents.TabIndex = 7;
-            this.btnLogEvents.Text = "Log Events";
+            this.btnLogEvents.Text = "Event History";
             this.btnLogEvents.UseVisualStyleBackColor = false;
             this.btnLogEvents.Click += new System.EventHandler(this.btnLogEvents_Click);
             // 
@@ -178,7 +179,7 @@
             this.btnViewTick.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnViewTick.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewTick.ForeColor = System.Drawing.Color.White;
-            this.btnViewTick.Location = new System.Drawing.Point(528, 44);
+            this.btnViewTick.Location = new System.Drawing.Point(365, 44);
             this.btnViewTick.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewTick.Name = "btnViewTick";
             this.btnViewTick.Size = new System.Drawing.Size(133, 32);
@@ -193,7 +194,7 @@
             this.btnUpdateMode.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateMode.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateMode.Location = new System.Drawing.Point(528, 95);
+            this.btnUpdateMode.Location = new System.Drawing.Point(365, 95);
             this.btnUpdateMode.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateMode.Name = "btnUpdateMode";
             this.btnUpdateMode.Size = new System.Drawing.Size(133, 32);
@@ -208,7 +209,7 @@
             this.btnGuestPerms.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuestPerms.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuestPerms.ForeColor = System.Drawing.Color.White;
-            this.btnGuestPerms.Location = new System.Drawing.Point(365, 44);
+            this.btnGuestPerms.Location = new System.Drawing.Point(365, 153);
             this.btnGuestPerms.Margin = new System.Windows.Forms.Padding(1);
             this.btnGuestPerms.Name = "btnGuestPerms";
             this.btnGuestPerms.Size = new System.Drawing.Size(133, 32);
@@ -246,26 +247,26 @@
             this.updateToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(132, 70);
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.showToolStripMenuItem.Text = "Show";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.btnBatchScan_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.exitToolStripMenuItem.Text = "Exit FileAid";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -281,10 +282,10 @@
             this.columnHeader2});
             this.DashboardlistView.FullRowSelect = true;
             this.DashboardlistView.GridLines = true;
-            this.DashboardlistView.Location = new System.Drawing.Point(34, 200);
+            this.DashboardlistView.Location = new System.Drawing.Point(34, 207);
             this.DashboardlistView.Margin = new System.Windows.Forms.Padding(2);
             this.DashboardlistView.Name = "DashboardlistView";
-            this.DashboardlistView.Size = new System.Drawing.Size(629, 246);
+            this.DashboardlistView.Size = new System.Drawing.Size(629, 322);
             this.DashboardlistView.TabIndex = 12;
             this.DashboardlistView.UseCompatibleStateImageBehavior = false;
             this.DashboardlistView.View = System.Windows.Forms.View.Details;
@@ -303,11 +304,27 @@
             // 
             this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
+            // btnAboutFileAid
+            // 
+            this.btnAboutFileAid.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAboutFileAid.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAboutFileAid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAboutFileAid.ForeColor = System.Drawing.Color.White;
+            this.btnAboutFileAid.Location = new System.Drawing.Point(530, 95);
+            this.btnAboutFileAid.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAboutFileAid.Name = "btnAboutFileAid";
+            this.btnAboutFileAid.Size = new System.Drawing.Size(133, 32);
+            this.btnAboutFileAid.TabIndex = 13;
+            this.btnAboutFileAid.Text = "About FileAid";
+            this.btnAboutFileAid.UseVisualStyleBackColor = false;
+            this.btnAboutFileAid.Click += new System.EventHandler(this.btnAboutFileAid_Click);
+            // 
             // FormFileAidDash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 504);
+            this.ClientSize = new System.Drawing.Size(699, 554);
+            this.Controls.Add(this.btnAboutFileAid);
             this.Controls.Add(this.DashboardlistView);
             this.Controls.Add(this.btnBatchScan);
             this.Controls.Add(this.btnGuestPerms);
@@ -356,6 +373,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Timer updateTimer;
+        private System.Windows.Forms.Button btnAboutFileAid;
     }
 }
 
