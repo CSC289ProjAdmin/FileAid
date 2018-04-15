@@ -33,7 +33,7 @@ namespace FileAid.GUI
             UserMantoolTip.SetToolTip(btnDisableEnable, "Disable/Enable user account");
             UserMantoolTip.SetToolTip(txtPassword, "Enter new password");
             UserMantoolTip.SetToolTip(txtRepeatPass, "Enter same password");
-            UserMantoolTip.SetToolTip(btnResetPassword, "Reset password to default");
+            UserMantoolTip.SetToolTip(btnResetAccount, "Reset account to default");
             UserMantoolTip.SetToolTip(btnChangePassword, "Change password");
 
             FillDropdown();
@@ -63,7 +63,7 @@ namespace FileAid.GUI
                     btnDisableEnable.Enabled = false; // Admin cannot be disabled
                     DisablecheckBox.Checked = false;
 
-                    btnResetPassword.Enabled = false; // Admin password cannot be reset
+                    btnResetAccount.Enabled = false; // Admin password cannot be reset
 
                     btnChangePassword.Enabled = perms.ChangeAdminPass;
                     break;
@@ -75,7 +75,7 @@ namespace FileAid.GUI
                     btnDisableEnable.Enabled = perms.EnableUser;
                     DisablecheckBox.Checked = UserService.IsDisabled(selectedAcct);
 
-                    btnResetPassword.Enabled = perms.ResetUserPass;
+                    btnResetAccount.Enabled = perms.ResetUserPass;
 
                     btnChangePassword.Enabled = perms.ChangeUserPass;
                     break;
@@ -87,7 +87,7 @@ namespace FileAid.GUI
                     btnDisableEnable.Enabled = perms.EnableGuest;
                     DisablecheckBox.Checked = UserService.IsDisabled(selectedAcct);
 
-                    btnResetPassword.Enabled = perms.ResetGuestPass;
+                    btnResetAccount.Enabled = perms.ResetGuestPass;
 
                     btnChangePassword.Enabled = perms.ChangeGuestPass;
                     break;
@@ -210,10 +210,9 @@ namespace FileAid.GUI
         }
 
         private void btnResetPassword_Click(object sender, EventArgs e) {
-            // First confirm that password should be reset
-            string resetPrompt = "Are you sure you want to reset the password\n" +
-                $"for {selectedAcct.Username} to the default?\n\n" +
-                "Note: This will also disable the account.";
+            // First confirm that account should be reset
+            string resetPrompt = $"Are you sure you want to reset the account: {selectedAcct.Username}?" +
+                $"\n\nThis will reset the password to default and disable the account.";
             bool wantsReset = (Messenger.ShowYesNo(resetPrompt, caption) == DialogResult.Yes);
             if (!wantsReset) {
                 return;
@@ -228,6 +227,8 @@ namespace FileAid.GUI
             } else {
                 Messenger.Show("Password was NOT reset.", caption);
             }
+            txtPassword.Text = "";
+            txtRepeatPass.Text = "";
             SetupPage(); // Refresh GUI
         }
 
