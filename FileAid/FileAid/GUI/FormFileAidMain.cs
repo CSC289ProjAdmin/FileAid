@@ -152,12 +152,12 @@ namespace FileAid.GUI
         }
 
         private void btnViewHistory_Click(object sender, EventArgs e) {
-            string prompt = "Select a file to view its update history.";
+            string prompt = "Check a single file to view its update history.";
             bool isSelected = ForceSingleSelection(prompt);
             if (!isSelected) return;
 
             try {
-                ListViewItem row = MainListView.SelectedItems[0];
+                ListViewItem row = MainListView.CheckedItems[0];
                 int fileID = (int)row.Tag;
                 TrackedFile tf = FileManager.GetFile(fileID);
                 if (tf == null) return;
@@ -170,12 +170,12 @@ namespace FileAid.GUI
         }
 
         private void btnStopTrack_Click(object sender, EventArgs e) {
-            string prompt = "Select a file to mark inactive.";
+            string prompt = "Check a single file to mark inactive.";
             bool isSelected = ForceSingleSelection(prompt);
             if (!isSelected) return;
 
             try {
-                ListViewItem row = MainListView.SelectedItems[0];
+                ListViewItem row = MainListView.CheckedItems[0];
                 int fileID = (int)row.Tag;
                 TrackedFile tf = FileManager.GetFile(fileID);
                 if (tf == null) return;
@@ -194,8 +194,9 @@ namespace FileAid.GUI
         }
 
         private bool ForceSingleSelection(string prompt) {
-            bool isSelected = (MainListView.SelectedItems.Count == 1);
-            if (isSelected) return true;
+            bool isChecked = (MainListView.CheckedItems.Count == 1);
+            //bool isSelected = (MainListView.SelectedItems.Count == 1);
+            if (isChecked) return true;
             Messenger.Show(prompt, caption);
             return false;
         }
@@ -211,12 +212,12 @@ namespace FileAid.GUI
         }
 
         private void btnTrack_Click(object sender, EventArgs e) {
-            string prompt = "Select an inactive file to begin tracking.";
+            string prompt = "Check a single inactive file to begin tracking.";
             bool isSelected = ForceSingleSelection(prompt);
             if (!isSelected) return;
 
             try {
-                ListViewItem row = MainListView.SelectedItems[0];
+                ListViewItem row = MainListView.CheckedItems[0];
                 int fileID = (int)row.Tag;
                 TrackedFile tf = FileManager.GetFile(fileID);
                 if (tf == null) return;
@@ -265,13 +266,13 @@ namespace FileAid.GUI
         }
 
         private void btnUpdate_Click(object sender, EventArgs e) {
-            string prompt = "Select a file to update its memo.";
+            string prompt = "Check a single file to update its memo.";
             bool isSelected = ForceSingleSelection(prompt);
             if (!isSelected) return;
 
             try {
                 // Get selected item / row
-                var selected = MainListView.SelectedItems;
+                var selected = MainListView.CheckedItems;
                 if (selected.Count != 1) return;
                 ListViewItem row = selected[0];
 
@@ -367,12 +368,12 @@ namespace FileAid.GUI
         }
 
         private void btnViewLinks_Click(object sender, EventArgs e) {
-            string prompt = "Select a file to view its links / groups.";
+            string prompt = "Check a single file to view its links / groups.";
             bool isSelected = ForceSingleSelection(prompt);
             if (!isSelected) return;
 
             try {
-                ListViewItem row = MainListView.SelectedItems[0];
+                ListViewItem row = MainListView.CheckedItems[0];
                 bool hasLinks = (row.SubItems[5].Text != ""); // # Links column
                 if (!hasLinks) {
                     string noLinksPrompt = "Selected file is not a member of any filelink groups.";
@@ -389,6 +390,12 @@ namespace FileAid.GUI
 
                 // Always refresh gui here because links may have been removed
                 FillListView();
+                // Re-check the selected item if it is still in list
+                foreach (ListViewItem item in MainListView.Items) {
+                    if ((int)item.Tag == fileID) {
+                        item.Checked = true;
+                    }
+                }
             }
             catch (SqlException) {
                 Messenger.ShowDbMsg();
@@ -396,12 +403,12 @@ namespace FileAid.GUI
         }
 
         private void btnViewReminder_Click(object sender, EventArgs e) {
-            string prompt = "Select a file to view its reminder.";
+            string prompt = "Check a single file to view its reminder.";
             bool isSelected = ForceSingleSelection(prompt);
             if (!isSelected) return;
 
             try {
-                ListViewItem row = MainListView.SelectedItems[0];
+                ListViewItem row = MainListView.CheckedItems[0];
                 bool hasReminder = (row.SubItems[6].Text == "X"); // Reminder column
                 if (!hasReminder) {
                     string noReminderPrompt = "Selected file does not have an open, unresolved reminder.";
@@ -419,6 +426,12 @@ namespace FileAid.GUI
 
                 // Always refresh gui here because reminder may have been removed
                 FillListView();
+                // Re-check the selected item if it is still in list
+                foreach (ListViewItem item in MainListView.Items) {
+                    if ((int)item.Tag == fileID) {
+                        item.Checked = true;
+                    }
+                }
             }
             catch (SqlException) {
                 Messenger.ShowDbMsg();
@@ -427,6 +440,13 @@ namespace FileAid.GUI
 
         private static string WildcardToRegular(string value) {
             return "^" + Regex.Escape(value).Replace("\\?", ".").Replace("\\*",".*") + "$";
+        }
+
+        private void btnClear_Click(object sender, EventArgs e) {
+            var items = MainListView.CheckedItems;
+            foreach (ListViewItem item in items) {
+                item.Checked = false;
+            }
         }
     }
 }
