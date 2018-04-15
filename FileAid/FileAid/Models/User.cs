@@ -13,6 +13,7 @@ namespace FileAid.Models {
         public int LoginFailures { get; set; }
         public DateTime LockedOutOn { get; set; }
         public DateTime DisabledOn { get; set; }
+        bool NeedsPasswordReset { get; set; }
         // stub
     }
 }
