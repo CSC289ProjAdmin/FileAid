@@ -201,6 +201,12 @@
     <Compile Include="GUI\FormFileAidRptFileLinks.Designer.cs">
       <DependentUpon>FormFileAidRptFileLinks.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidRptLogins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptLogins.Designer.cs">
+      <DependentUpon>FormFileAidRptLogins.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidRptReminders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +330,9 @@
     <EmbeddedResource Include="GUI\FormFileAidRptFileLinks.resx">
       <DependentUpon>FormFileAidRptFileLinks.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptLogins.resx">
+      <DependentUpon>FormFileAidRptLogins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidRptReminders.resx">
       <DependentUpon>FormFileAidRptReminders.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,8 +373,10 @@
     <None Include="Properties\DataSources\FileAid.GUI.EventHistory.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.FileLinksReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.FormFileAidRptEvents.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.LoginsReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.RemindersReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.ReportFile.datasource" />
+    <None Include="Properties\DataSources\FileAid.Models.Login.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
