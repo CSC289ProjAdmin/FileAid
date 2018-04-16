@@ -151,8 +151,24 @@ namespace FileAid.GUI
         }
 
         private void btnReport_Click(object sender, EventArgs e) {
-            Messenger.Show("Placeholder for Reminders report.", caption);
+            FormFileAidRptReminders remRpt = new FormFileAidRptReminders(TicklerslistView.Items);
+            remRpt.ShowDialog();
+            //Messenger.Show("Placeholder for Reminders report.", caption);
             // Log report run
+            Report rpt = ReportManager.GetReportByName("Reminders");
+            if (rpt == null) return; // Could not find report
+            bool wasLogged = LogReportRun(rpt.ReportID, rpt.Name);
+            if (wasLogged) FillListView(); // Refresh GUI
+        }
+
+        private bool LogReportRun(int reportID, string reportName) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.ReportRun;
+            ev.ReportID = reportID;
+            ev.OccurredOn = DateTime.Now;
+            ev.Description = $"Report run: {reportName}";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
         }
     }
 }

@@ -183,6 +183,24 @@
     <Compile Include="GUI\FormFileAidResetPassword.Designer.cs">
       <DependentUpon>FormFileAidResetPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidRptDbEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptDbEvents.Designer.cs">
+      <DependentUpon>FormFileAidRptDbEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptEvents.Designer.cs">
+      <DependentUpon>FormFileAidRptEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptReminders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptReminders.Designer.cs">
+      <DependentUpon>FormFileAidRptReminders.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidRptViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +309,15 @@
     <EmbeddedResource Include="GUI\FormFileAidResetPassword.resx">
       <DependentUpon>FormFileAidResetPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptDbEvents.resx">
+      <DependentUpon>FormFileAidRptDbEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptEvents.resx">
+      <DependentUpon>FormFileAidRptEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptReminders.resx">
+      <DependentUpon>FormFileAidRptReminders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidRptViewer.resx">
       <DependentUpon>FormFileAidRptViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,8 +345,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\DbEventHistory.rdlc" />
+    <EmbeddedResource Include="Reports\EventHistory.rdlc" />
+    <EmbeddedResource Include="Reports\Reminders.rdlc" />
     <EmbeddedResource Include="Reports\RptFiles.rdlc" />
     <EmbeddedResource Include="Reports\RptTrackedFiles.rdlc" />
+    <None Include="Properties\DataSources\FileAid.GUI.DbEventsReport.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.EventHistory.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.FormFileAidRptEvents.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.RemindersReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.ReportFile.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
