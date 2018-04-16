@@ -354,6 +354,7 @@
     <EmbeddedResource Include="GUI\FormFileAidViewReminder.resx">
       <DependentUpon>FormFileAidViewReminder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Logins.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -373,6 +374,7 @@
     <None Include="Properties\DataSources\FileAid.GUI.EventHistory.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.FileLinksReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.FormFileAidRptEvents.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.LoginEventReportItem.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.RemindersReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.ReportFile.datasource" />
     <None Include="Properties\Settings.settings">

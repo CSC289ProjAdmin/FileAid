@@ -37,7 +37,7 @@ namespace FileAid.GUI {
                 rptItem.LoginDescription = ev.Description;
                 myLogins.Add(rptItem);
             }
-
+            LoginEventReportItemBindingSource.DataSource = myLogins;
             this.reportViewer1.RefreshReport();
         }
     }

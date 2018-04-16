@@ -53,7 +53,15 @@ namespace FileAid.GUI
                 int rptID = (int) row.Tag;
                 string rptName = row.SubItems[0].Text;
                 // TODO: Determine and run the report
-                Messenger.Show("Placeholder for reports.", "FileAid Reports");
+                switch (rptName) {
+                    case "Logins":
+                        FormFileAidRptLogins loginRpt = new FormFileAidRptLogins();
+                        loginRpt.ShowDialog();
+                        break;
+                    default:
+                        Messenger.Show("Placeholder for reports.", "FileAid Reports");
+                        break;
+                }
                 bool wasLogged = LogReportRun(rptID, rptName);
                 if (!wasLogged) {
                     Messenger.Show("Failed to log report run.");
