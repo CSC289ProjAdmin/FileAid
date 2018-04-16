@@ -195,6 +195,12 @@
     <Compile Include="GUI\FormFileAidRptEvents.Designer.cs">
       <DependentUpon>FormFileAidRptEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidRptFileLinks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptFileLinks.Designer.cs">
+      <DependentUpon>FormFileAidRptFileLinks.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidRptReminders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +321,9 @@
     <EmbeddedResource Include="GUI\FormFileAidRptEvents.resx">
       <DependentUpon>FormFileAidRptEvents.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptFileLinks.resx">
+      <DependentUpon>FormFileAidRptFileLinks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidRptReminders.resx">
       <DependentUpon>FormFileAidRptReminders.cs</DependentUpon>
     </EmbeddedResource>
@@ -347,11 +356,13 @@
     </Compile>
     <EmbeddedResource Include="Reports\DbEventHistory.rdlc" />
     <EmbeddedResource Include="Reports\EventHistory.rdlc" />
+    <EmbeddedResource Include="Reports\FileLinks.rdlc" />
     <EmbeddedResource Include="Reports\Reminders.rdlc" />
     <EmbeddedResource Include="Reports\RptFiles.rdlc" />
     <EmbeddedResource Include="Reports\RptTrackedFiles.rdlc" />
     <None Include="Properties\DataSources\FileAid.GUI.DbEventsReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.EventHistory.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.FileLinksReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.FormFileAidRptEvents.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.RemindersReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.ReportFile.datasource" />
