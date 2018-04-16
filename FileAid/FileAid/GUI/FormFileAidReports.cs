@@ -42,8 +42,8 @@ namespace FileAid.GUI
         }
 
         private void btnRunReport_Click(object sender, EventArgs e) {
-            // stub - no reports implemented yet
-            // currently only logs that a report was run (even though it wasn't)
+            // stub - not all reports implemented yet
+            // currently logs that a report was run (even if it wasn't)
             if (ReportslistView.SelectedItems.Count != 1) {
                 Messenger.Show("Please select a report to run.");
                 return;
@@ -53,10 +53,15 @@ namespace FileAid.GUI
                 int rptID = (int) row.Tag;
                 string rptName = row.SubItems[0].Text;
                 // TODO: Determine and run the report
+                // NOTE: Incredibly hacky way of running the reports.  No time to do correctly.
                 switch (rptName) {
                     case "Logins":
                         FormFileAidRptLogins loginRpt = new FormFileAidRptLogins();
                         loginRpt.ShowDialog();
+                        break;
+                    case "Events": // Really "Batches".  Using placeholder name to show report.
+                        FormFileAidRptBatches batchRpt = new FormFileAidRptBatches();
+                        batchRpt.ShowDialog();
                         break;
                     default:
                         Messenger.Show("Placeholder for reports.", "FileAid Reports");
