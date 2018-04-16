@@ -373,10 +373,8 @@
     <None Include="Properties\DataSources\FileAid.GUI.EventHistory.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.FileLinksReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.FormFileAidRptEvents.datasource" />
-    <None Include="Properties\DataSources\FileAid.GUI.LoginsReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.RemindersReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.ReportFile.datasource" />
-    <None Include="Properties\DataSources\FileAid.Models.Login.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

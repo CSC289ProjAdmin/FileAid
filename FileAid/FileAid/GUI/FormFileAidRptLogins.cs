@@ -30,20 +30,19 @@ namespace FileAid.GUI {
 
             if (filteredEvents == null) return;
 
-            BindingList < LoginsReport > myLogins = new BindingList<LoginsReport>();
+            BindingList < LoginEventReportItem> myLogins = new BindingList<LoginEventReportItem>();
             foreach (Event ev in filteredEvents) {
-                LoginsReport rptItem = new LoginsReport();
+                LoginEventReportItem rptItem = new LoginEventReportItem();
                 rptItem.Date = ev.OccurredOn.ToString();
-                rptItem.EventDescription = ev.Description;
+                rptItem.LoginDescription = ev.Description;
                 myLogins.Add(rptItem);
             }
 
             this.reportViewer1.RefreshReport();
         }
     }
-
-    public class LoginsReport : Report {
+    public class LoginEventReportItem : Report {
         public string Date { get; set; }
-        public string EventDescription { get; set; }
+        public string LoginDescription { get; set; }
     }
 }
