@@ -12,16 +12,21 @@ using FileAid.Models;
 namespace FileAid.GUI {
     public partial class FormFileAidRptReminderDetails : Form {
         private ListView.ListViewItemCollection reportItems;
-        public FormFileAidRptReminderDetails(ListView.ListViewItemCollection listViewRows) {
+        private ReminderContext context;
+        public FormFileAidRptReminderDetails(ListView.ListViewItemCollection listViewRows, Reminder rem) {
             InitializeComponent();
             reportItems = listViewRows;
+            context = new ReminderContext();
+            context.Name = rem.Name;
+            context.Description = rem.Memo;
+            context.DueDate = rem.DueOn.ToString();
         }
 
         private void FormFileAidRptReminderDetails_Load(object sender, EventArgs e) {
-            /*
-            BindingList<ReminderDetailsItem> myFiles = new BindingList<ReminderDetailsItem>();
+            BindingList<LinkedFilesItem> myFiles = new BindingList<LinkedFilesItem>();
             foreach (ListViewItem item in reportItems) {
-                ReminderDetailsItem file = new ReminderDetailsItem();
+                // Using LinkedFilesItem because Report Wizard has problem with ReminderDetailsItem
+                LinkedFilesItem file = new LinkedFilesItem();
                 file.Filename = item.SubItems[0].Text;
                 file.Extension = item.SubItems[1].Text;
                 file.Path = item.SubItems[2].Text;
@@ -31,11 +36,13 @@ namespace FileAid.GUI {
                 myFiles.Add(file);
             }
             // binding contexts
-            */
+            ReminderContextBindingSource.DataSource = context;
+            LinkedFilesItemBindingSource.DataSource = myFiles;
             this.reportViewer1.RefreshReport();
         }
     }
     
+    // Report Wizard not seeing the proprties of this class for some reason
     public class ReminderDetailsItem {
         public string Filename { get; set; }
         public string Extension { get; set; }

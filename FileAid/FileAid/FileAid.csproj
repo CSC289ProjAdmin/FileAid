@@ -390,6 +390,7 @@
     <EmbeddedResource Include="GUI\FormFileAidViewReminder.resx">
       <DependentUpon>FormFileAidViewReminder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReminderDetails.rdlc" />
     <EmbeddedResource Include="Reports\Batches.rdlc" />
     <EmbeddedResource Include="Reports\FileHistory.rdlc" />
     <EmbeddedResource Include="Reports\LinkedFiles.rdlc" />
@@ -420,7 +421,7 @@
     <None Include="Properties\DataSources\FileAid.GUI.LinkedFilesItem.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.LoginEventReportItem.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.ReminderContext.datasource" />
-    <None Include="Properties\DataSources\FileAid.GUI.ReminderFileItem.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.ReminderDetailsItem.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.RemindersReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.ReportFile.datasource" />
     <None Include="Properties\Settings.settings">
