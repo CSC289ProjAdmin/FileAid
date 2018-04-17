@@ -201,6 +201,12 @@
     <Compile Include="GUI\FormFileAidRptEvents.Designer.cs">
       <DependentUpon>FormFileAidRptEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidRptFileHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptFileHistory.Designer.cs">
+      <DependentUpon>FormFileAidRptFileHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidRptFileLinks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -336,6 +342,9 @@
     <EmbeddedResource Include="GUI\FormFileAidRptEvents.resx">
       <DependentUpon>FormFileAidRptEvents.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptFileHistory.resx">
+      <DependentUpon>FormFileAidRptFileHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidRptFileLinks.resx">
       <DependentUpon>FormFileAidRptFileLinks.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,6 +373,7 @@
       <DependentUpon>FormFileAidViewReminder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Batches.rdlc" />
+    <EmbeddedResource Include="Reports\FileHistory.rdlc" />
     <EmbeddedResource Include="Reports\Logins.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -383,6 +393,8 @@
     <None Include="Properties\DataSources\FileAid.GUI.BatchReportItem.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.DbEventsReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.EventHistory.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.FileHistoryContext.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.FileHistoryItem.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.FileLinksReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.FormFileAidRptEvents.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.LoginEventReportItem.datasource" />
