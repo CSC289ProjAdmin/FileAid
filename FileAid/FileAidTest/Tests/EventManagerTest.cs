@@ -50,7 +50,7 @@ namespace FileAidTest.Tests {
             // Get an event by an event Id
             Event ev = EventManager.GetEvent(events[0].EventID);
 
-            // Verify an event was returned with the corrent event id
+            // Verify an event was returned with the current event id
             Assert.IsNotNull(ev);
             Assert.AreEqual(events[0].EventID, ev.EventID);
 

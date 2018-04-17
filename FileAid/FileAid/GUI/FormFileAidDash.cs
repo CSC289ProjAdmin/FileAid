@@ -284,8 +284,8 @@ namespace FileAid.GUI
         private void btnAboutFileAid_Click(object sender, EventArgs e) {
             string aboutMsg = "FileAid tracks the modification history of MS Office files.\n\n"
                 + "Files can be added manually or scanned for with user-initiated and periodic updates.\n\n"
-                + "Visit the Program Settings screen to configure user accounts, default settings,\n"
-            + "and update search path.";
+                + "Visit the Program Settings screen to configure user accounts, default settings"
+            + " and update search path.";
             Messenger.Show(aboutMsg, "About FileAid");
         }
     }
