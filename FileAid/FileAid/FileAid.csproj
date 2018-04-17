@@ -419,6 +419,7 @@
     <None Include="Properties\DataSources\FileAid.GUI.LinkedFilesContext.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.LinkedFilesItem.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.LoginEventReportItem.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.ReminderContext.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.ReminderFileItem.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.RemindersReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.ReportFile.datasource" />

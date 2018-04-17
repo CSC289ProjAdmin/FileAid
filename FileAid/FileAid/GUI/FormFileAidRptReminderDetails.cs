@@ -18,9 +18,10 @@ namespace FileAid.GUI {
         }
 
         private void FormFileAidRptReminderDetails_Load(object sender, EventArgs e) {
-            BindingList<ReminderFileItem> myFiles = new BindingList<ReminderFileItem>();
+            /*
+            BindingList<ReminderDetailsItem> myFiles = new BindingList<ReminderDetailsItem>();
             foreach (ListViewItem item in reportItems) {
-                ReminderFileItem file = new ReminderFileItem();
+                ReminderDetailsItem file = new ReminderDetailsItem();
                 file.Filename = item.SubItems[0].Text;
                 file.Extension = item.SubItems[1].Text;
                 file.Path = item.SubItems[2].Text;
@@ -30,17 +31,12 @@ namespace FileAid.GUI {
                 myFiles.Add(file);
             }
             // binding contexts
+            */
             this.reportViewer1.RefreshReport();
         }
     }
-
-    public class ReminderContext {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string DueDate { get; set; }
-    }
-
-    public class ReminderFileItem {
+    
+    public class ReminderDetailsItem {
         public string Filename { get; set; }
         public string Extension { get; set; }
         public string Path { get; set; }
@@ -48,4 +44,11 @@ namespace FileAid.GUI {
         public string DateModified { get; set; }
         public string Inactive { get; set; }
     }
+    
+    public class ReminderContext {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string DueDate { get; set; }
+    }
+
 }
