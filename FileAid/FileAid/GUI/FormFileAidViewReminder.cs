@@ -28,6 +28,7 @@ namespace FileAid.GUI
             ReminderdateTimePicker.Value = myRem.DueOn;
             ReminderdateTimePicker.Enabled = false;
 
+            lblName.Text = myRem.Name;
             txtReminderName.Text = myRem.Name;
             txtReminderName.Enabled = false;
 
