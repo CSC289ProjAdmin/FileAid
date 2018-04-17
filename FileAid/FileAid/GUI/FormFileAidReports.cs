@@ -52,14 +52,13 @@ namespace FileAid.GUI
                 ListViewItem row = ReportslistView.SelectedItems[0];
                 int rptID = (int) row.Tag;
                 string rptName = row.SubItems[0].Text;
-                // TODO: Determine and run the report
-                // NOTE: Incredibly hacky way of running the reports.  No time to do correctly.
+                // NOTE: Incredibly hacky way of running the reports.  No time to do it correctly.
                 switch (rptName) {
                     case "Logins":
                         FormFileAidRptLogins loginRpt = new FormFileAidRptLogins();
                         loginRpt.ShowDialog();
                         break;
-                    case "Events": // Really "Batches".  Using placeholder name to show report.
+                    case "Batches": 
                         FormFileAidRptBatches batchRpt = new FormFileAidRptBatches();
                         batchRpt.ShowDialog();
                         break;
