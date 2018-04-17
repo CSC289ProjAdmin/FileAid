@@ -213,6 +213,12 @@
     <Compile Include="GUI\FormFileAidRptFileLinks.Designer.cs">
       <DependentUpon>FormFileAidRptFileLinks.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidRptLinkedFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptLinkedFiles.Designer.cs">
+      <DependentUpon>FormFileAidRptLinkedFiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidRptLogins.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,6 +354,9 @@
     <EmbeddedResource Include="GUI\FormFileAidRptFileLinks.resx">
       <DependentUpon>FormFileAidRptFileLinks.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptLinkedFiles.resx">
+      <DependentUpon>FormFileAidRptLinkedFiles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidRptLogins.resx">
       <DependentUpon>FormFileAidRptLogins.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,6 +383,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Batches.rdlc" />
     <EmbeddedResource Include="Reports\FileHistory.rdlc" />
+    <EmbeddedResource Include="Reports\LinkedFiles.rdlc" />
     <EmbeddedResource Include="Reports\Logins.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -397,6 +407,8 @@
     <None Include="Properties\DataSources\FileAid.GUI.FileHistoryItem.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.FileLinksReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.FormFileAidRptEvents.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.LinkedFilesContext.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.LinkedFilesItem.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.LoginEventReportItem.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.RemindersReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.ReportFile.datasource" />
