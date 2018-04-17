@@ -48,6 +48,7 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.btnReport = new System.Windows.Forms.Button();
+            this.lblName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblMainInfo
@@ -235,11 +236,22 @@
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(149, 47);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(41, 13);
+            this.lblName.TabIndex = 12;
+            this.lblName.Text = "label2";
+            // 
             // FormFileAidViewReminder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 528);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ReminderlistView);
@@ -283,6 +295,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Label lblName;
     }
 }
 

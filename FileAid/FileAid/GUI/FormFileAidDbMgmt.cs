@@ -143,7 +143,9 @@ namespace FileAid.GUI
         }
 
         private void btnDbPrintRepo_Click(object sender, EventArgs e) {
-            Messenger.Show("Placeholder for Database Management report", caption);
+            FormFileAidRptDbEvents rptForm = new FormFileAidRptDbEvents(DBManlistView.Items);
+            rptForm.ShowDialog();
+            //Messenger.Show("Placeholder for Database Management report", caption);
             Report eventsRpt = ReportManager.GetReportByName("Database Management");
             if (eventsRpt == null) return; // Could not find report
             bool wasLogged = LogReportRun(eventsRpt.ReportID, eventsRpt.Name);

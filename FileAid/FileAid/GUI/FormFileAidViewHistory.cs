@@ -57,8 +57,24 @@ namespace FileAid.GUI
         }
 
         private void btnReport_Click(object sender, EventArgs e) {
-            Messenger.Show("Placeholder for File History report", caption);
-            // Log report run
+            FormFileAidRptFileHistory rptForm = new FormFileAidRptFileHistory(ViewHistorylistView.Items, 
+                lblFilename.Text);
+            rptForm.ShowDialog();
+            //Messenger.Show("Placeholder for Events report", caption);
+            Report eventsRpt = ReportManager.GetReportByName("File History");
+            if (eventsRpt == null) return; // Could not find report
+            bool wasLogged = LogReportRun(eventsRpt.ReportID, eventsRpt.Name);
+            if (wasLogged) FillListView(); // Refresh GUI
+        }
+
+        private bool LogReportRun(int reportID, string reportName) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.ReportRun;
+            ev.ReportID = reportID;
+            ev.OccurredOn = DateTime.Now;
+            ev.Description = $"Report run: {reportName}";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
         }
     }
 }

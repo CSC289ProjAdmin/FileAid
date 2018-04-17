@@ -183,6 +183,60 @@
     <Compile Include="GUI\FormFileAidResetPassword.Designer.cs">
       <DependentUpon>FormFileAidResetPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormFileAidRptBatches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptBatches.Designer.cs">
+      <DependentUpon>FormFileAidRptBatches.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptDbEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptDbEvents.Designer.cs">
+      <DependentUpon>FormFileAidRptDbEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptEvents.Designer.cs">
+      <DependentUpon>FormFileAidRptEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptFileHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptFileHistory.Designer.cs">
+      <DependentUpon>FormFileAidRptFileHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptFileLinks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptFileLinks.Designer.cs">
+      <DependentUpon>FormFileAidRptFileLinks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptLinkedFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptLinkedFiles.Designer.cs">
+      <DependentUpon>FormFileAidRptLinkedFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptLogins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptLogins.Designer.cs">
+      <DependentUpon>FormFileAidRptLogins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptReminderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptReminderDetails.Designer.cs">
+      <DependentUpon>FormFileAidRptReminderDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptReminders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormFileAidRptReminders.Designer.cs">
+      <DependentUpon>FormFileAidRptReminders.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormFileAidRptViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +345,33 @@
     <EmbeddedResource Include="GUI\FormFileAidResetPassword.resx">
       <DependentUpon>FormFileAidResetPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptBatches.resx">
+      <DependentUpon>FormFileAidRptBatches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptDbEvents.resx">
+      <DependentUpon>FormFileAidRptDbEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptEvents.resx">
+      <DependentUpon>FormFileAidRptEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptFileHistory.resx">
+      <DependentUpon>FormFileAidRptFileHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptFileLinks.resx">
+      <DependentUpon>FormFileAidRptFileLinks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptLinkedFiles.resx">
+      <DependentUpon>FormFileAidRptLinkedFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptLogins.resx">
+      <DependentUpon>FormFileAidRptLogins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptReminderDetails.resx">
+      <DependentUpon>FormFileAidRptReminderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormFileAidRptReminders.resx">
+      <DependentUpon>FormFileAidRptReminders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormFileAidRptViewer.resx">
       <DependentUpon>FormFileAidRptViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -309,6 +390,11 @@
     <EmbeddedResource Include="GUI\FormFileAidViewReminder.resx">
       <DependentUpon>FormFileAidViewReminder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReminderDetails.rdlc" />
+    <EmbeddedResource Include="Reports\Batches.rdlc" />
+    <EmbeddedResource Include="Reports\FileHistory.rdlc" />
+    <EmbeddedResource Include="Reports\LinkedFiles.rdlc" />
+    <EmbeddedResource Include="Reports\Logins.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -318,8 +404,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\DbEventHistory.rdlc" />
+    <EmbeddedResource Include="Reports\EventHistory.rdlc" />
+    <EmbeddedResource Include="Reports\FileLinks.rdlc" />
+    <EmbeddedResource Include="Reports\Reminders.rdlc" />
     <EmbeddedResource Include="Reports\RptFiles.rdlc" />
     <EmbeddedResource Include="Reports\RptTrackedFiles.rdlc" />
+    <None Include="Properties\DataSources\FileAid.GUI.BatchReportItem.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.DbEventsReport.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.EventHistory.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.FileHistoryContext.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.FileHistoryItem.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.FileLinksReport.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.FormFileAidRptEvents.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.LinkedFilesContext.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.LinkedFilesItem.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.LoginEventReportItem.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.ReminderContext.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.ReminderDetailsItem.datasource" />
+    <None Include="Properties\DataSources\FileAid.GUI.RemindersReport.datasource" />
     <None Include="Properties\DataSources\FileAid.GUI.ReportFile.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

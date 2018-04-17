@@ -172,8 +172,24 @@ namespace FileAid.GUI
         }
 
         private void btnReprot_Click(object sender, EventArgs e) {
-            Messenger.Show("Placeholder for FileLinks report", caption);
+            FormFileAidRptFileLinks rptForm = new FormFileAidRptFileLinks(FileLinkslistView.Items);
+            rptForm.ShowDialog();
+            //Messenger.Show("Placeholder for FileLinks report", caption);
             // Log report run
+            Report rpt = ReportManager.GetReportByName("File Links");
+            if (rpt == null) return; // Could not find report
+            bool wasLogged = LogReportRun(rpt.ReportID, rpt.Name);
+            if (wasLogged) FillListView(); // Refresh GUI
+        }
+
+        private bool LogReportRun(int reportID, string reportName) {
+            Event ev = new Event();
+            ev.EventTypeID = EventTypes.ReportRun;
+            ev.ReportID = reportID;
+            ev.OccurredOn = DateTime.Now;
+            ev.Description = $"Report run: {reportName}";
+            bool wasLogged = Logger.Log(ev);
+            return wasLogged;
         }
     }
 }
