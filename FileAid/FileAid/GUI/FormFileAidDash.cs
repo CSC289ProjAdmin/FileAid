@@ -93,7 +93,8 @@ namespace FileAid.GUI
                 if (reset.ShowDialog() != DialogResult.OK) {
                     Application.Exit();
                     return;
-                }
+                } 
+                btnAboutFileAid_Click(this, null);
             }
 
             // Disable / Enable buttons according to permission set

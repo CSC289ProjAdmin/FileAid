@@ -119,8 +119,8 @@ namespace FileAid.DAL {
         }
 
         private static string GetConnectionString() {
-            return ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString;
-            //return ConfigurationManager.ConnectionStrings["FileAid.Properties.Settings.Setting"].ConnectionString;
+            //return ConfigurationManager.ConnectionStrings["FileAidDBConnectionString"].ConnectionString;
+            return ConfigurationManager.ConnectionStrings["FileAid.Properties.Settings.Setting"].ConnectionString;
         }
     }
 }
