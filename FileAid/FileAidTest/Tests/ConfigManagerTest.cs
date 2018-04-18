@@ -26,13 +26,15 @@ namespace FileAidTest.Tests
 
             // Verify configs were retrieved
             Assert.IsNotNull(initialConfigs);
+            initialConfigs.MasterPath = "";
 
             Configs c = new Configs()
             {
                 ConfigID = initialConfigs.ConfigID,
                 UpdateTimerInMinutes = initialConfigs.UpdateTimerInMinutes + 1,
                 ShowInactive = !initialConfigs.ShowInactive,
-                InUpdateMode = !initialConfigs.InUpdateMode
+                InUpdateMode = !initialConfigs.InUpdateMode,
+                MasterPath = ""
             };
 
             // Verify the objects are different
