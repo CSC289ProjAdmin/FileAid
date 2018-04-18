@@ -87,7 +87,8 @@ namespace FileAid.GUI
             FileAidMaintoolTip.SetToolTip(btnViewHistory, "View history");
 
             // Give values to controls
-            EnddateTimePicker.Value = DateTime.Now;
+            //EnddateTimePicker.Value = DateTime.Now;
+            EnddateTimePicker.Value = DateTime.Today + TimeSpan.FromDays(1);
             StartdateTimePicker.Value = EnddateTimePicker.Value.Date - TimeSpan.FromDays(30);
             Configs settings = ConfigManager.GetConfigs();
             InactivecheckBox.Checked = (settings == null) ? false : settings.ShowInactive;

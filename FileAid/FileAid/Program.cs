@@ -14,22 +14,14 @@ namespace FileAid {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-            //Application.Run(new FormFileAidLogin());
-            //Application.Run(new FormFileAidDash());
-            //Application.Run(new FormFileAidConfig());
-            //Application.Run(new FormFileAidDbMgmt());
-            //Application.Run(new FormFileAidEvents());
-            //Application.Run(new FormFileAidMain());
-            //Application.Run(new FormFileAidNewFile());
 
-            /* NOTE: THIS SECTION IS TO BE ADDED / UNCOMMENTED BEFORE DEPLOYING
+            /* NOTE: THIS SECTION IS TO BE ADDED / UNCOMMENTED BEFORE DEPLOYING */
             bool isFirstRun = System.Deployment.Application.ApplicationDeployment.CurrentDeployment.IsFirstRun;
             if (isFirstRun) {
                 bool wasInitialized = InitFirstRun();
-                MessageBox.Show(wasInitialized ? "Initialized" : "Failed to initialize");
+                MessageBox.Show(wasInitialized ? "Initialized FileAid database." : "Failed to initialize FileAid database.");
             }
-            */
+            // */
 
             Application.Run(new FormFileAidDash());
         }

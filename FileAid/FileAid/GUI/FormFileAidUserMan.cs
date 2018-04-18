@@ -198,6 +198,8 @@ namespace FileAid.GUI
                 Messenger.Show("Password was NOT changed.", caption);
             }
             SetupPage(); // Refresh GUI
+            txtPassword.Text = "";
+            txtRepeatPass.Text = "";
         }
 
         private void LogPasswordChange() {
